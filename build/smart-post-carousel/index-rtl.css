@@ -1,0 +1,107 @@
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/smart-post-carousel/editor.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+:root {
+  --sp-smart-primary-2-50: #efe6fb;
+  --sp-smart-primary-2-100: #d6c2f5;
+  --sp-smart-primary-2-200: #bb99ee;
+  --sp-smart-primary-2-300: #9e6de9;
+  --sp-smart-primary-2-400: #884ae3;
+  --sp-smart-primary-2-500: #6f22dd;
+  --sp-smart-primary-2-600: #641dd7;
+  --sp-smart-primary-2-700: #5412cf;
+  --sp-smart-primary-2-800: #4307c9;
+  --sp-smart-primary-2-900: #1e00c0;
+  --sp-smart-primary-2-gradient: linear-gradient(90deg, #0054fb 0%, #4a70fe 65.02%);
+}
+.wp-block-create-block-smart-post-carousel {
+  border: 1px dotted #f00;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/CustomTabs/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs-item:focus:not(:disabled) {
+  box-shadow: none;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs {
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 16px;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tab-content {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs > button {
+  padding: 0;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs button {
+  color: #2f2f2f;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  justify-content: center;
+  border-bottom: 2px solid #ddd;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  transition: all 0.3s ease-in-out;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs button.components-tab-panel__tabs-item:focus {
+  border-bottom: 2px solid var(--sp-smart-primary-2-600) !important;
+}
+.sp-smart-post-carousel-tab-panel .components-panel__body-title .components-button:focus:not(:disabled) {
+  border-bottom: 0 !important;
+}
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-general-tab .components-button:focus:not(:disabled) {
+  border-bottom: 2px solid var(--sp-smart-primary-2-600) !important;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs button span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs button span svg {
+  margin-left: 0;
+  fill: #2f2f2f;
+  color: #2f2f2f;
+  transition: fill 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs button:hover:not(.active-tab) {
+  color: var(--sp-smart-primary-2-600);
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs button:hover:not(.active-tab) span svg {
+  fill: var(--sp-smart-primary-2-600);
+  color: var(--sp-smart-primary-2-600);
+  opacity: 0.8;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs button.active-tab {
+  position: relative;
+  color: var(--sp-smart-primary-2-600);
+  border-bottom: 2px solid var(--sp-smart-primary-2-600) !important;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs button.active-tab:hover {
+  color: var(--sp-smart-primary-2-600);
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs button.active-tab span svg {
+  fill: var(--sp-smart-primary-2-600) !important;
+  color: var(--sp-smart-primary-2-600) !important;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs button.active-tab span .sp-smart-post-carousel-block-icon svg {
+  fill: var(--sp-smart-primary-2-600);
+}
+.sp-smart-post-carousel-tab-panel .components-panel__body .components-panel__body-title .components-panel__body-toggle:focus {
+  box-shadow: none;
+}
+.sp-smart-post-carousel-tab-panel .components-tab-panel__tabs-item {
+  height: 41px !important;
+  margin-top: -12px;
+}
