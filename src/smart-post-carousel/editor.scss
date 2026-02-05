@@ -15,9 +15,31 @@
 	--sp-smart-primary-2-700: #5412cf;
 	--sp-smart-primary-2-800: #4307c9;
 	--sp-smart-primary-2-900: #1e00c0;
-	--sp-smart-primary-2-gradient: linear-gradient(90deg, #0054fb 0%, #4a70fe 65.02%);
+	--sp-smart-primary-2-gradient: linear-gradient(
+		90deg,
+		#0054fb 0%,
+		#4a70fe 65.02%
+	);
+}
+
+.components-panel__body.is-opened > .components-panel__body-title {
+	margin: -16px -16px 16px;
 }
 
 .wp-block-create-block-smart-post-carousel {
-	border: 1px dotted #f00;
+	// border: 1px dotted rgb(21, 255, 0);
+}
+
+// editor.scss
+.swiper {
+	width: 100%;
+	height: auto;
+}
+
+.swiper-slide {
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
 }

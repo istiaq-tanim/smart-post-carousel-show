@@ -1,27 +1,39 @@
+import { useBlockProps } from "@wordpress/block-editor";
+import { useSelect } from "@wordpress/data";
+import "./editor.scss";
+import { AttributesProvider, PanelProvider } from "../context";
+import Inspector from "../components/Inspector/Inspector";
+import MarqueeCarousel from "../components/MarqueCarousel/MarqueCarousel";
+import SwiperCarousel from "../components/SwiperCarousel/SwiperCarousel";
 
-import { __ } from '@wordpress/i18n';
-import { useBlockProps } from '@wordpress/block-editor';
-import './editor.scss';
-import { PanelProvider, TabProvider } from '../context';
-import Inspector from '../components/Inspector/Inspector';
-export default function Edit({attributes,setAttributes}) {
+export default function Edit({ attributes, setAttributes }) {
+	const posts = useSelect((select) =>
+		select("core").getEntityRecords("postType", "post", {
+			per_page: 10,
+			_embed: true,
+		}),
+	);
+
+	let content;
+
+	if (!posts) {
+		content = <p>Loading posts...</p>;
+	} else if (posts.length === 0) {
+		content = <p>No posts found.</p>;
+	} else if (posts.length > 0 && attributes.carouselStyle === "standard") {
+		content = <SwiperCarousel attributes={attributes} posts={posts} />;
+	} else if (posts.length > 0 && attributes.carouselStyle === "ticker") {
+		content = <MarqueeCarousel attributes={attributes} posts={posts} />;
+	}
+
 	return (
-		<>
-		<PanelProvider>
-                <TabProvider>
-									<Inspector
-                    attributes={attributes}
-                    setAttributes={setAttributes}
-                />
-								</TabProvider>
-    </PanelProvider>
-		{/* Block Content */}
-		<p { ...useBlockProps() }>
-			{ __(
-				'Smart Post Carousel – hello from the editor!',
-				'smart-post-carousel'
-			) }
-		</p>
-		</>
+		<AttributesProvider attributes={attributes} setAttributes={setAttributes}>
+			<PanelProvider>
+				<Inspector attributes={attributes} setAttributes={setAttributes} />
+			</PanelProvider>
+
+			{/* useBlockProps MUST be on a rendered DOM element */}
+			<div {...useBlockProps()}>{content}</div>
+		</AttributesProvider>
 	);
 }

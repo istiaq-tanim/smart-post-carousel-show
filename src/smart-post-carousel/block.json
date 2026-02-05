@@ -10,6 +10,40 @@
 	"supports": {
 		"html": false
 	},
+	"attributes": {
+		"showReadMore": {
+			"type": "boolean",
+			"default": false
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": false
+		},
+		"showTaxonomy": {
+			"type": "boolean",
+			"default": false
+		},
+		"showMetaData": {
+			"type": "boolean",
+			"default": false
+		},
+		"showExcerpt": {
+			"type": "boolean",
+			"default": false
+		},
+		"showSocialShare": {
+			"type": "boolean",
+			"default": false
+		},
+		"showFeaturedImage": {
+			"type": "boolean",
+			"default": false
+		},
+		"carouselStyle": {
+			"type": "string",
+			"default": "standard"
+		}
+	},
 	"render": "file:./render.php",
 	"textdomain": "smart-post-carousel",
 	"editorScript": "file:./index.js",

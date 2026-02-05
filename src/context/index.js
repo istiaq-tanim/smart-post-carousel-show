@@ -1,2 +1,2 @@
-export { PanelProvider, usePanel } from "./PanelContext";
-export { TabProvider, useTab } from "./TabContext";
+export { PanelProvider } from "./PanelContext";
+export { AttributesProvider } from "./AttributesContext";

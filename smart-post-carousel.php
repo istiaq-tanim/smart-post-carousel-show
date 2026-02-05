@@ -14,26 +14,24 @@
  * @package CreateBlock
  */
 
-if (! defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-function smart_list_register_block_category($categories, $post)
-{
+function smart_list_register_block_category( $categories, $post ) {
 	return array_merge(
 		$categories,
-		[
-			[
+		array(
+			array(
 				'slug'  => 'smart-post-carousel',
-				'title' => __('Smart Post', 'smart-post-carousel'),
-				'icon'  => null
-			]
-		]
+				'title' => __( 'Smart Post', 'smart-post-carousel' ),
+				'icon'  => null,
+			),
+		)
 	);
 }
-add_filter('block_categories_all', 'smart_list_register_block_category', 10, 2);
-function create_block_smart_post_carousel_block_init()
-{
-	wp_register_block_types_from_metadata_collection(__DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php');
+add_filter( 'block_categories_all', 'smart_list_register_block_category', 10, 2 );
+function create_block_smart_post_carousel_block_init() {
+	wp_register_block_types_from_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' );
 }
-add_action('init', 'create_block_smart_post_carousel_block_init');
+add_action( 'init', 'create_block_smart_post_carousel_block_init' );

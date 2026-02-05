@@ -15,6 +15,40 @@ return array(
 		'supports' => array(
 			'html' => false
 		),
+		'attributes' => array(
+			'showReadMore' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'showTitle' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'showTaxonomy' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'showMetaData' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'showExcerpt' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'showSocialShare' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'showFeaturedImage' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'carouselStyle' => array(
+				'type' => 'string',
+				'default' => 'standard'
+			)
+		),
 		'render' => 'file:./render.php',
 		'textdomain' => 'smart-post-carousel',
 		'editorScript' => 'file:./index.js',

@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useState } from "@wordpress/element";
+import { createContext, useCallback, useState } from "@wordpress/element";
 
 export const PanelContext = createContext();
 
