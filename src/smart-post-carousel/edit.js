@@ -8,10 +8,15 @@ import SwiperCarousel from "../components/SwiperCarousel/SwiperCarousel";
 
 export default function Edit({ attributes, setAttributes }) {
 	const posts = useSelect((select) =>
-		select("core").getEntityRecords("postType", "post", {
-			per_page: 10,
-			_embed: true,
-		}),
+		select("core").getEntityRecords(
+			"postType",
+			"post",
+			{
+				per_page: 10,
+				_embed: ["author", "wp:term", "wp:featuredmedia"],
+			},
+			[],
+		),
 	);
 
 	let content;
@@ -21,7 +26,11 @@ export default function Edit({ attributes, setAttributes }) {
 	} else if (posts.length === 0) {
 		content = <p>No posts found.</p>;
 	} else if (posts.length > 0 && attributes.carouselStyle === "standard") {
-		content = <SwiperCarousel attributes={attributes} posts={posts} />;
+		content = (
+			<div className="smart-post-carousel-swiper">
+				<SwiperCarousel attributes={attributes} posts={posts} />
+			</div>
+		);
 	} else if (posts.length > 0 && attributes.carouselStyle === "ticker") {
 		content = <MarqueeCarousel attributes={attributes} posts={posts} />;
 	}

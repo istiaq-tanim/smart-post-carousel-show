@@ -5,32 +5,35 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export default function SwiperCarousel({ attributes, posts }) {
-	const { slidesPerView = 3, spaceBetween = 20, autoplay = true } = attributes;
-	console.log(posts);
+	const { slidesPerView, spaceBetween, autoplay } = attributes;
 
 	return (
 		<Swiper
+			key={`${slidesPerView}-${spaceBetween}-${autoplay}`}
 			modules={[Navigation, Pagination, Autoplay]}
-			spaceBetween={spaceBetween}
-			slidesPerView={slidesPerView}
+			slidesPerView={2}
+			spaceBetween={5}
 			navigation
 			pagination={{ clickable: true }}
-			autoplay={autoplay ? { delay: 3000 } : false}
+			autoplay={{
+				delay: 3000,
+				disableOnInteraction: false,
+				pauseOnMouseEnter: true,
+			}}
 		>
 			{posts.map((post) => {
-				const featuredImage = post._embedded?.["wp:term"]?.[0]?.source_url;
-
+				const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
 				return (
 					<SwiperSlide key={post.id}>
-						<div className="carousel-item">
-							{featuredImage && (
-								<img src={featuredImage} alt={post.title.rendered} />
-							)}
+						<article className="carousel-item">
+							{image && <img src={image} alt={post.title.rendered} />}
 							<h3 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 							<div
-								dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+								dangerouslySetInnerHTML={{
+									__html: post.excerpt.rendered,
+								}}
 							/>
-						</div>
+						</article>
 					</SwiperSlide>
 				);
 			})}

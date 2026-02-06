@@ -27,19 +27,7 @@
 }
 
 .wp-block-create-block-smart-post-carousel {
-	// border: 1px dotted rgb(21, 255, 0);
-}
-
-// editor.scss
-.swiper {
-	width: 100%;
-	height: auto;
-}
-
-.swiper-slide {
-	img {
-		width: 100%;
-		height: auto;
-		display: block;
+	.swiper {
+		cursor: grab;
 	}
 }
