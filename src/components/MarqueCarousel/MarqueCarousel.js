@@ -1,5 +1,5 @@
 import Marquee from "react-easy-marquee";
-import "./marqueeCarousel.scss";
+import PostCard from "../common/Postcard/PostCard";
 
 export default function MarqueeCarousel({ attributes, posts }) {
 	const { speed = 50, pauseOnHover = true } = attributes;
@@ -11,7 +11,6 @@ export default function MarqueeCarousel({ attributes, posts }) {
 			</div>
 		);
 	}
-
 	return (
 		<div className="sp-smart-post-carousel sp-smart-post-block-wrapper">
 			<Marquee
@@ -22,30 +21,11 @@ export default function MarqueeCarousel({ attributes, posts }) {
 				height={250}
 			>
 				<div style={{ display: "flex" }}>
-					{posts.map((post) => {
-						const image =
-							post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-							"http://localhost:10038/wp-content/plugins/smart-post-show-pro/public/assets/img/placeholder.png";
-
-						return (
-							<article key={post.id} className="carousel-item">
-								{image ? (
-									<img src={image} alt={post.title.rendered} />
-								) : (
-									<div className="carousel-item-placeholder">No Image</div>
-								)}
-
-								<h3 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-
-								{post.excerpt?.rendered && (
-									<div
-										className="carousel-excerpt"
-										dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-									/>
-								)}
-							</article>
-						);
-					})}
+					{posts.map((post, idx) => (
+						<div key={idx} style={{ marginRight: "8px" }}>
+							<PostCard post={post} attributes={attributes} />
+						</div>
+					))}
 				</div>
 			</Marquee>
 		</div>

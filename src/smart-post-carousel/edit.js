@@ -1,48 +1,39 @@
 import { useBlockProps } from "@wordpress/block-editor";
-import { useSelect } from "@wordpress/data";
-import "./editor.scss";
 import { AttributesProvider, PanelProvider } from "../context";
 import Inspector from "../components/Inspector/Inspector";
-import MarqueeCarousel from "../components/MarqueCarousel/MarqueCarousel";
-import SwiperCarousel from "../components/SwiperCarousel/SwiperCarousel";
+import CarouselRenderer from "../components/Renderer/CarouselRenderer";
+import "./editor.scss";
+import useApi from "../hooks/useApi";
 
 export default function Edit({ attributes, setAttributes }) {
-	const posts = useSelect((select) =>
-		select("core").getEntityRecords(
-			"postType",
-			"post",
-			{
-				per_page: 10,
-				_embed: ["author", "wp:term", "wp:featuredmedia"],
-			},
-			[],
-		),
-	);
+	//using Custom Hooks to Fetching posts
 
-	let content;
+	const { posts, loading } = useApi();
 
-	if (!posts) {
-		content = <p>Loading posts...</p>;
-	} else if (posts.length === 0) {
-		content = <p>No posts found.</p>;
-	} else if (posts.length > 0 && attributes.carouselStyle === "standard") {
-		content = (
-			<div className="smart-post-carousel-swiper">
-				<SwiperCarousel attributes={attributes} posts={posts} />
-			</div>
+	const renderContent = () => {
+		if (loading) {
+			return <p>Loading posts...</p>;
+		}
+		if (!posts && posts.length === 0) {
+			return <p>No posts found.</p>;
+		}
+
+		return (
+			// Use Shared Renderer for Swiper and Marquee Carousel
+			<CarouselRenderer
+				carouselStyle={attributes.carouselStyle}
+				attributes={attributes}
+				posts={posts}
+			></CarouselRenderer>
 		);
-	} else if (posts.length > 0 && attributes.carouselStyle === "ticker") {
-		content = <MarqueeCarousel attributes={attributes} posts={posts} />;
-	}
+	};
 
 	return (
 		<AttributesProvider attributes={attributes} setAttributes={setAttributes}>
 			<PanelProvider>
 				<Inspector attributes={attributes} setAttributes={setAttributes} />
 			</PanelProvider>
-
-			{/* useBlockProps MUST be on a rendered DOM element */}
-			<div {...useBlockProps()}>{content}</div>
+			<div {...useBlockProps()}>{renderContent()}</div>
 		</AttributesProvider>
 	);
 }

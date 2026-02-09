@@ -1,34 +1,3 @@
-/*!************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/smart-post-carousel/editor.scss ***!
-  \************************************************************************************************************************************************************************************************************************************************************/
-/**
- * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
- */
-:root {
-  --sp-smart-primary-2-50: #efe6fb;
-  --sp-smart-primary-2-100: #d6c2f5;
-  --sp-smart-primary-2-200: #bb99ee;
-  --sp-smart-primary-2-300: #9e6de9;
-  --sp-smart-primary-2-400: #884ae3;
-  --sp-smart-primary-2-500: #6f22dd;
-  --sp-smart-primary-2-600: #641dd7;
-  --sp-smart-primary-2-700: #5412cf;
-  --sp-smart-primary-2-800: #4307c9;
-  --sp-smart-primary-2-900: #1e00c0;
-  --sp-smart-primary-2-gradient: linear-gradient(
-  	90deg,
-  	#0054fb 0%,
-  	#4a70fe 65.02%
-  );
-}
-.components-panel__body.is-opened > .components-panel__body-title {
-  margin: -16px -16px 16px;
-}
-.wp-block-create-block-smart-post-carousel .swiper {
-  cursor: grab;
-}
 /*!******************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/Layouts/editor.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************************/
@@ -822,3 +791,35 @@
   display: none;
 }
 
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/smart-post-carousel/editor.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+:root {
+  --sp-smart-primary-2-50: #efe6fb;
+  --sp-smart-primary-2-100: #d6c2f5;
+  --sp-smart-primary-2-200: #bb99ee;
+  --sp-smart-primary-2-300: #9e6de9;
+  --sp-smart-primary-2-400: #884ae3;
+  --sp-smart-primary-2-500: #6f22dd;
+  --sp-smart-primary-2-600: #641dd7;
+  --sp-smart-primary-2-700: #5412cf;
+  --sp-smart-primary-2-800: #4307c9;
+  --sp-smart-primary-2-900: #1e00c0;
+  --sp-smart-primary-2-gradient: linear-gradient(
+  	90deg,
+  	#0054fb 0%,
+  	#4a70fe 65.02%
+  );
+  --smart-post-secondary: #4e6e3e;
+}
+.components-panel__body.is-opened > .components-panel__body-title {
+  margin: -16px -16px 16px;
+}
+.wp-block-create-block-smart-post-carousel .swiper {
+  cursor: grab;
+}
