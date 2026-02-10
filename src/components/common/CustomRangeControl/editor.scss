@@ -1,0 +1,73 @@
+.custom-range-control {
+	margin-bottom: 16px;
+}
+
+.range-control {
+	display: flex;
+	align-items: flex-start;
+
+	.content {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		margin-bottom: 8px;
+
+		.range-label {
+			display: flex;
+			gap: 8px;
+
+			p {
+				color: #2f2f2f;
+				font-size: 13px;
+				font-weight: 400;
+			}
+		}
+
+		.range-measure {
+			display: flex;
+			gap: 8px;
+			align-items: flex-start;
+
+			div {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+
+			.pixel {
+				display: flex;
+				width: 23px;
+				height: 20px;
+				padding: 8px 5px;
+				justify-content: center;
+				align-items: center;
+				border-radius: 2px;
+				border: 1px solid #8c8f94;
+				background: #fff;
+
+				p {
+					color: #8c8f94;
+					text-align: center;
+					font-size: 10px;
+					font-weight: 400;
+					line-height: normal;
+				}
+			}
+		}
+
+		.desktop {
+			display: flex;
+			width: 22px;
+			height: 20px;
+			justify-content: center;
+			align-items: center;
+			border-radius: 2px;
+			border: 1px solid #8c8f94;
+			background: #fff;
+		}
+	}
+}
+
+.input-range {
+	--wp-components-color-accent: var(--sp-smart-primary-2-300);
+}

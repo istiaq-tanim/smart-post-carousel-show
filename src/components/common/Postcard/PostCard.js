@@ -1,3 +1,4 @@
+import CategoryList from "./CategoryList";
 import MetaItem from "./MetaItem";
 import { ReadingTime } from "./ReadingTime";
 
@@ -40,9 +41,10 @@ function PostCard({ post, attributes }) {
 		<div className="sp-smart-post-carousel-card">
 			<div className="sp-smart-post-carousel-card-image">
 				<img src={image} alt={imageAlt} />
-				{/* <CategoryList categories={categories} /> */}
 			</div>
 			<div className="sp-smart-post-carousel-template-content">
+				<CategoryList categories={post.category} />
+
 				<h3
 					className="sp-smart-post-carousel-card-title"
 					dangerouslySetInnerHTML={{ __html: title }}

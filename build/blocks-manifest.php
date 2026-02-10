@@ -24,6 +24,10 @@ return array(
 				'type' => 'boolean',
 				'default' => false
 			),
+			'partialView' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
 			'showTaxonomy' => array(
 				'type' => 'boolean',
 				'default' => false
@@ -47,6 +51,54 @@ return array(
 			'carouselStyle' => array(
 				'type' => 'string',
 				'default' => 'standard'
+			),
+			'contentOrientation' => array(
+				'type' => 'string',
+				'default' => 'orientation_one'
+			),
+			'columns' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 3,
+					'tablet' => 2,
+					'mobile' => 1
+				)
+			),
+			'height' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 642,
+					'tablet' => 642,
+					'mobile' => 642
+				)
+			),
+			'slides' => array(
+				'type' => 'number',
+				'default' => 3
+			),
+			'gap' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 24,
+					'tablet' => 48,
+					'mobile' => 24
+				)
+			),
+			'autoPlay' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'delay' => array(
+				'type' => 'number',
+				'default' => 4000
+			),
+			'speed' => array(
+				'type' => 'number',
+				'default' => 600
+			),
+			'contentAlignment' => array(
+				'type' => 'string',
+				'default' => 'left'
 			)
 		),
 		'render' => 'file:./render.php',

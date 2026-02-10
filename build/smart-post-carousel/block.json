@@ -19,6 +19,10 @@
       "type": "boolean",
       "default": false
     },
+    "partialView": {
+      "type": "boolean",
+      "default": false
+    },
     "showTaxonomy": {
       "type": "boolean",
       "default": false
@@ -42,6 +46,54 @@
     "carouselStyle": {
       "type": "string",
       "default": "standard"
+    },
+    "contentOrientation": {
+      "type": "string",
+      "default": "orientation_one"
+    },
+    "columns": {
+      "type": "object",
+      "default": {
+        "desktop": 3,
+        "tablet": 2,
+        "mobile": 1
+      }
+    },
+    "height": {
+      "type": "object",
+      "default": {
+        "desktop": 642,
+        "tablet": 642,
+        "mobile": 642
+      }
+    },
+    "slides": {
+      "type": "number",
+      "default": 3
+    },
+    "gap": {
+      "type": "object",
+      "default": {
+        "desktop": 24,
+        "tablet": 48,
+        "mobile": 24
+      }
+    },
+    "autoPlay": {
+      "type": "boolean",
+      "default": true
+    },
+    "delay": {
+      "type": "number",
+      "default": 4000
+    },
+    "speed": {
+      "type": "number",
+      "default": 600
+    },
+    "contentAlignment": {
+      "type": "string",
+      "default": "left"
     }
   },
   "render": "file:./render.php",

@@ -13,7 +13,7 @@ export default function SwiperCarousel({ attributes, posts }) {
 			key={`${slidesPerView}-${spaceBetween}-${autoplay}`}
 			modules={[Navigation, Pagination, Autoplay]}
 			slidesPerView={3}
-			spaceBetween={8}
+			spaceBetween={16}
 			navigation
 			pagination={{ clickable: true }}
 			autoplay={{

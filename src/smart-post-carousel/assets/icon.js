@@ -294,3 +294,113 @@ export const RightSymbolIcon = () => (
 		</defs>
 	</svg>
 );
+
+export function MobileIcon({ color = "#8C8F94" }) {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			aria-hidden="true"
+			width="14"
+			height="12"
+			viewBox="0 0 14 12"
+			fill="currentColor"
+		>
+			<path
+				d="M6.286 0H1.714C1.082 0 .571.67.571 1.5v9c0 .83.51 1.5 1.143 1.5h4.572c.632 0 1.142-.67 1.142-1.5v-9c0-.83-.51-1.5-1.142-1.5ZM4.762 11H3.238v-.5h1.524v.5Zm2-1.5H1.238v-8h5.524v8Z"
+				fill={color}
+			></path>
+		</svg>
+	);
+}
+
+export function TelevisionIcon({ color = "#8C8F94" }) {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="14"
+			height="12"
+			viewBox="0 0 14 12"
+			fill="none"
+		>
+			<path
+				d="M12.5714 0H1.14286C0.511905 0 0 0.503906 0 1.125V8.625C0 9.24609 0.511905 9.75 1.14286 9.75H5.71428L5.33333 10.875H3.61905C3.30238 10.875 3.04762 11.1258 3.04762 11.4375C3.04762 11.7492 3.30238 12 3.61905 12H10.0952C10.4119 12 10.6667 11.7492 10.6667 11.4375C10.6667 11.1258 10.4119 10.875 10.0952 10.875H8.38095L8.00001 9.75H12.5714C13.2024 9.75 13.7143 9.24609 13.7143 8.625V1.125C13.7143 0.503906 13.2024 0 12.5714 0ZM12.1905 8.25H1.52381V1.5H12.1905V8.25Z"
+				fill={color}
+			/>
+		</svg>
+	);
+}
+
+export function TabIcon({ color = "#8C8F94" }) {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			aria-hidden="true"
+			width="14"
+			height="12"
+			viewBox="0 0 14 12"
+			fill="currentColor"
+		>
+			<path
+				d="M9.428 0H2.571C1.623 0 .857.67.857 1.5v9c0 .83.766 1.5 1.714 1.5h6.857c.949 0 1.715-.67 1.715-1.5v-9c0-.83-.766-1.5-1.715-1.5ZM7.143 11H4.857v-.5h2.286v.5Zm3-1.5H1.857v-8h8.286v8Z"
+				fill={color}
+			></path>
+		</svg>
+	);
+}
+
+export const ResetIcon = (props) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		aria-hidden="true"
+		width={14}
+		height={14}
+		viewBox="0 0 14 14"
+		fill="none"
+		{...props}
+	>
+		<g clipPath="url(#clip0_13968_266)">
+			<path
+				d="M2.26612 4.11595C3.37829 2.2925 5.49847 1.20166 7.74998 1.50927C10.7824 1.92355 12.9048 4.71765 12.4905 7.75006C12.0762 10.7825 9.2821 12.9049 6.24972 12.4906C3.99821 12.183 2.24836 10.5634 1.66601 8.5085M2.02244 2.49303L2.04627 4.36557L3.84791 4.2143"
+				stroke="#949494"
+				strokeWidth={1.75}
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				fill="transparent"
+			/>
+		</g>
+		<defs>
+			<clipPath id="clip0_13968_266">
+				<rect width={14} height={14} fill="white" />
+			</clipPath>
+		</defs>
+	</svg>
+);
+
+export const AlignLeft = () => (
+	<svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="none">
+		<path
+			fill="currentColor"
+			stroke="currentColor"
+			d="M8.4 14.8v.5H.5v-.5h7.9ZM.5 1.2V.7h7.9v.5H.5Zm15 7H.5v-.5h15v.5Z"
+		/>
+	</svg>
+);
+
+export const AlignCenter = () => (
+	<svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="none">
+		<path
+			fill="currentColor"
+			d="M12.4.2H3.6v1.5h8.9V.2h-.1ZM0 7.2v1.5h16V7.2H0Zm3.6 8.6h8.9v-1.5H3.6v1.5Z"
+		/>
+	</svg>
+);
+
+export const AlignRight = () => (
+	<svg xmlns="http://www.w3.org/2000/svg" width={80} height={24} fill="none">
+		<path
+			fill="currentColor"
+			stroke="currentColor"
+			d="M47.5 18.8v.5h-7.9v-.5h7.9Zm0-13.6h-7.9v-.5h7.9v.5Zm0 6.6v.5h-15v-.5h15Z"
+		/>
+	</svg>
+);

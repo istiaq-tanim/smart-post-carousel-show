@@ -33,7 +33,7 @@ function Layouts({
 }) {
 	const handleActive = useCallback(
 		(newValue) => {
-			if (newValue === attributes) return;
+			if (newValue === attributes[attributesKey]) return;
 			onChange?.(newValue);
 			setAttributes({ [attributesKey]: newValue });
 		},
@@ -46,7 +46,7 @@ function Layouts({
 			)}
 			<div className={`sp-smart-post-carousel-layouts grid-${grid}`}>
 				{items.map(({ icon, value, label }) => {
-					const isActive = value === attributes;
+					const isActive = value === attributes[attributesKey];
 					return (
 						<Layout
 							key={value}

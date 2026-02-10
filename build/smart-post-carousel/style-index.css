@@ -43,7 +43,7 @@
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 245px;
   overflow: hidden;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image img {
@@ -97,6 +97,34 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-category-list-item {
+  margin: 0;
+  padding: 0;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-category-list-badge {
+  display: inline-block;
+  background: var(--smart-post-dark-text);
+  color: var(--smart-post-light-text);
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  list-style: none;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-category-list-badge:hover {
+  background: var(--smart-post-dark-2-text);
 }
 
 /*# sourceMappingURL=style-index.css.map*/

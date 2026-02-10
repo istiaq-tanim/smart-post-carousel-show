@@ -2,20 +2,24 @@ export default function CategoryList({ categories }) {
 	if (!categories || categories.length === 0) {
 		return null;
 	}
-
 	return (
-		<ul className="sp-category-list">
-			{categories.map((category) => (
-				<li key={category.term_id} className="sp-category-list__item">
-					<a
-						href={`/category/${category.slug}`}
-						className="sp-category-list__badge"
-						title={category.name}
+		<div className="sp-smart-post-carousel-category">
+			<ul className={"sp-smart-post-carousel-category-list"}>
+				{categories.map((category) => (
+					<li
+						key={category.term_id}
+						className="sp-smart-post-carousel-category-list-item"
 					>
-						{category.name}
-					</a>
-				</li>
-			))}
-		</ul>
+						<a
+							href={`/category/${category.slug}`}
+							className="sp-smart-post-carousel-category-list-badge"
+							title={category?.cat_name}
+						>
+							{category?.cat_name}
+						</a>
+					</li>
+				))}
+			</ul>
+		</div>
 	);
 }
