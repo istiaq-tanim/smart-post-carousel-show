@@ -1,11 +1,11 @@
 import { RangeControl } from "@wordpress/components";
 
-import RangeHeader from "./RangeHeader";
 import { useAttributes } from "../../../hooks/useAttributes";
+import { useDeviceType } from "../../../hooks/useDevice";
 import { useRangeHandler } from "../../../hooks/useRangeHandler";
 import { useRangeValue } from "../../../hooks/useRangeValue";
 import "./editor.scss";
-import { useDeviceType } from "../../../hooks/useDevice";
+import RangeHeader from "./RangeHeader";
 
 function CustomRangeControl({
 	label = "Space Between Lists",
@@ -17,6 +17,7 @@ function CustomRangeControl({
 	unit = "px",
 	showReset = true,
 	showDevice = true,
+	showUnit = true
 }) {
 	const { attributes, setAttributes } = useAttributes();
 	const deviceType = useDeviceType();
@@ -47,6 +48,7 @@ function CustomRangeControl({
 				unit={unit}
 				showReset={showReset}
 				showDevice={showDevice}
+				showUnit={showUnit}
 				onReset={handleReset}
 			/>
 

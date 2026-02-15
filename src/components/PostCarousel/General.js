@@ -1,16 +1,17 @@
 import { __ } from "@wordpress/i18n";
-import { LayoutItems } from "../../const";
+import { LayoutItems, linkOpen } from "../../const";
 import { useAttributes } from "../../hooks/useAttributes";
-import CustomToggle from "../common/CustomToggle/CustomToggle";
-import Layouts from "../common/Layouts/Layouts";
-import ContentOrientations from "./ContentOrientations";
-import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
-import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
 import {
 	AlignCenter,
 	AlignLeft,
 	AlignRight,
 } from "../../smart-post-carousel/assets/icon";
+import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
+import CustomSelection from "../common/CustomSelection/CustomSelection";
+import CustomToggle from "../common/CustomToggle/CustomToggle";
+import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
+import Layouts from "../common/Layouts/Layouts";
+import ContentOrientations from "./ContentOrientations";
 
 function General() {
 	const { attributes, setAttributes } = useAttributes();
@@ -51,6 +52,7 @@ function General() {
 				min={0}
 				max={10}
 				defaultValue={3}
+				showUnit={false}
 			></CustomRangeControl>
 
 			{/* Slider Control Section */}
@@ -61,6 +63,7 @@ function General() {
 				max={10}
 				defaultValue={3}
 				showDevice={false}
+				showUnit={false}
 			></CustomRangeControl>
 
 			{/* Height Section */}
@@ -94,6 +97,33 @@ function General() {
 					{ label: <AlignRight />, value: "right" },
 				]}
 			></CustomToggleGroupControl>
+
+			{/* Link Open In Section */}
+
+			<CustomSelection
+				label="Link Open In"
+				options={linkOpen}
+				attributeKey="linkOpen"
+				inline={false}
+			>
+
+			</CustomSelection >
+
+			{/* Preloader Section */}
+
+			< CustomToggle
+				label={__("Preloader", "smart-post-carousel")}
+				value={attributes.preloader}
+				attributesKey="preloader"
+				setAttributes={setAttributes}
+			/>
+			{/* Enable Equal Height Section */}
+			< CustomToggle
+				label={__("Enable Equal Height", "smart-post-carousel")}
+				value={attributes.equalHeight}
+				attributesKey="equalHeight"
+				setAttributes={setAttributes}
+			/>
 		</>
 	);
 }

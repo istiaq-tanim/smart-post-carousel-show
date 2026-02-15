@@ -8,7 +8,11 @@
   "description": "Display posts in a responsive carousel with smooth navigation.",
   "example": {},
   "supports": {
-    "html": false
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
   },
   "attributes": {
     "showReadMore": {
@@ -91,9 +95,57 @@
       "type": "number",
       "default": 600
     },
+    "direction": {
+      "type": "string",
+      "default": "right"
+    },
     "contentAlignment": {
       "type": "string",
       "default": "left"
+    },
+    "preloader": {
+      "type": "boolean",
+      "default": false
+    },
+    "equalHeight": {
+      "type": "boolean",
+      "default": false
+    },
+    "onHover": {
+      "type": "boolean",
+      "default": false
+    },
+    "linkOpen": {
+      "type": "string",
+      "default": "newTab"
+    },
+    "animationEffect": {
+      "type": "string",
+      "default": "cube"
+    },
+    "adaptiveHeight": {
+      "type": "boolean",
+      "default": false
+    },
+    "infiniteLoop": {
+      "type": "boolean",
+      "default": true
+    },
+    "keyNavigation": {
+      "type": "boolean",
+      "default": true
+    },
+    "freeScroll": {
+      "type": "boolean",
+      "default": false
+    },
+    "navigationArrow": {
+      "type": "boolean",
+      "default": true
+    },
+    "paginationDots": {
+      "type": "boolean",
+      "default": true
     }
   },
   "render": "file:./render.php",

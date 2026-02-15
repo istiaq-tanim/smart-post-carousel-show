@@ -74,3 +74,39 @@ export const OrientationItems = [
 		value: "orientation_four",
 	},
 ];
+
+
+export const linkOpen = [
+	{
+		label: "Current Tab",
+		value: "currentTab",
+	},
+	{
+		label: "New tab",
+		value: "newTab",
+	},
+
+];
+export const animationEffect = [
+	{
+		label: "Slide",
+		value: "slide",
+	},
+	{
+		label: "Cover",
+		value: "cover",
+	},
+	{
+		label: "Fade",
+		value: "fade",
+	},
+	{
+		label: "Cube",
+		value: "cube",
+	},
+	{
+		label: "Flip",
+		value: "flip",
+	},
+
+];

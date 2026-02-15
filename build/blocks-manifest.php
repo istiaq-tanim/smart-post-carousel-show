@@ -13,7 +13,11 @@ return array(
 			
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'align' => array(
+				'wide',
+				'full'
+			)
 		),
 		'attributes' => array(
 			'showReadMore' => array(
@@ -96,9 +100,57 @@ return array(
 				'type' => 'number',
 				'default' => 600
 			),
+			'direction' => array(
+				'type' => 'string',
+				'default' => 'right'
+			),
 			'contentAlignment' => array(
 				'type' => 'string',
 				'default' => 'left'
+			),
+			'preloader' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'equalHeight' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'onHover' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'linkOpen' => array(
+				'type' => 'string',
+				'default' => 'newTab'
+			),
+			'animationEffect' => array(
+				'type' => 'string',
+				'default' => 'cube'
+			),
+			'adaptiveHeight' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'infiniteLoop' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'keyNavigation' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'freeScroll' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'navigationArrow' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'paginationDots' => array(
+				'type' => 'boolean',
+				'default' => true
 			)
 		),
 		'render' => 'file:./render.php',
