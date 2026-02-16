@@ -1,7 +1,14 @@
 import { ResetIcon } from "../../../smart-post-carousel/assets/icon";
 import DeviceDropdown from "./DeviceDropDown";
 
-function RangeHeader({ label, unit, showReset, showDevice, onReset }) {
+function RangeHeader({
+	label,
+	unit,
+	showReset,
+	showDevice,
+	onReset,
+	showUnit,
+}) {
 	return (
 		<div className="range-control">
 			<div className="content">
@@ -18,9 +25,11 @@ function RangeHeader({ label, unit, showReset, showDevice, onReset }) {
 						{showReset && (
 							<ResetIcon style={{ cursor: "pointer" }} onClick={onReset} />
 						)}
-						<div className="pixel">
-							<p>{unit}</p>
-						</div>
+						{showUnit && (
+							<div className="pixel">
+								<p>{unit}</p>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

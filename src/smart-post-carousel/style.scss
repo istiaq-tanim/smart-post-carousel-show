@@ -1,11 +1,10 @@
 /**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
+ * Smart Post Carousel — Frontend + Editor Styles
  */
 
 .wp-block-create-block-smart-post-carousel {
+	/* ---------------- SWIPER ---------------- */
+
 	.smart-post-carousel-swiper {
 		.swiper {
 			width: 100%;
@@ -37,15 +36,19 @@
 		}
 	}
 
+	/* ---------------- CARD BASE ---------------- */
+
 	.sp-smart-post-carousel-card {
-		background: #ffffff;
 		overflow: hidden;
 		transition: all 0.3s ease;
 		max-width: 295px;
 		width: 100%;
+		height: var(--cardHeight);
 		display: flex;
 		flex-direction: column;
+		background: #fff;
 
+		/* IMAGE */
 		&-image {
 			position: relative;
 			width: 100%;
@@ -64,11 +67,30 @@
 				transform: scale(1.1);
 			}
 		}
+
+		.sp-smart-post-carousel-template-content {
+			display: flex;
+			flex-direction: column;
+			padding-top: 10px;
+			align-items: var(--alignment);
+			&[style*="--alignment: flex-start"] {
+				text-align: left;
+			}
+
+			&[style*="--alignment: center"] {
+				text-align: center;
+			}
+
+			&[style*="--alignment: flex-end"] {
+				text-align: right;
+			}
+		}
+
+		/* TITLE */
 		&-title {
 			color: #333;
 			font-family: Inter;
 			font-size: 22px;
-			font-style: normal;
 			line-height: 1.2;
 			font-weight: 600;
 			margin: 6px 0 0;
@@ -77,16 +99,24 @@
 				color: var(--smart-post-secondary);
 			}
 		}
+
+		/* META */
 		&-meta-wrapper {
 			display: flex;
 			flex-wrap: wrap;
 			gap: 5px;
+			padding-top: 5px;
+			justify-content: var(--alignment);
 		}
 	}
 
-	.sp-smart-post-carousel-card-meta-wrapper {
-		padding-top: 5px;
+	/* Equal height override - MOVED OUTSIDE the card base */
+	.sp-smart-post-carousel-card.equal-height {
+		height: 100%;
+		min-height: 100%;
 	}
+
+	/* ---------------- META ITEM ---------------- */
 
 	.sp-smart-post-carousel-card-meta-item {
 		display: flex;
@@ -95,13 +125,11 @@
 		font-weight: 400;
 		color: var(--smart-post-secondary);
 		font-size: 12px;
-		flex: 0 0 auto;
-		min-width: 0;
 
 		svg {
 			width: 14px;
 			height: 14px;
-			color: #666666;
+			color: #666;
 			flex-shrink: 0;
 		}
 
@@ -112,18 +140,20 @@
 		}
 	}
 
-	// CategoryList.scss - Complete
+	/* ---------------- CATEGORY ---------------- */
+
+	.sp-smart-post-carousel-category {
+		z-index: 10;
+	}
+
 	.sp-smart-post-carousel-category-list {
 		display: flex;
 		flex-wrap: wrap;
+		flex-direction: row;
+		gap: 4px;
 		margin: 0;
 		padding: 0;
-		flex-direction: column;
-
-		&-item {
-			margin: 0;
-			padding: 0;
-		}
+		list-style: none;
 
 		&-badge {
 			display: inline-block;
@@ -133,15 +163,112 @@
 			font-size: 12px;
 			font-weight: 600;
 			text-transform: capitalize;
-			letter-spacing: 0.5px;
 			text-decoration: none;
 			transition: all 0.3s ease;
-			white-space: nowrap;
-			list-style: none;
 
 			&:hover {
 				background: var(--smart-post-dark-2-text);
 			}
+		}
+	}
+
+	/* ---------------- DATE BADGE (hidden by default) ---------------- */
+
+	.sp-smart-post-carousel-date {
+		display: none;
+
+		span {
+			display: block;
+			text-align: center;
+			font-size: 12px;
+		}
+
+		.sp-smart-post-carousel-day {
+			background: #4e4f52;
+			color: #fff;
+			font-size: 18px;
+			padding: 6px 10px;
+		}
+
+		.sp-smart-post-carousel-month-year {
+			background: #fff;
+			padding: 10px 15px;
+		}
+	}
+
+	/* -------- ORIENTATION TWO — Date Badge -------- */
+
+	.sp-smart-post-carousel-card.orientation_two {
+		.sp-smart-post-carousel-date {
+			display: block;
+			position: absolute;
+			bottom: 8px;
+			left: 8px;
+			border-radius: 3px;
+			overflow: hidden;
+		}
+	}
+
+	/*  ORIENTATION THREE — Centered Overlay  */
+
+	.sp-smart-post-carousel-card.orientation_three {
+		.sp-smart-post-carousel-template-content {
+			align-items: var(--alignment);
+		}
+
+		.sp-smart-post-carousel-card-title {
+			text-align: var(--alignment);
+		}
+
+		.sp-smart-post-carousel-card-meta-wrapper {
+			justify-content: var(--alignment);
+		}
+
+		.sp-smart-post-carousel-category {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	/*  ORIENTATION FOUR — Overlay Category  */
+
+	.sp-smart-post-carousel-card.orientation_four {
+		background: #f2f2f2;
+		display: flex;
+		flex-direction: column;
+
+		.sp-smart-post-carousel-category {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			z-index: 10;
+		}
+
+		.sp-smart-post-carousel-template-content {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			padding: 0 15px 15px;
+		}
+
+		/* Meta wrapper — push to bottom */
+		.sp-smart-post-carousel-card-meta-wrapper {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 5px;
+		}
+
+		.sp-smart-post-carousel-date {
+			display: none;
+		}
+	}
+
+	/* Fix for orientation_four with equal-height */
+	.sp-smart-post-carousel-card.orientation_four.equal-height {
+		.sp-smart-post-carousel-template-content {
+			min-height: 0;
 		}
 	}
 }

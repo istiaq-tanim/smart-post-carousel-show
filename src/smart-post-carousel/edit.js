@@ -1,14 +1,17 @@
 import { useBlockProps } from "@wordpress/block-editor";
-import { AttributesProvider, PanelProvider } from "../context";
 import Inspector from "../components/Inspector/Inspector";
 import CarouselRenderer from "../components/Renderer/CarouselRenderer";
-import "./editor.scss";
+import { AttributesProvider, PanelProvider } from "../context";
 import useApi from "../hooks/useApi";
+import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
 	//using Custom Hooks to Fetching posts
 
-	const { posts, loading } = useApi();
+	const { numberOfSlides } = attributes;
+
+	const blockProps = useBlockProps();
+	const { posts, loading } = useApi({ posts_per_page: numberOfSlides });
 
 	const renderContent = () => {
 		if (loading) {
@@ -29,11 +32,14 @@ export default function Edit({ attributes, setAttributes }) {
 	};
 
 	return (
-		<AttributesProvider attributes={attributes} setAttributes={setAttributes}>
-			<PanelProvider>
-				<Inspector attributes={attributes} setAttributes={setAttributes} />
-			</PanelProvider>
-			<div {...useBlockProps()}>{renderContent()}</div>
-		</AttributesProvider>
+		<div {...blockProps}>
+			<AttributesProvider attributes={attributes} setAttributes={setAttributes}>
+				<PanelProvider>
+					<Inspector attributes={attributes} setAttributes={setAttributes} />
+				</PanelProvider>
+
+				{renderContent()}
+			</AttributesProvider>
+		</div>
 	);
 }

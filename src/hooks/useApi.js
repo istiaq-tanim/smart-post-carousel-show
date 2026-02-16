@@ -1,6 +1,6 @@
 import { useEffect, useState } from "@wordpress/element";
 
-function useApi(queryParams = { posts_per_page: 5 }) {
+function useApi(queryParams = { posts_per_page: 1 }) {
 	const [posts, setPosts] = useState([]);
 	const [loading, setLoading] = useState(true);
 

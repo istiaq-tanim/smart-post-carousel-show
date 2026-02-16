@@ -11,16 +11,36 @@ export const useRangeValue = ({
 	const activeSubKey = normalizedDeviceType;
 
 	const value = useMemo(() => {
-		if (nestedKey && activeSubKey) {
-			return (
-				attributes?.[attributeKey]?.[nestedKey]?.[activeSubKey] ?? defaultValue
-			);
-		}
-		if (activeSubKey) {
-			return attributes?.[attributeKey]?.[activeSubKey] ?? defaultValue;
+		const attribute = attributes?.[attributeKey];
+
+		// ---------- NESTED ----------
+		if (nestedKey) {
+			const nested = attribute?.[nestedKey];
+
+			// nested responsive object
+			if (typeof nested === "object" && nested !== null) {
+				return nested[activeSubKey] ?? defaultValue;
+			}
+
+			// nested single value
+			if (nested !== undefined) {
+				return nested;
+			}
+
+			return defaultValue;
 		}
 
-		return attributes?.[attributeKey] ?? defaultValue;
+		// ---------- RESPONSIVE ----------
+		if (typeof attribute === "object" && attribute !== null) {
+			return attribute[activeSubKey] ?? defaultValue;
+		}
+
+		// ---------- NORMAL ----------
+		if (typeof attribute === "number") {
+			return attribute;
+		}
+
+		return defaultValue;
 	}, [attributes, attributeKey, nestedKey, activeSubKey, defaultValue]);
 
 	return { value, activeSubKey };

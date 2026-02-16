@@ -18,7 +18,7 @@ export default function MarqueeCarousel({ attributes, posts }) {
 				pauseOnHover={pauseOnHover}
 				reverse={true}
 				gradient={false}
-				height={250}
+				height={350}
 			>
 				<div style={{ display: "flex" }}>
 					{posts.map((post, idx) => (

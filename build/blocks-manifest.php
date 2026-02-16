@@ -13,7 +13,11 @@ return array(
 			
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'align' => array(
+				'wide',
+				'full'
+			)
 		),
 		'attributes' => array(
 			'showReadMore' => array(
@@ -72,10 +76,6 @@ return array(
 					'mobile' => 642
 				)
 			),
-			'slides' => array(
-				'type' => 'number',
-				'default' => 3
-			),
 			'gap' => array(
 				'type' => 'object',
 				'default' => array(
@@ -90,15 +90,67 @@ return array(
 			),
 			'delay' => array(
 				'type' => 'number',
-				'default' => 4000
+				'default' => 2000
 			),
 			'speed' => array(
 				'type' => 'number',
 				'default' => 600
 			),
+			'direction' => array(
+				'type' => 'string',
+				'default' => 'right'
+			),
 			'contentAlignment' => array(
 				'type' => 'string',
-				'default' => 'left'
+				'default' => 'flex-start'
+			),
+			'preloader' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'equalHeight' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'onHover' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'linkOpen' => array(
+				'type' => 'string',
+				'default' => 'newTab'
+			),
+			'animationEffect' => array(
+				'type' => 'string',
+				'default' => 'cube'
+			),
+			'adaptiveHeight' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'infiniteLoop' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'keyNavigation' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'freeScroll' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'navigationArrow' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'paginationDots' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'numberOfSlides' => array(
+				'type' => 'number',
+				'default' => 3
 			)
 		),
 		'render' => 'file:./render.php',

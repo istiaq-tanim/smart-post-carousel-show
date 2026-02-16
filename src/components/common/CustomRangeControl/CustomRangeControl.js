@@ -17,6 +17,7 @@ function CustomRangeControl({
 	unit = "px",
 	showReset = true,
 	showDevice = true,
+	step = 1,
 }) {
 	const { attributes, setAttributes } = useAttributes();
 	const deviceType = useDeviceType();
@@ -56,6 +57,7 @@ function CustomRangeControl({
 					min={min}
 					value={value}
 					onChange={(newValue) => handleChange(newValue)}
+					step={step}
 				/>
 			</div>
 		</div>

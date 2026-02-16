@@ -1,12 +1,13 @@
 /*!***********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/smart-post-carousel/style.scss ***!
   \***********************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
 /**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
+ * Smart Post Carousel — Frontend + Editor Styles
  */
+.wp-block-create-block-smart-post-carousel {
+  /* ---------------- SWIPER ---------------- */
+}
 .wp-block-create-block-smart-post-carousel .smart-post-carousel-swiper .swiper {
   width: 100%;
   padding-bottom: 40px;
@@ -31,14 +32,19 @@
 .wp-block-create-block-smart-post-carousel .smart-post-carousel-swiper .swiper-pagination-bullet-active {
   opacity: 1;
 }
+.wp-block-create-block-smart-post-carousel {
+  /* ---------------- CARD BASE ---------------- */
+}
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card {
-  background: #ffffff;
   overflow: hidden;
   transition: all 0.3s ease;
   max-width: 295px;
   width: 100%;
+  height: var(--cardHeight);
   display: flex;
   flex-direction: column;
+  background: #fff;
+  /* IMAGE */
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image {
   position: relative;
@@ -57,11 +63,28 @@
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image:hover img {
   transform: scale(1.1);
 }
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card .sp-smart-post-carousel-template-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  align-items: var(--alignment);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card .sp-smart-post-carousel-template-content[style*="--alignment: flex-start"] {
+  text-align: right;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card .sp-smart-post-carousel-template-content[style*="--alignment: center"] {
+  text-align: center;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card .sp-smart-post-carousel-template-content[style*="--alignment: flex-end"] {
+  text-align: left;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card {
+  /* TITLE */
+}
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-title {
   color: #333;
   font-family: Inter;
   font-size: 22px;
-  font-style: normal;
   line-height: 1.2;
   font-weight: 600;
   margin: 6px 0 0;
@@ -69,13 +92,25 @@
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-title:hover {
   color: var(--smart-post-secondary);
 }
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card {
+  /* META */
+}
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-}
-.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-wrapper {
   padding-top: 5px;
+  justify-content: var(--alignment);
+}
+.wp-block-create-block-smart-post-carousel {
+  /* Equal height override - MOVED OUTSIDE the card base */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.equal-height {
+  height: 100%;
+  min-height: 100%;
+}
+.wp-block-create-block-smart-post-carousel {
+  /* ---------------- META ITEM ---------------- */
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-item {
   display: flex;
@@ -84,13 +119,11 @@
   font-weight: 400;
   color: var(--smart-post-secondary);
   font-size: 12px;
-  flex: 0 0 auto;
-  min-width: 0;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-item svg {
   width: 14px;
   height: 14px;
-  color: #666666;
+  color: #666;
   flex-shrink: 0;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-item-text {
@@ -98,16 +131,20 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.wp-block-create-block-smart-post-carousel {
+  /* ---------------- CATEGORY ---------------- */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-category {
+  z-index: 10;
+}
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-category-list {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  gap: 4px;
   margin: 0;
   padding: 0;
-  flex-direction: column;
-}
-.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-category-list-item {
-  margin: 0;
-  padding: 0;
+  list-style: none;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-category-list-badge {
   display: inline-block;
@@ -117,12 +154,96 @@
   font-size: 12px;
   font-weight: 600;
   text-transform: capitalize;
-  letter-spacing: 0.5px;
   text-decoration: none;
   transition: all 0.3s ease;
-  white-space: nowrap;
-  list-style: none;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-category-list-badge:hover {
   background: var(--smart-post-dark-2-text);
+}
+.wp-block-create-block-smart-post-carousel {
+  /* ---------------- DATE BADGE (hidden by default) ---------------- */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-date {
+  display: none;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-date span {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-date .sp-smart-post-carousel-day {
+  background: #4e4f52;
+  color: #fff;
+  font-size: 18px;
+  padding: 6px 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-date .sp-smart-post-carousel-month-year {
+  background: #fff;
+  padding: 10px 15px;
+}
+.wp-block-create-block-smart-post-carousel {
+  /* -------- ORIENTATION TWO — Date Badge -------- */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_two .sp-smart-post-carousel-date {
+  display: block;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.wp-block-create-block-smart-post-carousel {
+  /*  ORIENTATION THREE — Centered Overlay  */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-template-content {
+  align-items: var(--alignment);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-card-title {
+  text-align: var(--alignment);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-card-meta-wrapper {
+  justify-content: var(--alignment);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-category {
+  position: absolute;
+  bottom: 10px;
+  right: 50%;
+  transform: translateX(50%);
+}
+.wp-block-create-block-smart-post-carousel {
+  /*  ORIENTATION FOUR — Overlay Category  */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four {
+  background: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-template-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px 15px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four {
+  /* Meta wrapper — push to bottom */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-card-meta-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-date {
+  display: none;
+}
+.wp-block-create-block-smart-post-carousel {
+  /* Fix for orientation_four with equal-height */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four.equal-height .sp-smart-post-carousel-template-content {
+  min-height: 0;
 }

@@ -1,10 +1,10 @@
-export default function CategoryList({ categories }) {
+export default function CategoryList({ categories, className = "" }) {
 	if (!categories || categories.length === 0) {
 		return null;
 	}
 	return (
 		<div className="sp-smart-post-carousel-category">
-			<ul className={"sp-smart-post-carousel-category-list"}>
+			<ul className={`sp-smart-post-carousel-category-list ${className}`}>
 				{categories.map((category) => (
 					<li
 						key={category.term_id}
