@@ -1,4 +1,3 @@
-import Marquee from "react-easy-marquee";
 import PostCard from "../common/Postcard/PostCard";
 
 export default function MarqueeCarousel({ attributes, posts }) {
@@ -11,17 +10,27 @@ export default function MarqueeCarousel({ attributes, posts }) {
 			</div>
 		);
 	}
+
+	const animationDuration = `${Math.round(3000 / speed)}s`;
+
 	return (
-		<div className="sp-smart-post-carousel sp-smart-post-block-wrapper">
-			<Marquee duration={speed} reverse={direction === "left"} height={350}>
-				<div style={{ display: "flex" }}>
-					{posts.map((post, idx) => (
-						<div key={idx} style={{ marginRight: "8px" }}>
-							<PostCard post={post} attributes={attributes} />
-						</div>
-					))}
-				</div>
-			</Marquee>
+		<div className="sp-smart-post-carousel-marquee-wrapper">
+			<div
+				className="sp-smart-post-carousel-marquee-track"
+				style={{
+					"--duration": animationDuration,
+					"--direction": direction === "right" ? "reverse" : "normal",
+				}}
+			>
+				{[...posts, ...posts].map((post, idx) => (
+					<div
+						key={idx}
+						className="sp-smart-post-carousel-marquee-item"
+					>
+						<PostCard post={post} attributes={attributes} />
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }

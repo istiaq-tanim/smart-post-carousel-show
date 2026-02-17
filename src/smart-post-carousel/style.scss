@@ -36,17 +36,57 @@
 		}
 	}
 
+	.sp-smart-post-carousel-marquee-wrapper {
+		width: 100%;
+		overflow: hidden;
+
+		.sp-smart-post-carousel-marquee-track {
+			display: flex;
+			flex-direction: row;
+			width: max-content;
+			animation: sp-marquee-scroll var(--duration, 15s) linear infinite;
+			animation-direction: var(--direction, normal);
+
+			&:hover {
+				animation-play-state: paused;
+			}
+		}
+
+		.sp-smart-post-carousel-marquee-item {
+			flex-shrink: 0;
+			width: 300px;
+			margin-right: 16px;
+		}
+
+		.sp-smart-post-carousel-card {
+			width: 100%;
+			overflow: visible;
+		}
+
+		.sp-smart-post-carousel-card-image {
+			overflow: hidden;
+		}
+	}
+
+	@keyframes sp-marquee-scroll {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
 	/* ---------------- CARD BASE ---------------- */
 
 	.sp-smart-post-carousel-card {
-		overflow: hidden;
 		transition: all 0.3s ease;
-		max-width: 295px;
 		width: 100%;
 		height: var(--cardHeight);
 		display: flex;
 		flex-direction: column;
 		background: #fff;
+		overflow: hidden;
 
 		/* IMAGE */
 		&-image {
