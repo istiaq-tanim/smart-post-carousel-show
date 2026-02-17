@@ -58,32 +58,36 @@ function Slider() {
 			></CustomToggleGroupControl>
 
 			{/*Slide to Scroll Section  */}
-			<CustomRangeControl
-				label="Slide to Scroll"
-				attributeKey="speed"
-				min={0}
-				max={100}
-				defaultValue={1}
-				showReset={false}
-				showUnit={false}
-			></CustomRangeControl>
+			{carouselStyle === "standard" && (
+				<CustomRangeControl
+					label="Slide to Scroll"
+					attributeKey="slideGroup"
+					min={0}
+					max={100}
+					defaultValue={1}
+					showReset={false}
+					showUnit={false}
+				></CustomRangeControl>
+			)}
 
 			{/* Preloader Section */}
 
-			<CustomToggle
-				label={__("Pause on Hover", "smart-post-carousel")}
-				value={attributes.onHover}
-				attributesKey="onHover"
-				setAttributes={setAttributes}
-			/>
+			{carouselStyle === "standard" && (
+				<CustomToggle
+					label={__("Pause on Hover", "smart-post-carousel")}
+					value={attributes.onHover}
+					attributesKey="onHover"
+					setAttributes={setAttributes}
+				/>
+			)}
 
 			{/* Link Open In Section */}
 
 			{carouselStyle === "standard" && (
 				<CustomSelection
-					label="Link Open In"
+					label="Animation Effect"
 					options={animationEffect}
-					attributeKey="animationEffect"
+					attributeKey="effect"
 				></CustomSelection>
 			)}
 
@@ -145,7 +149,7 @@ function Slider() {
 			{/* Pagination Dots */}
 			{carouselStyle === "standard" && (
 				<CustomToggle
-					label={__("Navigation Arrow", "smart-post-carousel")}
+					label={__("Pagination Dots", "smart-post-carousel")}
 					value={attributes.paginationDots}
 					attributesKey="paginationDots"
 					setAttributes={setAttributes}

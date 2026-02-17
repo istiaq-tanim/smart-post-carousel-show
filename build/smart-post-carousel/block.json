@@ -79,6 +79,14 @@
         "mobile": 24
       }
     },
+    "slideGroup": {
+      "type": "object",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
     "autoPlay": {
       "type": "boolean",
       "default": true
@@ -115,9 +123,9 @@
       "type": "string",
       "default": "newTab"
     },
-    "animationEffect": {
+    "effect": {
       "type": "string",
-      "default": "cube"
+      "default": "slide"
     },
     "adaptiveHeight": {
       "type": "boolean",
@@ -146,6 +154,14 @@
     "numberOfSlides": {
       "type": "number",
       "default": 3
+    },
+    "arrowStyle": {
+      "type": "string",
+      "default": "chevron-solid"
+    },
+    "visibilityOnHover": {
+      "type": "boolean",
+      "default": false
     }
   },
   "render": "file:./render.php",

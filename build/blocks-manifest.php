@@ -84,6 +84,14 @@ return array(
 					'mobile' => 24
 				)
 			),
+			'slideGroup' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
 			'autoPlay' => array(
 				'type' => 'boolean',
 				'default' => true
@@ -120,9 +128,9 @@ return array(
 				'type' => 'string',
 				'default' => 'newTab'
 			),
-			'animationEffect' => array(
+			'effect' => array(
 				'type' => 'string',
-				'default' => 'cube'
+				'default' => 'slide'
 			),
 			'adaptiveHeight' => array(
 				'type' => 'boolean',
@@ -151,6 +159,14 @@ return array(
 			'numberOfSlides' => array(
 				'type' => 'number',
 				'default' => 3
+			),
+			'arrowStyle' => array(
+				'type' => 'string',
+				'default' => 'chevron-solid'
+			),
+			'visibilityOnHover' => array(
+				'type' => 'boolean',
+				'default' => false
 			)
 		),
 		'render' => 'file:./render.php',

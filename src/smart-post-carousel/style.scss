@@ -271,4 +271,71 @@
 			min-height: 0;
 		}
 	}
+
+	/*Navigation Arrow Style */
+
+	.sp-smart-post-carousel-swiper-nav-arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: calc(100% + 44px);
+		left: -22px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		z-index: 10;
+		pointer-events: none;
+	}
+	.sp-smart-post-carousel-swiper-nav-arrow-btn {
+		pointer-events: all;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: rgba(0, 0, 0, 0.5);
+		opacity: 1;
+		transform: translateX(0);
+		transition:
+			opacity 0.3s ease-in-out,
+			transform 0.3s ease-in-out;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-swiper-nav-arrow.visible-on-hover
+		.sp-smart-post-carousel-swiper-nav-arrow-btn {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.sp-smart-post-carousel-swiper-nav-arrow.visible-on-hover
+		.sp-smart-post-carousel-swiper-nav-arrow-btn.prev-btn {
+		transform: translateX(-10px);
+	}
+
+	.sp-smart-post-carousel-swiper-nav-arrow.visible-on-hover
+		.sp-smart-post-carousel-swiper-nav-arrow-btn.next-btn {
+		transform: translateX(10px);
+	}
+
+	.sp-smart-post-carousel:hover
+		.sp-smart-post-carousel-swiper-nav-arrow.visible-on-hover
+		.sp-smart-post-carousel-swiper-nav-arrow-btn {
+		opacity: 1;
+		transform: translateX(0);
+		pointer-events: all;
+	}
+
+	/* Flip prev icon to face left */
+	.sp-smart-post-carousel-swiper-nav-arrow-btn.prev-btn svg {
+		transform: rotate(180deg);
+	}
+
+	.sp-smart-post-carousel-swiper-nav-arrow-btn.swiper-button-disabled {
+		opacity: 0.3;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
 }

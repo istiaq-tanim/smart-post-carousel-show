@@ -57,3 +57,22 @@ export const getPostDate = (post) => {
 		}),
 	};
 };
+
+// These effects need chunked posts
+export const CHUNKED_EFFECTS = ["fade", "cube", "flip"];
+
+export const EFFECT_MAP = {
+	cover: "coverflow",
+	fade: "fade",
+	cube: "cube",
+	flip: "flip",
+};
+
+// Chunk array into groups
+export const arrayChunk = (array, size) => {
+	const chunks = [];
+	for (let i = 0; i < array.length; i += size) {
+		chunks.push(array.slice(i, i + size));
+	}
+	return chunks;
+};
