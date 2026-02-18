@@ -32,18 +32,52 @@
 .wp-block-create-block-smart-post-carousel .smart-post-carousel-swiper .swiper-pagination-bullet-active {
   opacity: 1;
 }
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-marquee-wrapper .sp-smart-post-carousel-marquee-track {
+  display: flex;
+  flex-direction: row;
+  width: -moz-max-content;
+  width: max-content;
+  animation: sp-marquee-scroll var(--duration, 15s) linear infinite;
+  animation-direction: var(--direction, normal);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-marquee-wrapper .sp-smart-post-carousel-marquee-track:hover {
+  animation-play-state: paused;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-marquee-wrapper .sp-smart-post-carousel-marquee-item {
+  flex-shrink: 0;
+  width: 300px;
+  margin-left: 16px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-marquee-wrapper .sp-smart-post-carousel-card {
+  width: 100%;
+  overflow: visible;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-marquee-wrapper .sp-smart-post-carousel-card-image {
+  overflow: hidden;
+}
+@keyframes sp-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
 .wp-block-create-block-smart-post-carousel {
   /* ---------------- CARD BASE ---------------- */
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card {
-  overflow: hidden;
   transition: all 0.3s ease;
-  max-width: 295px;
   width: 100%;
   height: var(--cardHeight);
   display: flex;
   flex-direction: column;
   background: #fff;
+  overflow: hidden;
   /* IMAGE */
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image {
@@ -252,10 +286,10 @@
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-swiper-nav-arrow {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: calc(100% + 44px);
-  right: -22px;
+  top: var(--verticalPosition, 50%);
+  width: calc(var(--spaceBetweenArrows, 100%) + var(--horizontalPosition, 44px));
+  right: 50%;
+  transform: translateX(50%) translateY(-50%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -268,14 +302,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: var(--iconBackGroundWidth, 40px);
+  height: var(--iconBackGroundHeight, 40px);
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--iconBackGroundColor);
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(-20);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  color: #fff;
+  color: var(--iconColor);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-swiper-nav-arrow-btn.has-border {
+  border-style: var(--borderStyle);
+  border-width: var(--borderWidth);
+  border-color: var(--borderColor);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-swiper-nav-arrow-btn:hover {
+  color: var(--iconHoverColor);
+  background: var(--iconBackGroundHoverColor);
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-swiper-nav-arrow.visible-on-hover .sp-smart-post-carousel-swiper-nav-arrow-btn {
   opacity: 0;
@@ -302,4 +345,7 @@
   opacity: 0.3;
   cursor: not-allowed;
   pointer-events: none;
+}
+.wp-block-create-block-smart-post-carousel .custom-range-control {
+  margin-bottom: 16px;
 }

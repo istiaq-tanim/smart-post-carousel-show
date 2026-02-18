@@ -307,12 +307,21 @@
 /*!*************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/SelectDropDown/editor.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************************/
+.sp-smart-post-carousel-dropdown-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
 .sp-smart-post-carousel-select-dropdown {
   max-height: 300px;
 }
+
 .sp-smart-post-carousel-select-dropdown .sp-smart-post-carousel-select-dropdown-option svg {
   fill: #3c434a;
 }
+
 .sp-smart-post-carousel-select-dropdown {
   width: 360px !important;
   display: flex;
@@ -324,6 +333,7 @@
   margin: 0;
   padding: 0;
 }
+
 .sp-smart-post-carousel-select-dropdown .sp-smart-post-carousel-select-dropdown-option {
   display: flex;
   justify-content: space-between;
@@ -335,31 +345,113 @@
   border-bottom: 1px solid rgba(240, 93, 49, 0.1);
   flex-shrink: 0;
 }
+
 .sp-smart-post-carousel-select-dropdown .sp-smart-post-carousel-select-dropdown-option > span {
   margin: 0px;
   font-size: 13px;
   display: flex;
   align-items: center;
 }
+
 .sp-smart-post-carousel-select-dropdown .sp-smart-post-carousel-select-dropdown-option.active {
   background-color: var(--sp-smart-primary-2-400);
   color: #fff;
 }
+
 .sp-smart-post-carousel-select-dropdown .sp-smart-post-carousel-select-dropdown-option.active svg {
   fill: #fff;
 }
+
 .sp-smart-post-carousel-select-dropdown .sp-smart-post-carousel-select-dropdown-option.active path[fill="#2f2f2f"] {
   fill: #fff;
 }
+
 .sp-smart-post-carousel-select-dropdown .sp-smart-post-carousel-select-dropdown-option.active i {
   color: #fff;
 }
+
 .sp-smart-post-carousel-select-dropdown .sp-smart-post-carousel-select-dropdown-option.active:hover {
   background-color: var(--sp-smart-primary-2-400);
   color: #fff;
 }
+
 .sp-smart-post-carousel-select-dropdown .sp-smart-post-carousel-select-dropdown-option:hover {
   background-color: var(--sp-smart-primary-2-50);
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/CustomColorPicker/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.custom-color-picker-control {
+  margin-bottom: 16px;
+}
+
+.color-picker-control {
+  display: flex;
+  align-items: flex-start;
+}
+
+.color-picker-control .content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.color-picker-control .content .range-label {
+  display: flex;
+  gap: 8px;
+}
+
+.color-picker-control .content .range-label p {
+  color: #2f2f2f;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.color-picker-control .content .range-measure {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.color-picker-control .content .range-measure div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-picker-control .content .range-measure .pixel {
+  display: flex;
+  width: 23px;
+  height: 20px;
+  padding: 8px 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  border: 1px solid #8c8f94;
+  background: #fff;
+}
+
+.color-picker-control .content .range-measure .pixel p {
+  color: #8c8f94;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.color-picker-control .content .desktop {
+  display: flex;
+  width: 22px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  border: 1px solid #8c8f94;
+  background: #fff;
+}
+
+.input-range {
+  --wp-components-color-accent: var(--sp-smart-primary-2-300);
 }
 /*!*********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/CustomTabs/editor.scss ***!

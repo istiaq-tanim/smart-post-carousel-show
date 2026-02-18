@@ -17,6 +17,7 @@ function CustomRangeControl({
 	unit = "px",
 	showReset = true,
 	showDevice = true,
+	showUnit = false,
 	step = 1,
 }) {
 	const { attributes, setAttributes } = useAttributes();
@@ -49,6 +50,7 @@ function CustomRangeControl({
 				showReset={showReset}
 				showDevice={showDevice}
 				onReset={handleReset}
+				showUnit={showUnit}
 			/>
 
 			<div className="input-range">

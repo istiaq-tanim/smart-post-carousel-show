@@ -167,6 +167,98 @@ return array(
 			'visibilityOnHover' => array(
 				'type' => 'boolean',
 				'default' => false
+			),
+			'iconSize' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 16,
+					'tablet' => 16,
+					'mobile' => 16
+				)
+			),
+			'iconWidth' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 40,
+					'tablet' => 40,
+					'mobile' => 40
+				)
+			),
+			'iconHeight' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 40,
+					'tablet' => 40,
+					'mobile' => 40
+				)
+			),
+			'spaceBetweenArrow' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 100,
+					'tablet' => 100,
+					'mobile' => 100
+				)
+			),
+			'horizontalPosition' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 44,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'verticalPosition' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 50,
+					'tablet' => 50,
+					'mobile' => 50
+				)
+			),
+			'navArrowStyleType' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'iconColor' => array(
+				'type' => 'string',
+				'default' => '#fff'
+			),
+			'iconHoverColor' => array(
+				'type' => 'string',
+				'default' => '#fff'
+			),
+			'iconBackGroundColor' => array(
+				'type' => 'string',
+				'default' => '#4e4f52'
+			),
+			'iconBackGroundHoverColor' => array(
+				'type' => 'string',
+				'default' => '#4e6e3e'
+			),
+			'borderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'borderWidth' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'borderColor' => array(
+				'type' => 'string',
+				'default' => '#11111'
+			),
+			'borderRadius' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 50,
+					'tablet' => 50,
+					'mobile' => 50
+				)
 			)
 		),
 		'render' => 'file:./render.php',

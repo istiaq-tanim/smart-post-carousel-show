@@ -1,16 +1,12 @@
-import { useState, useRef } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 import { useAttributes } from "../../hooks/useAttributes";
 import CustomToggle from "../common/CustomToggle/CustomToggle";
 import SelectDropDown from "../common/SelectDropDown/SelectDropDown";
 import { arrowIconOptions } from "../../const";
-import { Popover } from "@wordpress/components";
-import { PopUpIcon } from "../../smart-post-carousel/assets/icon";
+import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
 
 function General() {
 	const { attributes, setAttributes } = useAttributes();
-	const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-	const buttonRef = useRef(null);
 
 	return (
 		<div>
@@ -22,37 +18,74 @@ function General() {
 			/>
 
 			{/* Row with label and icon button */}
-			<div
-				style={{
-					display: "flex",
-					alignItems: "center",
-					justifyContent: "space-between",
-				}}
-			>
-				<span>{__("Arrow Icon Style", "smart-post-carousel")}</span>
-				<button
-					ref={buttonRef}
-					onClick={() => setIsPopoverOpen((prev) => !prev)}
-				>
-					<PopUpIcon></PopUpIcon>
-				</button>
+			<SelectDropDown
+				label="Arrow Icon Style"
+				attributes={attributes.arrowStyle}
+				attributesKey="arrowStyle"
+				setAttributes={setAttributes}
+				options={arrowIconOptions}
+			/>
 
-				{/* Popover */}
-				{isPopoverOpen && (
-					<Popover
-						anchor={buttonRef.current}
-						onClose={() => setIsPopoverOpen(false)}
-						placement="right-end"
-					>
-						<SelectDropDown
-							attributes={attributes.arrowStyle}
-							attributesKey="arrowStyle"
-							setAttributes={setAttributes}
-							options={arrowIconOptions}
-						/>
-					</Popover>
-				)}
-			</div>
+			{/* Icon Size Range Control */}
+
+			<CustomRangeControl
+				label="Size"
+				attributeKey="iconSize"
+				min={0}
+				max={200}
+				defaultValue={16}
+				showUnit={true}
+			></CustomRangeControl>
+
+			{/* Background Width */}
+			<CustomRangeControl
+				label="Width"
+				attributeKey="iconWidth"
+				min={0}
+				max={200}
+				defaultValue={40}
+				showUnit={true}
+			></CustomRangeControl>
+
+			{/* Background Height */}
+			<CustomRangeControl
+				label="Height"
+				attributeKey="iconHeight"
+				min={0}
+				max={200}
+				defaultValue={40}
+				showUnit={true}
+			></CustomRangeControl>
+
+			{/* Space Between Arrow */}
+			<CustomRangeControl
+				label="Space Between Arrows"
+				attributeKey="spaceBetweenArrow"
+				min={0}
+				max={200}
+				defaultValue={100}
+				showUnit={true}
+			></CustomRangeControl>
+
+			{/* Horizontal Position */}
+			<CustomRangeControl
+				label="Horizontal Position"
+				attributeKey="horizontalPosition"
+				min={-200}
+				max={200}
+				defaultValue={44}
+				showUnit={true}
+			></CustomRangeControl>
+
+			{/* Vertical Position */}
+			<CustomRangeControl
+				label="Vertical Position"
+				attributeKey="verticalPosition"
+				min={0}
+				max={200}
+				defaultValue={50}
+				showUnit={true}
+			></CustomRangeControl>
 		</div>
 	);
 }
