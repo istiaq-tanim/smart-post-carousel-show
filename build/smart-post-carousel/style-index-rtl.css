@@ -305,7 +305,7 @@
   box-sizing: border-box;
   width: var(--iconBackGroundWidth, 40px);
   height: var(--iconBackGroundHeight, 40px);
-  border-radius: 50%;
+  border-radius: var(--borderRadius, 50px);
   background: var(--iconBackGroundColor);
   opacity: 1;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;

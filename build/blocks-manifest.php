@@ -253,11 +253,29 @@ return array(
 				'default' => '#11111'
 			),
 			'borderRadius' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
-					'desktop' => 50,
-					'tablet' => 50,
-					'mobile' => 50
+					'desktop' => array(
+						'top' => 50,
+						'right' => 50,
+						'bottom' => 50,
+						'left' => 50,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 50,
+						'right' => 50,
+						'bottom' => 50,
+						'left' => 50,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 50,
+						'right' => 50,
+						'bottom' => 50,
+						'left' => 50,
+						'linked' => true
+					)
 				)
 			)
 		),

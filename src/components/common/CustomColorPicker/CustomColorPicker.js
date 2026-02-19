@@ -1,6 +1,6 @@
 import { useState, useRef } from "@wordpress/element";
 import { ColorPicker, Popover } from "@wordpress/components";
-import Circle, { ResetIcon } from "../../../smart-post-carousel/assets/icon";
+import { Circle, ResetIcon } from "../../../smart-post-carousel/assets/icon";
 import "./editor.scss";
 function CustomColorPicker({
 	label,

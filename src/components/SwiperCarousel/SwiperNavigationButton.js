@@ -28,6 +28,7 @@ function SwiperNavigationButton({
 		borderStyle,
 		borderWidth,
 		borderColor,
+		borderRadius,
 	} = attributes;
 
 	const hasBorder = borderStyle !== "none";
@@ -55,6 +56,7 @@ function SwiperNavigationButton({
 				...(hasBorder && {
 					"--borderColor": borderColor,
 				}),
+				"--borderRadius": `${borderRadius[normalizedDeviceType].top}px ${borderRadius[normalizedDeviceType].right}px ${borderRadius[normalizedDeviceType].bottom}px ${borderRadius[normalizedDeviceType].left}px`,
 			}}
 		>
 			<span

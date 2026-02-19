@@ -2,6 +2,7 @@ import { __ } from "@wordpress/i18n";
 import { backGroundColorConfig, colorConfig } from "../../const";
 import { useAttributes } from "../../hooks/useAttributes";
 import CustomColorPicker from "../common/CustomColorPicker/CustomColorPicker";
+import SpacingControl from "../common/CustomSpacingControl/SpacingControl";
 import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
 
 import {
@@ -80,7 +81,7 @@ function Style() {
 						attributeKey="borderWidth"
 						min={0}
 						max={10}
-						defaultValue={1}
+						defaultValue={0}
 						showUnit={true}
 						step={1}
 					></CustomRangeControl>
@@ -96,7 +97,23 @@ function Style() {
 
 			{/* Icon Border Radius */}
 
-			<CustomRangeControl
+			<SpacingControl
+				values={attributes.borderRadius}
+				defaultValues={attributes.borderRadius}
+				label="Border Radius"
+				onChange={(values) => setAttributes({ borderRadius: values })}
+			></SpacingControl>
+
+			{/* Box Shadow */}
+			<SpacingControl
+				values={attributes.borderRadius}
+				defaultValues={attributes.borderRadius}
+				label="Box Shadow"
+				showLabels={true}
+				onChange={(values) => setAttributes({ borderRadius: values })}
+			></SpacingControl>
+
+			{/* <CustomRangeControl
 				label="Border Radius"
 				attributeKey="borderRadius"
 				min={0}
@@ -104,7 +121,7 @@ function Style() {
 				defaultValue={50}
 				showUnit={true}
 				step={1}
-			></CustomRangeControl>
+			></CustomRangeControl> */}
 		</>
 	);
 }

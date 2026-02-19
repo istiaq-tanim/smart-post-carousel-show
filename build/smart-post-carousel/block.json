@@ -248,11 +248,29 @@
       "default": "#11111"
     },
     "borderRadius": {
-      "type": "number",
+      "type": "object",
       "default": {
-        "desktop": 50,
-        "tablet": 50,
-        "mobile": 50
+        "desktop": {
+          "top": 50,
+          "right": 50,
+          "bottom": 50,
+          "left": 50,
+          "linked": true
+        },
+        "tablet": {
+          "top": 50,
+          "right": 50,
+          "bottom": 50,
+          "left": 50,
+          "linked": true
+        },
+        "mobile": {
+          "top": 50,
+          "right": 50,
+          "bottom": 50,
+          "left": 50,
+          "linked": true
+        }
       }
     }
   },
