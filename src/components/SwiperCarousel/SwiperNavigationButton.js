@@ -49,8 +49,12 @@ function SwiperNavigationButton({
 				"--iconColor": iconColor,
 				"--iconHoverColor": iconHoverColor,
 				...(hasBorder && { "--borderStyle": borderStyle }),
-				...(hasBorder && { "--borderWidth": borderWidth }),
-				...(hasBorder && { "--borderColor": borderColor }),
+				...(hasBorder && {
+					"--borderWidth": `${borderWidth[normalizedDeviceType]}px`,
+				}),
+				...(hasBorder && {
+					"--borderColor": borderColor,
+				}),
 			}}
 		>
 			<span
@@ -64,7 +68,9 @@ function SwiperNavigationButton({
 			</span>
 
 			<span
-				className="sp-smart-post-carousel-swiper-nav-arrow-btn next-btn"
+				className={`sp-smart-post-carousel-swiper-nav-arrow-btn next-btn ${
+					hasBorder ? "has-border" : ""
+				}`}
 				ref={swiperNextButtonRef}
 				style={{ fontSize: `${iconSize[normalizedDeviceType]}px` }}
 			>

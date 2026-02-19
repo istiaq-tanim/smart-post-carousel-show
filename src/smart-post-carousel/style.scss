@@ -334,12 +334,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		box-sizing: border-box;
 		width: var(--iconBackGroundWidth, 40px);
 		height: var(--iconBackGroundHeight, 40px);
 		border-radius: 50%;
 		background: var(--iconBackGroundColor);
 		opacity: 1;
-		transform: translateX(20);
 		transition:
 			opacity 0.3s ease-in-out,
 			transform 0.3s ease-in-out;
