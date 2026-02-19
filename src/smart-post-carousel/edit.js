@@ -22,7 +22,7 @@ export default function Edit({ attributes, setAttributes }) {
 		}
 
 		return (
-			// Use Shared Renderer for Swiper and Marquee Carousel
+			// Uses Shared Renderer for Swiper and Marquee Carousel
 			<CarouselRenderer
 				carouselStyle={attributes.carouselStyle}
 				attributes={attributes}
