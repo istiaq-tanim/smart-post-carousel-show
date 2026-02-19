@@ -277,6 +277,43 @@ return array(
 						'linked' => true
 					)
 				)
+			),
+			'showBoxShadow' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'boxShadow' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'xOffset' => 0,
+						'yOffset' => 0,
+						'blur' => 0,
+						'spread' => 0,
+						'linked' => false,
+						'type' => 'outset'
+					),
+					'tablet' => array(
+						'xOffset' => 0,
+						'yOffset' => 0,
+						'blur' => 0,
+						'spread' => 0,
+						'linked' => false,
+						'type' => 'outset'
+					),
+					'mobile' => array(
+						'xOffset' => 0,
+						'yOffset' => 0,
+						'blur' => 0,
+						'spread' => 0,
+						'linked' => false,
+						'type' => 'outset'
+					)
+				)
+			),
+			'shadowColor' => array(
+				'type' => 'string',
+				'default' => '#d6d8de'
 			)
 		),
 		'render' => 'file:./render.php',

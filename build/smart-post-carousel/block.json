@@ -272,6 +272,43 @@
           "linked": true
         }
       }
+    },
+    "showBoxShadow": {
+      "type": "boolean",
+      "default": false
+    },
+    "boxShadow": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "xOffset": 0,
+          "yOffset": 0,
+          "blur": 0,
+          "spread": 0,
+          "linked": false,
+          "type": "outset"
+        },
+        "tablet": {
+          "xOffset": 0,
+          "yOffset": 0,
+          "blur": 0,
+          "spread": 0,
+          "linked": false,
+          "type": "outset"
+        },
+        "mobile": {
+          "xOffset": 0,
+          "yOffset": 0,
+          "blur": 0,
+          "spread": 0,
+          "linked": false,
+          "type": "outset"
+        }
+      }
+    },
+    "shadowColor": {
+      "type": "string",
+      "default": "#d6d8de"
     }
   },
   "render": "file:./render.php",

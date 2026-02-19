@@ -307,6 +307,7 @@
   height: var(--iconBackGroundHeight, 40px);
   border-radius: var(--borderRadius, 50px);
   background: var(--iconBackGroundColor);
+  box-shadow: var(--boxShadow);
   opacity: 1;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   color: var(--iconColor);

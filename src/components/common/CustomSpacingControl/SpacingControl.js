@@ -8,6 +8,7 @@ import {
 import DeviceDropdown from "../CustomRangeControl/DeviceDropDown";
 import NumberControl from "./NumberControl";
 import "./editor.scss";
+import UnitDropdown from "../UnitDropDown/UnitDropDown";
 
 function SpacingControl({
 	label,
@@ -17,13 +18,10 @@ function SpacingControl({
 		mobile: { top: 0, right: 0, bottom: 0, left: 0, linked: true },
 	},
 	showLabels = false,
-	labels = {
-		top: "Top",
-		right: "Right",
-		bottom: "Bottom",
-		left: "Left",
-	},
+	labels = {},
 	onChange = () => {},
+	step = 4,
+	showUnit,
 }) {
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
@@ -35,37 +33,29 @@ function SpacingControl({
 		linked: true,
 	};
 
+	const fields = Object.keys(currentValues).filter(
+		(key) => key !== "linked" && key !== "type",
+	);
+
 	const initialValues = useRef(values);
 
-	const handleValueChange = (position, value) => {
+	const handleValueChange = (field, value) => {
 		const updateDeviceValue = currentValues.linked
 			? {
 					...currentValues,
-					top: value,
-					right: value,
-					bottom: value,
-					left: value,
+					...fields.reduce((acc, key) => ({ ...acc, [key]: value }), {}),
 			  }
-			: { ...currentValues, [position]: value };
+			: { ...currentValues, [field]: value };
 
-		onChange({
-			...values,
-			[normalizedDeviceType]: updateDeviceValue,
-		});
+		onChange({ ...values, [normalizedDeviceType]: updateDeviceValue });
 	};
 
 	const handleReset = () => {
 		const deviceDefaultValues = initialValues.current[normalizedDeviceType] || {
-			top: 0,
-			right: 0,
-			bottom: 0,
-			left: 0,
 			linked: true,
+			...fields.reduce((acc, key) => ({ ...acc, [key]: 0 }), {}),
 		};
-		onChange({
-			...values,
-			[normalizedDeviceType]: deviceDefaultValues,
-		});
+		onChange({ ...values, [normalizedDeviceType]: deviceDefaultValues });
 	};
 
 	const handleLinkToggle = () => {
@@ -74,6 +64,16 @@ function SpacingControl({
 			[normalizedDeviceType]: {
 				...currentValues,
 				linked: !currentValues.linked,
+			},
+		});
+	};
+
+	const handleUnitChange = (type) => {
+		onChange({
+			...values,
+			[normalizedDeviceType]: {
+				...currentValues,
+				type,
 			},
 		});
 	};
@@ -88,64 +88,35 @@ function SpacingControl({
 						</div>
 					</div>
 					<div className="range-measure">
-						<div>
-							<ResetIcon
-								style={{ cursor: "pointer" }}
-								onClick={handleReset}
-							></ResetIcon>
-							<div className="pixel">
-								<p>px</p>
-							</div>
-						</div>
+						<ResetIcon
+							style={{ cursor: "pointer" }}
+							onClick={handleReset}
+						></ResetIcon>
+
+						{showUnit && (
+							<UnitDropdown
+								value={currentValues.type || "outset"}
+								options={["outset", "inset"]}
+								onChange={handleUnitChange}
+							/>
+						)}
 					</div>
 				</div>
 			</div>
 			<div className="control-input-group">
-				<div className="spacing-input-wrap">
-					<NumberControl
-						value={currentValues.top}
-						step={4}
-						min={0}
-						onChange={(val) => {
-							handleValueChange("top", val);
-						}}
-					></NumberControl>
-
-					{showLabels && <span className="spacing-label">{labels.top}</span>}
-				</div>
-				<div className="spacing-input-wrap">
-					<NumberControl
-						value={currentValues.right}
-						step={4}
-						onChange={(val) => {
-							handleValueChange("right", val);
-						}}
-						min={0}
-					></NumberControl>
-					{showLabels && <span className="spacing-label">{labels.right}</span>}
-				</div>
-				<div className="spacing-input-wrap">
-					<NumberControl
-						value={currentValues.bottom}
-						min={0}
-						step={4}
-						onChange={(val) => {
-							handleValueChange("bottom", val);
-						}}
-					></NumberControl>
-					{showLabels && <span className="spacing-label">{labels.bottom}</span>}
-				</div>
-				<div className="spacing-input-wrap">
-					<NumberControl
-						value={currentValues.left}
-						min={0}
-						step={4}
-						onChange={(val) => {
-							handleValueChange("left", val);
-						}}
-					></NumberControl>
-					{showLabels && <span className="spacing-label">{labels.left}</span>}
-				</div>
+				{fields.map((field) => (
+					<div className="spacing-input-wrap" key={field}>
+						<NumberControl
+							value={currentValues[field] ?? 0}
+							step={step}
+							min={0}
+							onChange={(val) => handleValueChange(field, val)}
+						/>
+						{showLabels && (
+							<span className="spacing-label">{labels[field] || field}</span>
+						)}
+					</div>
+				))}
 
 				<div
 					style={{
@@ -157,7 +128,7 @@ function SpacingControl({
 				>
 					<button
 						onClick={handleLinkToggle}
-						className={`link-btn ${currentValues.linked ? "" : "is-unlinked "}`}
+						className={`link-btn ${currentValues.linked ? "" : "is-unlinked"}`}
 					>
 						{currentValues.linked ? <Link /> : <Unlink />}
 					</button>

@@ -29,6 +29,8 @@ function SwiperNavigationButton({
 		borderWidth,
 		borderColor,
 		borderRadius,
+		boxShadow,
+		shadowColor,
 	} = attributes;
 
 	const hasBorder = borderStyle !== "none";
@@ -57,6 +59,13 @@ function SwiperNavigationButton({
 					"--borderColor": borderColor,
 				}),
 				"--borderRadius": `${borderRadius[normalizedDeviceType].top}px ${borderRadius[normalizedDeviceType].right}px ${borderRadius[normalizedDeviceType].bottom}px ${borderRadius[normalizedDeviceType].left}px`,
+				"--boxShadow": `${
+					boxShadow[normalizedDeviceType].type === "inset" ? "inset" : ""
+				} ${boxShadow[normalizedDeviceType].xOffset}px ${
+					boxShadow[normalizedDeviceType].yOffset
+				}px ${boxShadow[normalizedDeviceType].blur}px ${
+					boxShadow[normalizedDeviceType].spread
+				}px ${shadowColor}`,
 			}}
 		>
 			<span

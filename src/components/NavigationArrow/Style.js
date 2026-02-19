@@ -12,10 +12,17 @@ import {
 	SolidBorder,
 } from "../../smart-post-carousel/assets/borderIcon";
 import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
+import CustomToggle from "../common/CustomToggle/CustomToggle";
 
 function Style() {
 	const { attributes, setAttributes } = useAttributes();
-	const { navArrowStyleType, borderColor, borderStyle } = attributes;
+	const {
+		navArrowStyleType,
+		borderColor,
+		borderStyle,
+		shadowColor,
+		showBoxShadow,
+	} = attributes;
 	const { label, attributeKey, defaultValue } = colorConfig[navArrowStyleType];
 	const {
 		label: bgLabel,
@@ -99,29 +106,46 @@ function Style() {
 
 			<SpacingControl
 				values={attributes.borderRadius}
-				defaultValues={attributes.borderRadius}
 				label="Border Radius"
 				onChange={(values) => setAttributes({ borderRadius: values })}
 			></SpacingControl>
+
+			{/* Enable Button For Showing Shadow Options */}
+
+			<CustomToggle
+				label={__("Enable Box Shadow", "smart-post-carousel")}
+				value={attributes.showBoxShadow}
+				attributesKey="showBoxShadow"
+				setAttributes={setAttributes}
+			/>
 
 			{/* Box Shadow */}
-			<SpacingControl
-				values={attributes.borderRadius}
-				defaultValues={attributes.borderRadius}
-				label="Box Shadow"
-				showLabels={true}
-				onChange={(values) => setAttributes({ borderRadius: values })}
-			></SpacingControl>
+			{showBoxShadow && (
+				<>
+					<SpacingControl
+						values={attributes.boxShadow}
+						label="Box Shadow"
+						showLabels={true}
+						labels={{
+							top: "X Offset",
+							right: "Y Offset",
+							bottom: "Blur",
+							left: "Speared",
+						}}
+						showUnit={true}
+						step={1}
+						onChange={(values) => setAttributes({ boxShadow: values })}
+					></SpacingControl>
 
-			{/* <CustomRangeControl
-				label="Border Radius"
-				attributeKey="borderRadius"
-				min={0}
-				max={300}
-				defaultValue={50}
-				showUnit={true}
-				step={1}
-			></CustomRangeControl> */}
+					{/* Icon Border Color */}
+					<CustomColorPicker
+						label="Shadow Color"
+						defaultValue="#d6d8de"
+						onChange={(value) => setAttributes({ shadowColor: value })}
+						value={shadowColor}
+					></CustomColorPicker>
+				</>
+			)}
 		</>
 	);
 }

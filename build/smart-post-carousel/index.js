@@ -12035,8 +12035,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/CustomToggleGroupControl/CustomToggleGroupControl */ "./src/components/common/CustomToggleGroupControl/CustomToggleGroupControl.js");
 /* harmony import */ var _smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../smart-post-carousel/assets/borderIcon */ "./src/smart-post-carousel/assets/borderIcon.js");
 /* harmony import */ var _common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/CustomRangeControl/CustomRangeControl */ "./src/components/common/CustomRangeControl/CustomRangeControl.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _common_CustomToggle_CustomToggle__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/CustomToggle/CustomToggle */ "./src/components/common/CustomToggle/CustomToggle.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__);
+
 
 
 
@@ -12054,7 +12056,9 @@ function Style() {
   const {
     navArrowStyleType,
     borderColor,
-    borderStyle
+    borderStyle,
+    shadowColor,
+    showBoxShadow
   } = attributes;
   const {
     label,
@@ -12067,8 +12071,8 @@ function Style() {
     defaultValue: bgDefaultValue
   } = _const__WEBPACK_IMPORTED_MODULE_1__.backGroundColorConfig[navArrowStyleType];
   const hasBorder = borderStyle !== "none";
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
       attributes: attributes,
       attributesKey: "navArrowStyleType",
       setAttributes: setAttributes,
@@ -12079,21 +12083,21 @@ function Style() {
         label: "Hover",
         value: "hover"
       }]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_3__["default"], {
       label: label,
       defaultValue: defaultValue,
       onChange: value => setAttributes({
         [attributeKey]: value
       }),
       value: attributes[attributeKey]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_3__["default"], {
       label: bgLabel,
       defaultValue: bgDefaultValue,
       onChange: value => setAttributes({
         [bgAttributeKey]: value
       }),
       value: attributes[bgAttributeKey]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Border", "smart-post-carousel"),
       attributes: attributes,
       attributesKey: "borderStyle",
@@ -12102,20 +12106,20 @@ function Style() {
         label: "None",
         value: "none"
       }, {
-        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.SolidBorder, {}),
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.SolidBorder, {}),
         value: "solid"
       }, {
-        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.DashedBorder, {}),
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.DashedBorder, {}),
         value: "dashed"
       }, {
-        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.DottedBorder, {}),
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.DottedBorder, {}),
         value: "dotted"
       }, {
-        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.DoubleBorder, {}),
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.DoubleBorder, {}),
         value: "double"
       }]
-    }), hasBorder && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }), hasBorder && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
         label: "Border Width",
         attributeKey: "borderWidth",
         min: 0,
@@ -12123,7 +12127,7 @@ function Style() {
         defaultValue: 0,
         showUnit: true,
         step: 1
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_3__["default"], {
         label: label,
         defaultValue: defaultValue,
         onChange: value => setAttributes({
@@ -12131,21 +12135,41 @@ function Style() {
         }),
         value: borderColor
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
       values: attributes.borderRadius,
-      defaultValues: attributes.borderRadius,
       label: "Border Radius",
       onChange: values => setAttributes({
         borderRadius: values
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      values: attributes.borderRadius,
-      defaultValues: attributes.borderRadius,
-      label: "Box Shadow",
-      showLabels: true,
-      onChange: values => setAttributes({
-        borderRadius: values
-      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomToggle_CustomToggle__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Enable Box Shadow", "smart-post-carousel"),
+      value: attributes.showBoxShadow,
+      attributesKey: "showBoxShadow",
+      setAttributes: setAttributes
+    }), showBoxShadow && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        values: attributes.boxShadow,
+        label: "Box Shadow",
+        showLabels: true,
+        labels: {
+          top: "X Offset",
+          right: "Y Offset",
+          bottom: "Blur",
+          left: "Speared"
+        },
+        showUnit: true,
+        step: 1,
+        onChange: values => setAttributes({
+          boxShadow: values
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        label: "Shadow Color",
+        defaultValue: "#d6d8de",
+        onChange: value => setAttributes({
+          shadowColor: value
+        }),
+        value: shadowColor
+      })]
     })]
   });
 }
@@ -12930,7 +12954,9 @@ function SwiperNavigationButton({
     borderStyle,
     borderWidth,
     borderColor,
-    borderRadius
+    borderRadius,
+    boxShadow,
+    shadowColor
   } = attributes;
   const hasBorder = borderStyle !== "none";
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -12955,7 +12981,8 @@ function SwiperNavigationButton({
       ...(hasBorder && {
         "--borderColor": borderColor
       }),
-      "--borderRadius": `${borderRadius[normalizedDeviceType].top}px ${borderRadius[normalizedDeviceType].right}px ${borderRadius[normalizedDeviceType].bottom}px ${borderRadius[normalizedDeviceType].left}px`
+      "--borderRadius": `${borderRadius[normalizedDeviceType].top}px ${borderRadius[normalizedDeviceType].right}px ${borderRadius[normalizedDeviceType].bottom}px ${borderRadius[normalizedDeviceType].left}px`,
+      "--boxShadow": `${boxShadow[normalizedDeviceType].type === "inset" ? "inset" : ""} ${boxShadow[normalizedDeviceType].xOffset}px ${boxShadow[normalizedDeviceType].yOffset}px ${boxShadow[normalizedDeviceType].blur}px ${boxShadow[normalizedDeviceType].spread}px ${shadowColor}`
     },
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
       className: `sp-smart-post-carousel-swiper-nav-arrow-btn prev-btn ${hasBorder ? "has-border" : ""}`,
@@ -13634,8 +13661,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CustomRangeControl_DeviceDropDown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../CustomRangeControl/DeviceDropDown */ "./src/components/common/CustomRangeControl/DeviceDropDown.js");
 /* harmony import */ var _NumberControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NumberControl */ "./src/components/common/CustomSpacingControl/NumberControl.js");
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/components/common/CustomSpacingControl/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _UnitDropDown_UnitDropDown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../UnitDropDown/UnitDropDown */ "./src/components/common/UnitDropDown/UnitDropDown.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -13669,13 +13698,10 @@ function SpacingControl({
     }
   },
   showLabels = false,
-  labels = {
-    top: "Top",
-    right: "Right",
-    bottom: "Bottom",
-    left: "Left"
-  },
-  onChange = () => {}
+  labels = {},
+  onChange = () => {},
+  step = 4,
+  showUnit
 }) {
   const deviceType = (0,_hooks_useDevice__WEBPACK_IMPORTED_MODULE_1__.useDeviceType)();
   const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
@@ -13686,17 +13712,18 @@ function SpacingControl({
     left: 0,
     linked: true
   };
+  const fields = Object.keys(currentValues).filter(key => key !== "linked" && key !== "type");
   const initialValues = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(values);
-  const handleValueChange = (position, value) => {
+  const handleValueChange = (field, value) => {
     const updateDeviceValue = currentValues.linked ? {
       ...currentValues,
-      top: value,
-      right: value,
-      bottom: value,
-      left: value
+      ...fields.reduce((acc, key) => ({
+        ...acc,
+        [key]: value
+      }), {})
     } : {
       ...currentValues,
-      [position]: value
+      [field]: value
     };
     onChange({
       ...values,
@@ -13705,11 +13732,11 @@ function SpacingControl({
   };
   const handleReset = () => {
     const deviceDefaultValues = initialValues.current[normalizedDeviceType] || {
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
-      linked: true
+      linked: true,
+      ...fields.reduce((acc, key) => ({
+        ...acc,
+        [key]: 0
+      }), {})
     };
     onChange({
       ...values,
@@ -13725,102 +13752,67 @@ function SpacingControl({
       }
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  const handleUnitChange = type => {
+    onChange({
+      ...values,
+      [normalizedDeviceType]: {
+        ...currentValues,
+        type
+      }
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     className: "custom-range-control",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "range-control",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "range-label",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
             children: label
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
             className: "desktop",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_CustomRangeControl_DeviceDropDown__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_CustomRangeControl_DeviceDropDown__WEBPACK_IMPORTED_MODULE_3__["default"], {})
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "range-measure",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.ResetIcon, {
-              style: {
-                cursor: "pointer"
-              },
-              onClick: handleReset
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-              className: "pixel",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-                children: "px"
-              })
-            })]
-          })
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.ResetIcon, {
+            style: {
+              cursor: "pointer"
+            },
+            onClick: handleReset
+          }), showUnit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_UnitDropDown_UnitDropDown__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            value: currentValues.type || "outset",
+            options: ["outset", "inset"],
+            onChange: handleUnitChange
+          })]
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "control-input-group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      children: [fields.map(field => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "spacing-input-wrap",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_NumberControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          value: currentValues.top,
-          step: 4,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_NumberControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          value: currentValues[field] ?? 0,
+          step: step,
           min: 0,
-          onChange: val => {
-            handleValueChange("top", val);
-          }
-        }), showLabels && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+          onChange: val => handleValueChange(field, val)
+        }), showLabels && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           className: "spacing-label",
-          children: labels.top
+          children: labels[field] || field
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "spacing-input-wrap",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_NumberControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          value: currentValues.right,
-          step: 4,
-          onChange: val => {
-            handleValueChange("right", val);
-          },
-          min: 0
-        }), showLabels && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-          className: "spacing-label",
-          children: labels.right
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "spacing-input-wrap",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_NumberControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          value: currentValues.bottom,
-          min: 0,
-          step: 4,
-          onChange: val => {
-            handleValueChange("bottom", val);
-          }
-        }), showLabels && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-          className: "spacing-label",
-          children: labels.bottom
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "spacing-input-wrap",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_NumberControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          value: currentValues.left,
-          min: 0,
-          step: 4,
-          onChange: val => {
-            handleValueChange("left", val);
-          }
-        }), showLabels && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-          className: "spacing-label",
-          children: labels.left
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      }, field)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         style: {
           visibility: showLabels ? "hidden" : "visible",
           flexShrink: 0,
           width: showLabels ? 0 : "auto",
           overflow: "hidden"
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
           onClick: handleLinkToggle,
-          className: `link-btn ${currentValues.linked ? "" : "is-unlinked "}`,
-          children: currentValues.linked ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.Link, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.Unlink, {})
+          className: `link-btn ${currentValues.linked ? "" : "is-unlinked"}`,
+          children: currentValues.linked ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.Link, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.Unlink, {})
         })
       })]
     })]
@@ -14882,6 +14874,60 @@ const SelectDropDownField = ({
 /*!**********************************************************!*\
   !*** ./src/components/common/SelectDropDown/editor.scss ***!
   \**********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./src/components/common/UnitDropDown/UnitDropDown.js"
+/*!************************************************************!*\
+  !*** ./src/components/common/UnitDropDown/UnitDropDown.js ***!
+  \************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editor.scss */ "./src/components/common/UnitDropDown/editor.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function UnitDropdown({
+  value = "px",
+  onChange,
+  options = ["px", "%", "em"]
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "sp-smart-post-carousel-units",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      className: "box-unit",
+      children: value
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "sp-smart-post-carousel-units-btn",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "sp-smart-post-carousel-units-btn-inner",
+        children: [" ", options.map(option => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          className: value === option ? "active" : "",
+          onClick: () => onChange(option),
+          children: option
+        }, option))]
+      })
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UnitDropdown);
+
+/***/ },
+
+/***/ "./src/components/common/UnitDropDown/editor.scss"
+/*!********************************************************!*\
+  !*** ./src/components/common/UnitDropDown/editor.scss ***!
+  \********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -16907,7 +16953,7 @@ const OrientationFourIcon = ({
   \********************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/smart-post-carousel","version":"0.1.0","title":"Smart Post Carousel","category":"smart-post-carousel","description":"Display posts in a responsive carousel with smooth navigation.","example":{},"supports":{"html":false,"align":["wide","full"]},"attributes":{"showReadMore":{"type":"boolean","default":false},"showTitle":{"type":"boolean","default":false},"partialView":{"type":"boolean","default":false},"showTaxonomy":{"type":"boolean","default":false},"showMetaData":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showSocialShare":{"type":"boolean","default":false},"showFeaturedImage":{"type":"boolean","default":false},"carouselStyle":{"type":"string","default":"standard"},"contentOrientation":{"type":"string","default":"orientation_one"},"columns":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"height":{"type":"object","default":{"desktop":642,"tablet":642,"mobile":642}},"gap":{"type":"object","default":{"desktop":24,"tablet":48,"mobile":24}},"slideGroup":{"type":"object","default":{"desktop":1,"tablet":1,"mobile":1}},"autoPlay":{"type":"boolean","default":true},"delay":{"type":"number","default":2000},"speed":{"type":"number","default":600},"direction":{"type":"string","default":"right"},"contentAlignment":{"type":"string","default":"flex-start"},"preloader":{"type":"boolean","default":false},"equalHeight":{"type":"boolean","default":false},"onHover":{"type":"boolean","default":false},"linkOpen":{"type":"string","default":"newTab"},"effect":{"type":"string","default":"slide"},"adaptiveHeight":{"type":"boolean","default":false},"infiniteLoop":{"type":"boolean","default":true},"keyNavigation":{"type":"boolean","default":true},"freeScroll":{"type":"boolean","default":false},"navigationArrow":{"type":"boolean","default":true},"paginationDots":{"type":"boolean","default":true},"numberOfSlides":{"type":"number","default":3},"arrowStyle":{"type":"string","default":"chevron-solid"},"visibilityOnHover":{"type":"boolean","default":false},"iconSize":{"type":"number","default":{"desktop":16,"tablet":16,"mobile":16}},"iconWidth":{"type":"number","default":{"desktop":40,"tablet":40,"mobile":40}},"iconHeight":{"type":"number","default":{"desktop":40,"tablet":40,"mobile":40}},"spaceBetweenArrow":{"type":"number","default":{"desktop":100,"tablet":100,"mobile":100}},"horizontalPosition":{"type":"number","default":{"desktop":44,"tablet":0,"mobile":0}},"verticalPosition":{"type":"number","default":{"desktop":50,"tablet":50,"mobile":50}},"navArrowStyleType":{"type":"string","default":"normal"},"iconColor":{"type":"string","default":"#fff"},"iconHoverColor":{"type":"string","default":"#fff"},"iconBackGroundColor":{"type":"string","default":"#4e4f52"},"iconBackGroundHoverColor":{"type":"string","default":"#4e6e3e"},"borderStyle":{"type":"string","default":"none"},"borderWidth":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}},"borderColor":{"type":"string","default":"#11111"},"borderRadius":{"type":"object","default":{"desktop":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"tablet":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"mobile":{"top":50,"right":50,"bottom":50,"left":50,"linked":true}}}},"render":"file:./render.php","textdomain":"smart-post-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/smart-post-carousel","version":"0.1.0","title":"Smart Post Carousel","category":"smart-post-carousel","description":"Display posts in a responsive carousel with smooth navigation.","example":{},"supports":{"html":false,"align":["wide","full"]},"attributes":{"showReadMore":{"type":"boolean","default":false},"showTitle":{"type":"boolean","default":false},"partialView":{"type":"boolean","default":false},"showTaxonomy":{"type":"boolean","default":false},"showMetaData":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showSocialShare":{"type":"boolean","default":false},"showFeaturedImage":{"type":"boolean","default":false},"carouselStyle":{"type":"string","default":"standard"},"contentOrientation":{"type":"string","default":"orientation_one"},"columns":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"height":{"type":"object","default":{"desktop":642,"tablet":642,"mobile":642}},"gap":{"type":"object","default":{"desktop":24,"tablet":48,"mobile":24}},"slideGroup":{"type":"object","default":{"desktop":1,"tablet":1,"mobile":1}},"autoPlay":{"type":"boolean","default":true},"delay":{"type":"number","default":2000},"speed":{"type":"number","default":600},"direction":{"type":"string","default":"right"},"contentAlignment":{"type":"string","default":"flex-start"},"preloader":{"type":"boolean","default":false},"equalHeight":{"type":"boolean","default":false},"onHover":{"type":"boolean","default":false},"linkOpen":{"type":"string","default":"newTab"},"effect":{"type":"string","default":"slide"},"adaptiveHeight":{"type":"boolean","default":false},"infiniteLoop":{"type":"boolean","default":true},"keyNavigation":{"type":"boolean","default":true},"freeScroll":{"type":"boolean","default":false},"navigationArrow":{"type":"boolean","default":true},"paginationDots":{"type":"boolean","default":true},"numberOfSlides":{"type":"number","default":3},"arrowStyle":{"type":"string","default":"chevron-solid"},"visibilityOnHover":{"type":"boolean","default":false},"iconSize":{"type":"number","default":{"desktop":16,"tablet":16,"mobile":16}},"iconWidth":{"type":"number","default":{"desktop":40,"tablet":40,"mobile":40}},"iconHeight":{"type":"number","default":{"desktop":40,"tablet":40,"mobile":40}},"spaceBetweenArrow":{"type":"number","default":{"desktop":100,"tablet":100,"mobile":100}},"horizontalPosition":{"type":"number","default":{"desktop":44,"tablet":0,"mobile":0}},"verticalPosition":{"type":"number","default":{"desktop":50,"tablet":50,"mobile":50}},"navArrowStyleType":{"type":"string","default":"normal"},"iconColor":{"type":"string","default":"#fff"},"iconHoverColor":{"type":"string","default":"#fff"},"iconBackGroundColor":{"type":"string","default":"#4e4f52"},"iconBackGroundHoverColor":{"type":"string","default":"#4e6e3e"},"borderStyle":{"type":"string","default":"none"},"borderWidth":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}},"borderColor":{"type":"string","default":"#11111"},"borderRadius":{"type":"object","default":{"desktop":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"tablet":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"mobile":{"top":50,"right":50,"bottom":50,"left":50,"linked":true}}},"showBoxShadow":{"type":"boolean","default":false},"boxShadow":{"type":"object","default":{"desktop":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"tablet":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"mobile":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"}}},"shadowColor":{"type":"string","default":"#d6d8de"}},"render":"file:./render.php","textdomain":"smart-post-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ },
 
