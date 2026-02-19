@@ -19,11 +19,14 @@ export default function MarqueeCarousel({ attributes, posts }) {
 				className="sp-smart-post-carousel-marquee-track"
 				style={{
 					"--duration": animationDuration,
-					"--direction": direction === "right" ? "normal" : "reverse",
+					"--direction": direction === "right" ? "reverse" : "normal",
 				}}
 			>
 				{[...posts, ...posts].map((post, idx) => (
-					<div key={idx} className="sp-smart-post-carousel-marquee-item">
+					<div
+						key={idx}
+						className="sp-smart-post-carousel-marquee-item"
+					>
 						<PostCard post={post} attributes={attributes} />
 					</div>
 				))}
