@@ -186,3 +186,28 @@ export const arrowIconOptions = [
 		icon: <TriangleOutline />,
 	},
 ];
+
+export const colorConfig = {
+	normal: {
+		label: "Color",
+		attributeKey: "iconColor",
+		defaultValue: "#ffffff",
+	},
+	hover: {
+		label: "Color",
+		attributeKey: "iconHoverColor",
+		defaultValue: "#ffffff",
+	},
+};
+export const backGroundColorConfig = {
+	normal: {
+		label: "Background Color",
+		attributeKey: "iconBackGroundColor",
+		defaultValue: "#4e4f52",
+	},
+	hover: {
+		label: "Hover Background Color",
+		attributeKey: "iconBackGroundHoverColor",
+		defaultValue: "#4e6e3e",
+	},
+};

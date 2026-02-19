@@ -162,6 +162,98 @@
     "visibilityOnHover": {
       "type": "boolean",
       "default": false
+    },
+    "iconSize": {
+      "type": "number",
+      "default": {
+        "desktop": 16,
+        "tablet": 16,
+        "mobile": 16
+      }
+    },
+    "iconWidth": {
+      "type": "number",
+      "default": {
+        "desktop": 40,
+        "tablet": 40,
+        "mobile": 40
+      }
+    },
+    "iconHeight": {
+      "type": "number",
+      "default": {
+        "desktop": 40,
+        "tablet": 40,
+        "mobile": 40
+      }
+    },
+    "spaceBetweenArrow": {
+      "type": "number",
+      "default": {
+        "desktop": 100,
+        "tablet": 100,
+        "mobile": 100
+      }
+    },
+    "horizontalPosition": {
+      "type": "number",
+      "default": {
+        "desktop": 44,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "verticalPosition": {
+      "type": "number",
+      "default": {
+        "desktop": 50,
+        "tablet": 50,
+        "mobile": 50
+      }
+    },
+    "navArrowStyleType": {
+      "type": "string",
+      "default": "normal"
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "#fff"
+    },
+    "iconHoverColor": {
+      "type": "string",
+      "default": "#fff"
+    },
+    "iconBackGroundColor": {
+      "type": "string",
+      "default": "#4e4f52"
+    },
+    "iconBackGroundHoverColor": {
+      "type": "string",
+      "default": "#4e6e3e"
+    },
+    "borderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "borderWidth": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "borderColor": {
+      "type": "string",
+      "default": "#11111"
+    },
+    "borderRadius": {
+      "type": "number",
+      "default": {
+        "desktop": 50,
+        "tablet": 50,
+        "mobile": 50
+      }
     }
   },
   "render": "file:./render.php",

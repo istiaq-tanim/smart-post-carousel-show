@@ -405,28 +405,54 @@ export const AlignRight = () => (
 	</svg>
 );
 
-export const PopUpIcon = () => {
-	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-		<rect
-			width="22.4"
-			height="22.4"
-			x="0.8"
-			y="0.8"
-			fill="#fff"
-			rx="3.2"
-		></rect>
-		<rect
-			width="22.4"
-			height="22.4"
-			x="0.8"
-			y="0.8"
-			stroke="#2F2F2F"
-			stroke-width="1.6"
-			rx="3.2"
-		></rect>
-		<path
-			fill="#2F2F2F"
-			d="M19.584 7.938a.813.813 0 0 0-.813-.813H11.32a2.439 2.439 0 0 0-4.598 0H5.23a.813.813 0 0 0 0 1.625h1.493a2.439 2.439 0 0 0 4.598 0h7.451a.813.813 0 0 0 .813-.813ZM19.584 16.063a.813.813 0 0 0-.813-.813h-1.493a2.439 2.439 0 0 0-4.597 0H5.229a.813.813 0 0 0 0 1.625h7.452a2.439 2.439 0 0 0 4.597 0h1.493a.813.813 0 0 0 .813-.813Z"
-		></path>
-	</svg>;
+export const PopUpIcon = ({ isActive }) => {
+	const bgColor = isActive ? "var(--sp-smart-primary-2-400)" : "transparent";
+	const lineColor = isActive ? "#FFFFFF" : "#2F2F2F";
+
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			fill={bgColor}
+		>
+			<rect
+				width="22.4"
+				height="22.4"
+				x="0.8"
+				y="0.8"
+				fill={bgColor}
+				rx="3.2"
+			></rect>
+			<rect
+				width="22.4"
+				height="22.4"
+				x="0.8"
+				y="0.8"
+				stroke={lineColor}
+				stroke-width="1.6"
+				rx="3.2"
+			></rect>
+			<path
+				fill={lineColor}
+				d="M19.584 7.938a.813.813 0 0 0-.813-.813H11.32a2.439 2.439 0 0 0-4.598 0H5.23a.813.813 0 0 0 0 1.625h1.493a2.439 2.439 0 0 0 4.598 0h7.451a.813.813 0 0 0 .813-.813ZM19.584 16.063a.813.813 0 0 0-.813-.813h-1.493a2.439 2.439 0 0 0-4.597 0H5.229a.813.813 0 0 0 0 1.625h7.452a2.439 2.439 0 0 0 4.597 0h1.493a.813.813 0 0 0 .813-.813Z"
+			></path>
+		</svg>
+	);
 };
+
+function Circle({ fill }) {
+	return (
+		<svg
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill={fill}
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<circle cx="12" cy="12" r="11.5" fill={fill} stroke="#DDDDDD" />
+		</svg>
+	);
+}
+
+export default Circle;

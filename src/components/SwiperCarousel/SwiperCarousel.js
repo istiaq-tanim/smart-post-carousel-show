@@ -51,6 +51,7 @@ export default function SwiperCarousel({ attributes, posts }) {
 		paginationDots,
 		arrowStyle,
 		visibilityOnHover,
+		iconSize,
 	} = attributes;
 
 	const swiperRef = useRef(null);
