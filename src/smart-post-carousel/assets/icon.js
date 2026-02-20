@@ -441,7 +441,7 @@ export const PopUpIcon = ({ isActive }) => {
 	);
 };
 
-function Circle({ fill }) {
+export const Circle = ({ fill }) => {
 	return (
 		<svg
 			width="24"
@@ -453,6 +453,72 @@ function Circle({ fill }) {
 			<circle cx="12" cy="12" r="11.5" fill={fill} stroke="#DDDDDD" />
 		</svg>
 	);
-}
+};
 
-export default Circle;
+export const Link = () => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="18"
+			height="11"
+			viewBox="0 0 18 11"
+			fill="none"
+		>
+			<path
+				d="M12.4 0H10.8V1.5H12.4C14.4 1.5 16.1 3.2 16.1 5.2C16.1 7.2 14.4 8.9 12.4 8.9H10.8V10.4H12.4C15.2 10.4 17.6 8.1 17.6 5.2C17.6 2.3 15.3 0 12.4 0ZM1.5 5.2C1.5 3.2 3.2 1.5 5.2 1.5H6.8V0H5.2C2.3 0 0 2.3 0 5.2C0 8.1 2.3 10.4 5.2 10.4H6.8V8.9H5.2C3.2 8.9 1.5 7.2 1.5 5.2ZM6.1 6.1H11.4V4.6H6.1V6.1Z"
+				fill="white"
+			/>
+		</svg>
+	);
+};
+
+export const Unlink = () => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+		>
+			<path
+				d="M8.39981 16.7L9.09981 16.7L7.49981 20.2L8.39981 20.6L12.2998 12.1L14.9998 12.1L14.9998 10.6L12.9998 10.6L14.2998 7.80001L15.5998 7.80001C17.5998 7.80001 19.2998 9.50001 19.2998 11.5C19.2998 13.5 17.5998 15.2 15.5998 15.2L13.9998 15.2L13.9998 16.7L15.5998 16.7C18.4998 16.7 20.7998 14.4 20.7998 11.5C20.7998 8.60001 18.4998 6.30001 15.5998 6.30001L14.9998 6.30001L16.3998 3.10001L15.4998 2.70001L9.79981 15.2L8.39981 15.2C6.39981 15.2 4.69981 13.5 4.69981 11.5C4.69981 9.50001 6.39981 7.80001 8.39981 7.80001L9.99981 7.80001L9.99981 6.30001L8.3998 6.30001C5.4998 6.30001 3.19981 8.60001 3.19981 11.5C3.19981 14.4 5.59981 16.7 8.39981 16.7Z"
+				fill="#2F2F2F"
+			/>
+		</svg>
+	);
+};
+
+export const IncreaseButton = () => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="10"
+			height="5"
+			viewBox="0 0 10 5"
+			fill="none"
+		>
+			<path
+				d="M0 5L4.99998 -2.2764e-07L10 5L4.99998 5L0.00145305 5L0 5Z"
+				fill="#2F2F2F"
+			/>
+		</svg>
+	);
+};
+
+export const DecreaseButton = () => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="10"
+			height="5"
+			viewBox="0 0 10 5"
+			fill="none"
+		>
+			<path
+				d="M10 0L5.00002 5L0 1.32951e-06L5.00002 6.64752e-07L9.99855 2.6551e-07L10 0Z"
+				fill="#2F2F2F"
+			/>
+		</svg>
+	);
+};

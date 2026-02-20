@@ -21,6 +21,13 @@ import {
 	OrientationThreeIcon,
 	OrientationTwoIcon,
 } from "../smart-post-carousel/assets/orientationIcon";
+import {
+	DotsPagination,
+	FractionPagination,
+	NumbersPagination,
+	ScrollbarPagination,
+	StrokesPagination,
+} from "../smart-post-carousel/assets/paginationIcon";
 
 export const LayoutItems = [
 	{
@@ -134,6 +141,8 @@ export const arrowIcons = {
 	"triangle-outline": TriangleOutline,
 };
 
+// Select Options for navigation Arrow Style
+
 export const arrowIconOptions = [
 	{
 		label: __("Chevron Solid", "smart-post-carousel"),
@@ -187,6 +196,32 @@ export const arrowIconOptions = [
 	},
 ];
 
+// Select Options for Pagination Dot Style
+
+export const paginationDotsOptions = [
+	{ label: "Dots", value: "dots", icon: <DotsPagination /> },
+	{
+		label: "Strokes",
+		value: "lines",
+		icon: <StrokesPagination />,
+	},
+	{
+		label: "Scrollbar",
+		value: "progressbar",
+		icon: <ScrollbarPagination />,
+	},
+	{
+		label: "Fraction",
+		value: "fraction",
+		icon: <FractionPagination />,
+	},
+	{
+		label: "Numbers",
+		value: "numbers",
+		icon: <NumbersPagination />,
+	},
+];
+
 export const colorConfig = {
 	normal: {
 		label: "Color",
@@ -210,4 +245,21 @@ export const backGroundColorConfig = {
 		attributeKey: "iconBackGroundHoverColor",
 		defaultValue: "#4e6e3e",
 	},
+};
+
+// Render Bullet Type Pagination
+
+export const getRenderBullet = (paginationStyle) => {
+	switch (paginationStyle) {
+		case "lines":
+			return (index, className) =>
+				`<span class="${className} sp-pagination-line"></span>`;
+		case "numbers":
+			return (index, className) =>
+				`<span class="${className} sp-pagination-number">${index + 1}</span>`;
+		case "dots":
+		default:
+			return (index, className) =>
+				`<span class="${className} sp-pagination-dot"></span>`;
+	}
 };
