@@ -71,9 +71,9 @@ return array(
 			'height' => array(
 				'type' => 'object',
 				'default' => array(
-					'desktop' => 642,
-					'tablet' => 642,
-					'mobile' => 642
+					'desktop' => 445,
+					'tablet' => 445,
+					'mobile' => 445
 				)
 			),
 			'gap' => array(
@@ -169,7 +169,7 @@ return array(
 				'default' => false
 			),
 			'iconSize' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 16,
 					'tablet' => 16,
@@ -177,7 +177,7 @@ return array(
 				)
 			),
 			'iconWidth' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 40,
 					'tablet' => 40,
@@ -185,7 +185,7 @@ return array(
 				)
 			),
 			'iconHeight' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 40,
 					'tablet' => 40,
@@ -193,7 +193,7 @@ return array(
 				)
 			),
 			'spaceBetweenArrow' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 100,
 					'tablet' => 100,
@@ -201,7 +201,7 @@ return array(
 				)
 			),
 			'horizontalPosition' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 44,
 					'tablet' => 0,
@@ -209,7 +209,7 @@ return array(
 				)
 			),
 			'verticalPosition' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 50,
 					'tablet' => 50,
@@ -314,6 +314,50 @@ return array(
 			'shadowColor' => array(
 				'type' => 'string',
 				'default' => '#d6d8de'
+			),
+			'paginationStyle' => array(
+				'type' => 'string',
+				'default' => 'dots'
+			),
+			'paginationWidth' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 12,
+					'tablet' => 12,
+					'mobile' => 12
+				)
+			),
+			'paginationHeight' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 12,
+					'tablet' => 12,
+					'mobile' => 12
+				)
+			),
+			'paginationDotGap' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 8,
+					'tablet' => 8,
+					'mobile' => 8
+				)
+			),
+			'paginationVerticalPosition' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => -36,
+					'tablet' => -36,
+					'mobile' => -36
+				)
+			),
+			'paginationHorizontalPosition' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 50,
+					'tablet' => 50,
+					'mobile' => 50
+				)
 			)
 		),
 		'render' => 'file:./render.php',

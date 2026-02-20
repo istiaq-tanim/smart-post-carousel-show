@@ -135,6 +135,7 @@ function Style() {
 						showUnit={true}
 						step={1}
 						onChange={(values) => setAttributes({ boxShadow: values })}
+						options={["outset", "inset"]}
 					></SpacingControl>
 
 					{/* Icon Border Color */}

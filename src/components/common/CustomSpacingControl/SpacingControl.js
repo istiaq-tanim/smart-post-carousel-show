@@ -22,6 +22,7 @@ function SpacingControl({
 	onChange = () => {},
 	step = 4,
 	showUnit,
+	options,
 }) {
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
@@ -96,7 +97,7 @@ function SpacingControl({
 						{showUnit && (
 							<UnitDropdown
 								value={currentValues.type || "outset"}
-								options={["outset", "inset"]}
+								options={options}
 								onChange={handleUnitChange}
 							/>
 						)}

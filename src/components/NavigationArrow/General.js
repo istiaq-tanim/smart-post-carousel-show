@@ -9,7 +9,7 @@ function General() {
 	const { attributes, setAttributes } = useAttributes();
 
 	return (
-		<div>
+		<>
 			<CustomToggle
 				label={__("Visibility on Hover", "smart-post-carousel")}
 				value={attributes.visibilityOnHover}
@@ -17,7 +17,7 @@ function General() {
 				setAttributes={setAttributes}
 			/>
 
-			{/* Row with label and icon button */}
+			{/* Row with label and Arrow icon button */}
 			<SelectDropDown
 				label="Arrow Icon Style"
 				attributes={attributes.arrowStyle}
@@ -86,7 +86,7 @@ function General() {
 				defaultValue={50}
 				showUnit={true}
 			></CustomRangeControl>
-		</div>
+		</>
 	);
 }
 

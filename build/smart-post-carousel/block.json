@@ -66,9 +66,9 @@
     "height": {
       "type": "object",
       "default": {
-        "desktop": 642,
-        "tablet": 642,
-        "mobile": 642
+        "desktop": 445,
+        "tablet": 445,
+        "mobile": 445
       }
     },
     "gap": {
@@ -164,7 +164,7 @@
       "default": false
     },
     "iconSize": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 16,
         "tablet": 16,
@@ -172,7 +172,7 @@
       }
     },
     "iconWidth": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 40,
         "tablet": 40,
@@ -180,7 +180,7 @@
       }
     },
     "iconHeight": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 40,
         "tablet": 40,
@@ -188,7 +188,7 @@
       }
     },
     "spaceBetweenArrow": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 100,
         "tablet": 100,
@@ -196,7 +196,7 @@
       }
     },
     "horizontalPosition": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 44,
         "tablet": 0,
@@ -204,7 +204,7 @@
       }
     },
     "verticalPosition": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 50,
         "tablet": 50,
@@ -309,6 +309,50 @@
     "shadowColor": {
       "type": "string",
       "default": "#d6d8de"
+    },
+    "paginationStyle": {
+      "type": "string",
+      "default": "dots"
+    },
+    "paginationWidth": {
+      "type": "object",
+      "default": {
+        "desktop": 12,
+        "tablet": 12,
+        "mobile": 12
+      }
+    },
+    "paginationHeight": {
+      "type": "object",
+      "default": {
+        "desktop": 12,
+        "tablet": 12,
+        "mobile": 12
+      }
+    },
+    "paginationDotGap": {
+      "type": "object",
+      "default": {
+        "desktop": 8,
+        "tablet": 8,
+        "mobile": 8
+      }
+    },
+    "paginationVerticalPosition": {
+      "type": "object",
+      "default": {
+        "desktop": -36,
+        "tablet": -36,
+        "mobile": -36
+      }
+    },
+    "paginationHorizontalPosition": {
+      "type": "object",
+      "default": {
+        "desktop": 50,
+        "tablet": 50,
+        "mobile": 50
+      }
     }
   },
   "render": "file:./render.php",
