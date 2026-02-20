@@ -1,10 +1,46 @@
+import { useEffect } from "@wordpress/element";
 import { paginationDotsOptions } from "../../const";
 import { useAttributes } from "../../hooks/useAttributes";
 import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
 import SelectDropDown from "../common/SelectDropDown/SelectDropDown";
 
+const PAGINATION_WIDTH_DEFAULTS = {
+	dots: 12,
+	lines: 12,
+	numbers: 24,
+	fraction: 36,
+	progressbar: 12,
+};
+
+const PAGINATION_HEIGHT_DEFAULTS = {
+	dots: 12,
+	lines: 12,
+	numbers: 24,
+	fraction: 36,
+	progressbar: 8,
+};
+
 function General() {
 	const { attributes, setAttributes } = useAttributes();
+	const { paginationStyle } = attributes;
+
+	useEffect(() => {
+		const newWidth = PAGINATION_WIDTH_DEFAULTS[paginationStyle] ?? 12;
+		const newHeight = PAGINATION_HEIGHT_DEFAULTS[paginationStyle] ?? 12;
+
+		setAttributes({
+			paginationWidth: {
+				desktop: newWidth,
+				tablet: newWidth,
+				mobile: newWidth,
+			},
+			paginationHeight: {
+				desktop: newHeight,
+				tablet: newHeight,
+				mobile: newHeight,
+			},
+		});
+	}, [paginationStyle]);
 	return (
 		<>
 			{/* Row with label and Pagination icon style type */}

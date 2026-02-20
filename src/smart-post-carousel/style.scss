@@ -498,14 +498,14 @@
        FRACTION
     ══════════════════════════════ */
 		.sp-smart-post-carousel-pagination-style--fraction {
-			font-size: var(--sp-fraction-size);
+			font-size: var(--sp-width);
 			font-weight: 500;
 			color: #555;
 			letter-spacing: 1px;
 		}
 		.sp-smart-post-carousel-pagination-style--fraction
 			.swiper-pagination-current {
-			font-size: calc(var(--sp-fraction-size) * 1.3); // ← fixed
+			font-size: var(--sp-width);
 			font-weight: 700;
 			color: var(--sp-color-active);
 		}

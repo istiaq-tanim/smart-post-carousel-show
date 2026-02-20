@@ -12188,58 +12188,94 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../const */ "./src/const/index.js");
-/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
-/* harmony import */ var _common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/CustomRangeControl/CustomRangeControl */ "./src/components/common/CustomRangeControl/CustomRangeControl.js");
-/* harmony import */ var _common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/SelectDropDown/SelectDropDown */ "./src/components/common/SelectDropDown/SelectDropDown.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../const */ "./src/const/index.js");
+/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
+/* harmony import */ var _common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/CustomRangeControl/CustomRangeControl */ "./src/components/common/CustomRangeControl/CustomRangeControl.js");
+/* harmony import */ var _common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/SelectDropDown/SelectDropDown */ "./src/components/common/SelectDropDown/SelectDropDown.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
 
+
+const PAGINATION_WIDTH_DEFAULTS = {
+  dots: 12,
+  lines: 12,
+  numbers: 24,
+  fraction: 36,
+  progressbar: 12
+};
+const PAGINATION_HEIGHT_DEFAULTS = {
+  dots: 12,
+  lines: 12,
+  numbers: 24,
+  fraction: 36,
+  progressbar: 8
+};
 function General() {
   const {
     attributes,
     setAttributes
-  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__.useAttributes)();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_2__.useAttributes)();
+  const {
+    paginationStyle
+  } = attributes;
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const newWidth = PAGINATION_WIDTH_DEFAULTS[paginationStyle] ?? 12;
+    const newHeight = PAGINATION_HEIGHT_DEFAULTS[paginationStyle] ?? 12;
+    setAttributes({
+      paginationWidth: {
+        desktop: newWidth,
+        tablet: newWidth,
+        mobile: newWidth
+      },
+      paginationHeight: {
+        desktop: newHeight,
+        tablet: newHeight,
+        mobile: newHeight
+      }
+    });
+  }, [paginationStyle]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_4__["default"], {
       label: "Arrow Icon Style",
       attributes: attributes.paginationStyle,
       attributesKey: "paginationStyle",
       setAttributes: setAttributes,
-      options: _const__WEBPACK_IMPORTED_MODULE_0__.paginationDotsOptions
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      options: _const__WEBPACK_IMPORTED_MODULE_1__.paginationDotsOptions
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
       label: "Width",
       attributeKey: "paginationWidth",
       min: 0,
       max: 60,
       defaultValue: 12,
       showUnit: true
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
       label: "Height",
       attributeKey: "paginationHeight",
       min: 0,
       max: 60,
       defaultValue: 12,
       showUnit: true
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
       label: "Space Between Dots",
       attributeKey: "paginationDotGap",
       min: 0,
       max: 40,
       defaultValue: 8,
       showUnit: true
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
       label: "Horizontal Position",
       attributeKey: "paginationHorizontalPosition",
       min: 0,
       max: 100,
       defaultValue: 50,
       showUnit: true
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
       label: "Vertical Position",
       attributeKey: "paginationVerticalPosition",
       min: -100,
