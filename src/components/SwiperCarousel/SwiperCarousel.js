@@ -69,6 +69,10 @@ export default function SwiperCarousel({ attributes, posts }) {
 		paginationDotGap,
 		paginationVerticalPosition,
 		paginationHorizontalPosition,
+		dotNormalBackGroundNormalColor,
+		dotNormalBackGroundActiveColor,
+		dotNormalTextColor,
+		dotActiveTextColor,
 	} = attributes;
 
 	// All References
@@ -179,9 +183,13 @@ export default function SwiperCarousel({ attributes, posts }) {
 			el: swiperPaginationRef.current,
 			type,
 		};
+
 		if (type === "bullets") {
 			base.renderBullet = getRenderBullet(paginationStyle);
+			base.bulletClass = "sp-smart-post-carousel-pagination-bullet-base";
+			base.bulletActiveClass = "swiper-pagination-bullet-active";
 		}
+
 		return base;
 	}, [paginationDots, paginationStyle]);
 
@@ -265,6 +273,10 @@ export default function SwiperCarousel({ attributes, posts }) {
 				"--paginationHorizontalPosition": `${
 					paginationHorizontalPosition[normalizedDeviceType] ?? 50
 				}%`,
+				"--paginationBackGroundInActiveColor": `${dotNormalBackGroundNormalColor}`,
+				"--paginationBackGroundActiveColor": `${dotNormalBackGroundActiveColor}`,
+				"--paginationTextInActiveColor": `${dotNormalTextColor}`,
+				"--paginationTextActiveColor": `${dotActiveTextColor}`,
 			}}
 		>
 			<Swiper

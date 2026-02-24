@@ -350,6 +350,34 @@
 				"tablet": 50,
 				"mobile": 50
 			}
+		},
+		"paginationDotStyleType": {
+			"type": "string",
+			"default": "normal"
+		},
+		"dotNormalTextColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"dotActiveTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"dotNormalBackGroundNormalColor": {
+			"type": "string",
+			"default": "#cacbcf"
+		},
+		"dotNormalBackGroundActiveColor": {
+			"type": "string",
+			"default": "#4E6E3E"
+		},
+		"paginationBorderStyle": {
+			"type": "string",
+			"default": "none"
+		},
+		"paginationHover": {
+			"type": "string",
+			"default": "normal"
 		}
 	},
 	"render": "file:./render.php",

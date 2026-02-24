@@ -12311,15 +12311,117 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
+/* harmony import */ var _common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/CustomColorPicker/CustomColorPicker */ "./src/components/common/CustomColorPicker/CustomColorPicker.js");
+/* harmony import */ var _common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/CustomRangeControl/CustomRangeControl */ "./src/components/common/CustomRangeControl/CustomRangeControl.js");
+/* harmony import */ var _common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/CustomToggleGroupControl/CustomToggleGroupControl */ "./src/components/common/CustomToggleGroupControl/CustomToggleGroupControl.js");
+/* harmony import */ var _smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../smart-post-carousel/assets/borderIcon */ "./src/smart-post-carousel/assets/borderIcon.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
 
 
 function Style() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "Pagination Style"
+  const {
+    attributes,
+    setAttributes
+  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__.useAttributes)();
+  const {
+    paginationDotStyleType,
+    dotNormalTextColor,
+    dotActiveTextColor,
+    dotNormalBackGroundNormalColor,
+    dotNormalBackGroundActiveColor,
+    paginationBorderStyle,
+    paginationStyle
+  } = attributes;
+  const hasBorder = paginationBorderStyle !== "none";
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [paginationStyle !== "fraction" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      attributes: attributes,
+      attributesKey: "paginationDotStyleType",
+      setAttributes: setAttributes,
+      items: [{
+        label: "Normal",
+        value: "normal"
+      }, {
+        label: "Active",
+        value: "active"
+      }]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      attributes: attributes,
+      attributesKey: "paginationHover",
+      setAttributes: setAttributes,
+      items: [{
+        label: "Normal",
+        value: "normal"
+      }, {
+        label: "HOVER",
+        value: "hover"
+      }]
+    }), ["fraction", "numbers"].includes(paginationStyle) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      label: "Text Color",
+      defaultValue: paginationDotStyleType === "normal" ? "#000000" : "#ffffff",
+      onChange: value => setAttributes(paginationDotStyleType === "normal" ? {
+        dotNormalTextColor: value
+      } : {
+        dotActiveTextColor: value
+      }),
+      value: paginationDotStyleType === "normal" ? dotNormalTextColor : dotActiveTextColor
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      label: "Background Color",
+      defaultValue: paginationDotStyleType === "normal" ? "#cacbcf" : "#4E6E3E",
+      onChange: value => setAttributes(paginationDotStyleType === "normal" ? {
+        dotNormalBackGroundNormalColor: value
+      } : {
+        dotNormalBackGroundActiveColor: value
+      }),
+      value: paginationDotStyleType === "normal" ? dotNormalBackGroundNormalColor : dotNormalBackGroundActiveColor
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Border", "smart-post-carousel"),
+      attributes: attributes,
+      attributesKey: "paginationBorderStyle",
+      setAttributes: setAttributes,
+      items: [{
+        label: "None",
+        value: "none"
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_5__.SolidBorder, {}),
+        value: "solid"
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_5__.DashedBorder, {}),
+        value: "dashed"
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_5__.DottedBorder, {}),
+        value: "dotted"
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_5__.DoubleBorder, {}),
+        value: "double"
+      }]
+    }), hasBorder && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        label: "Border Width",
+        attributeKey: "borderWidth",
+        min: 0,
+        max: 10,
+        defaultValue: 0,
+        showUnit: true,
+        step: 1
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        label: "Border Color",
+        defaultValue: "",
+        onChange: value => setAttributes({
+          borderColor: value
+        }),
+        value: borderColor
+      })]
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Style);
@@ -12859,7 +12961,11 @@ function SwiperCarousel({
     paginationHeight,
     paginationDotGap,
     paginationVerticalPosition,
-    paginationHorizontalPosition
+    paginationHorizontalPosition,
+    dotNormalBackGroundNormalColor,
+    dotNormalBackGroundActiveColor,
+    dotNormalTextColor,
+    dotActiveTextColor
   } = attributes;
 
   // All References
@@ -12954,6 +13060,8 @@ function SwiperCarousel({
     };
     if (type === "bullets") {
       base.renderBullet = (0,_const__WEBPACK_IMPORTED_MODULE_15__.getRenderBullet)(paginationStyle);
+      base.bulletClass = "sp-smart-post-carousel-pagination-bullet-base";
+      base.bulletActiveClass = "swiper-pagination-bullet-active";
     }
     return base;
   }, [paginationDots, paginationStyle]);
@@ -13029,7 +13137,11 @@ function SwiperCarousel({
       "--paginationDotHeight": `${paginationHeight[normalizedDeviceType] ?? 12}px`,
       "--paginationDotGap": `${paginationDotGap[normalizedDeviceType] ?? 8}px`,
       "--paginationVerticalPosition": `${paginationVerticalPosition[normalizedDeviceType] ?? -36}px`,
-      "--paginationHorizontalPosition": `${paginationHorizontalPosition[normalizedDeviceType] ?? 50}%`
+      "--paginationHorizontalPosition": `${paginationHorizontalPosition[normalizedDeviceType] ?? 50}%`,
+      "--paginationBackGroundInActiveColor": `${dotNormalBackGroundNormalColor}`,
+      "--paginationBackGroundActiveColor": `${dotNormalBackGroundActiveColor}`,
+      "--paginationTextInActiveColor": `${dotNormalTextColor}`,
+      "--paginationTextActiveColor": `${dotActiveTextColor}`
     },
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(swiper_react__WEBPACK_IMPORTED_MODULE_10__.Swiper, {
       onSwiper: swiper => {
@@ -17377,7 +17489,7 @@ const NumbersPagination = () => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPOR
   \********************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/smart-post-carousel","version":"0.1.0","title":"Smart Post Carousel","category":"smart-post-carousel","description":"Display posts in a responsive carousel with smooth navigation.","example":{},"supports":{"html":false,"align":["wide","full"]},"attributes":{"showReadMore":{"type":"boolean","default":false},"showTitle":{"type":"boolean","default":false},"partialView":{"type":"boolean","default":false},"showTaxonomy":{"type":"boolean","default":false},"showMetaData":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showSocialShare":{"type":"boolean","default":false},"showFeaturedImage":{"type":"boolean","default":false},"carouselStyle":{"type":"string","default":"standard"},"contentOrientation":{"type":"string","default":"orientation_one"},"columns":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"height":{"type":"object","default":{"desktop":445,"tablet":445,"mobile":445}},"gap":{"type":"object","default":{"desktop":24,"tablet":48,"mobile":24}},"slideGroup":{"type":"object","default":{"desktop":1,"tablet":1,"mobile":1}},"autoPlay":{"type":"boolean","default":true},"delay":{"type":"number","default":2000},"speed":{"type":"number","default":600},"direction":{"type":"string","default":"right"},"contentAlignment":{"type":"string","default":"flex-start"},"preloader":{"type":"boolean","default":false},"equalHeight":{"type":"boolean","default":false},"onHover":{"type":"boolean","default":false},"linkOpen":{"type":"string","default":"newTab"},"effect":{"type":"string","default":"slide"},"adaptiveHeight":{"type":"boolean","default":false},"infiniteLoop":{"type":"boolean","default":true},"keyNavigation":{"type":"boolean","default":true},"freeScroll":{"type":"boolean","default":false},"navigationArrow":{"type":"boolean","default":true},"paginationDots":{"type":"boolean","default":true},"numberOfSlides":{"type":"number","default":3},"arrowStyle":{"type":"string","default":"chevron-solid"},"visibilityOnHover":{"type":"boolean","default":false},"iconSize":{"type":"object","default":{"desktop":16,"tablet":16,"mobile":16}},"iconWidth":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"iconHeight":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"spaceBetweenArrow":{"type":"object","default":{"desktop":100,"tablet":100,"mobile":100}},"horizontalPosition":{"type":"object","default":{"desktop":44,"tablet":0,"mobile":0}},"verticalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}},"navArrowStyleType":{"type":"string","default":"normal"},"iconColor":{"type":"string","default":"#fff"},"iconHoverColor":{"type":"string","default":"#fff"},"iconBackGroundColor":{"type":"string","default":"#4e4f52"},"iconBackGroundHoverColor":{"type":"string","default":"#4e6e3e"},"borderStyle":{"type":"string","default":"none"},"borderWidth":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}},"borderColor":{"type":"string","default":"#11111"},"borderRadius":{"type":"object","default":{"desktop":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"tablet":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"mobile":{"top":50,"right":50,"bottom":50,"left":50,"linked":true}}},"showBoxShadow":{"type":"boolean","default":false},"boxShadow":{"type":"object","default":{"desktop":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"tablet":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"mobile":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"}}},"shadowColor":{"type":"string","default":"#d6d8de"},"paginationStyle":{"type":"string","default":"dots"},"paginationWidth":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationHeight":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationDotGap":{"type":"object","default":{"desktop":6,"tablet":6,"mobile":6}},"paginationVerticalPosition":{"type":"object","default":{"desktop":-36,"tablet":-36,"mobile":-36}},"paginationHorizontalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}}},"render":"file:./render.php","textdomain":"smart-post-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/smart-post-carousel","version":"0.1.0","title":"Smart Post Carousel","category":"smart-post-carousel","description":"Display posts in a responsive carousel with smooth navigation.","example":{},"supports":{"html":false,"align":["wide","full"]},"attributes":{"showReadMore":{"type":"boolean","default":false},"showTitle":{"type":"boolean","default":false},"partialView":{"type":"boolean","default":false},"showTaxonomy":{"type":"boolean","default":false},"showMetaData":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showSocialShare":{"type":"boolean","default":false},"showFeaturedImage":{"type":"boolean","default":false},"carouselStyle":{"type":"string","default":"standard"},"contentOrientation":{"type":"string","default":"orientation_one"},"columns":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"height":{"type":"object","default":{"desktop":445,"tablet":445,"mobile":445}},"gap":{"type":"object","default":{"desktop":24,"tablet":48,"mobile":24}},"slideGroup":{"type":"object","default":{"desktop":1,"tablet":1,"mobile":1}},"autoPlay":{"type":"boolean","default":true},"delay":{"type":"number","default":2000},"speed":{"type":"number","default":600},"direction":{"type":"string","default":"right"},"contentAlignment":{"type":"string","default":"flex-start"},"preloader":{"type":"boolean","default":false},"equalHeight":{"type":"boolean","default":false},"onHover":{"type":"boolean","default":false},"linkOpen":{"type":"string","default":"newTab"},"effect":{"type":"string","default":"slide"},"adaptiveHeight":{"type":"boolean","default":false},"infiniteLoop":{"type":"boolean","default":true},"keyNavigation":{"type":"boolean","default":true},"freeScroll":{"type":"boolean","default":false},"navigationArrow":{"type":"boolean","default":true},"paginationDots":{"type":"boolean","default":true},"numberOfSlides":{"type":"number","default":3},"arrowStyle":{"type":"string","default":"chevron-solid"},"visibilityOnHover":{"type":"boolean","default":false},"iconSize":{"type":"object","default":{"desktop":16,"tablet":16,"mobile":16}},"iconWidth":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"iconHeight":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"spaceBetweenArrow":{"type":"object","default":{"desktop":100,"tablet":100,"mobile":100}},"horizontalPosition":{"type":"object","default":{"desktop":44,"tablet":0,"mobile":0}},"verticalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}},"navArrowStyleType":{"type":"string","default":"normal"},"iconColor":{"type":"string","default":"#fff"},"iconHoverColor":{"type":"string","default":"#fff"},"iconBackGroundColor":{"type":"string","default":"#4e4f52"},"iconBackGroundHoverColor":{"type":"string","default":"#4e6e3e"},"borderStyle":{"type":"string","default":"none"},"borderWidth":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}},"borderColor":{"type":"string","default":"#11111"},"borderRadius":{"type":"object","default":{"desktop":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"tablet":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"mobile":{"top":50,"right":50,"bottom":50,"left":50,"linked":true}}},"showBoxShadow":{"type":"boolean","default":false},"boxShadow":{"type":"object","default":{"desktop":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"tablet":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"mobile":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"}}},"shadowColor":{"type":"string","default":"#d6d8de"},"paginationStyle":{"type":"string","default":"dots"},"paginationWidth":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationHeight":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationDotGap":{"type":"object","default":{"desktop":6,"tablet":6,"mobile":6}},"paginationVerticalPosition":{"type":"object","default":{"desktop":-36,"tablet":-36,"mobile":-36}},"paginationHorizontalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}},"paginationDotStyleType":{"type":"string","default":"normal"},"dotNormalTextColor":{"type":"string","default":"#000000"},"dotActiveTextColor":{"type":"string","default":"#ffffff"},"dotNormalBackGroundNormalColor":{"type":"string","default":"#cacbcf"},"dotNormalBackGroundActiveColor":{"type":"string","default":"#4E6E3E"},"paginationBorderStyle":{"type":"string","default":"none"},"paginationHover":{"type":"string","default":"normal"}},"render":"file:./render.php","textdomain":"smart-post-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ },
 

@@ -28,11 +28,6 @@
 
 		.swiper-pagination-bullet {
 			background: #4e98f3;
-			opacity: 0.5;
-
-			&-active {
-				opacity: 1;
-			}
 		}
 	}
 
@@ -411,9 +406,10 @@
 		position: relative;
 
 		// ─── Pagination Colors ───────────────────────────────
-		--sp-color-inactive: #323232;
-		--sp-color-active: #333;
-		--sp-color-active-text: #fff;
+		--sp-color-inactive: var(--paginationBackGroundInActiveColor);
+		--sp-color-active: var(--paginationBackGroundActiveColor);
+		--sp-color-active-text: var(--paginationTextActiveColor);
+		--sp-color-inactive-text: var(--paginationTextInActiveColor);
 		--sp-color-track: #e8e8e8;
 
 		/* ─── Base Wrapper ─── */
@@ -427,6 +423,15 @@
 			transform: translateX(-50%);
 			width: auto;
 			z-index: 999;
+
+			.sp-smart-post-carousel-pagination-bullet-base {
+				opacity: 1;
+				background: transparent;
+				width: unset;
+				height: unset;
+				border-radius: unset;
+				display: inline-block;
+			}
 		}
 
 		/* ══════════════════════════════
@@ -477,7 +482,7 @@
 			height: var(--sp-height);
 			border-radius: 50%;
 			background: var(--sp-color-inactive);
-			color: #555;
+			color: var(--sp-color-inactive-text);
 			font-size: calc(var(--sp-width) / 1.5);
 			font-weight: 600;
 			display: inline-flex;
@@ -498,26 +503,33 @@
        FRACTION
     ══════════════════════════════ */
 		.sp-smart-post-carousel-pagination-style--fraction {
-			width: var(--sp-width);
-			height: var(--sp-width);
-
-			font-size: calc(var(--sp-width) / 2.5);
-			font-weight: 500;
-			color: #555;
-			letter-spacing: 1px;
-
-			display: flex;
+			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-		}
-		.sp-smart-post-carousel-pagination-style--fraction
-			.swiper-pagination-current {
-			font-weight: 700;
-			color: var(--sp-color-active);
-		}
-		.sp-smart-post-carousel-pagination-style--fraction
+			gap: 4px;
+			padding: 4px 10px;
+			border-radius: 50px;
+			background: transparent;
+			color: var(--sp-color-inactive-text);
+			background: var(--sp-color-inactive);
+			font-size: calc(var(--sp-width) / 2.5);
+			font-weight: 500;
+			letter-spacing: 1px;
+			cursor: default;
+			transition:
+				background 0.3s ease,
+				color 0.3s ease;
+
+			&:hover {
+				background: var(--sp-color-active);
+				color: var(--sp-color-active-text);
+			}
+
+			.swiper-pagination-current,
 			.swiper-pagination-total {
-			color: #aaa;
+				font-weight: 600;
+				color: inherit;
+			}
 		}
 
 		/* ══════════════════════════════
@@ -530,7 +542,7 @@
 
 		.sp-smart-post-carousel-swiper-scrollbar {
 			width: 100%;
-			height: var(--sp-height);
+			height: var(--sp-scrollbar-height);
 			background: var(--sp-color-track);
 			border-radius: var(--sp-scrollbar-radius);
 			margin-top: var(--sp-pagination-mt);

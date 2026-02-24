@@ -358,6 +358,34 @@ return array(
 					'tablet' => 50,
 					'mobile' => 50
 				)
+			),
+			'paginationDotStyleType' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'dotNormalTextColor' => array(
+				'type' => 'string',
+				'default' => '#000000'
+			),
+			'dotActiveTextColor' => array(
+				'type' => 'string',
+				'default' => '#ffffff'
+			),
+			'dotNormalBackGroundNormalColor' => array(
+				'type' => 'string',
+				'default' => '#cacbcf'
+			),
+			'dotNormalBackGroundActiveColor' => array(
+				'type' => 'string',
+				'default' => '#4E6E3E'
+			),
+			'paginationBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'paginationHover' => array(
+				'type' => 'string',
+				'default' => 'normal'
 			)
 		),
 		'render' => 'file:./render.php',
