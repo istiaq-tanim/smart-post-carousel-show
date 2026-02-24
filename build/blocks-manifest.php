@@ -338,9 +338,9 @@ return array(
 			'paginationDotGap' => array(
 				'type' => 'object',
 				'default' => array(
-					'desktop' => 8,
-					'tablet' => 8,
-					'mobile' => 8
+					'desktop' => 6,
+					'tablet' => 6,
+					'mobile' => 6
 				)
 			),
 			'paginationVerticalPosition' => array(
