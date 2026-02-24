@@ -478,7 +478,7 @@
 			border-radius: 50%;
 			background: var(--sp-color-inactive);
 			color: #555;
-			font-size: var(--sp-number-font-size);
+			font-size: calc(var(--sp-width) / 1.5);
 			font-weight: 600;
 			display: inline-flex;
 			align-items: center;
@@ -498,14 +498,20 @@
        FRACTION
     ══════════════════════════════ */
 		.sp-smart-post-carousel-pagination-style--fraction {
-			font-size: var(--sp-width);
+			width: var(--sp-width);
+			height: var(--sp-width);
+
+			font-size: calc(var(--sp-width) / 2.5);
 			font-weight: 500;
 			color: #555;
 			letter-spacing: 1px;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 		.sp-smart-post-carousel-pagination-style--fraction
 			.swiper-pagination-current {
-			font-size: var(--sp-width);
 			font-weight: 700;
 			color: var(--sp-color-active);
 		}
@@ -517,28 +523,34 @@
 		/* ══════════════════════════════
        SCROLLBAR
     ══════════════════════════════ */
+
+		.swiper-scrollbar {
+			display: none !important;
+		}
+
 		.sp-smart-post-carousel-swiper-scrollbar {
 			width: 100%;
-			height: var(--sp-scrollbar-height);
+			height: var(--sp-height);
 			background: var(--sp-color-track);
 			border-radius: var(--sp-scrollbar-radius);
 			margin-top: var(--sp-pagination-mt);
 			position: relative;
 			cursor: pointer;
-			transition: height 0.2s ease;
+		}
 
-			.swiper-scrollbar-drag {
-				height: 100%;
-				background: var(--sp-color-active);
-				border-radius: var(--sp-scrollbar-radius);
-				cursor: grab;
-				transition: background 0.2s ease;
+		.sp-smart-post-carousel-swiper-scrollbar .swiper-scrollbar-drag {
+			height: 100%;
+			background: var(--sp-color-active);
+			border-radius: var(--sp-scrollbar-radius);
+			cursor: grab;
 
-				&:active {
-					cursor: grabbing;
-					background: #111;
-				}
-			}
+			will-change: transform;
+			transform: translate3d(0, 0, 0);
+			transition: background 0.2s ease;
+		}
+
+		.sp-smart-post-carousel-swiper-scrollbar .swiper-scrollbar-drag:active {
+			cursor: grabbing;
 		}
 	}
 }

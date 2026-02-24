@@ -53,44 +53,53 @@ function General() {
 			/>
 
 			{/* pagination Dot Width */}
-			<CustomRangeControl
-				label="Width"
-				attributeKey="paginationWidth"
-				min={0}
-				max={60}
-				defaultValue={12}
-				showUnit={true}
-			></CustomRangeControl>
+
+			{paginationStyle !== "progressbar" && (
+				<CustomRangeControl
+					label="Width"
+					attributeKey="paginationWidth"
+					min={0}
+					max={60}
+					defaultValue={12}
+					showUnit={true}
+				></CustomRangeControl>
+			)}
 
 			{/* Pagination Dot Height */}
-			<CustomRangeControl
-				label="Height"
-				attributeKey="paginationHeight"
-				min={0}
-				max={60}
-				defaultValue={12}
-				showUnit={true}
-			></CustomRangeControl>
+			{paginationStyle !== "fraction" && (
+				<CustomRangeControl
+					label="Height"
+					attributeKey="paginationHeight"
+					min={0}
+					max={60}
+					defaultValue={12}
+					showUnit={true}
+				></CustomRangeControl>
+			)}
 
 			{/* Pagination Dot Gap */}
-			<CustomRangeControl
-				label="Space Between Dots"
-				attributeKey="paginationDotGap"
-				min={0}
-				max={40}
-				defaultValue={8}
-				showUnit={true}
-			></CustomRangeControl>
+			{paginationStyle !== "fraction" && paginationStyle !== "progressbar" && (
+				<CustomRangeControl
+					label="Space Between Dots"
+					attributeKey="paginationDotGap"
+					min={0}
+					max={40}
+					defaultValue={8}
+					showUnit={true}
+				></CustomRangeControl>
+			)}
 
 			{/* Horizontal Position */}
-			<CustomRangeControl
-				label="Horizontal Position"
-				attributeKey="paginationHorizontalPosition"
-				min={0}
-				max={100}
-				defaultValue={50}
-				showUnit={true}
-			></CustomRangeControl>
+			{paginationStyle !== "progressbar" && (
+				<CustomRangeControl
+					label="Horizontal Position"
+					attributeKey="paginationHorizontalPosition"
+					min={0}
+					max={100}
+					defaultValue={50}
+					showUnit={true}
+				></CustomRangeControl>
+			)}
 			{/* Vertical Position */}
 			<CustomRangeControl
 				label="Vertical Position"
