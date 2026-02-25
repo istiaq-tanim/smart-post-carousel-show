@@ -1,5 +1,6 @@
 import { getPostDate } from "../../../../utils";
 import { useDeviceType } from "../../../hooks/useDevice";
+import AuthorMeta from "./AuthorMetaItem";
 import CategoryList from "./CategoryList";
 import MetaItem from "./MetaItem";
 import { ReadingTime } from "./ReadingTime";
@@ -9,7 +10,14 @@ function PostCard({ post, attributes }) {
 	const imageAlt = post?.image_alt || "featured image";
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
-	const { height, contentAlignment, equalHeight } = attributes;
+	const {
+		height,
+		contentAlignment,
+		equalHeight,
+		metaDataAllContentArray = [],
+		metaDisplayType,
+		authorDisplayStyle,
+	} = attributes;
 
 	const author =
 		post?._embedded?.author?.[0]?.name || post?.author || "Salah Uddin";
@@ -24,12 +32,49 @@ function PostCard({ post, attributes }) {
 		post?.post_thumbnail_url ||
 		"http://localhost:10038/wp-content/plugins/smart-post-show-pro/public/assets/img/placeholder.png";
 
-	// orientation class
 	const orientation = attributes?.contentOrientation || "orientation_one";
+
+	const authorAvatar = post?.author_avatar_url
+		? post?.author_avatar_url
+		: "`https://www.gravatar.com/avatar/?d=mp&s=48`;";
 
 	const cardClassName = `sp-smart-post-carousel-card ${orientation}${
 		equalHeight ? " equal-height" : ""
 	}`;
+
+	const getMetaElement = (item) => {
+		switch (item.value) {
+			case "author":
+				return (
+					<AuthorMeta
+						key="author"
+						author={author}
+						authorAvatar={authorAvatar}
+						authorDisplayType={authorDisplayStyle}
+					/>
+				);
+			case "date":
+				return orientation !== "orientation_two" ? (
+					<MetaItem key="date" icon="date" text={postDate.meta} />
+				) : null;
+			case "comments":
+				return <MetaItem key="comments" icon="comments" text={commentsCount} />;
+			case "views":
+				return <MetaItem key="views" icon="views" text={views} />;
+			case "likes":
+				return <MetaItem key="likes" icon="likes" text={likes} />;
+			case "reading-time":
+				return (
+					<ReadingTime
+						key="reading-time"
+						content={post.content}
+						attributes={attributes}
+					/>
+				);
+			default:
+				return null;
+		}
+	};
 
 	return (
 		<div
@@ -44,12 +89,10 @@ function PostCard({ post, attributes }) {
 			<div className="sp-smart-post-carousel-card-image">
 				<img src={image} alt={imageAlt} />
 
-				{/* category overlay */}
 				<div className="sp-smart-post-carousel-overlay-category">
 					<CategoryList categories={post.category} />
 				</div>
 
-				{/* date badge  */}
 				<div className="sp-smart-post-carousel-date">
 					<span className="sp-smart-post-carousel-day">{postDate.day}</span>
 					<span className="sp-smart-post-carousel-month-year">
@@ -61,11 +104,8 @@ function PostCard({ post, attributes }) {
 			{/* CONTENT */}
 			<div
 				className="sp-smart-post-carousel-template-content"
-				style={{
-					"--alignment": `${contentAlignment}`,
-				}}
+				style={{ "--alignment": `${contentAlignment}` }}
 			>
-				{/* hide duplicate category in orientation 3 */}
 				{orientation !== "orientation_three" && (
 					<CategoryList categories={post.category} />
 				)}
@@ -75,16 +115,28 @@ function PostCard({ post, attributes }) {
 					dangerouslySetInnerHTML={{ __html: title }}
 				/>
 
-				<div className="sp-smart-post-carousel-card-meta-wrapper">
-					<MetaItem icon="author" text={author} />
-					{orientation !== "orientation_two" && (
-						<MetaItem icon="date" text={postDate.meta} />
-					)}
-					<MetaItem icon="comments" text={commentsCount} />
-					<MetaItem icon="views" text={views} />
-					<MetaItem icon="likes" text={likes} />
+				<div
+					className={`sp-smart-post-carousel-card-meta-wrapper ${metaDisplayType}`}
+				>
+					{metaDisplayType === "split" ? (
+						<>
+							<div className="sp-smart-post-carousel-meta-left">
+								{metaDataAllContentArray
+									.filter((item) => item.show && item.position === "left")
+									.map((item) => getMetaElement(item))}
+							</div>
 
-					<ReadingTime content={post.content} attributes={attributes} />
+							<div className="sp-smart-post-carousel-meta-right">
+								{metaDataAllContentArray
+									.filter((item) => item.show && item.position === "right")
+									.map((item) => getMetaElement(item))}
+							</div>
+						</>
+					) : (
+						metaDataAllContentArray
+							.filter((item) => item.show)
+							.map((item) => getMetaElement(item))
+					)}
 				</div>
 			</div>
 		</div>

@@ -1,3 +1,6 @@
+// Import Files
+import md5 from "md5";
+
 export const stripComments = (content = "") => {
 	if (!content) return "";
 
@@ -75,4 +78,10 @@ export const arrayChunk = (array, size) => {
 		chunks.push(array.slice(i, i + size));
 	}
 	return chunks;
+};
+
+export const getGravatarUrl = (email, size = 48) => {
+	if (!email) return "";
+	const hash = md5(email.trim().toLowerCase());
+	return `https://www.gravatar.com/avatar/${hash}?s=${size}&d=mp`;
 };

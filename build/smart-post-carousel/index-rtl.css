@@ -651,6 +651,77 @@
 .sp-smart-post-carousel-units button.active svg {
   fill: var(--sp-smart-primary-2-600);
 }
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/DragandDrop/editor.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.shaped-plugin-multiple-select .sp-smart-post-carousel-multiple-select-dnd-label {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+
+.sp-smart-post-carousel-drag-and-drop-dnd-container .sp-smart-post-carousel-selected-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.sp-smart-post-carousel-drag-and-drop-dnd-container .sp-smart-post-carousel-selected-options .sp-smart-post-carousel-grabbing {
+  cursor: grabbing;
+  z-index: 9;
+}
+
+.sp-smart-post-carousel-drag-and-drop-dnd-container .sp-smart-post-carousel-selected-options .sp-smart-post-carousel-grab {
+  cursor: grab;
+}
+
+.sp-smart-post-carousel-drag-and-drop-dnd-container .sp-smart-post-carousel-selected-options .sp-smart-post-carousel-selected-option .sp-smart-post-carousel-select-toggle-button {
+  cursor: pointer;
+  padding: 5px;
+  width: 20%;
+  text-align: center;
+}
+
+.sp-smart-post-carousel-drag-and-drop-dnd-container .sp-smart-post-carousel-selected-options .sp-smart-post-carousel-selected-option .sp-smart-post-carousel-select-toggle-button .components-base-control {
+  margin: 0;
+}
+
+.sp-smart-post-carousel-drag-and-drop-dnd-container .sp-smart-post-carousel-selected-options .sp-smart-post-carousel-selected-option .sp-smart-post-carousel-select-toggle-button .components-base-control .components-form-toggle.is-checked .components-form-toggle__track {
+  background-color: var(--sp-smart-primary-2-400);
+  border-color: var(--sp-smart-primary-2-400);
+}
+
+.sp-smart-post-carousel-drag-and-drop-dnd-container .sp-smart-post-carousel-disabled {
+  cursor: grab;
+  margin-bottom: 8px;
+}
+
+.sp-smart-post-carousel-drag-and-drop-dnd-container .sp-smart-post-carousel-selected-option {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 8px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.sp-smart-post-carousel-drag-and-drop-dnd-container .sp-smart-post-carousel-selected-option .sp-smart-post-carousel-select-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 5px;
+  width: 85%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /*!*********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/CustomTabs/editor.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************************************/

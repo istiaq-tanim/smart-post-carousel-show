@@ -220,7 +220,7 @@ function Inspector({ attributes, setAttributes }) {
 				{openPanel === "metadata" && (
 					<>
 						<CustomToggle
-							label={__("Meta data", "smart-post-carousel")}
+							label={__("Show Meta Data", "smart-post-carousel")}
 							value={attributes.showMetaData}
 							attributesKey="showMetaData"
 							setAttributes={setAttributes}

@@ -358,6 +358,89 @@ return array(
 					'tablet' => 50,
 					'mobile' => 50
 				)
+			),
+			'paginationDotStyleType' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'dotNormalTextColor' => array(
+				'type' => 'string',
+				'default' => '#000000'
+			),
+			'dotActiveTextColor' => array(
+				'type' => 'string',
+				'default' => '#ffffff'
+			),
+			'dotNormalBackGroundNormalColor' => array(
+				'type' => 'string',
+				'default' => '#cacbcf'
+			),
+			'dotNormalBackGroundActiveColor' => array(
+				'type' => 'string',
+				'default' => '#4E6E3E'
+			),
+			'paginationBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'paginationHover' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'metaDataAllContentArray' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => '1',
+						'value' => 'author',
+						'label' => 'Author',
+						'show' => true,
+						'position' => 'left'
+					),
+					array(
+						'id' => '2',
+						'value' => 'date',
+						'label' => 'Date',
+						'show' => true,
+						'position' => 'left'
+					),
+					array(
+						'id' => '3',
+						'value' => 'comments',
+						'label' => 'Comments',
+						'show' => true,
+						'position' => 'right'
+					),
+					array(
+						'id' => '4',
+						'value' => 'views',
+						'label' => 'Views',
+						'show' => true,
+						'position' => 'right'
+					),
+					array(
+						'id' => '5',
+						'value' => 'likes',
+						'label' => 'Likes',
+						'show' => true,
+						'position' => 'right'
+					),
+					array(
+						'id' => '6',
+						'value' => 'reading-time',
+						'label' => 'Reading Time',
+						'show' => true,
+						'position' => 'left'
+					)
+				)
+			),
+			'metaDisplayType' => array(
+				'type' => 'string',
+				'default' => 'inline'
+			),
+			'authorDisplayStyle' => array(
+				'type' => 'string',
+				'default' => 'iconName'
 			)
 		),
 		'render' => 'file:./render.php',

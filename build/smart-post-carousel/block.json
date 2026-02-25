@@ -353,6 +353,89 @@
         "tablet": 50,
         "mobile": 50
       }
+    },
+    "paginationDotStyleType": {
+      "type": "string",
+      "default": "normal"
+    },
+    "dotNormalTextColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "dotActiveTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "dotNormalBackGroundNormalColor": {
+      "type": "string",
+      "default": "#cacbcf"
+    },
+    "dotNormalBackGroundActiveColor": {
+      "type": "string",
+      "default": "#4E6E3E"
+    },
+    "paginationBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "paginationHover": {
+      "type": "string",
+      "default": "normal"
+    },
+    "metaDataAllContentArray": {
+      "type": "array",
+      "default": [
+        {
+          "id": "1",
+          "value": "author",
+          "label": "Author",
+          "show": true,
+          "position": "left"
+        },
+        {
+          "id": "2",
+          "value": "date",
+          "label": "Date",
+          "show": true,
+          "position": "left"
+        },
+        {
+          "id": "3",
+          "value": "comments",
+          "label": "Comments",
+          "show": true,
+          "position": "right"
+        },
+        {
+          "id": "4",
+          "value": "views",
+          "label": "Views",
+          "show": true,
+          "position": "right"
+        },
+        {
+          "id": "5",
+          "value": "likes",
+          "label": "Likes",
+          "show": true,
+          "position": "right"
+        },
+        {
+          "id": "6",
+          "value": "reading-time",
+          "label": "Reading Time",
+          "show": true,
+          "position": "left"
+        }
+      ]
+    },
+    "metaDisplayType": {
+      "type": "string",
+      "default": "inline"
+    },
+    "authorDisplayStyle": {
+      "type": "string",
+      "default": "iconName"
     }
   },
   "render": "file:./render.php",

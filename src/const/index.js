@@ -105,6 +105,30 @@ export const linkOpen = [
 		value: "newTab",
 	},
 ];
+
+export const authorDisplayStyle = [
+	{
+		disabled: true,
+		label: "Select an Option",
+		value: "",
+	},
+	{
+		label: "Show Name",
+		value: "name",
+	},
+	{
+		label: "Show Gravatar",
+		value: "gravatar",
+	},
+	{
+		label: "Show Name with Gravatar",
+		value: "nameGravatar",
+	},
+	{
+		label: "Author Name with Icon",
+		value: "iconName",
+	},
+];
 export const animationEffect = [
 	{
 		label: "Slide",
