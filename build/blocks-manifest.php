@@ -386,6 +386,61 @@ return array(
 			'paginationHover' => array(
 				'type' => 'string',
 				'default' => 'normal'
+			),
+			'metaDataAllContentArray' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => '1',
+						'value' => 'author',
+						'label' => 'Author',
+						'show' => true,
+						'position' => 'left'
+					),
+					array(
+						'id' => '2',
+						'value' => 'date',
+						'label' => 'Date',
+						'show' => true,
+						'position' => 'left'
+					),
+					array(
+						'id' => '3',
+						'value' => 'comments',
+						'label' => 'Comments',
+						'show' => true,
+						'position' => 'right'
+					),
+					array(
+						'id' => '4',
+						'value' => 'views',
+						'label' => 'Views',
+						'show' => true,
+						'position' => 'right'
+					),
+					array(
+						'id' => '5',
+						'value' => 'likes',
+						'label' => 'Likes',
+						'show' => true,
+						'position' => 'right'
+					),
+					array(
+						'id' => '6',
+						'value' => 'reading-time',
+						'label' => 'Reading Time',
+						'show' => true,
+						'position' => 'left'
+					)
+				)
+			),
+			'metaDisplayType' => array(
+				'type' => 'string',
+				'default' => 'inline'
+			),
+			'authorDisplayStyle' => array(
+				'type' => 'string',
+				'default' => 'iconName'
 			)
 		),
 		'render' => 'file:./render.php',

@@ -381,6 +381,61 @@
     "paginationHover": {
       "type": "string",
       "default": "normal"
+    },
+    "metaDataAllContentArray": {
+      "type": "array",
+      "default": [
+        {
+          "id": "1",
+          "value": "author",
+          "label": "Author",
+          "show": true,
+          "position": "left"
+        },
+        {
+          "id": "2",
+          "value": "date",
+          "label": "Date",
+          "show": true,
+          "position": "left"
+        },
+        {
+          "id": "3",
+          "value": "comments",
+          "label": "Comments",
+          "show": true,
+          "position": "right"
+        },
+        {
+          "id": "4",
+          "value": "views",
+          "label": "Views",
+          "show": true,
+          "position": "right"
+        },
+        {
+          "id": "5",
+          "value": "likes",
+          "label": "Likes",
+          "show": true,
+          "position": "right"
+        },
+        {
+          "id": "6",
+          "value": "reading-time",
+          "label": "Reading Time",
+          "show": true,
+          "position": "left"
+        }
+      ]
+    },
+    "metaDisplayType": {
+      "type": "string",
+      "default": "inline"
+    },
+    "authorDisplayStyle": {
+      "type": "string",
+      "default": "iconName"
     }
   },
   "render": "file:./render.php",

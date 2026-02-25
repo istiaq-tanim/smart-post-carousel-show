@@ -1,6 +1,5785 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/@dnd-kit/accessibility/dist/accessibility.esm.js"
+/*!***********************************************************************!*\
+  !*** ./node_modules/@dnd-kit/accessibility/dist/accessibility.esm.js ***!
+  \***********************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   HiddenText: () => (/* binding */ HiddenText),
+/* harmony export */   LiveRegion: () => (/* binding */ LiveRegion),
+/* harmony export */   useAnnouncement: () => (/* binding */ useAnnouncement)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const hiddenStyles = {
+  display: 'none'
+};
+function HiddenText(_ref) {
+  let {
+    id,
+    value
+  } = _ref;
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: id,
+    style: hiddenStyles
+  }, value);
+}
+
+function LiveRegion(_ref) {
+  let {
+    id,
+    announcement,
+    ariaLiveType = "assertive"
+  } = _ref;
+  // Hide element visually but keep it readable by screen readers
+  const visuallyHidden = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: 1,
+    height: 1,
+    margin: -1,
+    border: 0,
+    padding: 0,
+    overflow: 'hidden',
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(100%)',
+    whiteSpace: 'nowrap'
+  };
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: id,
+    style: visuallyHidden,
+    role: "status",
+    "aria-live": ariaLiveType,
+    "aria-atomic": true
+  }, announcement);
+}
+
+function useAnnouncement() {
+  const [announcement, setAnnouncement] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const announce = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(value => {
+    if (value != null) {
+      setAnnouncement(value);
+    }
+  }, []);
+  return {
+    announce,
+    announcement
+  };
+}
+
+
+//# sourceMappingURL=accessibility.esm.js.map
+
+
+/***/ },
+
+/***/ "./node_modules/@dnd-kit/core/dist/core.esm.js"
+/*!*****************************************************!*\
+  !*** ./node_modules/@dnd-kit/core/dist/core.esm.js ***!
+  \*****************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AutoScrollActivator: () => (/* binding */ AutoScrollActivator),
+/* harmony export */   DndContext: () => (/* binding */ DndContext),
+/* harmony export */   DragOverlay: () => (/* binding */ DragOverlay),
+/* harmony export */   KeyboardCode: () => (/* binding */ KeyboardCode),
+/* harmony export */   KeyboardSensor: () => (/* binding */ KeyboardSensor),
+/* harmony export */   MeasuringFrequency: () => (/* binding */ MeasuringFrequency),
+/* harmony export */   MeasuringStrategy: () => (/* binding */ MeasuringStrategy),
+/* harmony export */   MouseSensor: () => (/* binding */ MouseSensor),
+/* harmony export */   PointerSensor: () => (/* binding */ PointerSensor),
+/* harmony export */   TouchSensor: () => (/* binding */ TouchSensor),
+/* harmony export */   TraversalOrder: () => (/* binding */ TraversalOrder),
+/* harmony export */   applyModifiers: () => (/* binding */ applyModifiers),
+/* harmony export */   closestCenter: () => (/* binding */ closestCenter),
+/* harmony export */   closestCorners: () => (/* binding */ closestCorners),
+/* harmony export */   defaultAnnouncements: () => (/* binding */ defaultAnnouncements),
+/* harmony export */   defaultCoordinates: () => (/* binding */ defaultCoordinates),
+/* harmony export */   defaultDropAnimation: () => (/* binding */ defaultDropAnimationConfiguration),
+/* harmony export */   defaultDropAnimationSideEffects: () => (/* binding */ defaultDropAnimationSideEffects),
+/* harmony export */   defaultKeyboardCoordinateGetter: () => (/* binding */ defaultKeyboardCoordinateGetter),
+/* harmony export */   defaultScreenReaderInstructions: () => (/* binding */ defaultScreenReaderInstructions),
+/* harmony export */   getClientRect: () => (/* binding */ getClientRect),
+/* harmony export */   getFirstCollision: () => (/* binding */ getFirstCollision),
+/* harmony export */   getScrollableAncestors: () => (/* binding */ getScrollableAncestors),
+/* harmony export */   pointerWithin: () => (/* binding */ pointerWithin),
+/* harmony export */   rectIntersection: () => (/* binding */ rectIntersection),
+/* harmony export */   useDndContext: () => (/* binding */ useDndContext),
+/* harmony export */   useDndMonitor: () => (/* binding */ useDndMonitor),
+/* harmony export */   useDraggable: () => (/* binding */ useDraggable),
+/* harmony export */   useDroppable: () => (/* binding */ useDroppable),
+/* harmony export */   useSensor: () => (/* binding */ useSensor),
+/* harmony export */   useSensors: () => (/* binding */ useSensors)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "react-dom");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @dnd-kit/utilities */ "./node_modules/@dnd-kit/utilities/dist/utilities.esm.js");
+/* harmony import */ var _dnd_kit_accessibility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @dnd-kit/accessibility */ "./node_modules/@dnd-kit/accessibility/dist/accessibility.esm.js");
+
+
+
+
+
+const DndMonitorContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);
+
+function useDndMonitor(listener) {
+  const registerListener = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(DndMonitorContext);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!registerListener) {
+      throw new Error('useDndMonitor must be used within a children of <DndContext>');
+    }
+
+    const unsubscribe = registerListener(listener);
+    return unsubscribe;
+  }, [listener, registerListener]);
+}
+
+function useDndMonitorProvider() {
+  const [listeners] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(() => new Set());
+  const registerListener = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(listener => {
+    listeners.add(listener);
+    return () => listeners.delete(listener);
+  }, [listeners]);
+  const dispatch = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(_ref => {
+    let {
+      type,
+      event
+    } = _ref;
+    listeners.forEach(listener => {
+      var _listener$type;
+
+      return (_listener$type = listener[type]) == null ? void 0 : _listener$type.call(listener, event);
+    });
+  }, [listeners]);
+  return [dispatch, registerListener];
+}
+
+const defaultScreenReaderInstructions = {
+  draggable: "\n    To pick up a draggable item, press the space bar.\n    While dragging, use the arrow keys to move the item.\n    Press space again to drop the item in its new position, or press escape to cancel.\n  "
+};
+const defaultAnnouncements = {
+  onDragStart(_ref) {
+    let {
+      active
+    } = _ref;
+    return "Picked up draggable item " + active.id + ".";
+  },
+
+  onDragOver(_ref2) {
+    let {
+      active,
+      over
+    } = _ref2;
+
+    if (over) {
+      return "Draggable item " + active.id + " was moved over droppable area " + over.id + ".";
+    }
+
+    return "Draggable item " + active.id + " is no longer over a droppable area.";
+  },
+
+  onDragEnd(_ref3) {
+    let {
+      active,
+      over
+    } = _ref3;
+
+    if (over) {
+      return "Draggable item " + active.id + " was dropped over droppable area " + over.id;
+    }
+
+    return "Draggable item " + active.id + " was dropped.";
+  },
+
+  onDragCancel(_ref4) {
+    let {
+      active
+    } = _ref4;
+    return "Dragging was cancelled. Draggable item " + active.id + " was dropped.";
+  }
+
+};
+
+function Accessibility(_ref) {
+  let {
+    announcements = defaultAnnouncements,
+    container,
+    hiddenTextDescribedById,
+    screenReaderInstructions = defaultScreenReaderInstructions
+  } = _ref;
+  const {
+    announce,
+    announcement
+  } = (0,_dnd_kit_accessibility__WEBPACK_IMPORTED_MODULE_3__.useAnnouncement)();
+  const liveRegionId = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useUniqueId)("DndLiveRegion");
+  const [mounted, setMounted] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    setMounted(true);
+  }, []);
+  useDndMonitor((0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
+    onDragStart(_ref2) {
+      let {
+        active
+      } = _ref2;
+      announce(announcements.onDragStart({
+        active
+      }));
+    },
+
+    onDragMove(_ref3) {
+      let {
+        active,
+        over
+      } = _ref3;
+
+      if (announcements.onDragMove) {
+        announce(announcements.onDragMove({
+          active,
+          over
+        }));
+      }
+    },
+
+    onDragOver(_ref4) {
+      let {
+        active,
+        over
+      } = _ref4;
+      announce(announcements.onDragOver({
+        active,
+        over
+      }));
+    },
+
+    onDragEnd(_ref5) {
+      let {
+        active,
+        over
+      } = _ref5;
+      announce(announcements.onDragEnd({
+        active,
+        over
+      }));
+    },
+
+    onDragCancel(_ref6) {
+      let {
+        active,
+        over
+      } = _ref6;
+      announce(announcements.onDragCancel({
+        active,
+        over
+      }));
+    }
+
+  }), [announce, announcements]));
+
+  if (!mounted) {
+    return null;
+  }
+
+  const markup = react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_dnd_kit_accessibility__WEBPACK_IMPORTED_MODULE_3__.HiddenText, {
+    id: hiddenTextDescribedById,
+    value: screenReaderInstructions.draggable
+  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_dnd_kit_accessibility__WEBPACK_IMPORTED_MODULE_3__.LiveRegion, {
+    id: liveRegionId,
+    announcement: announcement
+  }));
+  return container ? (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.createPortal)(markup, container) : markup;
+}
+
+var Action;
+
+(function (Action) {
+  Action["DragStart"] = "dragStart";
+  Action["DragMove"] = "dragMove";
+  Action["DragEnd"] = "dragEnd";
+  Action["DragCancel"] = "dragCancel";
+  Action["DragOver"] = "dragOver";
+  Action["RegisterDroppable"] = "registerDroppable";
+  Action["SetDroppableDisabled"] = "setDroppableDisabled";
+  Action["UnregisterDroppable"] = "unregisterDroppable";
+})(Action || (Action = {}));
+
+function noop() {}
+
+function useSensor(sensor, options) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
+    sensor,
+    options: options != null ? options : {}
+  }), // eslint-disable-next-line react-hooks/exhaustive-deps
+  [sensor, options]);
+}
+
+function useSensors() {
+  for (var _len = arguments.length, sensors = new Array(_len), _key = 0; _key < _len; _key++) {
+    sensors[_key] = arguments[_key];
+  }
+
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => [...sensors].filter(sensor => sensor != null), // eslint-disable-next-line react-hooks/exhaustive-deps
+  [...sensors]);
+}
+
+const defaultCoordinates = /*#__PURE__*/Object.freeze({
+  x: 0,
+  y: 0
+});
+
+/**
+ * Returns the distance between two points
+ */
+function distanceBetween(p1, p2) {
+  return Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+}
+
+function getRelativeTransformOrigin(event, rect) {
+  const eventCoordinates = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getEventCoordinates)(event);
+
+  if (!eventCoordinates) {
+    return '0 0';
+  }
+
+  const transformOrigin = {
+    x: (eventCoordinates.x - rect.left) / rect.width * 100,
+    y: (eventCoordinates.y - rect.top) / rect.height * 100
+  };
+  return transformOrigin.x + "% " + transformOrigin.y + "%";
+}
+
+/**
+ * Sort collisions from smallest to greatest value
+ */
+function sortCollisionsAsc(_ref, _ref2) {
+  let {
+    data: {
+      value: a
+    }
+  } = _ref;
+  let {
+    data: {
+      value: b
+    }
+  } = _ref2;
+  return a - b;
+}
+/**
+ * Sort collisions from greatest to smallest value
+ */
+
+function sortCollisionsDesc(_ref3, _ref4) {
+  let {
+    data: {
+      value: a
+    }
+  } = _ref3;
+  let {
+    data: {
+      value: b
+    }
+  } = _ref4;
+  return b - a;
+}
+/**
+ * Returns the coordinates of the corners of a given rectangle:
+ * [TopLeft {x, y}, TopRight {x, y}, BottomLeft {x, y}, BottomRight {x, y}]
+ */
+
+function cornersOfRectangle(_ref5) {
+  let {
+    left,
+    top,
+    height,
+    width
+  } = _ref5;
+  return [{
+    x: left,
+    y: top
+  }, {
+    x: left + width,
+    y: top
+  }, {
+    x: left,
+    y: top + height
+  }, {
+    x: left + width,
+    y: top + height
+  }];
+}
+function getFirstCollision(collisions, property) {
+  if (!collisions || collisions.length === 0) {
+    return null;
+  }
+
+  const [firstCollision] = collisions;
+  return property ? firstCollision[property] : firstCollision;
+}
+
+/**
+ * Returns the coordinates of the center of a given ClientRect
+ */
+
+function centerOfRectangle(rect, left, top) {
+  if (left === void 0) {
+    left = rect.left;
+  }
+
+  if (top === void 0) {
+    top = rect.top;
+  }
+
+  return {
+    x: left + rect.width * 0.5,
+    y: top + rect.height * 0.5
+  };
+}
+/**
+ * Returns the closest rectangles from an array of rectangles to the center of a given
+ * rectangle.
+ */
+
+
+const closestCenter = _ref => {
+  let {
+    collisionRect,
+    droppableRects,
+    droppableContainers
+  } = _ref;
+  const centerRect = centerOfRectangle(collisionRect, collisionRect.left, collisionRect.top);
+  const collisions = [];
+
+  for (const droppableContainer of droppableContainers) {
+    const {
+      id
+    } = droppableContainer;
+    const rect = droppableRects.get(id);
+
+    if (rect) {
+      const distBetween = distanceBetween(centerOfRectangle(rect), centerRect);
+      collisions.push({
+        id,
+        data: {
+          droppableContainer,
+          value: distBetween
+        }
+      });
+    }
+  }
+
+  return collisions.sort(sortCollisionsAsc);
+};
+
+/**
+ * Returns the closest rectangles from an array of rectangles to the corners of
+ * another rectangle.
+ */
+
+const closestCorners = _ref => {
+  let {
+    collisionRect,
+    droppableRects,
+    droppableContainers
+  } = _ref;
+  const corners = cornersOfRectangle(collisionRect);
+  const collisions = [];
+
+  for (const droppableContainer of droppableContainers) {
+    const {
+      id
+    } = droppableContainer;
+    const rect = droppableRects.get(id);
+
+    if (rect) {
+      const rectCorners = cornersOfRectangle(rect);
+      const distances = corners.reduce((accumulator, corner, index) => {
+        return accumulator + distanceBetween(rectCorners[index], corner);
+      }, 0);
+      const effectiveDistance = Number((distances / 4).toFixed(4));
+      collisions.push({
+        id,
+        data: {
+          droppableContainer,
+          value: effectiveDistance
+        }
+      });
+    }
+  }
+
+  return collisions.sort(sortCollisionsAsc);
+};
+
+/**
+ * Returns the intersecting rectangle area between two rectangles
+ */
+
+function getIntersectionRatio(entry, target) {
+  const top = Math.max(target.top, entry.top);
+  const left = Math.max(target.left, entry.left);
+  const right = Math.min(target.left + target.width, entry.left + entry.width);
+  const bottom = Math.min(target.top + target.height, entry.top + entry.height);
+  const width = right - left;
+  const height = bottom - top;
+
+  if (left < right && top < bottom) {
+    const targetArea = target.width * target.height;
+    const entryArea = entry.width * entry.height;
+    const intersectionArea = width * height;
+    const intersectionRatio = intersectionArea / (targetArea + entryArea - intersectionArea);
+    return Number(intersectionRatio.toFixed(4));
+  } // Rectangles do not overlap, or overlap has an area of zero (edge/corner overlap)
+
+
+  return 0;
+}
+/**
+ * Returns the rectangles that has the greatest intersection area with a given
+ * rectangle in an array of rectangles.
+ */
+
+const rectIntersection = _ref => {
+  let {
+    collisionRect,
+    droppableRects,
+    droppableContainers
+  } = _ref;
+  const collisions = [];
+
+  for (const droppableContainer of droppableContainers) {
+    const {
+      id
+    } = droppableContainer;
+    const rect = droppableRects.get(id);
+
+    if (rect) {
+      const intersectionRatio = getIntersectionRatio(rect, collisionRect);
+
+      if (intersectionRatio > 0) {
+        collisions.push({
+          id,
+          data: {
+            droppableContainer,
+            value: intersectionRatio
+          }
+        });
+      }
+    }
+  }
+
+  return collisions.sort(sortCollisionsDesc);
+};
+
+/**
+ * Check if a given point is contained within a bounding rectangle
+ */
+
+function isPointWithinRect(point, rect) {
+  const {
+    top,
+    left,
+    bottom,
+    right
+  } = rect;
+  return top <= point.y && point.y <= bottom && left <= point.x && point.x <= right;
+}
+/**
+ * Returns the rectangles that the pointer is hovering over
+ */
+
+
+const pointerWithin = _ref => {
+  let {
+    droppableContainers,
+    droppableRects,
+    pointerCoordinates
+  } = _ref;
+
+  if (!pointerCoordinates) {
+    return [];
+  }
+
+  const collisions = [];
+
+  for (const droppableContainer of droppableContainers) {
+    const {
+      id
+    } = droppableContainer;
+    const rect = droppableRects.get(id);
+
+    if (rect && isPointWithinRect(pointerCoordinates, rect)) {
+      /* There may be more than a single rectangle intersecting
+       * with the pointer coordinates. In order to sort the
+       * colliding rectangles, we measure the distance between
+       * the pointer and the corners of the intersecting rectangle
+       */
+      const corners = cornersOfRectangle(rect);
+      const distances = corners.reduce((accumulator, corner) => {
+        return accumulator + distanceBetween(pointerCoordinates, corner);
+      }, 0);
+      const effectiveDistance = Number((distances / 4).toFixed(4));
+      collisions.push({
+        id,
+        data: {
+          droppableContainer,
+          value: effectiveDistance
+        }
+      });
+    }
+  }
+
+  return collisions.sort(sortCollisionsAsc);
+};
+
+function adjustScale(transform, rect1, rect2) {
+  return { ...transform,
+    scaleX: rect1 && rect2 ? rect1.width / rect2.width : 1,
+    scaleY: rect1 && rect2 ? rect1.height / rect2.height : 1
+  };
+}
+
+function getRectDelta(rect1, rect2) {
+  return rect1 && rect2 ? {
+    x: rect1.left - rect2.left,
+    y: rect1.top - rect2.top
+  } : defaultCoordinates;
+}
+
+function createRectAdjustmentFn(modifier) {
+  return function adjustClientRect(rect) {
+    for (var _len = arguments.length, adjustments = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      adjustments[_key - 1] = arguments[_key];
+    }
+
+    return adjustments.reduce((acc, adjustment) => ({ ...acc,
+      top: acc.top + modifier * adjustment.y,
+      bottom: acc.bottom + modifier * adjustment.y,
+      left: acc.left + modifier * adjustment.x,
+      right: acc.right + modifier * adjustment.x
+    }), { ...rect
+    });
+  };
+}
+const getAdjustedRect = /*#__PURE__*/createRectAdjustmentFn(1);
+
+function parseTransform(transform) {
+  if (transform.startsWith('matrix3d(')) {
+    const transformArray = transform.slice(9, -1).split(/, /);
+    return {
+      x: +transformArray[12],
+      y: +transformArray[13],
+      scaleX: +transformArray[0],
+      scaleY: +transformArray[5]
+    };
+  } else if (transform.startsWith('matrix(')) {
+    const transformArray = transform.slice(7, -1).split(/, /);
+    return {
+      x: +transformArray[4],
+      y: +transformArray[5],
+      scaleX: +transformArray[0],
+      scaleY: +transformArray[3]
+    };
+  }
+
+  return null;
+}
+
+function inverseTransform(rect, transform, transformOrigin) {
+  const parsedTransform = parseTransform(transform);
+
+  if (!parsedTransform) {
+    return rect;
+  }
+
+  const {
+    scaleX,
+    scaleY,
+    x: translateX,
+    y: translateY
+  } = parsedTransform;
+  const x = rect.left - translateX - (1 - scaleX) * parseFloat(transformOrigin);
+  const y = rect.top - translateY - (1 - scaleY) * parseFloat(transformOrigin.slice(transformOrigin.indexOf(' ') + 1));
+  const w = scaleX ? rect.width / scaleX : rect.width;
+  const h = scaleY ? rect.height / scaleY : rect.height;
+  return {
+    width: w,
+    height: h,
+    top: y,
+    right: x + w,
+    bottom: y + h,
+    left: x
+  };
+}
+
+const defaultOptions = {
+  ignoreTransform: false
+};
+/**
+ * Returns the bounding client rect of an element relative to the viewport.
+ */
+
+function getClientRect(element, options) {
+  if (options === void 0) {
+    options = defaultOptions;
+  }
+
+  let rect = element.getBoundingClientRect();
+
+  if (options.ignoreTransform) {
+    const {
+      transform,
+      transformOrigin
+    } = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getWindow)(element).getComputedStyle(element);
+
+    if (transform) {
+      rect = inverseTransform(rect, transform, transformOrigin);
+    }
+  }
+
+  const {
+    top,
+    left,
+    width,
+    height,
+    bottom,
+    right
+  } = rect;
+  return {
+    top,
+    left,
+    width,
+    height,
+    bottom,
+    right
+  };
+}
+/**
+ * Returns the bounding client rect of an element relative to the viewport.
+ *
+ * @remarks
+ * The ClientRect returned by this method does not take into account transforms
+ * applied to the element it measures.
+ *
+ */
+
+function getTransformAgnosticClientRect(element) {
+  return getClientRect(element, {
+    ignoreTransform: true
+  });
+}
+
+function getWindowClientRect(element) {
+  const width = element.innerWidth;
+  const height = element.innerHeight;
+  return {
+    top: 0,
+    left: 0,
+    right: width,
+    bottom: height,
+    width,
+    height
+  };
+}
+
+function isFixed(node, computedStyle) {
+  if (computedStyle === void 0) {
+    computedStyle = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getWindow)(node).getComputedStyle(node);
+  }
+
+  return computedStyle.position === 'fixed';
+}
+
+function isScrollable(element, computedStyle) {
+  if (computedStyle === void 0) {
+    computedStyle = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getWindow)(element).getComputedStyle(element);
+  }
+
+  const overflowRegex = /(auto|scroll|overlay)/;
+  const properties = ['overflow', 'overflowX', 'overflowY'];
+  return properties.some(property => {
+    const value = computedStyle[property];
+    return typeof value === 'string' ? overflowRegex.test(value) : false;
+  });
+}
+
+function getScrollableAncestors(element, limit) {
+  const scrollParents = [];
+
+  function findScrollableAncestors(node) {
+    if (limit != null && scrollParents.length >= limit) {
+      return scrollParents;
+    }
+
+    if (!node) {
+      return scrollParents;
+    }
+
+    if ((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isDocument)(node) && node.scrollingElement != null && !scrollParents.includes(node.scrollingElement)) {
+      scrollParents.push(node.scrollingElement);
+      return scrollParents;
+    }
+
+    if (!(0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isHTMLElement)(node) || (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isSVGElement)(node)) {
+      return scrollParents;
+    }
+
+    if (scrollParents.includes(node)) {
+      return scrollParents;
+    }
+
+    const computedStyle = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getWindow)(element).getComputedStyle(node);
+
+    if (node !== element) {
+      if (isScrollable(node, computedStyle)) {
+        scrollParents.push(node);
+      }
+    }
+
+    if (isFixed(node, computedStyle)) {
+      return scrollParents;
+    }
+
+    return findScrollableAncestors(node.parentNode);
+  }
+
+  if (!element) {
+    return scrollParents;
+  }
+
+  return findScrollableAncestors(element);
+}
+function getFirstScrollableAncestor(node) {
+  const [firstScrollableAncestor] = getScrollableAncestors(node, 1);
+  return firstScrollableAncestor != null ? firstScrollableAncestor : null;
+}
+
+function getScrollableElement(element) {
+  if (!_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.canUseDOM || !element) {
+    return null;
+  }
+
+  if ((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isWindow)(element)) {
+    return element;
+  }
+
+  if (!(0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isNode)(element)) {
+    return null;
+  }
+
+  if ((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isDocument)(element) || element === (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getOwnerDocument)(element).scrollingElement) {
+    return window;
+  }
+
+  if ((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isHTMLElement)(element)) {
+    return element;
+  }
+
+  return null;
+}
+
+function getScrollXCoordinate(element) {
+  if ((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isWindow)(element)) {
+    return element.scrollX;
+  }
+
+  return element.scrollLeft;
+}
+function getScrollYCoordinate(element) {
+  if ((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isWindow)(element)) {
+    return element.scrollY;
+  }
+
+  return element.scrollTop;
+}
+function getScrollCoordinates(element) {
+  return {
+    x: getScrollXCoordinate(element),
+    y: getScrollYCoordinate(element)
+  };
+}
+
+var Direction;
+
+(function (Direction) {
+  Direction[Direction["Forward"] = 1] = "Forward";
+  Direction[Direction["Backward"] = -1] = "Backward";
+})(Direction || (Direction = {}));
+
+function isDocumentScrollingElement(element) {
+  if (!_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.canUseDOM || !element) {
+    return false;
+  }
+
+  return element === document.scrollingElement;
+}
+
+function getScrollPosition(scrollingContainer) {
+  const minScroll = {
+    x: 0,
+    y: 0
+  };
+  const dimensions = isDocumentScrollingElement(scrollingContainer) ? {
+    height: window.innerHeight,
+    width: window.innerWidth
+  } : {
+    height: scrollingContainer.clientHeight,
+    width: scrollingContainer.clientWidth
+  };
+  const maxScroll = {
+    x: scrollingContainer.scrollWidth - dimensions.width,
+    y: scrollingContainer.scrollHeight - dimensions.height
+  };
+  const isTop = scrollingContainer.scrollTop <= minScroll.y;
+  const isLeft = scrollingContainer.scrollLeft <= minScroll.x;
+  const isBottom = scrollingContainer.scrollTop >= maxScroll.y;
+  const isRight = scrollingContainer.scrollLeft >= maxScroll.x;
+  return {
+    isTop,
+    isLeft,
+    isBottom,
+    isRight,
+    maxScroll,
+    minScroll
+  };
+}
+
+const defaultThreshold = {
+  x: 0.2,
+  y: 0.2
+};
+function getScrollDirectionAndSpeed(scrollContainer, scrollContainerRect, _ref, acceleration, thresholdPercentage) {
+  let {
+    top,
+    left,
+    right,
+    bottom
+  } = _ref;
+
+  if (acceleration === void 0) {
+    acceleration = 10;
+  }
+
+  if (thresholdPercentage === void 0) {
+    thresholdPercentage = defaultThreshold;
+  }
+
+  const {
+    isTop,
+    isBottom,
+    isLeft,
+    isRight
+  } = getScrollPosition(scrollContainer);
+  const direction = {
+    x: 0,
+    y: 0
+  };
+  const speed = {
+    x: 0,
+    y: 0
+  };
+  const threshold = {
+    height: scrollContainerRect.height * thresholdPercentage.y,
+    width: scrollContainerRect.width * thresholdPercentage.x
+  };
+
+  if (!isTop && top <= scrollContainerRect.top + threshold.height) {
+    // Scroll Up
+    direction.y = Direction.Backward;
+    speed.y = acceleration * Math.abs((scrollContainerRect.top + threshold.height - top) / threshold.height);
+  } else if (!isBottom && bottom >= scrollContainerRect.bottom - threshold.height) {
+    // Scroll Down
+    direction.y = Direction.Forward;
+    speed.y = acceleration * Math.abs((scrollContainerRect.bottom - threshold.height - bottom) / threshold.height);
+  }
+
+  if (!isRight && right >= scrollContainerRect.right - threshold.width) {
+    // Scroll Right
+    direction.x = Direction.Forward;
+    speed.x = acceleration * Math.abs((scrollContainerRect.right - threshold.width - right) / threshold.width);
+  } else if (!isLeft && left <= scrollContainerRect.left + threshold.width) {
+    // Scroll Left
+    direction.x = Direction.Backward;
+    speed.x = acceleration * Math.abs((scrollContainerRect.left + threshold.width - left) / threshold.width);
+  }
+
+  return {
+    direction,
+    speed
+  };
+}
+
+function getScrollElementRect(element) {
+  if (element === document.scrollingElement) {
+    const {
+      innerWidth,
+      innerHeight
+    } = window;
+    return {
+      top: 0,
+      left: 0,
+      right: innerWidth,
+      bottom: innerHeight,
+      width: innerWidth,
+      height: innerHeight
+    };
+  }
+
+  const {
+    top,
+    left,
+    right,
+    bottom
+  } = element.getBoundingClientRect();
+  return {
+    top,
+    left,
+    right,
+    bottom,
+    width: element.clientWidth,
+    height: element.clientHeight
+  };
+}
+
+function getScrollOffsets(scrollableAncestors) {
+  return scrollableAncestors.reduce((acc, node) => {
+    return (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.add)(acc, getScrollCoordinates(node));
+  }, defaultCoordinates);
+}
+function getScrollXOffset(scrollableAncestors) {
+  return scrollableAncestors.reduce((acc, node) => {
+    return acc + getScrollXCoordinate(node);
+  }, 0);
+}
+function getScrollYOffset(scrollableAncestors) {
+  return scrollableAncestors.reduce((acc, node) => {
+    return acc + getScrollYCoordinate(node);
+  }, 0);
+}
+
+function scrollIntoViewIfNeeded(element, measure) {
+  if (measure === void 0) {
+    measure = getClientRect;
+  }
+
+  if (!element) {
+    return;
+  }
+
+  const {
+    top,
+    left,
+    bottom,
+    right
+  } = measure(element);
+  const firstScrollableAncestor = getFirstScrollableAncestor(element);
+
+  if (!firstScrollableAncestor) {
+    return;
+  }
+
+  if (bottom <= 0 || right <= 0 || top >= window.innerHeight || left >= window.innerWidth) {
+    element.scrollIntoView({
+      block: 'center',
+      inline: 'center'
+    });
+  }
+}
+
+const properties = [['x', ['left', 'right'], getScrollXOffset], ['y', ['top', 'bottom'], getScrollYOffset]];
+class Rect {
+  constructor(rect, element) {
+    this.rect = void 0;
+    this.width = void 0;
+    this.height = void 0;
+    this.top = void 0;
+    this.bottom = void 0;
+    this.right = void 0;
+    this.left = void 0;
+    const scrollableAncestors = getScrollableAncestors(element);
+    const scrollOffsets = getScrollOffsets(scrollableAncestors);
+    this.rect = { ...rect
+    };
+    this.width = rect.width;
+    this.height = rect.height;
+
+    for (const [axis, keys, getScrollOffset] of properties) {
+      for (const key of keys) {
+        Object.defineProperty(this, key, {
+          get: () => {
+            const currentOffsets = getScrollOffset(scrollableAncestors);
+            const scrollOffsetsDeltla = scrollOffsets[axis] - currentOffsets;
+            return this.rect[key] + scrollOffsetsDeltla;
+          },
+          enumerable: true
+        });
+      }
+    }
+
+    Object.defineProperty(this, 'rect', {
+      enumerable: false
+    });
+  }
+
+}
+
+class Listeners {
+  constructor(target) {
+    this.target = void 0;
+    this.listeners = [];
+
+    this.removeAll = () => {
+      this.listeners.forEach(listener => {
+        var _this$target;
+
+        return (_this$target = this.target) == null ? void 0 : _this$target.removeEventListener(...listener);
+      });
+    };
+
+    this.target = target;
+  }
+
+  add(eventName, handler, options) {
+    var _this$target2;
+
+    (_this$target2 = this.target) == null ? void 0 : _this$target2.addEventListener(eventName, handler, options);
+    this.listeners.push([eventName, handler, options]);
+  }
+
+}
+
+function getEventListenerTarget(target) {
+  // If the `event.target` element is removed from the document events will still be targeted
+  // at it, and hence won't always bubble up to the window or document anymore.
+  // If there is any risk of an element being removed while it is being dragged,
+  // the best practice is to attach the event listeners directly to the target.
+  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
+  const {
+    EventTarget
+  } = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getWindow)(target);
+  return target instanceof EventTarget ? target : (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getOwnerDocument)(target);
+}
+
+function hasExceededDistance(delta, measurement) {
+  const dx = Math.abs(delta.x);
+  const dy = Math.abs(delta.y);
+
+  if (typeof measurement === 'number') {
+    return Math.sqrt(dx ** 2 + dy ** 2) > measurement;
+  }
+
+  if ('x' in measurement && 'y' in measurement) {
+    return dx > measurement.x && dy > measurement.y;
+  }
+
+  if ('x' in measurement) {
+    return dx > measurement.x;
+  }
+
+  if ('y' in measurement) {
+    return dy > measurement.y;
+  }
+
+  return false;
+}
+
+var EventName;
+
+(function (EventName) {
+  EventName["Click"] = "click";
+  EventName["DragStart"] = "dragstart";
+  EventName["Keydown"] = "keydown";
+  EventName["ContextMenu"] = "contextmenu";
+  EventName["Resize"] = "resize";
+  EventName["SelectionChange"] = "selectionchange";
+  EventName["VisibilityChange"] = "visibilitychange";
+})(EventName || (EventName = {}));
+
+function preventDefault(event) {
+  event.preventDefault();
+}
+function stopPropagation(event) {
+  event.stopPropagation();
+}
+
+var KeyboardCode;
+
+(function (KeyboardCode) {
+  KeyboardCode["Space"] = "Space";
+  KeyboardCode["Down"] = "ArrowDown";
+  KeyboardCode["Right"] = "ArrowRight";
+  KeyboardCode["Left"] = "ArrowLeft";
+  KeyboardCode["Up"] = "ArrowUp";
+  KeyboardCode["Esc"] = "Escape";
+  KeyboardCode["Enter"] = "Enter";
+  KeyboardCode["Tab"] = "Tab";
+})(KeyboardCode || (KeyboardCode = {}));
+
+const defaultKeyboardCodes = {
+  start: [KeyboardCode.Space, KeyboardCode.Enter],
+  cancel: [KeyboardCode.Esc],
+  end: [KeyboardCode.Space, KeyboardCode.Enter, KeyboardCode.Tab]
+};
+const defaultKeyboardCoordinateGetter = (event, _ref) => {
+  let {
+    currentCoordinates
+  } = _ref;
+
+  switch (event.code) {
+    case KeyboardCode.Right:
+      return { ...currentCoordinates,
+        x: currentCoordinates.x + 25
+      };
+
+    case KeyboardCode.Left:
+      return { ...currentCoordinates,
+        x: currentCoordinates.x - 25
+      };
+
+    case KeyboardCode.Down:
+      return { ...currentCoordinates,
+        y: currentCoordinates.y + 25
+      };
+
+    case KeyboardCode.Up:
+      return { ...currentCoordinates,
+        y: currentCoordinates.y - 25
+      };
+  }
+
+  return undefined;
+};
+
+class KeyboardSensor {
+  constructor(props) {
+    this.props = void 0;
+    this.autoScrollEnabled = false;
+    this.referenceCoordinates = void 0;
+    this.listeners = void 0;
+    this.windowListeners = void 0;
+    this.props = props;
+    const {
+      event: {
+        target
+      }
+    } = props;
+    this.props = props;
+    this.listeners = new Listeners((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getOwnerDocument)(target));
+    this.windowListeners = new Listeners((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getWindow)(target));
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
+    this.attach();
+  }
+
+  attach() {
+    this.handleStart();
+    this.windowListeners.add(EventName.Resize, this.handleCancel);
+    this.windowListeners.add(EventName.VisibilityChange, this.handleCancel);
+    setTimeout(() => this.listeners.add(EventName.Keydown, this.handleKeyDown));
+  }
+
+  handleStart() {
+    const {
+      activeNode,
+      onStart
+    } = this.props;
+    const node = activeNode.node.current;
+
+    if (node) {
+      scrollIntoViewIfNeeded(node);
+    }
+
+    onStart(defaultCoordinates);
+  }
+
+  handleKeyDown(event) {
+    if ((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isKeyboardEvent)(event)) {
+      const {
+        active,
+        context,
+        options
+      } = this.props;
+      const {
+        keyboardCodes = defaultKeyboardCodes,
+        coordinateGetter = defaultKeyboardCoordinateGetter,
+        scrollBehavior = 'smooth'
+      } = options;
+      const {
+        code
+      } = event;
+
+      if (keyboardCodes.end.includes(code)) {
+        this.handleEnd(event);
+        return;
+      }
+
+      if (keyboardCodes.cancel.includes(code)) {
+        this.handleCancel(event);
+        return;
+      }
+
+      const {
+        collisionRect
+      } = context.current;
+      const currentCoordinates = collisionRect ? {
+        x: collisionRect.left,
+        y: collisionRect.top
+      } : defaultCoordinates;
+
+      if (!this.referenceCoordinates) {
+        this.referenceCoordinates = currentCoordinates;
+      }
+
+      const newCoordinates = coordinateGetter(event, {
+        active,
+        context: context.current,
+        currentCoordinates
+      });
+
+      if (newCoordinates) {
+        const coordinatesDelta = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.subtract)(newCoordinates, currentCoordinates);
+        const scrollDelta = {
+          x: 0,
+          y: 0
+        };
+        const {
+          scrollableAncestors
+        } = context.current;
+
+        for (const scrollContainer of scrollableAncestors) {
+          const direction = event.code;
+          const {
+            isTop,
+            isRight,
+            isLeft,
+            isBottom,
+            maxScroll,
+            minScroll
+          } = getScrollPosition(scrollContainer);
+          const scrollElementRect = getScrollElementRect(scrollContainer);
+          const clampedCoordinates = {
+            x: Math.min(direction === KeyboardCode.Right ? scrollElementRect.right - scrollElementRect.width / 2 : scrollElementRect.right, Math.max(direction === KeyboardCode.Right ? scrollElementRect.left : scrollElementRect.left + scrollElementRect.width / 2, newCoordinates.x)),
+            y: Math.min(direction === KeyboardCode.Down ? scrollElementRect.bottom - scrollElementRect.height / 2 : scrollElementRect.bottom, Math.max(direction === KeyboardCode.Down ? scrollElementRect.top : scrollElementRect.top + scrollElementRect.height / 2, newCoordinates.y))
+          };
+          const canScrollX = direction === KeyboardCode.Right && !isRight || direction === KeyboardCode.Left && !isLeft;
+          const canScrollY = direction === KeyboardCode.Down && !isBottom || direction === KeyboardCode.Up && !isTop;
+
+          if (canScrollX && clampedCoordinates.x !== newCoordinates.x) {
+            const newScrollCoordinates = scrollContainer.scrollLeft + coordinatesDelta.x;
+            const canScrollToNewCoordinates = direction === KeyboardCode.Right && newScrollCoordinates <= maxScroll.x || direction === KeyboardCode.Left && newScrollCoordinates >= minScroll.x;
+
+            if (canScrollToNewCoordinates && !coordinatesDelta.y) {
+              // We don't need to update coordinates, the scroll adjustment alone will trigger
+              // logic to auto-detect the new container we are over
+              scrollContainer.scrollTo({
+                left: newScrollCoordinates,
+                behavior: scrollBehavior
+              });
+              return;
+            }
+
+            if (canScrollToNewCoordinates) {
+              scrollDelta.x = scrollContainer.scrollLeft - newScrollCoordinates;
+            } else {
+              scrollDelta.x = direction === KeyboardCode.Right ? scrollContainer.scrollLeft - maxScroll.x : scrollContainer.scrollLeft - minScroll.x;
+            }
+
+            if (scrollDelta.x) {
+              scrollContainer.scrollBy({
+                left: -scrollDelta.x,
+                behavior: scrollBehavior
+              });
+            }
+
+            break;
+          } else if (canScrollY && clampedCoordinates.y !== newCoordinates.y) {
+            const newScrollCoordinates = scrollContainer.scrollTop + coordinatesDelta.y;
+            const canScrollToNewCoordinates = direction === KeyboardCode.Down && newScrollCoordinates <= maxScroll.y || direction === KeyboardCode.Up && newScrollCoordinates >= minScroll.y;
+
+            if (canScrollToNewCoordinates && !coordinatesDelta.x) {
+              // We don't need to update coordinates, the scroll adjustment alone will trigger
+              // logic to auto-detect the new container we are over
+              scrollContainer.scrollTo({
+                top: newScrollCoordinates,
+                behavior: scrollBehavior
+              });
+              return;
+            }
+
+            if (canScrollToNewCoordinates) {
+              scrollDelta.y = scrollContainer.scrollTop - newScrollCoordinates;
+            } else {
+              scrollDelta.y = direction === KeyboardCode.Down ? scrollContainer.scrollTop - maxScroll.y : scrollContainer.scrollTop - minScroll.y;
+            }
+
+            if (scrollDelta.y) {
+              scrollContainer.scrollBy({
+                top: -scrollDelta.y,
+                behavior: scrollBehavior
+              });
+            }
+
+            break;
+          }
+        }
+
+        this.handleMove(event, (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.add)((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.subtract)(newCoordinates, this.referenceCoordinates), scrollDelta));
+      }
+    }
+  }
+
+  handleMove(event, coordinates) {
+    const {
+      onMove
+    } = this.props;
+    event.preventDefault();
+    onMove(coordinates);
+  }
+
+  handleEnd(event) {
+    const {
+      onEnd
+    } = this.props;
+    event.preventDefault();
+    this.detach();
+    onEnd();
+  }
+
+  handleCancel(event) {
+    const {
+      onCancel
+    } = this.props;
+    event.preventDefault();
+    this.detach();
+    onCancel();
+  }
+
+  detach() {
+    this.listeners.removeAll();
+    this.windowListeners.removeAll();
+  }
+
+}
+KeyboardSensor.activators = [{
+  eventName: 'onKeyDown',
+  handler: (event, _ref, _ref2) => {
+    let {
+      keyboardCodes = defaultKeyboardCodes,
+      onActivation
+    } = _ref;
+    let {
+      active
+    } = _ref2;
+    const {
+      code
+    } = event.nativeEvent;
+
+    if (keyboardCodes.start.includes(code)) {
+      const activator = active.activatorNode.current;
+
+      if (activator && event.target !== activator) {
+        return false;
+      }
+
+      event.preventDefault();
+      onActivation == null ? void 0 : onActivation({
+        event: event.nativeEvent
+      });
+      return true;
+    }
+
+    return false;
+  }
+}];
+
+function isDistanceConstraint(constraint) {
+  return Boolean(constraint && 'distance' in constraint);
+}
+
+function isDelayConstraint(constraint) {
+  return Boolean(constraint && 'delay' in constraint);
+}
+
+class AbstractPointerSensor {
+  constructor(props, events, listenerTarget) {
+    var _getEventCoordinates;
+
+    if (listenerTarget === void 0) {
+      listenerTarget = getEventListenerTarget(props.event.target);
+    }
+
+    this.props = void 0;
+    this.events = void 0;
+    this.autoScrollEnabled = true;
+    this.document = void 0;
+    this.activated = false;
+    this.initialCoordinates = void 0;
+    this.timeoutId = null;
+    this.listeners = void 0;
+    this.documentListeners = void 0;
+    this.windowListeners = void 0;
+    this.props = props;
+    this.events = events;
+    const {
+      event
+    } = props;
+    const {
+      target
+    } = event;
+    this.props = props;
+    this.events = events;
+    this.document = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getOwnerDocument)(target);
+    this.documentListeners = new Listeners(this.document);
+    this.listeners = new Listeners(listenerTarget);
+    this.windowListeners = new Listeners((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getWindow)(target));
+    this.initialCoordinates = (_getEventCoordinates = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getEventCoordinates)(event)) != null ? _getEventCoordinates : defaultCoordinates;
+    this.handleStart = this.handleStart.bind(this);
+    this.handleMove = this.handleMove.bind(this);
+    this.handleEnd = this.handleEnd.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
+    this.handleKeydown = this.handleKeydown.bind(this);
+    this.removeTextSelection = this.removeTextSelection.bind(this);
+    this.attach();
+  }
+
+  attach() {
+    const {
+      events,
+      props: {
+        options: {
+          activationConstraint,
+          bypassActivationConstraint
+        }
+      }
+    } = this;
+    this.listeners.add(events.move.name, this.handleMove, {
+      passive: false
+    });
+    this.listeners.add(events.end.name, this.handleEnd);
+
+    if (events.cancel) {
+      this.listeners.add(events.cancel.name, this.handleCancel);
+    }
+
+    this.windowListeners.add(EventName.Resize, this.handleCancel);
+    this.windowListeners.add(EventName.DragStart, preventDefault);
+    this.windowListeners.add(EventName.VisibilityChange, this.handleCancel);
+    this.windowListeners.add(EventName.ContextMenu, preventDefault);
+    this.documentListeners.add(EventName.Keydown, this.handleKeydown);
+
+    if (activationConstraint) {
+      if (bypassActivationConstraint != null && bypassActivationConstraint({
+        event: this.props.event,
+        activeNode: this.props.activeNode,
+        options: this.props.options
+      })) {
+        return this.handleStart();
+      }
+
+      if (isDelayConstraint(activationConstraint)) {
+        this.timeoutId = setTimeout(this.handleStart, activationConstraint.delay);
+        this.handlePending(activationConstraint);
+        return;
+      }
+
+      if (isDistanceConstraint(activationConstraint)) {
+        this.handlePending(activationConstraint);
+        return;
+      }
+    }
+
+    this.handleStart();
+  }
+
+  detach() {
+    this.listeners.removeAll();
+    this.windowListeners.removeAll(); // Wait until the next event loop before removing document listeners
+    // This is necessary because we listen for `click` and `selection` events on the document
+
+    setTimeout(this.documentListeners.removeAll, 50);
+
+    if (this.timeoutId !== null) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
+    }
+  }
+
+  handlePending(constraint, offset) {
+    const {
+      active,
+      onPending
+    } = this.props;
+    onPending(active, constraint, this.initialCoordinates, offset);
+  }
+
+  handleStart() {
+    const {
+      initialCoordinates
+    } = this;
+    const {
+      onStart
+    } = this.props;
+
+    if (initialCoordinates) {
+      this.activated = true; // Stop propagation of click events once activation constraints are met
+
+      this.documentListeners.add(EventName.Click, stopPropagation, {
+        capture: true
+      }); // Remove any text selection from the document
+
+      this.removeTextSelection(); // Prevent further text selection while dragging
+
+      this.documentListeners.add(EventName.SelectionChange, this.removeTextSelection);
+      onStart(initialCoordinates);
+    }
+  }
+
+  handleMove(event) {
+    var _getEventCoordinates2;
+
+    const {
+      activated,
+      initialCoordinates,
+      props
+    } = this;
+    const {
+      onMove,
+      options: {
+        activationConstraint
+      }
+    } = props;
+
+    if (!initialCoordinates) {
+      return;
+    }
+
+    const coordinates = (_getEventCoordinates2 = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getEventCoordinates)(event)) != null ? _getEventCoordinates2 : defaultCoordinates;
+    const delta = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.subtract)(initialCoordinates, coordinates); // Constraint validation
+
+    if (!activated && activationConstraint) {
+      if (isDistanceConstraint(activationConstraint)) {
+        if (activationConstraint.tolerance != null && hasExceededDistance(delta, activationConstraint.tolerance)) {
+          return this.handleCancel();
+        }
+
+        if (hasExceededDistance(delta, activationConstraint.distance)) {
+          return this.handleStart();
+        }
+      }
+
+      if (isDelayConstraint(activationConstraint)) {
+        if (hasExceededDistance(delta, activationConstraint.tolerance)) {
+          return this.handleCancel();
+        }
+      }
+
+      this.handlePending(activationConstraint, delta);
+      return;
+    }
+
+    if (event.cancelable) {
+      event.preventDefault();
+    }
+
+    onMove(coordinates);
+  }
+
+  handleEnd() {
+    const {
+      onAbort,
+      onEnd
+    } = this.props;
+    this.detach();
+
+    if (!this.activated) {
+      onAbort(this.props.active);
+    }
+
+    onEnd();
+  }
+
+  handleCancel() {
+    const {
+      onAbort,
+      onCancel
+    } = this.props;
+    this.detach();
+
+    if (!this.activated) {
+      onAbort(this.props.active);
+    }
+
+    onCancel();
+  }
+
+  handleKeydown(event) {
+    if (event.code === KeyboardCode.Esc) {
+      this.handleCancel();
+    }
+  }
+
+  removeTextSelection() {
+    var _this$document$getSel;
+
+    (_this$document$getSel = this.document.getSelection()) == null ? void 0 : _this$document$getSel.removeAllRanges();
+  }
+
+}
+
+const events = {
+  cancel: {
+    name: 'pointercancel'
+  },
+  move: {
+    name: 'pointermove'
+  },
+  end: {
+    name: 'pointerup'
+  }
+};
+class PointerSensor extends AbstractPointerSensor {
+  constructor(props) {
+    const {
+      event
+    } = props; // Pointer events stop firing if the target is unmounted while dragging
+    // Therefore we attach listeners to the owner document instead
+
+    const listenerTarget = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getOwnerDocument)(event.target);
+    super(props, events, listenerTarget);
+  }
+
+}
+PointerSensor.activators = [{
+  eventName: 'onPointerDown',
+  handler: (_ref, _ref2) => {
+    let {
+      nativeEvent: event
+    } = _ref;
+    let {
+      onActivation
+    } = _ref2;
+
+    if (!event.isPrimary || event.button !== 0) {
+      return false;
+    }
+
+    onActivation == null ? void 0 : onActivation({
+      event
+    });
+    return true;
+  }
+}];
+
+const events$1 = {
+  move: {
+    name: 'mousemove'
+  },
+  end: {
+    name: 'mouseup'
+  }
+};
+var MouseButton;
+
+(function (MouseButton) {
+  MouseButton[MouseButton["RightClick"] = 2] = "RightClick";
+})(MouseButton || (MouseButton = {}));
+
+class MouseSensor extends AbstractPointerSensor {
+  constructor(props) {
+    super(props, events$1, (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getOwnerDocument)(props.event.target));
+  }
+
+}
+MouseSensor.activators = [{
+  eventName: 'onMouseDown',
+  handler: (_ref, _ref2) => {
+    let {
+      nativeEvent: event
+    } = _ref;
+    let {
+      onActivation
+    } = _ref2;
+
+    if (event.button === MouseButton.RightClick) {
+      return false;
+    }
+
+    onActivation == null ? void 0 : onActivation({
+      event
+    });
+    return true;
+  }
+}];
+
+const events$2 = {
+  cancel: {
+    name: 'touchcancel'
+  },
+  move: {
+    name: 'touchmove'
+  },
+  end: {
+    name: 'touchend'
+  }
+};
+class TouchSensor extends AbstractPointerSensor {
+  constructor(props) {
+    super(props, events$2);
+  }
+
+  static setup() {
+    // Adding a non-capture and non-passive `touchmove` listener in order
+    // to force `event.preventDefault()` calls to work in dynamically added
+    // touchmove event handlers. This is required for iOS Safari.
+    window.addEventListener(events$2.move.name, noop, {
+      capture: false,
+      passive: false
+    });
+    return function teardown() {
+      window.removeEventListener(events$2.move.name, noop);
+    }; // We create a new handler because the teardown function of another sensor
+    // could remove our event listener if we use a referentially equal listener.
+
+    function noop() {}
+  }
+
+}
+TouchSensor.activators = [{
+  eventName: 'onTouchStart',
+  handler: (_ref, _ref2) => {
+    let {
+      nativeEvent: event
+    } = _ref;
+    let {
+      onActivation
+    } = _ref2;
+    const {
+      touches
+    } = event;
+
+    if (touches.length > 1) {
+      return false;
+    }
+
+    onActivation == null ? void 0 : onActivation({
+      event
+    });
+    return true;
+  }
+}];
+
+var AutoScrollActivator;
+
+(function (AutoScrollActivator) {
+  AutoScrollActivator[AutoScrollActivator["Pointer"] = 0] = "Pointer";
+  AutoScrollActivator[AutoScrollActivator["DraggableRect"] = 1] = "DraggableRect";
+})(AutoScrollActivator || (AutoScrollActivator = {}));
+
+var TraversalOrder;
+
+(function (TraversalOrder) {
+  TraversalOrder[TraversalOrder["TreeOrder"] = 0] = "TreeOrder";
+  TraversalOrder[TraversalOrder["ReversedTreeOrder"] = 1] = "ReversedTreeOrder";
+})(TraversalOrder || (TraversalOrder = {}));
+
+function useAutoScroller(_ref) {
+  let {
+    acceleration,
+    activator = AutoScrollActivator.Pointer,
+    canScroll,
+    draggingRect,
+    enabled,
+    interval = 5,
+    order = TraversalOrder.TreeOrder,
+    pointerCoordinates,
+    scrollableAncestors,
+    scrollableAncestorRects,
+    delta,
+    threshold
+  } = _ref;
+  const scrollIntent = useScrollIntent({
+    delta,
+    disabled: !enabled
+  });
+  const [setAutoScrollInterval, clearAutoScrollInterval] = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useInterval)();
+  const scrollSpeed = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({
+    x: 0,
+    y: 0
+  });
+  const scrollDirection = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({
+    x: 0,
+    y: 0
+  });
+  const rect = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    switch (activator) {
+      case AutoScrollActivator.Pointer:
+        return pointerCoordinates ? {
+          top: pointerCoordinates.y,
+          bottom: pointerCoordinates.y,
+          left: pointerCoordinates.x,
+          right: pointerCoordinates.x
+        } : null;
+
+      case AutoScrollActivator.DraggableRect:
+        return draggingRect;
+    }
+  }, [activator, draggingRect, pointerCoordinates]);
+  const scrollContainerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const autoScroll = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
+    const scrollContainer = scrollContainerRef.current;
+
+    if (!scrollContainer) {
+      return;
+    }
+
+    const scrollLeft = scrollSpeed.current.x * scrollDirection.current.x;
+    const scrollTop = scrollSpeed.current.y * scrollDirection.current.y;
+    scrollContainer.scrollBy(scrollLeft, scrollTop);
+  }, []);
+  const sortedScrollableAncestors = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => order === TraversalOrder.TreeOrder ? [...scrollableAncestors].reverse() : scrollableAncestors, [order, scrollableAncestors]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!enabled || !scrollableAncestors.length || !rect) {
+      clearAutoScrollInterval();
+      return;
+    }
+
+    for (const scrollContainer of sortedScrollableAncestors) {
+      if ((canScroll == null ? void 0 : canScroll(scrollContainer)) === false) {
+        continue;
+      }
+
+      const index = scrollableAncestors.indexOf(scrollContainer);
+      const scrollContainerRect = scrollableAncestorRects[index];
+
+      if (!scrollContainerRect) {
+        continue;
+      }
+
+      const {
+        direction,
+        speed
+      } = getScrollDirectionAndSpeed(scrollContainer, scrollContainerRect, rect, acceleration, threshold);
+
+      for (const axis of ['x', 'y']) {
+        if (!scrollIntent[axis][direction[axis]]) {
+          speed[axis] = 0;
+          direction[axis] = 0;
+        }
+      }
+
+      if (speed.x > 0 || speed.y > 0) {
+        clearAutoScrollInterval();
+        scrollContainerRef.current = scrollContainer;
+        setAutoScrollInterval(autoScroll, interval);
+        scrollSpeed.current = speed;
+        scrollDirection.current = direction;
+        return;
+      }
+    }
+
+    scrollSpeed.current = {
+      x: 0,
+      y: 0
+    };
+    scrollDirection.current = {
+      x: 0,
+      y: 0
+    };
+    clearAutoScrollInterval();
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  [acceleration, autoScroll, canScroll, clearAutoScrollInterval, enabled, interval, // eslint-disable-next-line react-hooks/exhaustive-deps
+  JSON.stringify(rect), // eslint-disable-next-line react-hooks/exhaustive-deps
+  JSON.stringify(scrollIntent), setAutoScrollInterval, scrollableAncestors, sortedScrollableAncestors, scrollableAncestorRects, // eslint-disable-next-line react-hooks/exhaustive-deps
+  JSON.stringify(threshold)]);
+}
+const defaultScrollIntent = {
+  x: {
+    [Direction.Backward]: false,
+    [Direction.Forward]: false
+  },
+  y: {
+    [Direction.Backward]: false,
+    [Direction.Forward]: false
+  }
+};
+
+function useScrollIntent(_ref2) {
+  let {
+    delta,
+    disabled
+  } = _ref2;
+  const previousDelta = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.usePrevious)(delta);
+  return (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useLazyMemo)(previousIntent => {
+    if (disabled || !previousDelta || !previousIntent) {
+      // Reset scroll intent tracking when auto-scrolling is disabled
+      return defaultScrollIntent;
+    }
+
+    const direction = {
+      x: Math.sign(delta.x - previousDelta.x),
+      y: Math.sign(delta.y - previousDelta.y)
+    }; // Keep track of the user intent to scroll in each direction for both axis
+
+    return {
+      x: {
+        [Direction.Backward]: previousIntent.x[Direction.Backward] || direction.x === -1,
+        [Direction.Forward]: previousIntent.x[Direction.Forward] || direction.x === 1
+      },
+      y: {
+        [Direction.Backward]: previousIntent.y[Direction.Backward] || direction.y === -1,
+        [Direction.Forward]: previousIntent.y[Direction.Forward] || direction.y === 1
+      }
+    };
+  }, [disabled, delta, previousDelta]);
+}
+
+function useCachedNode(draggableNodes, id) {
+  const draggableNode = id != null ? draggableNodes.get(id) : undefined;
+  const node = draggableNode ? draggableNode.node.current : null;
+  return (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useLazyMemo)(cachedNode => {
+    var _ref;
+
+    if (id == null) {
+      return null;
+    } // In some cases, the draggable node can unmount while dragging
+    // This is the case for virtualized lists. In those situations,
+    // we fall back to the last known value for that node.
+
+
+    return (_ref = node != null ? node : cachedNode) != null ? _ref : null;
+  }, [node, id]);
+}
+
+function useCombineActivators(sensors, getSyntheticHandler) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => sensors.reduce((accumulator, sensor) => {
+    const {
+      sensor: Sensor
+    } = sensor;
+    const sensorActivators = Sensor.activators.map(activator => ({
+      eventName: activator.eventName,
+      handler: getSyntheticHandler(activator.handler, sensor)
+    }));
+    return [...accumulator, ...sensorActivators];
+  }, []), [sensors, getSyntheticHandler]);
+}
+
+var MeasuringStrategy;
+
+(function (MeasuringStrategy) {
+  MeasuringStrategy[MeasuringStrategy["Always"] = 0] = "Always";
+  MeasuringStrategy[MeasuringStrategy["BeforeDragging"] = 1] = "BeforeDragging";
+  MeasuringStrategy[MeasuringStrategy["WhileDragging"] = 2] = "WhileDragging";
+})(MeasuringStrategy || (MeasuringStrategy = {}));
+
+var MeasuringFrequency;
+
+(function (MeasuringFrequency) {
+  MeasuringFrequency["Optimized"] = "optimized";
+})(MeasuringFrequency || (MeasuringFrequency = {}));
+
+const defaultValue = /*#__PURE__*/new Map();
+function useDroppableMeasuring(containers, _ref) {
+  let {
+    dragging,
+    dependencies,
+    config
+  } = _ref;
+  const [queue, setQueue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const {
+    frequency,
+    measure,
+    strategy
+  } = config;
+  const containersRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(containers);
+  const disabled = isDisabled();
+  const disabledRef = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useLatestValue)(disabled);
+  const measureDroppableContainers = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (ids) {
+    if (ids === void 0) {
+      ids = [];
+    }
+
+    if (disabledRef.current) {
+      return;
+    }
+
+    setQueue(value => {
+      if (value === null) {
+        return ids;
+      }
+
+      return value.concat(ids.filter(id => !value.includes(id)));
+    });
+  }, [disabledRef]);
+  const timeoutId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const droppableRects = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useLazyMemo)(previousValue => {
+    if (disabled && !dragging) {
+      return defaultValue;
+    }
+
+    if (!previousValue || previousValue === defaultValue || containersRef.current !== containers || queue != null) {
+      const map = new Map();
+
+      for (let container of containers) {
+        if (!container) {
+          continue;
+        }
+
+        if (queue && queue.length > 0 && !queue.includes(container.id) && container.rect.current) {
+          // This container does not need to be re-measured
+          map.set(container.id, container.rect.current);
+          continue;
+        }
+
+        const node = container.node.current;
+        const rect = node ? new Rect(measure(node), node) : null;
+        container.rect.current = rect;
+
+        if (rect) {
+          map.set(container.id, rect);
+        }
+      }
+
+      return map;
+    }
+
+    return previousValue;
+  }, [containers, queue, dragging, disabled, measure]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    containersRef.current = containers;
+  }, [containers]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (disabled) {
+      return;
+    }
+
+    measureDroppableContainers();
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  [dragging, disabled]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (queue && queue.length > 0) {
+      setQueue(null);
+    }
+  }, //eslint-disable-next-line react-hooks/exhaustive-deps
+  [JSON.stringify(queue)]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (disabled || typeof frequency !== 'number' || timeoutId.current !== null) {
+      return;
+    }
+
+    timeoutId.current = setTimeout(() => {
+      measureDroppableContainers();
+      timeoutId.current = null;
+    }, frequency);
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  [frequency, disabled, measureDroppableContainers, ...dependencies]);
+  return {
+    droppableRects,
+    measureDroppableContainers,
+    measuringScheduled: queue != null
+  };
+
+  function isDisabled() {
+    switch (strategy) {
+      case MeasuringStrategy.Always:
+        return false;
+
+      case MeasuringStrategy.BeforeDragging:
+        return dragging;
+
+      default:
+        return !dragging;
+    }
+  }
+}
+
+function useInitialValue(value, computeFn) {
+  return (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useLazyMemo)(previousValue => {
+    if (!value) {
+      return null;
+    }
+
+    if (previousValue) {
+      return previousValue;
+    }
+
+    return typeof computeFn === 'function' ? computeFn(value) : value;
+  }, [computeFn, value]);
+}
+
+function useInitialRect(node, measure) {
+  return useInitialValue(node, measure);
+}
+
+/**
+ * Returns a new MutationObserver instance.
+ * If `MutationObserver` is undefined in the execution environment, returns `undefined`.
+ */
+
+function useMutationObserver(_ref) {
+  let {
+    callback,
+    disabled
+  } = _ref;
+  const handleMutations = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useEvent)(callback);
+  const mutationObserver = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    if (disabled || typeof window === 'undefined' || typeof window.MutationObserver === 'undefined') {
+      return undefined;
+    }
+
+    const {
+      MutationObserver
+    } = window;
+    return new MutationObserver(handleMutations);
+  }, [handleMutations, disabled]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    return () => mutationObserver == null ? void 0 : mutationObserver.disconnect();
+  }, [mutationObserver]);
+  return mutationObserver;
+}
+
+/**
+ * Returns a new ResizeObserver instance bound to the `onResize` callback.
+ * If `ResizeObserver` is undefined in the execution environment, returns `undefined`.
+ */
+
+function useResizeObserver(_ref) {
+  let {
+    callback,
+    disabled
+  } = _ref;
+  const handleResize = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useEvent)(callback);
+  const resizeObserver = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    if (disabled || typeof window === 'undefined' || typeof window.ResizeObserver === 'undefined') {
+      return undefined;
+    }
+
+    const {
+      ResizeObserver
+    } = window;
+    return new ResizeObserver(handleResize);
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  [disabled]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    return () => resizeObserver == null ? void 0 : resizeObserver.disconnect();
+  }, [resizeObserver]);
+  return resizeObserver;
+}
+
+function defaultMeasure(element) {
+  return new Rect(getClientRect(element), element);
+}
+
+function useRect(element, measure, fallbackRect) {
+  if (measure === void 0) {
+    measure = defaultMeasure;
+  }
+
+  const [rect, setRect] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+
+  function measureRect() {
+    setRect(currentRect => {
+      if (!element) {
+        return null;
+      }
+
+      if (element.isConnected === false) {
+        var _ref;
+
+        // Fall back to last rect we measured if the element is
+        // no longer connected to the DOM.
+        return (_ref = currentRect != null ? currentRect : fallbackRect) != null ? _ref : null;
+      }
+
+      const newRect = measure(element);
+
+      if (JSON.stringify(currentRect) === JSON.stringify(newRect)) {
+        return currentRect;
+      }
+
+      return newRect;
+    });
+  }
+
+  const mutationObserver = useMutationObserver({
+    callback(records) {
+      if (!element) {
+        return;
+      }
+
+      for (const record of records) {
+        const {
+          type,
+          target
+        } = record;
+
+        if (type === 'childList' && target instanceof HTMLElement && target.contains(element)) {
+          measureRect();
+          break;
+        }
+      }
+    }
+
+  });
+  const resizeObserver = useResizeObserver({
+    callback: measureRect
+  });
+  (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useIsomorphicLayoutEffect)(() => {
+    measureRect();
+
+    if (element) {
+      resizeObserver == null ? void 0 : resizeObserver.observe(element);
+      mutationObserver == null ? void 0 : mutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    } else {
+      resizeObserver == null ? void 0 : resizeObserver.disconnect();
+      mutationObserver == null ? void 0 : mutationObserver.disconnect();
+    }
+  }, [element]);
+  return rect;
+}
+
+function useRectDelta(rect) {
+  const initialRect = useInitialValue(rect);
+  return getRectDelta(rect, initialRect);
+}
+
+const defaultValue$1 = [];
+function useScrollableAncestors(node) {
+  const previousNode = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(node);
+  const ancestors = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useLazyMemo)(previousValue => {
+    if (!node) {
+      return defaultValue$1;
+    }
+
+    if (previousValue && previousValue !== defaultValue$1 && node && previousNode.current && node.parentNode === previousNode.current.parentNode) {
+      return previousValue;
+    }
+
+    return getScrollableAncestors(node);
+  }, [node]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    previousNode.current = node;
+  }, [node]);
+  return ancestors;
+}
+
+function useScrollOffsets(elements) {
+  const [scrollCoordinates, setScrollCoordinates] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const prevElements = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(elements); // To-do: Throttle the handleScroll callback
+
+  const handleScroll = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(event => {
+    const scrollingElement = getScrollableElement(event.target);
+
+    if (!scrollingElement) {
+      return;
+    }
+
+    setScrollCoordinates(scrollCoordinates => {
+      if (!scrollCoordinates) {
+        return null;
+      }
+
+      scrollCoordinates.set(scrollingElement, getScrollCoordinates(scrollingElement));
+      return new Map(scrollCoordinates);
+    });
+  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const previousElements = prevElements.current;
+
+    if (elements !== previousElements) {
+      cleanup(previousElements);
+      const entries = elements.map(element => {
+        const scrollableElement = getScrollableElement(element);
+
+        if (scrollableElement) {
+          scrollableElement.addEventListener('scroll', handleScroll, {
+            passive: true
+          });
+          return [scrollableElement, getScrollCoordinates(scrollableElement)];
+        }
+
+        return null;
+      }).filter(entry => entry != null);
+      setScrollCoordinates(entries.length ? new Map(entries) : null);
+      prevElements.current = elements;
+    }
+
+    return () => {
+      cleanup(elements);
+      cleanup(previousElements);
+    };
+
+    function cleanup(elements) {
+      elements.forEach(element => {
+        const scrollableElement = getScrollableElement(element);
+        scrollableElement == null ? void 0 : scrollableElement.removeEventListener('scroll', handleScroll);
+      });
+    }
+  }, [handleScroll, elements]);
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    if (elements.length) {
+      return scrollCoordinates ? Array.from(scrollCoordinates.values()).reduce((acc, coordinates) => (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.add)(acc, coordinates), defaultCoordinates) : getScrollOffsets(elements);
+    }
+
+    return defaultCoordinates;
+  }, [elements, scrollCoordinates]);
+}
+
+function useScrollOffsetsDelta(scrollOffsets, dependencies) {
+  if (dependencies === void 0) {
+    dependencies = [];
+  }
+
+  const initialScrollOffsets = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    initialScrollOffsets.current = null;
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  dependencies);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const hasScrollOffsets = scrollOffsets !== defaultCoordinates;
+
+    if (hasScrollOffsets && !initialScrollOffsets.current) {
+      initialScrollOffsets.current = scrollOffsets;
+    }
+
+    if (!hasScrollOffsets && initialScrollOffsets.current) {
+      initialScrollOffsets.current = null;
+    }
+  }, [scrollOffsets]);
+  return initialScrollOffsets.current ? (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.subtract)(scrollOffsets, initialScrollOffsets.current) : defaultCoordinates;
+}
+
+function useSensorSetup(sensors) {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.canUseDOM) {
+      return;
+    }
+
+    const teardownFns = sensors.map(_ref => {
+      let {
+        sensor
+      } = _ref;
+      return sensor.setup == null ? void 0 : sensor.setup();
+    });
+    return () => {
+      for (const teardown of teardownFns) {
+        teardown == null ? void 0 : teardown();
+      }
+    };
+  }, // TO-DO: Sensors length could theoretically change which would not be a valid dependency
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  sensors.map(_ref2 => {
+    let {
+      sensor
+    } = _ref2;
+    return sensor;
+  }));
+}
+
+function useSyntheticListeners(listeners, id) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    return listeners.reduce((acc, _ref) => {
+      let {
+        eventName,
+        handler
+      } = _ref;
+
+      acc[eventName] = event => {
+        handler(event, id);
+      };
+
+      return acc;
+    }, {});
+  }, [listeners, id]);
+}
+
+function useWindowRect(element) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => element ? getWindowClientRect(element) : null, [element]);
+}
+
+const defaultValue$2 = [];
+function useRects(elements, measure) {
+  if (measure === void 0) {
+    measure = getClientRect;
+  }
+
+  const [firstElement] = elements;
+  const windowRect = useWindowRect(firstElement ? (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getWindow)(firstElement) : null);
+  const [rects, setRects] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(defaultValue$2);
+
+  function measureRects() {
+    setRects(() => {
+      if (!elements.length) {
+        return defaultValue$2;
+      }
+
+      return elements.map(element => isDocumentScrollingElement(element) ? windowRect : new Rect(measure(element), element));
+    });
+  }
+
+  const resizeObserver = useResizeObserver({
+    callback: measureRects
+  });
+  (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useIsomorphicLayoutEffect)(() => {
+    resizeObserver == null ? void 0 : resizeObserver.disconnect();
+    measureRects();
+    elements.forEach(element => resizeObserver == null ? void 0 : resizeObserver.observe(element));
+  }, [elements]);
+  return rects;
+}
+
+function getMeasurableNode(node) {
+  if (!node) {
+    return null;
+  }
+
+  if (node.children.length > 1) {
+    return node;
+  }
+
+  const firstChild = node.children[0];
+  return (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isHTMLElement)(firstChild) ? firstChild : node;
+}
+
+function useDragOverlayMeasuring(_ref) {
+  let {
+    measure
+  } = _ref;
+  const [rect, setRect] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const handleResize = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(entries => {
+    for (const {
+      target
+    } of entries) {
+      if ((0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isHTMLElement)(target)) {
+        setRect(rect => {
+          const newRect = measure(target);
+          return rect ? { ...rect,
+            width: newRect.width,
+            height: newRect.height
+          } : newRect;
+        });
+        break;
+      }
+    }
+  }, [measure]);
+  const resizeObserver = useResizeObserver({
+    callback: handleResize
+  });
+  const handleNodeChange = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(element => {
+    const node = getMeasurableNode(element);
+    resizeObserver == null ? void 0 : resizeObserver.disconnect();
+
+    if (node) {
+      resizeObserver == null ? void 0 : resizeObserver.observe(node);
+    }
+
+    setRect(node ? measure(node) : null);
+  }, [measure, resizeObserver]);
+  const [nodeRef, setRef] = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useNodeRef)(handleNodeChange);
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
+    nodeRef,
+    rect,
+    setRef
+  }), [rect, nodeRef, setRef]);
+}
+
+const defaultSensors = [{
+  sensor: PointerSensor,
+  options: {}
+}, {
+  sensor: KeyboardSensor,
+  options: {}
+}];
+const defaultData = {
+  current: {}
+};
+const defaultMeasuringConfiguration = {
+  draggable: {
+    measure: getTransformAgnosticClientRect
+  },
+  droppable: {
+    measure: getTransformAgnosticClientRect,
+    strategy: MeasuringStrategy.WhileDragging,
+    frequency: MeasuringFrequency.Optimized
+  },
+  dragOverlay: {
+    measure: getClientRect
+  }
+};
+
+class DroppableContainersMap extends Map {
+  get(id) {
+    var _super$get;
+
+    return id != null ? (_super$get = super.get(id)) != null ? _super$get : undefined : undefined;
+  }
+
+  toArray() {
+    return Array.from(this.values());
+  }
+
+  getEnabled() {
+    return this.toArray().filter(_ref => {
+      let {
+        disabled
+      } = _ref;
+      return !disabled;
+    });
+  }
+
+  getNodeFor(id) {
+    var _this$get$node$curren, _this$get;
+
+    return (_this$get$node$curren = (_this$get = this.get(id)) == null ? void 0 : _this$get.node.current) != null ? _this$get$node$curren : undefined;
+  }
+
+}
+
+const defaultPublicContext = {
+  activatorEvent: null,
+  active: null,
+  activeNode: null,
+  activeNodeRect: null,
+  collisions: null,
+  containerNodeRect: null,
+  draggableNodes: /*#__PURE__*/new Map(),
+  droppableRects: /*#__PURE__*/new Map(),
+  droppableContainers: /*#__PURE__*/new DroppableContainersMap(),
+  over: null,
+  dragOverlay: {
+    nodeRef: {
+      current: null
+    },
+    rect: null,
+    setRef: noop
+  },
+  scrollableAncestors: [],
+  scrollableAncestorRects: [],
+  measuringConfiguration: defaultMeasuringConfiguration,
+  measureDroppableContainers: noop,
+  windowRect: null,
+  measuringScheduled: false
+};
+const defaultInternalContext = {
+  activatorEvent: null,
+  activators: [],
+  active: null,
+  activeNodeRect: null,
+  ariaDescribedById: {
+    draggable: ''
+  },
+  dispatch: noop,
+  draggableNodes: /*#__PURE__*/new Map(),
+  over: null,
+  measureDroppableContainers: noop
+};
+const InternalContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(defaultInternalContext);
+const PublicContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(defaultPublicContext);
+
+function getInitialState() {
+  return {
+    draggable: {
+      active: null,
+      initialCoordinates: {
+        x: 0,
+        y: 0
+      },
+      nodes: new Map(),
+      translate: {
+        x: 0,
+        y: 0
+      }
+    },
+    droppable: {
+      containers: new DroppableContainersMap()
+    }
+  };
+}
+function reducer(state, action) {
+  switch (action.type) {
+    case Action.DragStart:
+      return { ...state,
+        draggable: { ...state.draggable,
+          initialCoordinates: action.initialCoordinates,
+          active: action.active
+        }
+      };
+
+    case Action.DragMove:
+      if (state.draggable.active == null) {
+        return state;
+      }
+
+      return { ...state,
+        draggable: { ...state.draggable,
+          translate: {
+            x: action.coordinates.x - state.draggable.initialCoordinates.x,
+            y: action.coordinates.y - state.draggable.initialCoordinates.y
+          }
+        }
+      };
+
+    case Action.DragEnd:
+    case Action.DragCancel:
+      return { ...state,
+        draggable: { ...state.draggable,
+          active: null,
+          initialCoordinates: {
+            x: 0,
+            y: 0
+          },
+          translate: {
+            x: 0,
+            y: 0
+          }
+        }
+      };
+
+    case Action.RegisterDroppable:
+      {
+        const {
+          element
+        } = action;
+        const {
+          id
+        } = element;
+        const containers = new DroppableContainersMap(state.droppable.containers);
+        containers.set(id, element);
+        return { ...state,
+          droppable: { ...state.droppable,
+            containers
+          }
+        };
+      }
+
+    case Action.SetDroppableDisabled:
+      {
+        const {
+          id,
+          key,
+          disabled
+        } = action;
+        const element = state.droppable.containers.get(id);
+
+        if (!element || key !== element.key) {
+          return state;
+        }
+
+        const containers = new DroppableContainersMap(state.droppable.containers);
+        containers.set(id, { ...element,
+          disabled
+        });
+        return { ...state,
+          droppable: { ...state.droppable,
+            containers
+          }
+        };
+      }
+
+    case Action.UnregisterDroppable:
+      {
+        const {
+          id,
+          key
+        } = action;
+        const element = state.droppable.containers.get(id);
+
+        if (!element || key !== element.key) {
+          return state;
+        }
+
+        const containers = new DroppableContainersMap(state.droppable.containers);
+        containers.delete(id);
+        return { ...state,
+          droppable: { ...state.droppable,
+            containers
+          }
+        };
+      }
+
+    default:
+      {
+        return state;
+      }
+  }
+}
+
+function RestoreFocus(_ref) {
+  let {
+    disabled
+  } = _ref;
+  const {
+    active,
+    activatorEvent,
+    draggableNodes
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(InternalContext);
+  const previousActivatorEvent = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.usePrevious)(activatorEvent);
+  const previousActiveId = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.usePrevious)(active == null ? void 0 : active.id); // Restore keyboard focus on the activator node
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (disabled) {
+      return;
+    }
+
+    if (!activatorEvent && previousActivatorEvent && previousActiveId != null) {
+      if (!(0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isKeyboardEvent)(previousActivatorEvent)) {
+        return;
+      }
+
+      if (document.activeElement === previousActivatorEvent.target) {
+        // No need to restore focus
+        return;
+      }
+
+      const draggableNode = draggableNodes.get(previousActiveId);
+
+      if (!draggableNode) {
+        return;
+      }
+
+      const {
+        activatorNode,
+        node
+      } = draggableNode;
+
+      if (!activatorNode.current && !node.current) {
+        return;
+      }
+
+      requestAnimationFrame(() => {
+        for (const element of [activatorNode.current, node.current]) {
+          if (!element) {
+            continue;
+          }
+
+          const focusableNode = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.findFirstFocusableNode)(element);
+
+          if (focusableNode) {
+            focusableNode.focus();
+            break;
+          }
+        }
+      });
+    }
+  }, [activatorEvent, disabled, draggableNodes, previousActiveId, previousActivatorEvent]);
+  return null;
+}
+
+function applyModifiers(modifiers, _ref) {
+  let {
+    transform,
+    ...args
+  } = _ref;
+  return modifiers != null && modifiers.length ? modifiers.reduce((accumulator, modifier) => {
+    return modifier({
+      transform: accumulator,
+      ...args
+    });
+  }, transform) : transform;
+}
+
+function useMeasuringConfiguration(config) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
+    draggable: { ...defaultMeasuringConfiguration.draggable,
+      ...(config == null ? void 0 : config.draggable)
+    },
+    droppable: { ...defaultMeasuringConfiguration.droppable,
+      ...(config == null ? void 0 : config.droppable)
+    },
+    dragOverlay: { ...defaultMeasuringConfiguration.dragOverlay,
+      ...(config == null ? void 0 : config.dragOverlay)
+    }
+  }), // eslint-disable-next-line react-hooks/exhaustive-deps
+  [config == null ? void 0 : config.draggable, config == null ? void 0 : config.droppable, config == null ? void 0 : config.dragOverlay]);
+}
+
+function useLayoutShiftScrollCompensation(_ref) {
+  let {
+    activeNode,
+    measure,
+    initialRect,
+    config = true
+  } = _ref;
+  const initialized = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
+  const {
+    x,
+    y
+  } = typeof config === 'boolean' ? {
+    x: config,
+    y: config
+  } : config;
+  (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useIsomorphicLayoutEffect)(() => {
+    const disabled = !x && !y;
+
+    if (disabled || !activeNode) {
+      initialized.current = false;
+      return;
+    }
+
+    if (initialized.current || !initialRect) {
+      // Return early if layout shift scroll compensation was already attempted
+      // or if there is no initialRect to compare to.
+      return;
+    } // Get the most up to date node ref for the active draggable
+
+
+    const node = activeNode == null ? void 0 : activeNode.node.current;
+
+    if (!node || node.isConnected === false) {
+      // Return early if there is no attached node ref or if the node is
+      // disconnected from the document.
+      return;
+    }
+
+    const rect = measure(node);
+    const rectDelta = getRectDelta(rect, initialRect);
+
+    if (!x) {
+      rectDelta.x = 0;
+    }
+
+    if (!y) {
+      rectDelta.y = 0;
+    } // Only perform layout shift scroll compensation once
+
+
+    initialized.current = true;
+
+    if (Math.abs(rectDelta.x) > 0 || Math.abs(rectDelta.y) > 0) {
+      const firstScrollableAncestor = getFirstScrollableAncestor(node);
+
+      if (firstScrollableAncestor) {
+        firstScrollableAncestor.scrollBy({
+          top: rectDelta.y,
+          left: rectDelta.x
+        });
+      }
+    }
+  }, [activeNode, x, y, initialRect, measure]);
+}
+
+const ActiveDraggableContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)({ ...defaultCoordinates,
+  scaleX: 1,
+  scaleY: 1
+});
+var Status;
+
+(function (Status) {
+  Status[Status["Uninitialized"] = 0] = "Uninitialized";
+  Status[Status["Initializing"] = 1] = "Initializing";
+  Status[Status["Initialized"] = 2] = "Initialized";
+})(Status || (Status = {}));
+
+const DndContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function DndContext(_ref) {
+  var _sensorContext$curren, _dragOverlay$nodeRef$, _dragOverlay$rect, _over$rect;
+
+  let {
+    id,
+    accessibility,
+    autoScroll = true,
+    children,
+    sensors = defaultSensors,
+    collisionDetection = rectIntersection,
+    measuring,
+    modifiers,
+    ...props
+  } = _ref;
+  const store = (0,react__WEBPACK_IMPORTED_MODULE_0__.useReducer)(reducer, undefined, getInitialState);
+  const [state, dispatch] = store;
+  const [dispatchMonitorEvent, registerMonitorListener] = useDndMonitorProvider();
+  const [status, setStatus] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(Status.Uninitialized);
+  const isInitialized = status === Status.Initialized;
+  const {
+    draggable: {
+      active: activeId,
+      nodes: draggableNodes,
+      translate
+    },
+    droppable: {
+      containers: droppableContainers
+    }
+  } = state;
+  const node = activeId != null ? draggableNodes.get(activeId) : null;
+  const activeRects = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({
+    initial: null,
+    translated: null
+  });
+  const active = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    var _node$data;
+
+    return activeId != null ? {
+      id: activeId,
+      // It's possible for the active node to unmount while dragging
+      data: (_node$data = node == null ? void 0 : node.data) != null ? _node$data : defaultData,
+      rect: activeRects
+    } : null;
+  }, [activeId, node]);
+  const activeRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const [activeSensor, setActiveSensor] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [activatorEvent, setActivatorEvent] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const latestProps = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useLatestValue)(props, Object.values(props));
+  const draggableDescribedById = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useUniqueId)("DndDescribedBy", id);
+  const enabledDroppableContainers = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => droppableContainers.getEnabled(), [droppableContainers]);
+  const measuringConfiguration = useMeasuringConfiguration(measuring);
+  const {
+    droppableRects,
+    measureDroppableContainers,
+    measuringScheduled
+  } = useDroppableMeasuring(enabledDroppableContainers, {
+    dragging: isInitialized,
+    dependencies: [translate.x, translate.y],
+    config: measuringConfiguration.droppable
+  });
+  const activeNode = useCachedNode(draggableNodes, activeId);
+  const activationCoordinates = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => activatorEvent ? (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getEventCoordinates)(activatorEvent) : null, [activatorEvent]);
+  const autoScrollOptions = getAutoScrollerOptions();
+  const initialActiveNodeRect = useInitialRect(activeNode, measuringConfiguration.draggable.measure);
+  useLayoutShiftScrollCompensation({
+    activeNode: activeId != null ? draggableNodes.get(activeId) : null,
+    config: autoScrollOptions.layoutShiftCompensation,
+    initialRect: initialActiveNodeRect,
+    measure: measuringConfiguration.draggable.measure
+  });
+  const activeNodeRect = useRect(activeNode, measuringConfiguration.draggable.measure, initialActiveNodeRect);
+  const containerNodeRect = useRect(activeNode ? activeNode.parentElement : null);
+  const sensorContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({
+    activatorEvent: null,
+    active: null,
+    activeNode,
+    collisionRect: null,
+    collisions: null,
+    droppableRects,
+    draggableNodes,
+    draggingNode: null,
+    draggingNodeRect: null,
+    droppableContainers,
+    over: null,
+    scrollableAncestors: [],
+    scrollAdjustedTranslate: null
+  });
+  const overNode = droppableContainers.getNodeFor((_sensorContext$curren = sensorContext.current.over) == null ? void 0 : _sensorContext$curren.id);
+  const dragOverlay = useDragOverlayMeasuring({
+    measure: measuringConfiguration.dragOverlay.measure
+  }); // Use the rect of the drag overlay if it is mounted
+
+  const draggingNode = (_dragOverlay$nodeRef$ = dragOverlay.nodeRef.current) != null ? _dragOverlay$nodeRef$ : activeNode;
+  const draggingNodeRect = isInitialized ? (_dragOverlay$rect = dragOverlay.rect) != null ? _dragOverlay$rect : activeNodeRect : null;
+  const usesDragOverlay = Boolean(dragOverlay.nodeRef.current && dragOverlay.rect); // The delta between the previous and new position of the draggable node
+  // is only relevant when there is no drag overlay
+
+  const nodeRectDelta = useRectDelta(usesDragOverlay ? null : activeNodeRect); // Get the window rect of the dragging node
+
+  const windowRect = useWindowRect(draggingNode ? (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getWindow)(draggingNode) : null); // Get scrollable ancestors of the dragging node
+
+  const scrollableAncestors = useScrollableAncestors(isInitialized ? overNode != null ? overNode : activeNode : null);
+  const scrollableAncestorRects = useRects(scrollableAncestors); // Apply modifiers
+
+  const modifiedTranslate = applyModifiers(modifiers, {
+    transform: {
+      x: translate.x - nodeRectDelta.x,
+      y: translate.y - nodeRectDelta.y,
+      scaleX: 1,
+      scaleY: 1
+    },
+    activatorEvent,
+    active,
+    activeNodeRect,
+    containerNodeRect,
+    draggingNodeRect,
+    over: sensorContext.current.over,
+    overlayNodeRect: dragOverlay.rect,
+    scrollableAncestors,
+    scrollableAncestorRects,
+    windowRect
+  });
+  const pointerCoordinates = activationCoordinates ? (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.add)(activationCoordinates, translate) : null;
+  const scrollOffsets = useScrollOffsets(scrollableAncestors); // Represents the scroll delta since dragging was initiated
+
+  const scrollAdjustment = useScrollOffsetsDelta(scrollOffsets); // Represents the scroll delta since the last time the active node rect was measured
+
+  const activeNodeScrollDelta = useScrollOffsetsDelta(scrollOffsets, [activeNodeRect]);
+  const scrollAdjustedTranslate = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.add)(modifiedTranslate, scrollAdjustment);
+  const collisionRect = draggingNodeRect ? getAdjustedRect(draggingNodeRect, modifiedTranslate) : null;
+  const collisions = active && collisionRect ? collisionDetection({
+    active,
+    collisionRect,
+    droppableRects,
+    droppableContainers: enabledDroppableContainers,
+    pointerCoordinates
+  }) : null;
+  const overId = getFirstCollision(collisions, 'id');
+  const [over, setOver] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null); // When there is no drag overlay used, we need to account for the
+  // window scroll delta
+
+  const appliedTranslate = usesDragOverlay ? modifiedTranslate : (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.add)(modifiedTranslate, activeNodeScrollDelta);
+  const transform = adjustScale(appliedTranslate, (_over$rect = over == null ? void 0 : over.rect) != null ? _over$rect : null, activeNodeRect);
+  const activeSensorRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const instantiateSensor = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((event, _ref2) => {
+    let {
+      sensor: Sensor,
+      options
+    } = _ref2;
+
+    if (activeRef.current == null) {
+      return;
+    }
+
+    const activeNode = draggableNodes.get(activeRef.current);
+
+    if (!activeNode) {
+      return;
+    }
+
+    const activatorEvent = event.nativeEvent;
+    const sensorInstance = new Sensor({
+      active: activeRef.current,
+      activeNode,
+      event: activatorEvent,
+      options,
+      // Sensors need to be instantiated with refs for arguments that change over time
+      // otherwise they are frozen in time with the stale arguments
+      context: sensorContext,
+
+      onAbort(id) {
+        const draggableNode = draggableNodes.get(id);
+
+        if (!draggableNode) {
+          return;
+        }
+
+        const {
+          onDragAbort
+        } = latestProps.current;
+        const event = {
+          id
+        };
+        onDragAbort == null ? void 0 : onDragAbort(event);
+        dispatchMonitorEvent({
+          type: 'onDragAbort',
+          event
+        });
+      },
+
+      onPending(id, constraint, initialCoordinates, offset) {
+        const draggableNode = draggableNodes.get(id);
+
+        if (!draggableNode) {
+          return;
+        }
+
+        const {
+          onDragPending
+        } = latestProps.current;
+        const event = {
+          id,
+          constraint,
+          initialCoordinates,
+          offset
+        };
+        onDragPending == null ? void 0 : onDragPending(event);
+        dispatchMonitorEvent({
+          type: 'onDragPending',
+          event
+        });
+      },
+
+      onStart(initialCoordinates) {
+        const id = activeRef.current;
+
+        if (id == null) {
+          return;
+        }
+
+        const draggableNode = draggableNodes.get(id);
+
+        if (!draggableNode) {
+          return;
+        }
+
+        const {
+          onDragStart
+        } = latestProps.current;
+        const event = {
+          activatorEvent,
+          active: {
+            id,
+            data: draggableNode.data,
+            rect: activeRects
+          }
+        };
+        (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.unstable_batchedUpdates)(() => {
+          onDragStart == null ? void 0 : onDragStart(event);
+          setStatus(Status.Initializing);
+          dispatch({
+            type: Action.DragStart,
+            initialCoordinates,
+            active: id
+          });
+          dispatchMonitorEvent({
+            type: 'onDragStart',
+            event
+          });
+          setActiveSensor(activeSensorRef.current);
+          setActivatorEvent(activatorEvent);
+        });
+      },
+
+      onMove(coordinates) {
+        dispatch({
+          type: Action.DragMove,
+          coordinates
+        });
+      },
+
+      onEnd: createHandler(Action.DragEnd),
+      onCancel: createHandler(Action.DragCancel)
+    });
+    activeSensorRef.current = sensorInstance;
+
+    function createHandler(type) {
+      return async function handler() {
+        const {
+          active,
+          collisions,
+          over,
+          scrollAdjustedTranslate
+        } = sensorContext.current;
+        let event = null;
+
+        if (active && scrollAdjustedTranslate) {
+          const {
+            cancelDrop
+          } = latestProps.current;
+          event = {
+            activatorEvent,
+            active: active,
+            collisions,
+            delta: scrollAdjustedTranslate,
+            over
+          };
+
+          if (type === Action.DragEnd && typeof cancelDrop === 'function') {
+            const shouldCancel = await Promise.resolve(cancelDrop(event));
+
+            if (shouldCancel) {
+              type = Action.DragCancel;
+            }
+          }
+        }
+
+        activeRef.current = null;
+        (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.unstable_batchedUpdates)(() => {
+          dispatch({
+            type
+          });
+          setStatus(Status.Uninitialized);
+          setOver(null);
+          setActiveSensor(null);
+          setActivatorEvent(null);
+          activeSensorRef.current = null;
+          const eventName = type === Action.DragEnd ? 'onDragEnd' : 'onDragCancel';
+
+          if (event) {
+            const handler = latestProps.current[eventName];
+            handler == null ? void 0 : handler(event);
+            dispatchMonitorEvent({
+              type: eventName,
+              event
+            });
+          }
+        });
+      };
+    }
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  [draggableNodes]);
+  const bindActivatorToSensorInstantiator = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((handler, sensor) => {
+    return (event, active) => {
+      const nativeEvent = event.nativeEvent;
+      const activeDraggableNode = draggableNodes.get(active);
+
+      if ( // Another sensor is already instantiating
+      activeRef.current !== null || // No active draggable
+      !activeDraggableNode || // Event has already been captured
+      nativeEvent.dndKit || nativeEvent.defaultPrevented) {
+        return;
+      }
+
+      const activationContext = {
+        active: activeDraggableNode
+      };
+      const shouldActivate = handler(event, sensor.options, activationContext);
+
+      if (shouldActivate === true) {
+        nativeEvent.dndKit = {
+          capturedBy: sensor.sensor
+        };
+        activeRef.current = active;
+        instantiateSensor(event, sensor);
+      }
+    };
+  }, [draggableNodes, instantiateSensor]);
+  const activators = useCombineActivators(sensors, bindActivatorToSensorInstantiator);
+  useSensorSetup(sensors);
+  (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useIsomorphicLayoutEffect)(() => {
+    if (activeNodeRect && status === Status.Initializing) {
+      setStatus(Status.Initialized);
+    }
+  }, [activeNodeRect, status]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const {
+      onDragMove
+    } = latestProps.current;
+    const {
+      active,
+      activatorEvent,
+      collisions,
+      over
+    } = sensorContext.current;
+
+    if (!active || !activatorEvent) {
+      return;
+    }
+
+    const event = {
+      active,
+      activatorEvent,
+      collisions,
+      delta: {
+        x: scrollAdjustedTranslate.x,
+        y: scrollAdjustedTranslate.y
+      },
+      over
+    };
+    (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.unstable_batchedUpdates)(() => {
+      onDragMove == null ? void 0 : onDragMove(event);
+      dispatchMonitorEvent({
+        type: 'onDragMove',
+        event
+      });
+    });
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  [scrollAdjustedTranslate.x, scrollAdjustedTranslate.y]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const {
+      active,
+      activatorEvent,
+      collisions,
+      droppableContainers,
+      scrollAdjustedTranslate
+    } = sensorContext.current;
+
+    if (!active || activeRef.current == null || !activatorEvent || !scrollAdjustedTranslate) {
+      return;
+    }
+
+    const {
+      onDragOver
+    } = latestProps.current;
+    const overContainer = droppableContainers.get(overId);
+    const over = overContainer && overContainer.rect.current ? {
+      id: overContainer.id,
+      rect: overContainer.rect.current,
+      data: overContainer.data,
+      disabled: overContainer.disabled
+    } : null;
+    const event = {
+      active,
+      activatorEvent,
+      collisions,
+      delta: {
+        x: scrollAdjustedTranslate.x,
+        y: scrollAdjustedTranslate.y
+      },
+      over
+    };
+    (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.unstable_batchedUpdates)(() => {
+      setOver(over);
+      onDragOver == null ? void 0 : onDragOver(event);
+      dispatchMonitorEvent({
+        type: 'onDragOver',
+        event
+      });
+    });
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  [overId]);
+  (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useIsomorphicLayoutEffect)(() => {
+    sensorContext.current = {
+      activatorEvent,
+      active,
+      activeNode,
+      collisionRect,
+      collisions,
+      droppableRects,
+      draggableNodes,
+      draggingNode,
+      draggingNodeRect,
+      droppableContainers,
+      over,
+      scrollableAncestors,
+      scrollAdjustedTranslate
+    };
+    activeRects.current = {
+      initial: draggingNodeRect,
+      translated: collisionRect
+    };
+  }, [active, activeNode, collisions, collisionRect, draggableNodes, draggingNode, draggingNodeRect, droppableRects, droppableContainers, over, scrollableAncestors, scrollAdjustedTranslate]);
+  useAutoScroller({ ...autoScrollOptions,
+    delta: translate,
+    draggingRect: collisionRect,
+    pointerCoordinates,
+    scrollableAncestors,
+    scrollableAncestorRects
+  });
+  const publicContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    const context = {
+      active,
+      activeNode,
+      activeNodeRect,
+      activatorEvent,
+      collisions,
+      containerNodeRect,
+      dragOverlay,
+      draggableNodes,
+      droppableContainers,
+      droppableRects,
+      over,
+      measureDroppableContainers,
+      scrollableAncestors,
+      scrollableAncestorRects,
+      measuringConfiguration,
+      measuringScheduled,
+      windowRect
+    };
+    return context;
+  }, [active, activeNode, activeNodeRect, activatorEvent, collisions, containerNodeRect, dragOverlay, draggableNodes, droppableContainers, droppableRects, over, measureDroppableContainers, scrollableAncestors, scrollableAncestorRects, measuringConfiguration, measuringScheduled, windowRect]);
+  const internalContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    const context = {
+      activatorEvent,
+      activators,
+      active,
+      activeNodeRect,
+      ariaDescribedById: {
+        draggable: draggableDescribedById
+      },
+      dispatch,
+      draggableNodes,
+      over,
+      measureDroppableContainers
+    };
+    return context;
+  }, [activatorEvent, activators, active, activeNodeRect, dispatch, draggableDescribedById, draggableNodes, over, measureDroppableContainers]);
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(DndMonitorContext.Provider, {
+    value: registerMonitorListener
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(InternalContext.Provider, {
+    value: internalContext
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PublicContext.Provider, {
+    value: publicContext
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ActiveDraggableContext.Provider, {
+    value: transform
+  }, children)), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(RestoreFocus, {
+    disabled: (accessibility == null ? void 0 : accessibility.restoreFocus) === false
+  })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Accessibility, { ...accessibility,
+    hiddenTextDescribedById: draggableDescribedById
+  }));
+
+  function getAutoScrollerOptions() {
+    const activeSensorDisablesAutoscroll = (activeSensor == null ? void 0 : activeSensor.autoScrollEnabled) === false;
+    const autoScrollGloballyDisabled = typeof autoScroll === 'object' ? autoScroll.enabled === false : autoScroll === false;
+    const enabled = isInitialized && !activeSensorDisablesAutoscroll && !autoScrollGloballyDisabled;
+
+    if (typeof autoScroll === 'object') {
+      return { ...autoScroll,
+        enabled
+      };
+    }
+
+    return {
+      enabled
+    };
+  }
+});
+
+const NullContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);
+const defaultRole = 'button';
+const ID_PREFIX = 'Draggable';
+function useDraggable(_ref) {
+  let {
+    id,
+    data,
+    disabled = false,
+    attributes
+  } = _ref;
+  const key = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useUniqueId)(ID_PREFIX);
+  const {
+    activators,
+    activatorEvent,
+    active,
+    activeNodeRect,
+    ariaDescribedById,
+    draggableNodes,
+    over
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(InternalContext);
+  const {
+    role = defaultRole,
+    roleDescription = 'draggable',
+    tabIndex = 0
+  } = attributes != null ? attributes : {};
+  const isDragging = (active == null ? void 0 : active.id) === id;
+  const transform = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(isDragging ? ActiveDraggableContext : NullContext);
+  const [node, setNodeRef] = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useNodeRef)();
+  const [activatorNode, setActivatorNodeRef] = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useNodeRef)();
+  const listeners = useSyntheticListeners(activators, id);
+  const dataRef = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useLatestValue)(data);
+  (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useIsomorphicLayoutEffect)(() => {
+    draggableNodes.set(id, {
+      id,
+      key,
+      node,
+      activatorNode,
+      data: dataRef
+    });
+    return () => {
+      const node = draggableNodes.get(id);
+
+      if (node && node.key === key) {
+        draggableNodes.delete(id);
+      }
+    };
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  [draggableNodes, id]);
+  const memoizedAttributes = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
+    role,
+    tabIndex,
+    'aria-disabled': disabled,
+    'aria-pressed': isDragging && role === defaultRole ? true : undefined,
+    'aria-roledescription': roleDescription,
+    'aria-describedby': ariaDescribedById.draggable
+  }), [disabled, role, tabIndex, isDragging, roleDescription, ariaDescribedById.draggable]);
+  return {
+    active,
+    activatorEvent,
+    activeNodeRect,
+    attributes: memoizedAttributes,
+    isDragging,
+    listeners: disabled ? undefined : listeners,
+    node,
+    over,
+    setNodeRef,
+    setActivatorNodeRef,
+    transform
+  };
+}
+
+function useDndContext() {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(PublicContext);
+}
+
+const ID_PREFIX$1 = 'Droppable';
+const defaultResizeObserverConfig = {
+  timeout: 25
+};
+function useDroppable(_ref) {
+  let {
+    data,
+    disabled = false,
+    id,
+    resizeObserverConfig
+  } = _ref;
+  const key = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useUniqueId)(ID_PREFIX$1);
+  const {
+    active,
+    dispatch,
+    over,
+    measureDroppableContainers
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(InternalContext);
+  const previous = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({
+    disabled
+  });
+  const resizeObserverConnected = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
+  const rect = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const callbackId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const {
+    disabled: resizeObserverDisabled,
+    updateMeasurementsFor,
+    timeout: resizeObserverTimeout
+  } = { ...defaultResizeObserverConfig,
+    ...resizeObserverConfig
+  };
+  const ids = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useLatestValue)(updateMeasurementsFor != null ? updateMeasurementsFor : id);
+  const handleResize = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
+    if (!resizeObserverConnected.current) {
+      // ResizeObserver invokes the `handleResize` callback as soon as `observe` is called,
+      // assuming the element is rendered and displayed.
+      resizeObserverConnected.current = true;
+      return;
+    }
+
+    if (callbackId.current != null) {
+      clearTimeout(callbackId.current);
+    }
+
+    callbackId.current = setTimeout(() => {
+      measureDroppableContainers(Array.isArray(ids.current) ? ids.current : [ids.current]);
+      callbackId.current = null;
+    }, resizeObserverTimeout);
+  }, //eslint-disable-next-line react-hooks/exhaustive-deps
+  [resizeObserverTimeout]);
+  const resizeObserver = useResizeObserver({
+    callback: handleResize,
+    disabled: resizeObserverDisabled || !active
+  });
+  const handleNodeChange = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((newElement, previousElement) => {
+    if (!resizeObserver) {
+      return;
+    }
+
+    if (previousElement) {
+      resizeObserver.unobserve(previousElement);
+      resizeObserverConnected.current = false;
+    }
+
+    if (newElement) {
+      resizeObserver.observe(newElement);
+    }
+  }, [resizeObserver]);
+  const [nodeRef, setNodeRef] = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useNodeRef)(handleNodeChange);
+  const dataRef = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useLatestValue)(data);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!resizeObserver || !nodeRef.current) {
+      return;
+    }
+
+    resizeObserver.disconnect();
+    resizeObserverConnected.current = false;
+    resizeObserver.observe(nodeRef.current);
+  }, [nodeRef, resizeObserver]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    dispatch({
+      type: Action.RegisterDroppable,
+      element: {
+        id,
+        key,
+        disabled,
+        node: nodeRef,
+        rect,
+        data: dataRef
+      }
+    });
+    return () => dispatch({
+      type: Action.UnregisterDroppable,
+      key,
+      id
+    });
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  [id]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (disabled !== previous.current.disabled) {
+      dispatch({
+        type: Action.SetDroppableDisabled,
+        id,
+        key,
+        disabled
+      });
+      previous.current.disabled = disabled;
+    }
+  }, [id, key, disabled, dispatch]);
+  return {
+    active,
+    rect,
+    isOver: (over == null ? void 0 : over.id) === id,
+    node: nodeRef,
+    over,
+    setNodeRef
+  };
+}
+
+function AnimationManager(_ref) {
+  let {
+    animation,
+    children
+  } = _ref;
+  const [clonedChildren, setClonedChildren] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [element, setElement] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const previousChildren = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.usePrevious)(children);
+
+  if (!children && !clonedChildren && previousChildren) {
+    setClonedChildren(previousChildren);
+  }
+
+  (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useIsomorphicLayoutEffect)(() => {
+    if (!element) {
+      return;
+    }
+
+    const key = clonedChildren == null ? void 0 : clonedChildren.key;
+    const id = clonedChildren == null ? void 0 : clonedChildren.props.id;
+
+    if (key == null || id == null) {
+      setClonedChildren(null);
+      return;
+    }
+
+    Promise.resolve(animation(id, element)).then(() => {
+      setClonedChildren(null);
+    });
+  }, [animation, clonedChildren, element]);
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, children, clonedChildren ? (0,react__WEBPACK_IMPORTED_MODULE_0__.cloneElement)(clonedChildren, {
+    ref: setElement
+  }) : null);
+}
+
+const defaultTransform = {
+  x: 0,
+  y: 0,
+  scaleX: 1,
+  scaleY: 1
+};
+function NullifiedContextProvider(_ref) {
+  let {
+    children
+  } = _ref;
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(InternalContext.Provider, {
+    value: defaultInternalContext
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ActiveDraggableContext.Provider, {
+    value: defaultTransform
+  }, children));
+}
+
+const baseStyles = {
+  position: 'fixed',
+  touchAction: 'none'
+};
+
+const defaultTransition = activatorEvent => {
+  const isKeyboardActivator = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isKeyboardEvent)(activatorEvent);
+  return isKeyboardActivator ? 'transform 250ms ease' : undefined;
+};
+
+const PositionedOverlay = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)((_ref, ref) => {
+  let {
+    as,
+    activatorEvent,
+    adjustScale,
+    children,
+    className,
+    rect,
+    style,
+    transform,
+    transition = defaultTransition
+  } = _ref;
+
+  if (!rect) {
+    return null;
+  }
+
+  const scaleAdjustedTransform = adjustScale ? transform : { ...transform,
+    scaleX: 1,
+    scaleY: 1
+  };
+  const styles = { ...baseStyles,
+    width: rect.width,
+    height: rect.height,
+    top: rect.top,
+    left: rect.left,
+    transform: _dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.CSS.Transform.toString(scaleAdjustedTransform),
+    transformOrigin: adjustScale && activatorEvent ? getRelativeTransformOrigin(activatorEvent, rect) : undefined,
+    transition: typeof transition === 'function' ? transition(activatorEvent) : transition,
+    ...style
+  };
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(as, {
+    className,
+    style: styles,
+    ref
+  }, children);
+});
+
+const defaultDropAnimationSideEffects = options => _ref => {
+  let {
+    active,
+    dragOverlay
+  } = _ref;
+  const originalStyles = {};
+  const {
+    styles,
+    className
+  } = options;
+
+  if (styles != null && styles.active) {
+    for (const [key, value] of Object.entries(styles.active)) {
+      if (value === undefined) {
+        continue;
+      }
+
+      originalStyles[key] = active.node.style.getPropertyValue(key);
+      active.node.style.setProperty(key, value);
+    }
+  }
+
+  if (styles != null && styles.dragOverlay) {
+    for (const [key, value] of Object.entries(styles.dragOverlay)) {
+      if (value === undefined) {
+        continue;
+      }
+
+      dragOverlay.node.style.setProperty(key, value);
+    }
+  }
+
+  if (className != null && className.active) {
+    active.node.classList.add(className.active);
+  }
+
+  if (className != null && className.dragOverlay) {
+    dragOverlay.node.classList.add(className.dragOverlay);
+  }
+
+  return function cleanup() {
+    for (const [key, value] of Object.entries(originalStyles)) {
+      active.node.style.setProperty(key, value);
+    }
+
+    if (className != null && className.active) {
+      active.node.classList.remove(className.active);
+    }
+  };
+};
+
+const defaultKeyframeResolver = _ref2 => {
+  let {
+    transform: {
+      initial,
+      final
+    }
+  } = _ref2;
+  return [{
+    transform: _dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.CSS.Transform.toString(initial)
+  }, {
+    transform: _dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.CSS.Transform.toString(final)
+  }];
+};
+
+const defaultDropAnimationConfiguration = {
+  duration: 250,
+  easing: 'ease',
+  keyframes: defaultKeyframeResolver,
+  sideEffects: /*#__PURE__*/defaultDropAnimationSideEffects({
+    styles: {
+      active: {
+        opacity: '0'
+      }
+    }
+  })
+};
+function useDropAnimation(_ref3) {
+  let {
+    config,
+    draggableNodes,
+    droppableContainers,
+    measuringConfiguration
+  } = _ref3;
+  return (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useEvent)((id, node) => {
+    if (config === null) {
+      return;
+    }
+
+    const activeDraggable = draggableNodes.get(id);
+
+    if (!activeDraggable) {
+      return;
+    }
+
+    const activeNode = activeDraggable.node.current;
+
+    if (!activeNode) {
+      return;
+    }
+
+    const measurableNode = getMeasurableNode(node);
+
+    if (!measurableNode) {
+      return;
+    }
+
+    const {
+      transform
+    } = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.getWindow)(node).getComputedStyle(node);
+    const parsedTransform = parseTransform(transform);
+
+    if (!parsedTransform) {
+      return;
+    }
+
+    const animation = typeof config === 'function' ? config : createDefaultDropAnimation(config);
+    scrollIntoViewIfNeeded(activeNode, measuringConfiguration.draggable.measure);
+    return animation({
+      active: {
+        id,
+        data: activeDraggable.data,
+        node: activeNode,
+        rect: measuringConfiguration.draggable.measure(activeNode)
+      },
+      draggableNodes,
+      dragOverlay: {
+        node,
+        rect: measuringConfiguration.dragOverlay.measure(measurableNode)
+      },
+      droppableContainers,
+      measuringConfiguration,
+      transform: parsedTransform
+    });
+  });
+}
+
+function createDefaultDropAnimation(options) {
+  const {
+    duration,
+    easing,
+    sideEffects,
+    keyframes
+  } = { ...defaultDropAnimationConfiguration,
+    ...options
+  };
+  return _ref4 => {
+    let {
+      active,
+      dragOverlay,
+      transform,
+      ...rest
+    } = _ref4;
+
+    if (!duration) {
+      // Do not animate if animation duration is zero.
+      return;
+    }
+
+    const delta = {
+      x: dragOverlay.rect.left - active.rect.left,
+      y: dragOverlay.rect.top - active.rect.top
+    };
+    const scale = {
+      scaleX: transform.scaleX !== 1 ? active.rect.width * transform.scaleX / dragOverlay.rect.width : 1,
+      scaleY: transform.scaleY !== 1 ? active.rect.height * transform.scaleY / dragOverlay.rect.height : 1
+    };
+    const finalTransform = {
+      x: transform.x - delta.x,
+      y: transform.y - delta.y,
+      ...scale
+    };
+    const animationKeyframes = keyframes({ ...rest,
+      active,
+      dragOverlay,
+      transform: {
+        initial: transform,
+        final: finalTransform
+      }
+    });
+    const [firstKeyframe] = animationKeyframes;
+    const lastKeyframe = animationKeyframes[animationKeyframes.length - 1];
+
+    if (JSON.stringify(firstKeyframe) === JSON.stringify(lastKeyframe)) {
+      // The start and end keyframes are the same, infer that there is no animation needed.
+      return;
+    }
+
+    const cleanup = sideEffects == null ? void 0 : sideEffects({
+      active,
+      dragOverlay,
+      ...rest
+    });
+    const animation = dragOverlay.node.animate(animationKeyframes, {
+      duration,
+      easing,
+      fill: 'forwards'
+    });
+    return new Promise(resolve => {
+      animation.onfinish = () => {
+        cleanup == null ? void 0 : cleanup();
+        resolve();
+      };
+    });
+  };
+}
+
+let key = 0;
+function useKey(id) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    if (id == null) {
+      return;
+    }
+
+    key++;
+    return key;
+  }, [id]);
+}
+
+const DragOverlay = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().memo(_ref => {
+  let {
+    adjustScale = false,
+    children,
+    dropAnimation: dropAnimationConfig,
+    style,
+    transition,
+    modifiers,
+    wrapperElement = 'div',
+    className,
+    zIndex = 999
+  } = _ref;
+  const {
+    activatorEvent,
+    active,
+    activeNodeRect,
+    containerNodeRect,
+    draggableNodes,
+    droppableContainers,
+    dragOverlay,
+    over,
+    measuringConfiguration,
+    scrollableAncestors,
+    scrollableAncestorRects,
+    windowRect
+  } = useDndContext();
+  const transform = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(ActiveDraggableContext);
+  const key = useKey(active == null ? void 0 : active.id);
+  const modifiedTransform = applyModifiers(modifiers, {
+    activatorEvent,
+    active,
+    activeNodeRect,
+    containerNodeRect,
+    draggingNodeRect: dragOverlay.rect,
+    over,
+    overlayNodeRect: dragOverlay.rect,
+    scrollableAncestors,
+    scrollableAncestorRects,
+    transform,
+    windowRect
+  });
+  const initialRect = useInitialValue(activeNodeRect);
+  const dropAnimation = useDropAnimation({
+    config: dropAnimationConfig,
+    draggableNodes,
+    droppableContainers,
+    measuringConfiguration
+  }); // We need to wait for the active node to be measured before connecting the drag overlay ref
+  // otherwise collisions can be computed against a mispositioned drag overlay
+
+  const ref = initialRect ? dragOverlay.setRef : undefined;
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NullifiedContextProvider, null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(AnimationManager, {
+    animation: dropAnimation
+  }, active && key ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PositionedOverlay, {
+    key: key,
+    id: active.id,
+    ref: ref,
+    as: wrapperElement,
+    activatorEvent: activatorEvent,
+    adjustScale: adjustScale,
+    className: className,
+    transition: transition,
+    rect: initialRect,
+    style: {
+      zIndex,
+      ...style
+    },
+    transform: modifiedTransform
+  }, children) : null));
+});
+
+
+//# sourceMappingURL=core.esm.js.map
+
+
+/***/ },
+
+/***/ "./node_modules/@dnd-kit/modifiers/dist/modifiers.esm.js"
+/*!***************************************************************!*\
+  !*** ./node_modules/@dnd-kit/modifiers/dist/modifiers.esm.js ***!
+  \***************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createSnapModifier: () => (/* binding */ createSnapModifier),
+/* harmony export */   restrictToFirstScrollableAncestor: () => (/* binding */ restrictToFirstScrollableAncestor),
+/* harmony export */   restrictToHorizontalAxis: () => (/* binding */ restrictToHorizontalAxis),
+/* harmony export */   restrictToParentElement: () => (/* binding */ restrictToParentElement),
+/* harmony export */   restrictToVerticalAxis: () => (/* binding */ restrictToVerticalAxis),
+/* harmony export */   restrictToWindowEdges: () => (/* binding */ restrictToWindowEdges),
+/* harmony export */   snapCenterToCursor: () => (/* binding */ snapCenterToCursor)
+/* harmony export */ });
+/* harmony import */ var _dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dnd-kit/utilities */ "./node_modules/@dnd-kit/utilities/dist/utilities.esm.js");
+
+
+function createSnapModifier(gridSize) {
+  return _ref => {
+    let {
+      transform
+    } = _ref;
+    return { ...transform,
+      x: Math.ceil(transform.x / gridSize) * gridSize,
+      y: Math.ceil(transform.y / gridSize) * gridSize
+    };
+  };
+}
+
+const restrictToHorizontalAxis = _ref => {
+  let {
+    transform
+  } = _ref;
+  return { ...transform,
+    y: 0
+  };
+};
+
+function restrictToBoundingRect(transform, rect, boundingRect) {
+  const value = { ...transform
+  };
+
+  if (rect.top + transform.y <= boundingRect.top) {
+    value.y = boundingRect.top - rect.top;
+  } else if (rect.bottom + transform.y >= boundingRect.top + boundingRect.height) {
+    value.y = boundingRect.top + boundingRect.height - rect.bottom;
+  }
+
+  if (rect.left + transform.x <= boundingRect.left) {
+    value.x = boundingRect.left - rect.left;
+  } else if (rect.right + transform.x >= boundingRect.left + boundingRect.width) {
+    value.x = boundingRect.left + boundingRect.width - rect.right;
+  }
+
+  return value;
+}
+
+const restrictToParentElement = _ref => {
+  let {
+    containerNodeRect,
+    draggingNodeRect,
+    transform
+  } = _ref;
+
+  if (!draggingNodeRect || !containerNodeRect) {
+    return transform;
+  }
+
+  return restrictToBoundingRect(transform, draggingNodeRect, containerNodeRect);
+};
+
+const restrictToFirstScrollableAncestor = _ref => {
+  let {
+    draggingNodeRect,
+    transform,
+    scrollableAncestorRects
+  } = _ref;
+  const firstScrollableAncestorRect = scrollableAncestorRects[0];
+
+  if (!draggingNodeRect || !firstScrollableAncestorRect) {
+    return transform;
+  }
+
+  return restrictToBoundingRect(transform, draggingNodeRect, firstScrollableAncestorRect);
+};
+
+const restrictToVerticalAxis = _ref => {
+  let {
+    transform
+  } = _ref;
+  return { ...transform,
+    x: 0
+  };
+};
+
+const restrictToWindowEdges = _ref => {
+  let {
+    transform,
+    draggingNodeRect,
+    windowRect
+  } = _ref;
+
+  if (!draggingNodeRect || !windowRect) {
+    return transform;
+  }
+
+  return restrictToBoundingRect(transform, draggingNodeRect, windowRect);
+};
+
+const snapCenterToCursor = _ref => {
+  let {
+    activatorEvent,
+    draggingNodeRect,
+    transform
+  } = _ref;
+
+  if (draggingNodeRect && activatorEvent) {
+    const activatorCoordinates = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_0__.getEventCoordinates)(activatorEvent);
+
+    if (!activatorCoordinates) {
+      return transform;
+    }
+
+    const offsetX = activatorCoordinates.x - draggingNodeRect.left;
+    const offsetY = activatorCoordinates.y - draggingNodeRect.top;
+    return { ...transform,
+      x: transform.x + offsetX - draggingNodeRect.width / 2,
+      y: transform.y + offsetY - draggingNodeRect.height / 2
+    };
+  }
+
+  return transform;
+};
+
+
+//# sourceMappingURL=modifiers.esm.js.map
+
+
+/***/ },
+
+/***/ "./node_modules/@dnd-kit/sortable/dist/sortable.esm.js"
+/*!*************************************************************!*\
+  !*** ./node_modules/@dnd-kit/sortable/dist/sortable.esm.js ***!
+  \*************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SortableContext: () => (/* binding */ SortableContext),
+/* harmony export */   arrayMove: () => (/* binding */ arrayMove),
+/* harmony export */   arraySwap: () => (/* binding */ arraySwap),
+/* harmony export */   defaultAnimateLayoutChanges: () => (/* binding */ defaultAnimateLayoutChanges),
+/* harmony export */   defaultNewIndexGetter: () => (/* binding */ defaultNewIndexGetter),
+/* harmony export */   hasSortableData: () => (/* binding */ hasSortableData),
+/* harmony export */   horizontalListSortingStrategy: () => (/* binding */ horizontalListSortingStrategy),
+/* harmony export */   rectSortingStrategy: () => (/* binding */ rectSortingStrategy),
+/* harmony export */   rectSwappingStrategy: () => (/* binding */ rectSwappingStrategy),
+/* harmony export */   sortableKeyboardCoordinates: () => (/* binding */ sortableKeyboardCoordinates),
+/* harmony export */   useSortable: () => (/* binding */ useSortable),
+/* harmony export */   verticalListSortingStrategy: () => (/* binding */ verticalListSortingStrategy)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @dnd-kit/core */ "./node_modules/@dnd-kit/core/dist/core.esm.js");
+/* harmony import */ var _dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @dnd-kit/utilities */ "./node_modules/@dnd-kit/utilities/dist/utilities.esm.js");
+
+
+
+
+/**
+ * Move an array item to a different position. Returns a new array with the item moved to the new position.
+ */
+function arrayMove(array, from, to) {
+  const newArray = array.slice();
+  newArray.splice(to < 0 ? newArray.length + to : to, 0, newArray.splice(from, 1)[0]);
+  return newArray;
+}
+
+/**
+ * Swap an array item to a different position. Returns a new array with the item swapped to the new position.
+ */
+function arraySwap(array, from, to) {
+  const newArray = array.slice();
+  newArray[from] = array[to];
+  newArray[to] = array[from];
+  return newArray;
+}
+
+function getSortedRects(items, rects) {
+  return items.reduce((accumulator, id, index) => {
+    const rect = rects.get(id);
+
+    if (rect) {
+      accumulator[index] = rect;
+    }
+
+    return accumulator;
+  }, Array(items.length));
+}
+
+function isValidIndex(index) {
+  return index !== null && index >= 0;
+}
+
+function itemsEqual(a, b) {
+  if (a === b) {
+    return true;
+  }
+
+  if (a.length !== b.length) {
+    return false;
+  }
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function normalizeDisabled(disabled) {
+  if (typeof disabled === 'boolean') {
+    return {
+      draggable: disabled,
+      droppable: disabled
+    };
+  }
+
+  return disabled;
+}
+
+// To-do: We should be calculating scale transformation
+const defaultScale = {
+  scaleX: 1,
+  scaleY: 1
+};
+const horizontalListSortingStrategy = _ref => {
+  var _rects$activeIndex;
+
+  let {
+    rects,
+    activeNodeRect: fallbackActiveRect,
+    activeIndex,
+    overIndex,
+    index
+  } = _ref;
+  const activeNodeRect = (_rects$activeIndex = rects[activeIndex]) != null ? _rects$activeIndex : fallbackActiveRect;
+
+  if (!activeNodeRect) {
+    return null;
+  }
+
+  const itemGap = getItemGap(rects, index, activeIndex);
+
+  if (index === activeIndex) {
+    const newIndexRect = rects[overIndex];
+
+    if (!newIndexRect) {
+      return null;
+    }
+
+    return {
+      x: activeIndex < overIndex ? newIndexRect.left + newIndexRect.width - (activeNodeRect.left + activeNodeRect.width) : newIndexRect.left - activeNodeRect.left,
+      y: 0,
+      ...defaultScale
+    };
+  }
+
+  if (index > activeIndex && index <= overIndex) {
+    return {
+      x: -activeNodeRect.width - itemGap,
+      y: 0,
+      ...defaultScale
+    };
+  }
+
+  if (index < activeIndex && index >= overIndex) {
+    return {
+      x: activeNodeRect.width + itemGap,
+      y: 0,
+      ...defaultScale
+    };
+  }
+
+  return {
+    x: 0,
+    y: 0,
+    ...defaultScale
+  };
+};
+
+function getItemGap(rects, index, activeIndex) {
+  const currentRect = rects[index];
+  const previousRect = rects[index - 1];
+  const nextRect = rects[index + 1];
+
+  if (!currentRect || !previousRect && !nextRect) {
+    return 0;
+  }
+
+  if (activeIndex < index) {
+    return previousRect ? currentRect.left - (previousRect.left + previousRect.width) : nextRect.left - (currentRect.left + currentRect.width);
+  }
+
+  return nextRect ? nextRect.left - (currentRect.left + currentRect.width) : currentRect.left - (previousRect.left + previousRect.width);
+}
+
+const rectSortingStrategy = _ref => {
+  let {
+    rects,
+    activeIndex,
+    overIndex,
+    index
+  } = _ref;
+  const newRects = arrayMove(rects, overIndex, activeIndex);
+  const oldRect = rects[index];
+  const newRect = newRects[index];
+
+  if (!newRect || !oldRect) {
+    return null;
+  }
+
+  return {
+    x: newRect.left - oldRect.left,
+    y: newRect.top - oldRect.top,
+    scaleX: newRect.width / oldRect.width,
+    scaleY: newRect.height / oldRect.height
+  };
+};
+
+const rectSwappingStrategy = _ref => {
+  let {
+    activeIndex,
+    index,
+    rects,
+    overIndex
+  } = _ref;
+  let oldRect;
+  let newRect;
+
+  if (index === activeIndex) {
+    oldRect = rects[index];
+    newRect = rects[overIndex];
+  }
+
+  if (index === overIndex) {
+    oldRect = rects[index];
+    newRect = rects[activeIndex];
+  }
+
+  if (!newRect || !oldRect) {
+    return null;
+  }
+
+  return {
+    x: newRect.left - oldRect.left,
+    y: newRect.top - oldRect.top,
+    scaleX: newRect.width / oldRect.width,
+    scaleY: newRect.height / oldRect.height
+  };
+};
+
+// To-do: We should be calculating scale transformation
+const defaultScale$1 = {
+  scaleX: 1,
+  scaleY: 1
+};
+const verticalListSortingStrategy = _ref => {
+  var _rects$activeIndex;
+
+  let {
+    activeIndex,
+    activeNodeRect: fallbackActiveRect,
+    index,
+    rects,
+    overIndex
+  } = _ref;
+  const activeNodeRect = (_rects$activeIndex = rects[activeIndex]) != null ? _rects$activeIndex : fallbackActiveRect;
+
+  if (!activeNodeRect) {
+    return null;
+  }
+
+  if (index === activeIndex) {
+    const overIndexRect = rects[overIndex];
+
+    if (!overIndexRect) {
+      return null;
+    }
+
+    return {
+      x: 0,
+      y: activeIndex < overIndex ? overIndexRect.top + overIndexRect.height - (activeNodeRect.top + activeNodeRect.height) : overIndexRect.top - activeNodeRect.top,
+      ...defaultScale$1
+    };
+  }
+
+  const itemGap = getItemGap$1(rects, index, activeIndex);
+
+  if (index > activeIndex && index <= overIndex) {
+    return {
+      x: 0,
+      y: -activeNodeRect.height - itemGap,
+      ...defaultScale$1
+    };
+  }
+
+  if (index < activeIndex && index >= overIndex) {
+    return {
+      x: 0,
+      y: activeNodeRect.height + itemGap,
+      ...defaultScale$1
+    };
+  }
+
+  return {
+    x: 0,
+    y: 0,
+    ...defaultScale$1
+  };
+};
+
+function getItemGap$1(clientRects, index, activeIndex) {
+  const currentRect = clientRects[index];
+  const previousRect = clientRects[index - 1];
+  const nextRect = clientRects[index + 1];
+
+  if (!currentRect) {
+    return 0;
+  }
+
+  if (activeIndex < index) {
+    return previousRect ? currentRect.top - (previousRect.top + previousRect.height) : nextRect ? nextRect.top - (currentRect.top + currentRect.height) : 0;
+  }
+
+  return nextRect ? nextRect.top - (currentRect.top + currentRect.height) : previousRect ? currentRect.top - (previousRect.top + previousRect.height) : 0;
+}
+
+const ID_PREFIX = 'Sortable';
+const Context = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createContext({
+  activeIndex: -1,
+  containerId: ID_PREFIX,
+  disableTransforms: false,
+  items: [],
+  overIndex: -1,
+  useDragOverlay: false,
+  sortedRects: [],
+  strategy: rectSortingStrategy,
+  disabled: {
+    draggable: false,
+    droppable: false
+  }
+});
+function SortableContext(_ref) {
+  let {
+    children,
+    id,
+    items: userDefinedItems,
+    strategy = rectSortingStrategy,
+    disabled: disabledProp = false
+  } = _ref;
+  const {
+    active,
+    dragOverlay,
+    droppableRects,
+    over,
+    measureDroppableContainers
+  } = (0,_dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.useDndContext)();
+  const containerId = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useUniqueId)(ID_PREFIX, id);
+  const useDragOverlay = Boolean(dragOverlay.rect !== null);
+  const items = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => userDefinedItems.map(item => typeof item === 'object' && 'id' in item ? item.id : item), [userDefinedItems]);
+  const isDragging = active != null;
+  const activeIndex = active ? items.indexOf(active.id) : -1;
+  const overIndex = over ? items.indexOf(over.id) : -1;
+  const previousItemsRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(items);
+  const itemsHaveChanged = !itemsEqual(items, previousItemsRef.current);
+  const disableTransforms = overIndex !== -1 && activeIndex === -1 || itemsHaveChanged;
+  const disabled = normalizeDisabled(disabledProp);
+  (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useIsomorphicLayoutEffect)(() => {
+    if (itemsHaveChanged && isDragging) {
+      measureDroppableContainers(items);
+    }
+  }, [itemsHaveChanged, items, isDragging, measureDroppableContainers]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    previousItemsRef.current = items;
+  }, [items]);
+  const contextValue = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
+    activeIndex,
+    containerId,
+    disabled,
+    disableTransforms,
+    items,
+    overIndex,
+    useDragOverlay,
+    sortedRects: getSortedRects(items, droppableRects),
+    strategy
+  }), // eslint-disable-next-line react-hooks/exhaustive-deps
+  [activeIndex, containerId, disabled.draggable, disabled.droppable, disableTransforms, items, overIndex, droppableRects, useDragOverlay, strategy]);
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Context.Provider, {
+    value: contextValue
+  }, children);
+}
+
+const defaultNewIndexGetter = _ref => {
+  let {
+    id,
+    items,
+    activeIndex,
+    overIndex
+  } = _ref;
+  return arrayMove(items, activeIndex, overIndex).indexOf(id);
+};
+const defaultAnimateLayoutChanges = _ref2 => {
+  let {
+    containerId,
+    isSorting,
+    wasDragging,
+    index,
+    items,
+    newIndex,
+    previousItems,
+    previousContainerId,
+    transition
+  } = _ref2;
+
+  if (!transition || !wasDragging) {
+    return false;
+  }
+
+  if (previousItems !== items && index === newIndex) {
+    return false;
+  }
+
+  if (isSorting) {
+    return true;
+  }
+
+  return newIndex !== index && containerId === previousContainerId;
+};
+const defaultTransition = {
+  duration: 200,
+  easing: 'ease'
+};
+const transitionProperty = 'transform';
+const disabledTransition = /*#__PURE__*/_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.CSS.Transition.toString({
+  property: transitionProperty,
+  duration: 0,
+  easing: 'linear'
+});
+const defaultAttributes = {
+  roleDescription: 'sortable'
+};
+
+/*
+ * When the index of an item changes while sorting,
+ * we need to temporarily disable the transforms
+ */
+
+function useDerivedTransform(_ref) {
+  let {
+    disabled,
+    index,
+    node,
+    rect
+  } = _ref;
+  const [derivedTransform, setDerivedtransform] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const previousIndex = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(index);
+  (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useIsomorphicLayoutEffect)(() => {
+    if (!disabled && index !== previousIndex.current && node.current) {
+      const initial = rect.current;
+
+      if (initial) {
+        const current = (0,_dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.getClientRect)(node.current, {
+          ignoreTransform: true
+        });
+        const delta = {
+          x: initial.left - current.left,
+          y: initial.top - current.top,
+          scaleX: initial.width / current.width,
+          scaleY: initial.height / current.height
+        };
+
+        if (delta.x || delta.y) {
+          setDerivedtransform(delta);
+        }
+      }
+    }
+
+    if (index !== previousIndex.current) {
+      previousIndex.current = index;
+    }
+  }, [disabled, index, node, rect]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (derivedTransform) {
+      setDerivedtransform(null);
+    }
+  }, [derivedTransform]);
+  return derivedTransform;
+}
+
+function useSortable(_ref) {
+  let {
+    animateLayoutChanges = defaultAnimateLayoutChanges,
+    attributes: userDefinedAttributes,
+    disabled: localDisabled,
+    data: customData,
+    getNewIndex = defaultNewIndexGetter,
+    id,
+    strategy: localStrategy,
+    resizeObserverConfig,
+    transition = defaultTransition
+  } = _ref;
+  const {
+    items,
+    containerId,
+    activeIndex,
+    disabled: globalDisabled,
+    disableTransforms,
+    sortedRects,
+    overIndex,
+    useDragOverlay,
+    strategy: globalStrategy
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(Context);
+  const disabled = normalizeLocalDisabled(localDisabled, globalDisabled);
+  const index = items.indexOf(id);
+  const data = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
+    sortable: {
+      containerId,
+      index,
+      items
+    },
+    ...customData
+  }), [containerId, customData, index, items]);
+  const itemsAfterCurrentSortable = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => items.slice(items.indexOf(id)), [items, id]);
+  const {
+    rect,
+    node,
+    isOver,
+    setNodeRef: setDroppableNodeRef
+  } = (0,_dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.useDroppable)({
+    id,
+    data,
+    disabled: disabled.droppable,
+    resizeObserverConfig: {
+      updateMeasurementsFor: itemsAfterCurrentSortable,
+      ...resizeObserverConfig
+    }
+  });
+  const {
+    active,
+    activatorEvent,
+    activeNodeRect,
+    attributes,
+    setNodeRef: setDraggableNodeRef,
+    listeners,
+    isDragging,
+    over,
+    setActivatorNodeRef,
+    transform
+  } = (0,_dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.useDraggable)({
+    id,
+    data,
+    attributes: { ...defaultAttributes,
+      ...userDefinedAttributes
+    },
+    disabled: disabled.draggable
+  });
+  const setNodeRef = (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.useCombinedRefs)(setDroppableNodeRef, setDraggableNodeRef);
+  const isSorting = Boolean(active);
+  const displaceItem = isSorting && !disableTransforms && isValidIndex(activeIndex) && isValidIndex(overIndex);
+  const shouldDisplaceDragSource = !useDragOverlay && isDragging;
+  const dragSourceDisplacement = shouldDisplaceDragSource && displaceItem ? transform : null;
+  const strategy = localStrategy != null ? localStrategy : globalStrategy;
+  const finalTransform = displaceItem ? dragSourceDisplacement != null ? dragSourceDisplacement : strategy({
+    rects: sortedRects,
+    activeNodeRect,
+    activeIndex,
+    overIndex,
+    index
+  }) : null;
+  const newIndex = isValidIndex(activeIndex) && isValidIndex(overIndex) ? getNewIndex({
+    id,
+    items,
+    activeIndex,
+    overIndex
+  }) : index;
+  const activeId = active == null ? void 0 : active.id;
+  const previous = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({
+    activeId,
+    items,
+    newIndex,
+    containerId
+  });
+  const itemsHaveChanged = items !== previous.current.items;
+  const shouldAnimateLayoutChanges = animateLayoutChanges({
+    active,
+    containerId,
+    isDragging,
+    isSorting,
+    id,
+    index,
+    items,
+    newIndex: previous.current.newIndex,
+    previousItems: previous.current.items,
+    previousContainerId: previous.current.containerId,
+    transition,
+    wasDragging: previous.current.activeId != null
+  });
+  const derivedTransform = useDerivedTransform({
+    disabled: !shouldAnimateLayoutChanges,
+    index,
+    node,
+    rect
+  });
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (isSorting && previous.current.newIndex !== newIndex) {
+      previous.current.newIndex = newIndex;
+    }
+
+    if (containerId !== previous.current.containerId) {
+      previous.current.containerId = containerId;
+    }
+
+    if (items !== previous.current.items) {
+      previous.current.items = items;
+    }
+  }, [isSorting, newIndex, containerId, items]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (activeId === previous.current.activeId) {
+      return;
+    }
+
+    if (activeId != null && previous.current.activeId == null) {
+      previous.current.activeId = activeId;
+      return;
+    }
+
+    const timeoutId = setTimeout(() => {
+      previous.current.activeId = activeId;
+    }, 50);
+    return () => clearTimeout(timeoutId);
+  }, [activeId]);
+  return {
+    active,
+    activeIndex,
+    attributes,
+    data,
+    rect,
+    index,
+    newIndex,
+    items,
+    isOver,
+    isSorting,
+    isDragging,
+    listeners,
+    node,
+    overIndex,
+    over,
+    setNodeRef,
+    setActivatorNodeRef,
+    setDroppableNodeRef,
+    setDraggableNodeRef,
+    transform: derivedTransform != null ? derivedTransform : finalTransform,
+    transition: getTransition()
+  };
+
+  function getTransition() {
+    if ( // Temporarily disable transitions for a single frame to set up derived transforms
+    derivedTransform || // Or to prevent items jumping to back to their "new" position when items change
+    itemsHaveChanged && previous.current.newIndex === index) {
+      return disabledTransition;
+    }
+
+    if (shouldDisplaceDragSource && !(0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.isKeyboardEvent)(activatorEvent) || !transition) {
+      return undefined;
+    }
+
+    if (isSorting || shouldAnimateLayoutChanges) {
+      return _dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.CSS.Transition.toString({ ...transition,
+        property: transitionProperty
+      });
+    }
+
+    return undefined;
+  }
+}
+
+function normalizeLocalDisabled(localDisabled, globalDisabled) {
+  var _localDisabled$dragga, _localDisabled$droppa;
+
+  if (typeof localDisabled === 'boolean') {
+    return {
+      draggable: localDisabled,
+      // Backwards compatibility
+      droppable: false
+    };
+  }
+
+  return {
+    draggable: (_localDisabled$dragga = localDisabled == null ? void 0 : localDisabled.draggable) != null ? _localDisabled$dragga : globalDisabled.draggable,
+    droppable: (_localDisabled$droppa = localDisabled == null ? void 0 : localDisabled.droppable) != null ? _localDisabled$droppa : globalDisabled.droppable
+  };
+}
+
+function hasSortableData(entry) {
+  if (!entry) {
+    return false;
+  }
+
+  const data = entry.data.current;
+
+  if (data && 'sortable' in data && typeof data.sortable === 'object' && 'containerId' in data.sortable && 'items' in data.sortable && 'index' in data.sortable) {
+    return true;
+  }
+
+  return false;
+}
+
+const directions = [_dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.KeyboardCode.Down, _dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.KeyboardCode.Right, _dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.KeyboardCode.Up, _dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.KeyboardCode.Left];
+const sortableKeyboardCoordinates = (event, _ref) => {
+  let {
+    context: {
+      active,
+      collisionRect,
+      droppableRects,
+      droppableContainers,
+      over,
+      scrollableAncestors
+    }
+  } = _ref;
+
+  if (directions.includes(event.code)) {
+    event.preventDefault();
+
+    if (!active || !collisionRect) {
+      return;
+    }
+
+    const filteredContainers = [];
+    droppableContainers.getEnabled().forEach(entry => {
+      if (!entry || entry != null && entry.disabled) {
+        return;
+      }
+
+      const rect = droppableRects.get(entry.id);
+
+      if (!rect) {
+        return;
+      }
+
+      switch (event.code) {
+        case _dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.KeyboardCode.Down:
+          if (collisionRect.top < rect.top) {
+            filteredContainers.push(entry);
+          }
+
+          break;
+
+        case _dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.KeyboardCode.Up:
+          if (collisionRect.top > rect.top) {
+            filteredContainers.push(entry);
+          }
+
+          break;
+
+        case _dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.KeyboardCode.Left:
+          if (collisionRect.left > rect.left) {
+            filteredContainers.push(entry);
+          }
+
+          break;
+
+        case _dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.KeyboardCode.Right:
+          if (collisionRect.left < rect.left) {
+            filteredContainers.push(entry);
+          }
+
+          break;
+      }
+    });
+    const collisions = (0,_dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.closestCorners)({
+      active,
+      collisionRect: collisionRect,
+      droppableRects,
+      droppableContainers: filteredContainers,
+      pointerCoordinates: null
+    });
+    let closestId = (0,_dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.getFirstCollision)(collisions, 'id');
+
+    if (closestId === (over == null ? void 0 : over.id) && collisions.length > 1) {
+      closestId = collisions[1].id;
+    }
+
+    if (closestId != null) {
+      const activeDroppable = droppableContainers.get(active.id);
+      const newDroppable = droppableContainers.get(closestId);
+      const newRect = newDroppable ? droppableRects.get(newDroppable.id) : null;
+      const newNode = newDroppable == null ? void 0 : newDroppable.node.current;
+
+      if (newNode && newRect && activeDroppable && newDroppable) {
+        const newScrollAncestors = (0,_dnd_kit_core__WEBPACK_IMPORTED_MODULE_1__.getScrollableAncestors)(newNode);
+        const hasDifferentScrollAncestors = newScrollAncestors.some((element, index) => scrollableAncestors[index] !== element);
+        const hasSameContainer = isSameContainer(activeDroppable, newDroppable);
+        const isAfterActive = isAfter(activeDroppable, newDroppable);
+        const offset = hasDifferentScrollAncestors || !hasSameContainer ? {
+          x: 0,
+          y: 0
+        } : {
+          x: isAfterActive ? collisionRect.width - newRect.width : 0,
+          y: isAfterActive ? collisionRect.height - newRect.height : 0
+        };
+        const rectCoordinates = {
+          x: newRect.left,
+          y: newRect.top
+        };
+        const newCoordinates = offset.x && offset.y ? rectCoordinates : (0,_dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_2__.subtract)(rectCoordinates, offset);
+        return newCoordinates;
+      }
+    }
+  }
+
+  return undefined;
+};
+
+function isSameContainer(a, b) {
+  if (!hasSortableData(a) || !hasSortableData(b)) {
+    return false;
+  }
+
+  return a.data.current.sortable.containerId === b.data.current.sortable.containerId;
+}
+
+function isAfter(a, b) {
+  if (!hasSortableData(a) || !hasSortableData(b)) {
+    return false;
+  }
+
+  if (!isSameContainer(a, b)) {
+    return false;
+  }
+
+  return a.data.current.sortable.index < b.data.current.sortable.index;
+}
+
+
+//# sourceMappingURL=sortable.esm.js.map
+
+
+/***/ },
+
+/***/ "./node_modules/@dnd-kit/utilities/dist/utilities.esm.js"
+/*!***************************************************************!*\
+  !*** ./node_modules/@dnd-kit/utilities/dist/utilities.esm.js ***!
+  \***************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CSS: () => (/* binding */ CSS),
+/* harmony export */   add: () => (/* binding */ add),
+/* harmony export */   canUseDOM: () => (/* binding */ canUseDOM),
+/* harmony export */   findFirstFocusableNode: () => (/* binding */ findFirstFocusableNode),
+/* harmony export */   getEventCoordinates: () => (/* binding */ getEventCoordinates),
+/* harmony export */   getOwnerDocument: () => (/* binding */ getOwnerDocument),
+/* harmony export */   getWindow: () => (/* binding */ getWindow),
+/* harmony export */   hasViewportRelativeCoordinates: () => (/* binding */ hasViewportRelativeCoordinates),
+/* harmony export */   isDocument: () => (/* binding */ isDocument),
+/* harmony export */   isHTMLElement: () => (/* binding */ isHTMLElement),
+/* harmony export */   isKeyboardEvent: () => (/* binding */ isKeyboardEvent),
+/* harmony export */   isNode: () => (/* binding */ isNode),
+/* harmony export */   isSVGElement: () => (/* binding */ isSVGElement),
+/* harmony export */   isTouchEvent: () => (/* binding */ isTouchEvent),
+/* harmony export */   isWindow: () => (/* binding */ isWindow),
+/* harmony export */   subtract: () => (/* binding */ subtract),
+/* harmony export */   useCombinedRefs: () => (/* binding */ useCombinedRefs),
+/* harmony export */   useEvent: () => (/* binding */ useEvent),
+/* harmony export */   useInterval: () => (/* binding */ useInterval),
+/* harmony export */   useIsomorphicLayoutEffect: () => (/* binding */ useIsomorphicLayoutEffect),
+/* harmony export */   useLatestValue: () => (/* binding */ useLatestValue),
+/* harmony export */   useLazyMemo: () => (/* binding */ useLazyMemo),
+/* harmony export */   useNodeRef: () => (/* binding */ useNodeRef),
+/* harmony export */   usePrevious: () => (/* binding */ usePrevious),
+/* harmony export */   useUniqueId: () => (/* binding */ useUniqueId)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function useCombinedRefs() {
+  for (var _len = arguments.length, refs = new Array(_len), _key = 0; _key < _len; _key++) {
+    refs[_key] = arguments[_key];
+  }
+
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => node => {
+    refs.forEach(ref => ref(node));
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  refs);
+}
+
+// https://github.com/facebook/react/blob/master/packages/shared/ExecutionEnvironment.js
+const canUseDOM = typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined';
+
+function isWindow(element) {
+  const elementString = Object.prototype.toString.call(element);
+  return elementString === '[object Window]' || // In Electron context the Window object serializes to [object global]
+  elementString === '[object global]';
+}
+
+function isNode(node) {
+  return 'nodeType' in node;
+}
+
+function getWindow(target) {
+  var _target$ownerDocument, _target$ownerDocument2;
+
+  if (!target) {
+    return window;
+  }
+
+  if (isWindow(target)) {
+    return target;
+  }
+
+  if (!isNode(target)) {
+    return window;
+  }
+
+  return (_target$ownerDocument = (_target$ownerDocument2 = target.ownerDocument) == null ? void 0 : _target$ownerDocument2.defaultView) != null ? _target$ownerDocument : window;
+}
+
+function isDocument(node) {
+  const {
+    Document
+  } = getWindow(node);
+  return node instanceof Document;
+}
+
+function isHTMLElement(node) {
+  if (isWindow(node)) {
+    return false;
+  }
+
+  return node instanceof getWindow(node).HTMLElement;
+}
+
+function isSVGElement(node) {
+  return node instanceof getWindow(node).SVGElement;
+}
+
+function getOwnerDocument(target) {
+  if (!target) {
+    return document;
+  }
+
+  if (isWindow(target)) {
+    return target.document;
+  }
+
+  if (!isNode(target)) {
+    return document;
+  }
+
+  if (isDocument(target)) {
+    return target;
+  }
+
+  if (isHTMLElement(target) || isSVGElement(target)) {
+    return target.ownerDocument;
+  }
+
+  return document;
+}
+
+/**
+ * A hook that resolves to useEffect on the server and useLayoutEffect on the client
+ * @param callback {function} Callback function that is invoked when the dependencies of the hook change
+ */
+
+const useIsomorphicLayoutEffect = canUseDOM ? react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect : react__WEBPACK_IMPORTED_MODULE_0__.useEffect;
+
+function useEvent(handler) {
+  const handlerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(handler);
+  useIsomorphicLayoutEffect(() => {
+    handlerRef.current = handler;
+  });
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return handlerRef.current == null ? void 0 : handlerRef.current(...args);
+  }, []);
+}
+
+function useInterval() {
+  const intervalRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const set = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((listener, duration) => {
+    intervalRef.current = setInterval(listener, duration);
+  }, []);
+  const clear = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
+    if (intervalRef.current !== null) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  }, []);
+  return [set, clear];
+}
+
+function useLatestValue(value, dependencies) {
+  if (dependencies === void 0) {
+    dependencies = [value];
+  }
+
+  const valueRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(value);
+  useIsomorphicLayoutEffect(() => {
+    if (valueRef.current !== value) {
+      valueRef.current = value;
+    }
+  }, dependencies);
+  return valueRef;
+}
+
+function useLazyMemo(callback, dependencies) {
+  const valueRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    const newValue = callback(valueRef.current);
+    valueRef.current = newValue;
+    return newValue;
+  }, // eslint-disable-next-line react-hooks/exhaustive-deps
+  [...dependencies]);
+}
+
+function useNodeRef(onChange) {
+  const onChangeHandler = useEvent(onChange);
+  const node = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const setNodeRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(element => {
+    if (element !== node.current) {
+      onChangeHandler == null ? void 0 : onChangeHandler(element, node.current);
+    }
+
+    node.current = element;
+  }, //eslint-disable-next-line
+  []);
+  return [node, setNodeRef];
+}
+
+function usePrevious(value) {
+  const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    ref.current = value;
+  }, [value]);
+  return ref.current;
+}
+
+let ids = {};
+function useUniqueId(prefix, value) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    if (value) {
+      return value;
+    }
+
+    const id = ids[prefix] == null ? 0 : ids[prefix] + 1;
+    ids[prefix] = id;
+    return prefix + "-" + id;
+  }, [prefix, value]);
+}
+
+function createAdjustmentFn(modifier) {
+  return function (object) {
+    for (var _len = arguments.length, adjustments = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      adjustments[_key - 1] = arguments[_key];
+    }
+
+    return adjustments.reduce((accumulator, adjustment) => {
+      const entries = Object.entries(adjustment);
+
+      for (const [key, valueAdjustment] of entries) {
+        const value = accumulator[key];
+
+        if (value != null) {
+          accumulator[key] = value + modifier * valueAdjustment;
+        }
+      }
+
+      return accumulator;
+    }, { ...object
+    });
+  };
+}
+
+const add = /*#__PURE__*/createAdjustmentFn(1);
+const subtract = /*#__PURE__*/createAdjustmentFn(-1);
+
+function hasViewportRelativeCoordinates(event) {
+  return 'clientX' in event && 'clientY' in event;
+}
+
+function isKeyboardEvent(event) {
+  if (!event) {
+    return false;
+  }
+
+  const {
+    KeyboardEvent
+  } = getWindow(event.target);
+  return KeyboardEvent && event instanceof KeyboardEvent;
+}
+
+function isTouchEvent(event) {
+  if (!event) {
+    return false;
+  }
+
+  const {
+    TouchEvent
+  } = getWindow(event.target);
+  return TouchEvent && event instanceof TouchEvent;
+}
+
+/**
+ * Returns the normalized x and y coordinates for mouse and touch events.
+ */
+
+function getEventCoordinates(event) {
+  if (isTouchEvent(event)) {
+    if (event.touches && event.touches.length) {
+      const {
+        clientX: x,
+        clientY: y
+      } = event.touches[0];
+      return {
+        x,
+        y
+      };
+    } else if (event.changedTouches && event.changedTouches.length) {
+      const {
+        clientX: x,
+        clientY: y
+      } = event.changedTouches[0];
+      return {
+        x,
+        y
+      };
+    }
+  }
+
+  if (hasViewportRelativeCoordinates(event)) {
+    return {
+      x: event.clientX,
+      y: event.clientY
+    };
+  }
+
+  return null;
+}
+
+const CSS = /*#__PURE__*/Object.freeze({
+  Translate: {
+    toString(transform) {
+      if (!transform) {
+        return;
+      }
+
+      const {
+        x,
+        y
+      } = transform;
+      return "translate3d(" + (x ? Math.round(x) : 0) + "px, " + (y ? Math.round(y) : 0) + "px, 0)";
+    }
+
+  },
+  Scale: {
+    toString(transform) {
+      if (!transform) {
+        return;
+      }
+
+      const {
+        scaleX,
+        scaleY
+      } = transform;
+      return "scaleX(" + scaleX + ") scaleY(" + scaleY + ")";
+    }
+
+  },
+  Transform: {
+    toString(transform) {
+      if (!transform) {
+        return;
+      }
+
+      return [CSS.Translate.toString(transform), CSS.Scale.toString(transform)].join(' ');
+    }
+
+  },
+  Transition: {
+    toString(_ref) {
+      let {
+        property,
+        duration,
+        easing
+      } = _ref;
+      return property + " " + duration + "ms " + easing;
+    }
+
+  }
+});
+
+const SELECTOR = 'a,frame,iframe,input:not([type=hidden]):not(:disabled),select:not(:disabled),textarea:not(:disabled),button:not(:disabled),*[tabindex]';
+function findFirstFocusableNode(element) {
+  if (element.matches(SELECTOR)) {
+    return element;
+  }
+
+  return element.querySelector(SELECTOR);
+}
+
+
+//# sourceMappingURL=utilities.esm.js.map
+
+
+/***/ },
+
+/***/ "./node_modules/charenc/charenc.js"
+/*!*****************************************!*\
+  !*** ./node_modules/charenc/charenc.js ***!
+  \*****************************************/
+(module) {
+
+var charenc = {
+  // UTF-8 encoding
+  utf8: {
+    // Convert a string to a byte array
+    stringToBytes: function(str) {
+      return charenc.bin.stringToBytes(unescape(encodeURIComponent(str)));
+    },
+
+    // Convert a byte array to a string
+    bytesToString: function(bytes) {
+      return decodeURIComponent(escape(charenc.bin.bytesToString(bytes)));
+    }
+  },
+
+  // Binary encoding
+  bin: {
+    // Convert a string to a byte array
+    stringToBytes: function(str) {
+      for (var bytes = [], i = 0; i < str.length; i++)
+        bytes.push(str.charCodeAt(i) & 0xFF);
+      return bytes;
+    },
+
+    // Convert a byte array to a string
+    bytesToString: function(bytes) {
+      for (var str = [], i = 0; i < bytes.length; i++)
+        str.push(String.fromCharCode(bytes[i]));
+      return str.join('');
+    }
+  }
+};
+
+module.exports = charenc;
+
+
+/***/ },
+
+/***/ "./node_modules/crypt/crypt.js"
+/*!*************************************!*\
+  !*** ./node_modules/crypt/crypt.js ***!
+  \*************************************/
+(module) {
+
+(function() {
+  var base64map
+      = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
+
+  crypt = {
+    // Bit-wise rotation left
+    rotl: function(n, b) {
+      return (n << b) | (n >>> (32 - b));
+    },
+
+    // Bit-wise rotation right
+    rotr: function(n, b) {
+      return (n << (32 - b)) | (n >>> b);
+    },
+
+    // Swap big-endian to little-endian and vice versa
+    endian: function(n) {
+      // If number given, swap endian
+      if (n.constructor == Number) {
+        return crypt.rotl(n, 8) & 0x00FF00FF | crypt.rotl(n, 24) & 0xFF00FF00;
+      }
+
+      // Else, assume array and swap all items
+      for (var i = 0; i < n.length; i++)
+        n[i] = crypt.endian(n[i]);
+      return n;
+    },
+
+    // Generate an array of any length of random bytes
+    randomBytes: function(n) {
+      for (var bytes = []; n > 0; n--)
+        bytes.push(Math.floor(Math.random() * 256));
+      return bytes;
+    },
+
+    // Convert a byte array to big-endian 32-bit words
+    bytesToWords: function(bytes) {
+      for (var words = [], i = 0, b = 0; i < bytes.length; i++, b += 8)
+        words[b >>> 5] |= bytes[i] << (24 - b % 32);
+      return words;
+    },
+
+    // Convert big-endian 32-bit words to a byte array
+    wordsToBytes: function(words) {
+      for (var bytes = [], b = 0; b < words.length * 32; b += 8)
+        bytes.push((words[b >>> 5] >>> (24 - b % 32)) & 0xFF);
+      return bytes;
+    },
+
+    // Convert a byte array to a hex string
+    bytesToHex: function(bytes) {
+      for (var hex = [], i = 0; i < bytes.length; i++) {
+        hex.push((bytes[i] >>> 4).toString(16));
+        hex.push((bytes[i] & 0xF).toString(16));
+      }
+      return hex.join('');
+    },
+
+    // Convert a hex string to a byte array
+    hexToBytes: function(hex) {
+      for (var bytes = [], c = 0; c < hex.length; c += 2)
+        bytes.push(parseInt(hex.substr(c, 2), 16));
+      return bytes;
+    },
+
+    // Convert a byte array to a base-64 string
+    bytesToBase64: function(bytes) {
+      for (var base64 = [], i = 0; i < bytes.length; i += 3) {
+        var triplet = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
+        for (var j = 0; j < 4; j++)
+          if (i * 8 + j * 6 <= bytes.length * 8)
+            base64.push(base64map.charAt((triplet >>> 6 * (3 - j)) & 0x3F));
+          else
+            base64.push('=');
+      }
+      return base64.join('');
+    },
+
+    // Convert a base-64 string to a byte array
+    base64ToBytes: function(base64) {
+      // Remove non-base-64 characters
+      base64 = base64.replace(/[^A-Z0-9+\/]/ig, '');
+
+      for (var bytes = [], i = 0, imod4 = 0; i < base64.length;
+          imod4 = ++i % 4) {
+        if (imod4 == 0) continue;
+        bytes.push(((base64map.indexOf(base64.charAt(i - 1))
+            & (Math.pow(2, -2 * imod4 + 8) - 1)) << (imod4 * 2))
+            | (base64map.indexOf(base64.charAt(i)) >>> (6 - imod4 * 2)));
+      }
+      return bytes;
+    }
+  };
+
+  module.exports = crypt;
+})();
+
+
+/***/ },
+
+/***/ "./node_modules/is-buffer/index.js"
+/*!*****************************************!*\
+  !*** ./node_modules/is-buffer/index.js ***!
+  \*****************************************/
+(module) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+// The _isBuffer check is for Safari 5-7 support, because it's missing
+// Object.prototype.constructor. Remove this eventually
+module.exports = function (obj) {
+  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer)
+}
+
+function isBuffer (obj) {
+  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
+
+// For Node v0.10 support. Remove this eventually.
+function isSlowBuffer (obj) {
+  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
+}
+
+
+/***/ },
+
+/***/ "./node_modules/md5/md5.js"
+/*!*********************************!*\
+  !*** ./node_modules/md5/md5.js ***!
+  \*********************************/
+(module, __unused_webpack_exports, __webpack_require__) {
+
+(function(){
+  var crypt = __webpack_require__(/*! crypt */ "./node_modules/crypt/crypt.js"),
+      utf8 = (__webpack_require__(/*! charenc */ "./node_modules/charenc/charenc.js").utf8),
+      isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/is-buffer/index.js"),
+      bin = (__webpack_require__(/*! charenc */ "./node_modules/charenc/charenc.js").bin),
+
+  // The core
+  md5 = function (message, options) {
+    // Convert to byte array
+    if (message.constructor == String)
+      if (options && options.encoding === 'binary')
+        message = bin.stringToBytes(message);
+      else
+        message = utf8.stringToBytes(message);
+    else if (isBuffer(message))
+      message = Array.prototype.slice.call(message, 0);
+    else if (!Array.isArray(message) && message.constructor !== Uint8Array)
+      message = message.toString();
+    // else, assume byte array already
+
+    var m = crypt.bytesToWords(message),
+        l = message.length * 8,
+        a =  1732584193,
+        b = -271733879,
+        c = -1732584194,
+        d =  271733878;
+
+    // Swap endian
+    for (var i = 0; i < m.length; i++) {
+      m[i] = ((m[i] <<  8) | (m[i] >>> 24)) & 0x00FF00FF |
+             ((m[i] << 24) | (m[i] >>>  8)) & 0xFF00FF00;
+    }
+
+    // Padding
+    m[l >>> 5] |= 0x80 << (l % 32);
+    m[(((l + 64) >>> 9) << 4) + 14] = l;
+
+    // Method shortcuts
+    var FF = md5._ff,
+        GG = md5._gg,
+        HH = md5._hh,
+        II = md5._ii;
+
+    for (var i = 0; i < m.length; i += 16) {
+
+      var aa = a,
+          bb = b,
+          cc = c,
+          dd = d;
+
+      a = FF(a, b, c, d, m[i+ 0],  7, -680876936);
+      d = FF(d, a, b, c, m[i+ 1], 12, -389564586);
+      c = FF(c, d, a, b, m[i+ 2], 17,  606105819);
+      b = FF(b, c, d, a, m[i+ 3], 22, -1044525330);
+      a = FF(a, b, c, d, m[i+ 4],  7, -176418897);
+      d = FF(d, a, b, c, m[i+ 5], 12,  1200080426);
+      c = FF(c, d, a, b, m[i+ 6], 17, -1473231341);
+      b = FF(b, c, d, a, m[i+ 7], 22, -45705983);
+      a = FF(a, b, c, d, m[i+ 8],  7,  1770035416);
+      d = FF(d, a, b, c, m[i+ 9], 12, -1958414417);
+      c = FF(c, d, a, b, m[i+10], 17, -42063);
+      b = FF(b, c, d, a, m[i+11], 22, -1990404162);
+      a = FF(a, b, c, d, m[i+12],  7,  1804603682);
+      d = FF(d, a, b, c, m[i+13], 12, -40341101);
+      c = FF(c, d, a, b, m[i+14], 17, -1502002290);
+      b = FF(b, c, d, a, m[i+15], 22,  1236535329);
+
+      a = GG(a, b, c, d, m[i+ 1],  5, -165796510);
+      d = GG(d, a, b, c, m[i+ 6],  9, -1069501632);
+      c = GG(c, d, a, b, m[i+11], 14,  643717713);
+      b = GG(b, c, d, a, m[i+ 0], 20, -373897302);
+      a = GG(a, b, c, d, m[i+ 5],  5, -701558691);
+      d = GG(d, a, b, c, m[i+10],  9,  38016083);
+      c = GG(c, d, a, b, m[i+15], 14, -660478335);
+      b = GG(b, c, d, a, m[i+ 4], 20, -405537848);
+      a = GG(a, b, c, d, m[i+ 9],  5,  568446438);
+      d = GG(d, a, b, c, m[i+14],  9, -1019803690);
+      c = GG(c, d, a, b, m[i+ 3], 14, -187363961);
+      b = GG(b, c, d, a, m[i+ 8], 20,  1163531501);
+      a = GG(a, b, c, d, m[i+13],  5, -1444681467);
+      d = GG(d, a, b, c, m[i+ 2],  9, -51403784);
+      c = GG(c, d, a, b, m[i+ 7], 14,  1735328473);
+      b = GG(b, c, d, a, m[i+12], 20, -1926607734);
+
+      a = HH(a, b, c, d, m[i+ 5],  4, -378558);
+      d = HH(d, a, b, c, m[i+ 8], 11, -2022574463);
+      c = HH(c, d, a, b, m[i+11], 16,  1839030562);
+      b = HH(b, c, d, a, m[i+14], 23, -35309556);
+      a = HH(a, b, c, d, m[i+ 1],  4, -1530992060);
+      d = HH(d, a, b, c, m[i+ 4], 11,  1272893353);
+      c = HH(c, d, a, b, m[i+ 7], 16, -155497632);
+      b = HH(b, c, d, a, m[i+10], 23, -1094730640);
+      a = HH(a, b, c, d, m[i+13],  4,  681279174);
+      d = HH(d, a, b, c, m[i+ 0], 11, -358537222);
+      c = HH(c, d, a, b, m[i+ 3], 16, -722521979);
+      b = HH(b, c, d, a, m[i+ 6], 23,  76029189);
+      a = HH(a, b, c, d, m[i+ 9],  4, -640364487);
+      d = HH(d, a, b, c, m[i+12], 11, -421815835);
+      c = HH(c, d, a, b, m[i+15], 16,  530742520);
+      b = HH(b, c, d, a, m[i+ 2], 23, -995338651);
+
+      a = II(a, b, c, d, m[i+ 0],  6, -198630844);
+      d = II(d, a, b, c, m[i+ 7], 10,  1126891415);
+      c = II(c, d, a, b, m[i+14], 15, -1416354905);
+      b = II(b, c, d, a, m[i+ 5], 21, -57434055);
+      a = II(a, b, c, d, m[i+12],  6,  1700485571);
+      d = II(d, a, b, c, m[i+ 3], 10, -1894986606);
+      c = II(c, d, a, b, m[i+10], 15, -1051523);
+      b = II(b, c, d, a, m[i+ 1], 21, -2054922799);
+      a = II(a, b, c, d, m[i+ 8],  6,  1873313359);
+      d = II(d, a, b, c, m[i+15], 10, -30611744);
+      c = II(c, d, a, b, m[i+ 6], 15, -1560198380);
+      b = II(b, c, d, a, m[i+13], 21,  1309151649);
+      a = II(a, b, c, d, m[i+ 4],  6, -145523070);
+      d = II(d, a, b, c, m[i+11], 10, -1120210379);
+      c = II(c, d, a, b, m[i+ 2], 15,  718787259);
+      b = II(b, c, d, a, m[i+ 9], 21, -343485551);
+
+      a = (a + aa) >>> 0;
+      b = (b + bb) >>> 0;
+      c = (c + cc) >>> 0;
+      d = (d + dd) >>> 0;
+    }
+
+    return crypt.endian([a, b, c, d]);
+  };
+
+  // Auxiliary functions
+  md5._ff  = function (a, b, c, d, x, s, t) {
+    var n = a + (b & c | ~b & d) + (x >>> 0) + t;
+    return ((n << s) | (n >>> (32 - s))) + b;
+  };
+  md5._gg  = function (a, b, c, d, x, s, t) {
+    var n = a + (b & d | c & ~d) + (x >>> 0) + t;
+    return ((n << s) | (n >>> (32 - s))) + b;
+  };
+  md5._hh  = function (a, b, c, d, x, s, t) {
+    var n = a + (b ^ c ^ d) + (x >>> 0) + t;
+    return ((n << s) | (n >>> (32 - s))) + b;
+  };
+  md5._ii  = function (a, b, c, d, x, s, t) {
+    var n = a + (c ^ (b | ~d)) + (x >>> 0) + t;
+    return ((n << s) | (n >>> (32 - s))) + b;
+  };
+
+  // Package private blocksize
+  md5._blocksize = 16;
+  md5._digestsize = 16;
+
+  module.exports = function (message, options) {
+    if (message === undefined || message === null)
+      throw new Error('Illegal argument ' + message);
+
+    var digestbytes = crypt.wordsToBytes(md5(message, options));
+    return options && options.asBytes ? digestbytes :
+        options && options.asString ? bin.bytesToString(digestbytes) :
+        crypt.bytesToHex(digestbytes);
+  };
+
+})();
+
+
+/***/ },
 
 /***/ "./node_modules/swiper/modules/a11y.mjs"
 /*!**********************************************!*\
@@ -8,6 +5787,7 @@
   \**********************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ A11y)
@@ -400,6 +6180,7 @@ function A11y({
   \**************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Autoplay)
@@ -721,6 +6502,7 @@ function Autoplay({
   \****************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Controller)
@@ -926,6 +6708,7 @@ function Controller({
   \******************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ EffectCards)
@@ -1072,6 +6855,7 @@ function EffectCards({
   \**********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -1084,6 +6868,7 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ EffectCoverflow)
@@ -1205,6 +6990,7 @@ function EffectCoverflow({
   \*********************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ EffectCreative)
@@ -1369,6 +7155,7 @@ function EffectCreative({
   \*****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -1381,6 +7168,7 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ EffectCube)
@@ -1570,6 +7358,7 @@ function EffectCube({
   \*****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -1582,6 +7371,7 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ EffectFade)
@@ -1665,6 +7455,7 @@ function EffectFade({
   \*****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -1677,6 +7468,7 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ EffectFlip)
@@ -1806,6 +7598,7 @@ function EffectFlip({
   \***************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ freeMode)
@@ -2056,6 +7849,7 @@ function freeMode({
   \**********************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Grid)
@@ -2224,6 +8018,7 @@ function Grid({
   \*********************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ HashNavigation)
@@ -2332,6 +8127,7 @@ function HashNavigation({
   \*************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ History)
@@ -2488,6 +8284,7 @@ function History({
   \***********************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   A11y: () => (/* reexport safe */ _a11y_mjs__WEBPACK_IMPORTED_MODULE_9__["default"]),
@@ -2569,6 +8366,7 @@ __webpack_require__.r(__webpack_exports__);
   \**************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Keyboard)
@@ -2703,6 +8501,7 @@ function Keyboard({
   \******************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Manipulation)
@@ -2910,6 +8709,7 @@ function Manipulation({
   \****************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Mousewheel)
@@ -3320,6 +9120,7 @@ function Mousewheel({
   \****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -3332,6 +9133,7 @@ __webpack_require__.r(__webpack_exports__);
   \****************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Navigation)
@@ -3556,6 +9358,7 @@ function Navigation({
   \****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -3568,6 +9371,7 @@ __webpack_require__.r(__webpack_exports__);
   \****************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Pagination)
@@ -4044,6 +9848,7 @@ function Pagination({
   \**************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Parallax)
@@ -4179,6 +9984,7 @@ function Parallax({
   \***************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -4191,6 +9997,7 @@ __webpack_require__.r(__webpack_exports__);
   \***************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Scrollbar)
@@ -4574,6 +10381,7 @@ function Scrollbar({
   \************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Thumb)
@@ -4805,6 +10613,7 @@ function Thumb({
   \*************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Virtual)
@@ -5185,6 +10994,7 @@ function Virtual({
   \**********************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Zoom)
@@ -5903,6 +11713,7 @@ function Zoom({
   \************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   c: () => (/* binding */ classesToSelector)
@@ -5924,6 +11735,7 @@ function classesToSelector(classes = '') {
   \**********************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   c: () => (/* binding */ createElementIfNotDefined)
@@ -5960,6 +11772,7 @@ function createElementIfNotDefined(swiper, originalParams, params, checkProps) {
   \******************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   c: () => (/* binding */ createShadow)
@@ -5989,6 +11802,7 @@ function createShadow(suffix, slideEl, side) {
   \****************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   e: () => (/* binding */ effectInit)
@@ -6061,6 +11875,7 @@ function effectInit(params) {
   \******************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   e: () => (/* binding */ effectTarget)
@@ -6088,6 +11903,7 @@ function effectTarget(effectParams, slideEl) {
   \**********************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   e: () => (/* binding */ effectVirtualTransitionEnd)
@@ -6150,6 +11966,7 @@ function effectVirtualTransitionEnd({
   \*******************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   a: () => (/* binding */ getWindow),
@@ -6305,6 +12122,7 @@ function getWindow() {
   \****************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   S: () => (/* binding */ Swiper),
@@ -10241,6 +16059,7 @@ Swiper.use([Resize, Observer]);
   \***************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   a: () => (/* binding */ getChangedParams),
@@ -10384,6 +16203,7 @@ const updateOnVirtualData = swiper => {
   \******************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   a: () => (/* binding */ needsPagination),
@@ -10627,6 +16447,7 @@ function updateSwiper({
   \**********************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   a: () => (/* binding */ getRotateFix),
@@ -10990,6 +16811,7 @@ function setInnerHTML(el, html = '') {
   \**********************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Swiper: () => (/* binding */ Swiper),
@@ -11409,6 +17231,7 @@ SwiperSlide.displayName = 'SwiperSlide';
   \****************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -11421,6 +17244,7 @@ __webpack_require__.r(__webpack_exports__);
   \***********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -11446,6 +17270,7 @@ function General() {
   \*********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -11468,6 +17293,7 @@ function Style() {
   \*******************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -11490,6 +17316,7 @@ function General() {
   \*****************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -11512,6 +17339,7 @@ function Style() {
   \************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -11537,6 +17365,7 @@ function General() {
   \**********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -11562,6 +17391,7 @@ function Style() {
   \***********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -11762,7 +17592,7 @@ function Inspector({
       onToggle: () => togglePanel("metadata"),
       children: openPanel === "metadata" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_29__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_29__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_29__.jsx)(_common_CustomToggle_CustomToggle__WEBPACK_IMPORTED_MODULE_28__["default"], {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_26__.__)("Meta data", "smart-post-carousel"),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_26__.__)("Show Meta Data", "smart-post-carousel"),
           value: attributes.showMetaData,
           attributesKey: "showMetaData",
           setAttributes: setAttributes
@@ -11845,6 +17675,7 @@ function Inspector({
   \*********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ MarqueeCarousel)
@@ -11898,16 +17729,66 @@ function MarqueeCarousel({
   \********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../const */ "./src/const/index.js");
+/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
+/* harmony import */ var _common_CustomSelection_CustomSelection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/CustomSelection/CustomSelection */ "./src/components/common/CustomSelection/CustomSelection.js");
+/* harmony import */ var _common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/CustomToggleGroupControl/CustomToggleGroupControl */ "./src/components/common/CustomToggleGroupControl/CustomToggleGroupControl.js");
+/* harmony import */ var _common_DragandDrop_DragandDrop__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/DragandDrop/DragandDrop */ "./src/components/common/DragandDrop/DragandDrop.js");
+/* harmony import */ var _common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/SelectDropDown/SelectDropDown */ "./src/components/common/SelectDropDown/SelectDropDown.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
 
 function General() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: "MetaData General"
+  const {
+    attributes,
+    setAttributes
+  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__.useAttributes)();
+  const {
+    metaDataAllContentArray
+  } = attributes;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_DragandDrop_DragandDrop__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      label: "Meta Data",
+      items: metaDataAllContentArray,
+      toggleBtn: true,
+      onChange: updated => setAttributes({
+        metaDataAllContentArray: updated
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      label: "Meta Display Type",
+      attributes: attributes,
+      attributesKey: "metaDisplayType",
+      setAttributes: setAttributes,
+      items: [{
+        label: "Inline",
+        value: "inline"
+      }, {
+        label: "Split Left-Right",
+        value: "split"
+      }]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomSelection_CustomSelection__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      label: "Author Display Style",
+      options: _const__WEBPACK_IMPORTED_MODULE_0__.authorDisplayStyle,
+      attributeKey: "authorDisplayStyle",
+      inline: false
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      label: "Author Icon Style",
+      attributes: attributes.arrowStyle,
+      attributesKey: "arrowStyle",
+      setAttributes: setAttributes,
+      options: _const__WEBPACK_IMPORTED_MODULE_0__.arrowIconOptions
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (General);
@@ -11920,6 +17801,7 @@ function General() {
   \******************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -11942,6 +17824,7 @@ function Style() {
   \***************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12034,6 +17917,7 @@ function General() {
   \*************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12196,6 +18080,7 @@ function Style() {
   \**********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12307,6 +18192,7 @@ function General() {
   \********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12434,6 +18320,7 @@ function Style() {
   \************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12473,6 +18360,7 @@ function ContentOrientations({
   \************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12598,6 +18486,7 @@ function General() {
   \***********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12727,6 +18616,7 @@ function Slider() {
   \**********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12751,6 +18641,7 @@ function QueryBuilder() {
   \********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12773,6 +18664,7 @@ function General() {
   \******************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12795,6 +18687,7 @@ function Style() {
   \*****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12834,6 +18727,7 @@ function CarouselRenderer({
   \***********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12856,6 +18750,7 @@ function General() {
   \*********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -12878,6 +18773,7 @@ function Style() {
   \*********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ SwiperCarousel)
@@ -12965,7 +18861,8 @@ function SwiperCarousel({
     dotNormalBackGroundNormalColor,
     dotNormalBackGroundActiveColor,
     dotNormalTextColor,
-    dotActiveTextColor
+    dotActiveTextColor,
+    paginationDotStyleType
   } = attributes;
 
   // All References
@@ -13219,6 +19116,7 @@ function SwiperCarousel({
   \*****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -13315,6 +19213,7 @@ function SwiperNavigationButton({
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ SwiperPaginationStyle)
@@ -13348,6 +19247,7 @@ function SwiperPaginationStyle({
   \********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -13370,6 +19270,7 @@ function General() {
   \******************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -13392,6 +19293,7 @@ function Style() {
   \*********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -13414,6 +19316,7 @@ function General() {
   \*******************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -13436,6 +19339,7 @@ function Style() {
   \**********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -13528,6 +19432,7 @@ function CustomColorPicker({
   \*************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -13540,6 +19445,7 @@ __webpack_require__.r(__webpack_exports__);
   \************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -13636,6 +19542,7 @@ function CustomRangeControl({
   \********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -13754,6 +19661,7 @@ function DeviceDropdown() {
   \*****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -13814,6 +19722,7 @@ function RangeHeader({
   \**************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -13826,6 +19735,7 @@ __webpack_require__.r(__webpack_exports__);
   \******************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -13887,6 +19797,7 @@ function CustomSelection({
   \***********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -13899,6 +19810,7 @@ __webpack_require__.r(__webpack_exports__);
   \*********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -13987,6 +19899,7 @@ function NumberControl({
   \**********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -14166,6 +20079,7 @@ function SpacingControl({
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -14178,6 +20092,7 @@ __webpack_require__.r(__webpack_exports__);
   \********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -14251,6 +20166,7 @@ const CustomTabs = ({
   \*********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -14301,6 +20217,7 @@ const TabRenderer = ({
   \******************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -14313,6 +20230,7 @@ __webpack_require__.r(__webpack_exports__);
   \***************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AdvancedIcon: () => (/* binding */ AdvancedIcon),
@@ -14487,6 +20405,7 @@ const SliderIcon = () => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MOD
   \*******************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   tabConfigs: () => (/* binding */ tabConfigs),
@@ -14572,6 +20491,7 @@ const tabOrder = [{
   \************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -14631,6 +20551,7 @@ function CustomToggle({
   \********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -14643,6 +20564,7 @@ __webpack_require__.r(__webpack_exports__);
   \************************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -14717,6 +20639,185 @@ const CustomToggleGroupControl = ({
   \********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./src/components/common/DragandDrop/DragandDrop.js"
+/*!**********************************************************!*\
+  !*** ./src/components/common/DragandDrop/DragandDrop.js ***!
+  \**********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _dnd_kit_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dnd-kit/core */ "./node_modules/@dnd-kit/core/dist/core.esm.js");
+/* harmony import */ var _dnd_kit_modifiers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @dnd-kit/modifiers */ "./node_modules/@dnd-kit/modifiers/dist/modifiers.esm.js");
+/* harmony import */ var _dnd_kit_sortable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @dnd-kit/sortable */ "./node_modules/@dnd-kit/sortable/dist/sortable.esm.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _SortAbleItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SortAbleItem */ "./src/components/common/DragandDrop/SortAbleItem.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/components/common/DragandDrop/editor.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+function DragAndDrop({
+  label = "",
+  items = [],
+  toggleBtn = false,
+  onChange
+}) {
+  const [allOptions, setAllOptions] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)(items);
+  const containRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useRef)(null);
+  const sensors = (0,_dnd_kit_core__WEBPACK_IMPORTED_MODULE_0__.useSensors)((0,_dnd_kit_core__WEBPACK_IMPORTED_MODULE_0__.useSensor)(_dnd_kit_core__WEBPACK_IMPORTED_MODULE_0__.PointerSensor, {
+    activationConstraint: {
+      distance: 5
+    }
+  }));
+  const handleDragEnd = ({
+    active,
+    over
+  }) => {
+    if (!over || active.id === over.id) return;
+    const oldIndex = allOptions.findIndex(i => `${i.id}` === `${active.id}`);
+    const newIndex = allOptions.findIndex(i => `${i.id}` === `${over.id}`);
+    const reordered = (0,_dnd_kit_sortable__WEBPACK_IMPORTED_MODULE_2__.arrayMove)(allOptions, oldIndex, newIndex);
+    setAllOptions(reordered);
+    onChange(reordered);
+  };
+  const handleToggle = item => {
+    const updated = allOptions.map(option => option.id === item.id ? {
+      ...option,
+      show: !option.show
+    } : option);
+    setAllOptions(updated);
+    onChange(updated);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    className: "shaped-plugin-multiple-select sp-smart-post-component-mb",
+    children: [label && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "sp-smart-post-carousel-multiple-select-dnd-label",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+        children: label
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "sp-smart-post-carousel-drag-and-drop-dnd-container",
+      ref: containRef,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "sp-smart-post-carousel-selected-options",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_dnd_kit_core__WEBPACK_IMPORTED_MODULE_0__.DndContext, {
+          sensors: sensors,
+          onDragEnd: handleDragEnd,
+          modifiers: [_dnd_kit_modifiers__WEBPACK_IMPORTED_MODULE_1__.restrictToVerticalAxis, _dnd_kit_modifiers__WEBPACK_IMPORTED_MODULE_1__.restrictToParentElement],
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_dnd_kit_sortable__WEBPACK_IMPORTED_MODULE_2__.SortableContext, {
+            items: allOptions.map(item => `${item.id}`),
+            strategy: _dnd_kit_sortable__WEBPACK_IMPORTED_MODULE_2__.verticalListSortingStrategy,
+            children: allOptions.map((item, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SortAbleItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              id: `${item.id}`,
+              index: index,
+              item: item,
+              toggleBtn: toggleBtn,
+              onToggle: handleToggle
+            }, item.id))
+          })
+        })
+      })
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.memo)(DragAndDrop));
+
+/***/ },
+
+/***/ "./src/components/common/DragandDrop/SortAbleItem.js"
+/*!***********************************************************!*\
+  !*** ./src/components/common/DragandDrop/SortAbleItem.js ***!
+  \***********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _dnd_kit_sortable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dnd-kit/sortable */ "./node_modules/@dnd-kit/sortable/dist/sortable.esm.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../smart-post-carousel/assets/icon */ "./src/smart-post-carousel/assets/icon.js");
+/* harmony import */ var _dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @dnd-kit/utilities */ "./node_modules/@dnd-kit/utilities/dist/utilities.esm.js");
+/* harmony import */ var _CustomToggle_CustomToggle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../CustomToggle/CustomToggle */ "./src/components/common/CustomToggle/CustomToggle.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+const SortableItem = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.memo)(({
+  id,
+  item,
+  toggleBtn,
+  onToggle
+}) => {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging
+  } = (0,_dnd_kit_sortable__WEBPACK_IMPORTED_MODULE_0__.useSortable)({
+    id
+  });
+  const style = {
+    transform: transform ? _dnd_kit_utilities__WEBPACK_IMPORTED_MODULE_3__.CSS.Transform.toString(transform) : undefined,
+    transition
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    ref: setNodeRef,
+    style: style,
+    ...attributes,
+    ...listeners,
+    className: isDragging ? "sp-smart-post-carousel-grabbing" : "sp-smart-post-carousel-grab",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "sp-smart-post-carousel-selected-option",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+        className: "sp-smart-post-carousel-select-label",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.DndTitleIcon, {}), " ", item?.label]
+      }), toggleBtn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+        className: "sp-smart-post-carousel-select-toggle-button",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CustomToggle_CustomToggle__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          value: item.show,
+          onChange: () => onToggle(item)
+        })
+      })]
+    })
+  });
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SortableItem);
+
+/***/ },
+
+/***/ "./src/components/common/DragandDrop/editor.scss"
+/*!*******************************************************!*\
+  !*** ./src/components/common/DragandDrop/editor.scss ***!
+  \*******************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -14729,6 +20830,7 @@ __webpack_require__.r(__webpack_exports__);
   \**************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -14816,9 +20918,75 @@ function Layouts({
   \***************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ },
+
+/***/ "./src/components/common/Postcard/AuthorMetaItem.js"
+/*!**********************************************************!*\
+  !*** ./src/components/common/Postcard/AuthorMetaItem.js ***!
+  \**********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AuthorMeta)
+/* harmony export */ });
+/* harmony import */ var _smart_post_carousel_assets_metaIcon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../smart-post-carousel/assets/metaIcon */ "./src/smart-post-carousel/assets/metaIcon.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function AuthorMeta({
+  author,
+  authorAvatar,
+  authorDisplayType
+}) {
+  switch (authorDisplayType) {
+    case "gravatar":
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        className: "sp-smart-post-carousel-card-meta-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "sp-smart-post-carousel-author-avatar",
+          src: authorAvatar,
+          alt: author
+        })
+      });
+    case "nameGravatar":
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+        className: "sp-smart-post-carousel-card-meta-item",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "sp-smart-post-carousel-author-avatar",
+          src: authorAvatar,
+          alt: author
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "sp-smart-post-carousel-card-meta-item-text",
+          children: author
+        })]
+      });
+    case "iconName":
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+        className: "sp-smart-post-carousel-card-meta-item",
+        children: [_smart_post_carousel_assets_metaIcon__WEBPACK_IMPORTED_MODULE_0__.ICONS["author"], /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "sp-smart-post-carousel-card-meta-item-text",
+          children: author
+        })]
+      });
+    case "name":
+    default:
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        className: "sp-smart-post-carousel-card-meta-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "sp-smart-post-carousel-card-meta-item-text",
+          children: author
+        })
+      });
+  }
+}
 
 /***/ },
 
@@ -14828,6 +20996,7 @@ __webpack_require__.r(__webpack_exports__);
   \********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ CategoryList)
@@ -14867,6 +21036,7 @@ function CategoryList({
   \****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ MetaItem)
@@ -14897,17 +21067,20 @@ function MetaItem({
   \****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../utils */ "./utils/index.js");
 /* harmony import */ var _hooks_useDevice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/useDevice */ "./src/hooks/useDevice.js");
-/* harmony import */ var _CategoryList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CategoryList */ "./src/components/common/Postcard/CategoryList.js");
-/* harmony import */ var _MetaItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MetaItem */ "./src/components/common/Postcard/MetaItem.js");
-/* harmony import */ var _ReadingTime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ReadingTime */ "./src/components/common/Postcard/ReadingTime.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _AuthorMetaItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AuthorMetaItem */ "./src/components/common/Postcard/AuthorMetaItem.js");
+/* harmony import */ var _CategoryList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CategoryList */ "./src/components/common/Postcard/CategoryList.js");
+/* harmony import */ var _MetaItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MetaItem */ "./src/components/common/Postcard/MetaItem.js");
+/* harmony import */ var _ReadingTime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ReadingTime */ "./src/components/common/Postcard/ReadingTime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -14925,7 +21098,10 @@ function PostCard({
   const {
     height,
     contentAlignment,
-    equalHeight
+    equalHeight,
+    metaDataAllContentArray = [],
+    metaDisplayType,
+    authorDisplayStyle
   } = attributes;
   const author = post?._embedded?.author?.[0]?.name || post?.author || "Salah Uddin";
   const postDate = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getPostDate)(post);
@@ -14933,68 +21109,94 @@ function PostCard({
   const views = post?.view_count || 0;
   const likes = post?.like_count || 0;
   const image = post?.post_thumbnail_url || "http://localhost:10038/wp-content/plugins/smart-post-show-pro/public/assets/img/placeholder.png";
-
-  // orientation class
   const orientation = attributes?.contentOrientation || "orientation_one";
+  const authorAvatar = post?.author_avatar_url ? post?.author_avatar_url : "`https://www.gravatar.com/avatar/?d=mp&s=48`;";
   const cardClassName = `sp-smart-post-carousel-card ${orientation}${equalHeight ? " equal-height" : ""}`;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  const getMetaElement = item => {
+    switch (item.value) {
+      case "author":
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AuthorMetaItem__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          author: author,
+          authorAvatar: authorAvatar,
+          authorDisplayType: authorDisplayStyle
+        }, "author");
+      case "date":
+        return orientation !== "orientation_two" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_MetaItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          icon: "date",
+          text: postDate.meta
+        }, "date") : null;
+      case "comments":
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_MetaItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          icon: "comments",
+          text: commentsCount
+        }, "comments");
+      case "views":
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_MetaItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          icon: "views",
+          text: views
+        }, "views");
+      case "likes":
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_MetaItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          icon: "likes",
+          text: likes
+        }, "likes");
+      case "reading-time":
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ReadingTime__WEBPACK_IMPORTED_MODULE_5__.ReadingTime, {
+          content: post.content,
+          attributes: attributes
+        }, "reading-time");
+      default:
+        return null;
+    }
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: cardClassName,
     style: {
       "--cardHeight": !equalHeight ? `${height[normalizedDeviceType]}px` : undefined
     },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "sp-smart-post-carousel-card-image",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
         src: image,
         alt: imageAlt
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "sp-smart-post-carousel-overlay-category",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CategoryList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_CategoryList__WEBPACK_IMPORTED_MODULE_3__["default"], {
           categories: post.category
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "sp-smart-post-carousel-date",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
           className: "sp-smart-post-carousel-day",
           children: postDate.day
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
           className: "sp-smart-post-carousel-month-year",
           children: [postDate.month, " ", postDate.year]
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "sp-smart-post-carousel-template-content",
       style: {
         "--alignment": `${contentAlignment}`
       },
-      children: [orientation !== "orientation_three" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CategoryList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      children: [orientation !== "orientation_three" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_CategoryList__WEBPACK_IMPORTED_MODULE_3__["default"], {
         categories: post.category
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
         className: "sp-smart-post-carousel-card-title",
         dangerouslySetInnerHTML: {
           __html: title
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "sp-smart-post-carousel-card-meta-wrapper",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_MetaItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          icon: "author",
-          text: author
-        }), orientation !== "orientation_two" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_MetaItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          icon: "date",
-          text: postDate.meta
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_MetaItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          icon: "comments",
-          text: commentsCount
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_MetaItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          icon: "views",
-          text: views
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_MetaItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          icon: "likes",
-          text: likes
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ReadingTime__WEBPACK_IMPORTED_MODULE_4__.ReadingTime, {
-          content: post.content,
-          attributes: attributes
-        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: `sp-smart-post-carousel-card-meta-wrapper ${metaDisplayType}`,
+        children: metaDisplayType === "split" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "sp-smart-post-carousel-meta-left",
+            children: metaDataAllContentArray.filter(item => item.show && item.position === "left").map(item => getMetaElement(item))
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "sp-smart-post-carousel-meta-right",
+            children: metaDataAllContentArray.filter(item => item.show && item.position === "right").map(item => getMetaElement(item))
+          })]
+        }) : metaDataAllContentArray.filter(item => item.show).map(item => getMetaElement(item))
       })]
     })]
   });
@@ -15009,6 +21211,7 @@ function PostCard({
   \*******************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ReadingTime: () => (/* binding */ ReadingTime)
@@ -15056,6 +21259,7 @@ const ReadingTime = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.memo)(({
   \*****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TotalTime: () => (/* binding */ TotalTime)
@@ -15091,6 +21295,7 @@ const TotalTime = ({
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -15161,6 +21366,7 @@ function SelectDropDown({
   \*********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -15214,6 +21420,7 @@ const SelectDropDownField = ({
   \**********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -15226,6 +21433,7 @@ __webpack_require__.r(__webpack_exports__);
   \************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -15268,6 +21476,7 @@ function UnitDropdown({
   \********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -15280,6 +21489,7 @@ __webpack_require__.r(__webpack_exports__);
   \****************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   LayoutItems: () => (/* binding */ LayoutItems),
@@ -15287,6 +21497,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   animationEffect: () => (/* binding */ animationEffect),
 /* harmony export */   arrowIconOptions: () => (/* binding */ arrowIconOptions),
 /* harmony export */   arrowIcons: () => (/* binding */ arrowIcons),
+/* harmony export */   authorDisplayStyle: () => (/* binding */ authorDisplayStyle),
 /* harmony export */   backGroundColorConfig: () => (/* binding */ backGroundColorConfig),
 /* harmony export */   colorConfig: () => (/* binding */ colorConfig),
 /* harmony export */   getRenderBullet: () => (/* binding */ getRenderBullet),
@@ -15359,6 +21570,23 @@ const linkOpen = [{
 }, {
   label: "New tab",
   value: "newTab"
+}];
+const authorDisplayStyle = [{
+  disabled: true,
+  label: "Select an Option",
+  value: ""
+}, {
+  label: "Show Name",
+  value: "name"
+}, {
+  label: "Show Gravatar",
+  value: "gravatar"
+}, {
+  label: "Show Name with Gravatar",
+  value: "nameGravatar"
+}, {
+  label: "Author Name with Icon",
+  value: "iconName"
 }];
 const animationEffect = [{
   label: "Slide",
@@ -15503,6 +21731,7 @@ const getRenderBullet = paginationStyle => {
   \******************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AttributesContext: () => (/* binding */ AttributesContext),
@@ -15537,6 +21766,7 @@ const AttributesProvider = ({
   \*************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   PanelContext: () => (/* binding */ PanelContext),
@@ -15574,6 +21804,7 @@ function PanelProvider({
   \******************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AttributesProvider: () => (/* reexport safe */ _AttributesContext__WEBPACK_IMPORTED_MODULE_1__.AttributesProvider),
@@ -15592,6 +21823,7 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -15632,7 +21864,7 @@ function useApi(queryParams = {
 ;
 function oo_cm() {
   try {
-    return (0, eval)("globalThis._console_ninja") || (0, eval)("/* https://github.com/wallabyjs/console-ninja#how-does-it-work */'use strict';function _0x5b41(){var _0xabab66=['pop','parent','[object\\x20Map]','_addProperty','toLowerCase','_sendErrorMessage','_treeNodePropertiesBeforeFullValue','import(\\x27url\\x27)','_inNextEdge','_consoleNinjaAllowedToStart','length','forEach','unknown','_undefined','capped','node','_getOwnPropertyDescriptor','','split','_console_ninja','args','charAt','_setNodeLabel',\"/Users/th25/.vscode/extensions/wallabyjs.console-ninja-1.0.516/node_modules\",'_inBrowser','default','getter','NEGATIVE_INFINITY','host','current','set','map','_regExpToString','includes','_quotedRegExp','path','webpack','now','osName','angular','Console\\x20Ninja\\x20extension\\x20is\\x20connected\\x20to\\x20','_connected','_getOwnPropertyNames','_socket','stringify','WebSocket','resolve','_allowedToSend','prototype','_property','_keyStrRegExp','_ninjaIgnoreNextError','autoExpandPropertyCount','_connectToHostNow','onopen','Set','disabledLog','gateway.docker.internal','import(\\x27path\\x27)','_isArray','_setNodeExpandableState','https://tinyurl.com/37x8b79t','nodeModules','[object\\x20Array]','value','[object\\x20Date]','_processTreeNodeResult','bind','fromCharCode','null','unref','eventReceivedCallback','Console\\x20Ninja\\x20failed\\x20to\\x20send\\x20logs,\\x20refreshing\\x20the\\x20page\\x20may\\x20help;\\x20also\\x20see\\x20','symbol','ninjaSuppressConsole','ExpoDevice','_disposeWebsocket','push','1.0.0','_HTMLAllCollection','logger\\x20websocket\\x20error','allStrLength','[object\\x20BigInt]','_setNodeId','negativeInfinity','type','slice','_addLoadNode','location',[\"localhost\",\"127.0.0.1\",\"example.cypress.io\",\"10.0.2.2\",\"THs-Mac-mini-2.local\",\"192.168.68.106\"],'object','bigint','autoExpandMaxDepth','_p_name','_numberRegExp','_allowedToConnectOnSend','isExpressionToEvaluate','198RrhbGW','versions','function','test','remix','undefined','timeStamp','','trace','60884','stackTraceLimit',{\"resolveGetters\":false,\"defaultLimits\":{\"props\":100,\"elements\":100,\"strLength\":51200,\"totalStrLength\":51200,\"autoExpandLimit\":5000,\"autoExpandMaxDepth\":10},\"reducedLimits\":{\"props\":5,\"elements\":5,\"strLength\":256,\"totalStrLength\":768,\"autoExpandLimit\":30,\"autoExpandMaxDepth\":2},\"reducePolicy\":{\"perLogpoint\":{\"reduceOnCount\":50,\"reduceOnAccumulatedProcessingTimeMs\":100,\"resetWhenQuietMs\":500,\"resetOnProcessingTimeAverageMs\":100},\"global\":{\"reduceOnCount\":1000,\"reduceOnAccumulatedProcessingTimeMs\":300,\"resetWhenQuietMs\":50,\"resetOnProcessingTimeAverageMs\":100}}},'ws://','replace','failed\\x20to\\x20find\\x20and\\x20load\\x20WebSocket','96qMZQSY','catch','1','_WebSocketClass','log','concat','readyState','getOwnPropertyDescriptor','61000oZudqc','indexOf','parse','_isSet','_webSocketErrorDocsLink','index','startsWith','onerror','expId','1137321yuoPXn','127.0.0.1','array','Buffer','strLength','coverage','_p_','defaultLimits','error','reduceOnAccumulatedProcessingTimeMs','modules','_Symbol','_sortProps','resetWhenQuietMs','reducedLimits','resolveGetters','sortProps','root_exp_id','call','match','_isPrimitiveType','astro','dockerizedApp','hits','_connectAttemptCount','positiveInfinity','see\\x20https://tinyurl.com/2vt8jxzw\\x20for\\x20more\\x20info.','13652dTFnfA','root_exp',',\\x20see\\x20https://tinyurl.com/2vt8jxzw\\x20for\\x20more\\x20info.','serialize','2Yznibf','Number','POSITIVE_INFINITY','_dateToString','reducePolicy','count','url','_cleanNode','autoExpandPreviousObjects','_objectToString','constructor','_blacklistedProperty','emulator','_WebSocket','props','sort','process','toString','funcName','unshift','_isMap','\\x20browser','_setNodeExpressionPath','performance','failed\\x20to\\x20connect\\x20to\\x20host:\\x20','autoExpandLimit','_isPrimitiveWrapperType','_isNegativeZero','noFunctions','react-native','String','resetOnProcessingTimeAverageMs','_setNodePermissions','substr','41105TYgCXe','iterator','totalStrLength','send','11649290WvtArf','RegExp','setter','boolean','global','reduceLimits','68346xdLtlX','name','_reconnectTimeout','_addObjectProperty','10.0.2.2','_isUndefined','_attemptToReconnectShortly','get','_extendedWarning','perLogpoint','console','endsWith','logger\\x20failed\\x20to\\x20connect\\x20to\\x20host','_hasSymbolPropertyOnItsPath','_ws','number','onclose','getOwnPropertyNames','Map','time','warn','data','close','edge','hrtime','_console_ninja_session','_propertyName','isArray','origin','cappedProps','port','reload','depth','elapsed','join','disabledTrace','NEXT_RUNTIME','Promise','...','reduceOnCount','android','next.js','_maxConnectAttemptCount','logger\\x20failed\\x20to\\x20connect\\x20to\\x20host,\\x20see\\x20','background:\\x20rgb(30,30,30);\\x20color:\\x20rgb(255,213,92)','elements','getOwnPropertySymbols','2476222mVnPmu','onmessage','[object\\x20Set]','autoExpand','_treeNodePropertiesAfterFullValue','level','_type','expo','string','valueOf','hostname','toUpperCase','cappedElements','negativeZero','_hasSetOnItsPath','message','_getOwnPropertySymbols','_capIfString','getWebSocketClass','_connecting','env','_setNodeQueryPath'];_0x5b41=function(){return _0xabab66;};return _0x5b41();}function _0x2259(_0x51ef8c,_0x199dea){var _0x5b4122=_0x5b41();return _0x2259=function(_0x2259bd,_0x4d3e30){_0x2259bd=_0x2259bd-0x15c;var _0x3f55d7=_0x5b4122[_0x2259bd];return _0x3f55d7;},_0x2259(_0x51ef8c,_0x199dea);}var _0x3fa772=_0x2259;(function(_0x413f66,_0x597a2e){var _0x3c2ae2=_0x2259,_0x43a03f=_0x413f66();while(!![]){try{var _0x44f853=-parseInt(_0x3c2ae2(0x16b))/0x1*(parseInt(_0x3c2ae2(0x250))/0x2)+parseInt(_0x3c2ae2(0x220))/0x3*(-parseInt(_0x3c2ae2(0x24c))/0x4)+parseInt(_0x3c2ae2(0x161))/0x5*(-parseInt(_0x3c2ae2(0x211))/0x6)+-parseInt(_0x3c2ae2(0x19a))/0x7+-parseInt(_0x3c2ae2(0x228))/0x8+-parseInt(_0x3c2ae2(0x231))/0x9+parseInt(_0x3c2ae2(0x165))/0xa;if(_0x44f853===_0x597a2e)break;else _0x43a03f['push'](_0x43a03f['shift']());}catch(_0x4238d4){_0x43a03f['push'](_0x43a03f['shift']());}}}(_0x5b41,0x37bee));function z(_0x4e44cb,_0x1994af,_0xd1af2e,_0x5e99ed,_0x139d2f,_0x3c1107){var _0x5b682b=_0x2259,_0x2cc212,_0x33f342,_0x55c025,_0x208a36;this[_0x5b682b(0x169)]=_0x4e44cb,this[_0x5b682b(0x1cc)]=_0x1994af,this[_0x5b682b(0x189)]=_0xd1af2e,this[_0x5b682b(0x1ee)]=_0x5e99ed,this[_0x5b682b(0x247)]=_0x139d2f,this[_0x5b682b(0x1f7)]=_0x3c1107,this[_0x5b682b(0x1df)]=!0x0,this[_0x5b682b(0x20f)]=!0x0,this[_0x5b682b(0x1d9)]=!0x1,this[_0x5b682b(0x1ad)]=!0x1,this[_0x5b682b(0x1b8)]=((_0x33f342=(_0x2cc212=_0x4e44cb[_0x5b682b(0x260)])==null?void 0x0:_0x2cc212[_0x5b682b(0x1ae)])==null?void 0x0:_0x33f342[_0x5b682b(0x18f)])==='edge',this[_0x5b682b(0x1c8)]=!((_0x208a36=(_0x55c025=this[_0x5b682b(0x169)][_0x5b682b(0x260)])==null?void 0x0:_0x55c025[_0x5b682b(0x212)])!=null&&_0x208a36[_0x5b682b(0x1bf)])&&!this[_0x5b682b(0x1b8)],this[_0x5b682b(0x223)]=null,this['_connectAttemptCount']=0x0,this['_maxConnectAttemptCount']=0x14,this[_0x5b682b(0x22c)]=_0x5b682b(0x1ed),this[_0x5b682b(0x1b5)]=(this['_inBrowser']?_0x5b682b(0x1f8):'Console\\x20Ninja\\x20failed\\x20to\\x20send\\x20logs,\\x20restarting\\x20the\\x20process\\x20may\\x20help;\\x20also\\x20see\\x20')+this[_0x5b682b(0x22c)];}z[_0x3fa772(0x1e0)][_0x3fa772(0x1ac)]=async function(){var _0xe46f88=_0x3fa772,_0x1bc0e2,_0x12a0b9;if(this[_0xe46f88(0x223)])return this[_0xe46f88(0x223)];let _0x4f703d;if(this[_0xe46f88(0x1c8)]||this[_0xe46f88(0x1b8)])_0x4f703d=this['global'][_0xe46f88(0x1dd)];else{if((_0x1bc0e2=this[_0xe46f88(0x169)][_0xe46f88(0x260)])!=null&&_0x1bc0e2[_0xe46f88(0x25d)])_0x4f703d=(_0x12a0b9=this[_0xe46f88(0x169)][_0xe46f88(0x260)])==null?void 0x0:_0x12a0b9[_0xe46f88(0x25d)];else try{_0x4f703d=(await new Function(_0xe46f88(0x1d3),_0xe46f88(0x256),_0xe46f88(0x1ee),'return\\x20import(url.pathToFileURL(path.join(nodeModules,\\x20\\x27ws/index.js\\x27)).toString());')(await(0x0,eval)(_0xe46f88(0x1ea)),await(0x0,eval)(_0xe46f88(0x1b7)),this[_0xe46f88(0x1ee)]))[_0xe46f88(0x1c9)];}catch{try{_0x4f703d=require(require(_0xe46f88(0x1d3))[_0xe46f88(0x18d)](this[_0xe46f88(0x1ee)],'ws'));}catch{throw new Error(_0xe46f88(0x21f));}}}return this[_0xe46f88(0x223)]=_0x4f703d,_0x4f703d;},z[_0x3fa772(0x1e0)][_0x3fa772(0x1e5)]=function(){var _0x391f02=_0x3fa772;this[_0x391f02(0x1ad)]||this[_0x391f02(0x1d9)]||this['_connectAttemptCount']>=this['_maxConnectAttemptCount']||(this[_0x391f02(0x20f)]=!0x1,this[_0x391f02(0x1ad)]=!0x0,this['_connectAttemptCount']++,this[_0x391f02(0x179)]=new Promise((_0x7aa380,_0x523107)=>{var _0x360e77=_0x391f02;this['getWebSocketClass']()['then'](_0x29fb31=>{var _0x423936=_0x2259;let _0x2c49a5=new _0x29fb31(_0x423936(0x21d)+(!this[_0x423936(0x1c8)]&&this[_0x423936(0x247)]?_0x423936(0x1e9):this[_0x423936(0x1cc)])+':'+this[_0x423936(0x189)]);_0x2c49a5['onerror']=()=>{var _0x47e49b=_0x423936;this[_0x47e49b(0x1df)]=!0x1,this[_0x47e49b(0x1fc)](_0x2c49a5),this['_attemptToReconnectShortly'](),_0x523107(new Error(_0x47e49b(0x200)));},_0x2c49a5[_0x423936(0x1e6)]=()=>{var _0x51d7eb=_0x423936;this[_0x51d7eb(0x1c8)]||_0x2c49a5['_socket']&&_0x2c49a5[_0x51d7eb(0x1db)][_0x51d7eb(0x1f6)]&&_0x2c49a5[_0x51d7eb(0x1db)]['unref'](),_0x7aa380(_0x2c49a5);},_0x2c49a5[_0x423936(0x17b)]=()=>{var _0x57976d=_0x423936;this[_0x57976d(0x20f)]=!0x0,this[_0x57976d(0x1fc)](_0x2c49a5),this[_0x57976d(0x171)]();},_0x2c49a5[_0x423936(0x19b)]=_0x5b6435=>{var _0x18d249=_0x423936;try{if(!(_0x5b6435!=null&&_0x5b6435['data'])||!this['eventReceivedCallback'])return;let _0x4fdef6=JSON[_0x18d249(0x22a)](_0x5b6435[_0x18d249(0x180)]);this[_0x18d249(0x1f7)](_0x4fdef6['method'],_0x4fdef6[_0x18d249(0x1c4)],this[_0x18d249(0x169)],this[_0x18d249(0x1c8)]);}catch{}};})['then'](_0x1e4b6d=>(this['_connected']=!0x0,this['_connecting']=!0x1,this[_0x360e77(0x20f)]=!0x1,this[_0x360e77(0x1df)]=!0x0,this[_0x360e77(0x249)]=0x0,_0x1e4b6d))[_0x360e77(0x221)](_0xbad9a8=>(this[_0x360e77(0x1d9)]=!0x1,this['_connecting']=!0x1,console[_0x360e77(0x17f)](_0x360e77(0x196)+this[_0x360e77(0x22c)]),_0x523107(new Error(_0x360e77(0x268)+(_0xbad9a8&&_0xbad9a8[_0x360e77(0x1a9)])))));}));},z[_0x3fa772(0x1e0)][_0x3fa772(0x1fc)]=function(_0x35df59){var _0x3aede5=_0x3fa772;this['_connected']=!0x1,this[_0x3aede5(0x1ad)]=!0x1;try{_0x35df59[_0x3aede5(0x17b)]=null,_0x35df59[_0x3aede5(0x22f)]=null,_0x35df59[_0x3aede5(0x1e6)]=null;}catch{}try{_0x35df59[_0x3aede5(0x226)]<0x2&&_0x35df59[_0x3aede5(0x181)]();}catch{}},z[_0x3fa772(0x1e0)][_0x3fa772(0x171)]=function(){var _0x3a32c4=_0x3fa772;clearTimeout(this[_0x3a32c4(0x16d)]),!(this[_0x3a32c4(0x249)]>=this[_0x3a32c4(0x195)])&&(this[_0x3a32c4(0x16d)]=setTimeout(()=>{var _0x94530b=_0x3a32c4,_0x5cc891;this[_0x94530b(0x1d9)]||this[_0x94530b(0x1ad)]||(this[_0x94530b(0x1e5)](),(_0x5cc891=this['_ws'])==null||_0x5cc891['catch'](()=>this[_0x94530b(0x171)]()));},0x1f4),this[_0x3a32c4(0x16d)]['unref']&&this['_reconnectTimeout'][_0x3a32c4(0x1f6)]());},z['prototype'][_0x3fa772(0x164)]=async function(_0x10aefc){var _0x4d84ae=_0x3fa772;try{if(!this['_allowedToSend'])return;this[_0x4d84ae(0x20f)]&&this['_connectToHostNow'](),(await this[_0x4d84ae(0x179)])[_0x4d84ae(0x164)](JSON[_0x4d84ae(0x1dc)](_0x10aefc));}catch(_0x4450b9){this[_0x4d84ae(0x173)]?console[_0x4d84ae(0x17f)](this['_sendErrorMessage']+':\\x20'+(_0x4450b9&&_0x4450b9['message'])):(this['_extendedWarning']=!0x0,console[_0x4d84ae(0x17f)](this['_sendErrorMessage']+':\\x20'+(_0x4450b9&&_0x4450b9[_0x4d84ae(0x1a9)]),_0x10aefc)),this[_0x4d84ae(0x1df)]=!0x1,this[_0x4d84ae(0x171)]();}};function H(_0x460d83,_0x355471,_0x20198e,_0x28cc05,_0x1b6464,_0x592d8b,_0x204d66,_0x5da28b=ne){var _0x15bd25=_0x3fa772;let _0x3267c6=_0x20198e[_0x15bd25(0x1c2)](',')[_0x15bd25(0x1cf)](_0x51eb86=>{var _0x35b9a7=_0x15bd25,_0xa59305,_0x36f5a4,_0x4ce833,_0x16fd92,_0x78ddfb,_0x501bf4,_0xed8752,_0x48e410;try{if(!_0x460d83[_0x35b9a7(0x184)]){let _0x1f8a3f=((_0x36f5a4=(_0xa59305=_0x460d83['process'])==null?void 0x0:_0xa59305[_0x35b9a7(0x212)])==null?void 0x0:_0x36f5a4[_0x35b9a7(0x1bf)])||((_0x16fd92=(_0x4ce833=_0x460d83[_0x35b9a7(0x260)])==null?void 0x0:_0x4ce833[_0x35b9a7(0x1ae)])==null?void 0x0:_0x16fd92[_0x35b9a7(0x18f)])===_0x35b9a7(0x182);(_0x1b6464===_0x35b9a7(0x194)||_0x1b6464===_0x35b9a7(0x215)||_0x1b6464===_0x35b9a7(0x246)||_0x1b6464===_0x35b9a7(0x1d7))&&(_0x1b6464+=_0x1f8a3f?'\\x20server':_0x35b9a7(0x265));let _0x21415d='';_0x1b6464==='react-native'&&(_0x21415d=(((_0xed8752=(_0x501bf4=(_0x78ddfb=_0x460d83[_0x35b9a7(0x1a1)])==null?void 0x0:_0x78ddfb[_0x35b9a7(0x23b)])==null?void 0x0:_0x501bf4[_0x35b9a7(0x1fb)])==null?void 0x0:_0xed8752[_0x35b9a7(0x1d6)])||'emulator')['toLowerCase'](),_0x21415d&&(_0x1b6464+='\\x20'+_0x21415d,(_0x21415d===_0x35b9a7(0x193)||_0x21415d===_0x35b9a7(0x25c)&&((_0x48e410=_0x460d83[_0x35b9a7(0x208)])==null?void 0x0:_0x48e410['hostname'])===_0x35b9a7(0x16f))&&(_0x355471=_0x35b9a7(0x16f)))),_0x460d83['_console_ninja_session']={'id':+new Date(),'tool':_0x1b6464},_0x204d66&&_0x1b6464&&!_0x1f8a3f&&(_0x21415d?console[_0x35b9a7(0x224)](_0x35b9a7(0x1d8)+_0x21415d+_0x35b9a7(0x24e)):console[_0x35b9a7(0x224)]('%c\\x20Console\\x20Ninja\\x20extension\\x20is\\x20connected\\x20to\\x20'+(_0x1b6464[_0x35b9a7(0x1c5)](0x0)[_0x35b9a7(0x1a5)]()+_0x1b6464[_0x35b9a7(0x160)](0x1))+',',_0x35b9a7(0x197),_0x35b9a7(0x24b)));}let _0x48fdfc=new z(_0x460d83,_0x355471,_0x51eb86,_0x28cc05,_0x592d8b,_0x5da28b);return _0x48fdfc['send'][_0x35b9a7(0x1f3)](_0x48fdfc);}catch(_0x41310f){return console[_0x35b9a7(0x17f)](_0x35b9a7(0x177),_0x41310f&&_0x41310f['message']),()=>{};}});return _0x24541d=>_0x3267c6[_0x15bd25(0x1bb)](_0x376b6f=>_0x376b6f(_0x24541d));}function ne(_0x2be4fb,_0x301f93,_0x523214,_0x6be156){var _0x5d0a8f=_0x3fa772;_0x6be156&&_0x2be4fb===_0x5d0a8f(0x18a)&&_0x523214[_0x5d0a8f(0x208)][_0x5d0a8f(0x18a)]();}function b(_0x3e205e){var _0x4c089a=_0x3fa772,_0x18d6ae,_0x398ba8;let _0x1e0f39=function(_0x56a091,_0xe8b36b){return _0xe8b36b-_0x56a091;},_0x4be32a;if(_0x3e205e[_0x4c089a(0x267)])_0x4be32a=function(){var _0x317280=_0x4c089a;return _0x3e205e[_0x317280(0x267)][_0x317280(0x1d5)]();};else{if(_0x3e205e['process']&&_0x3e205e[_0x4c089a(0x260)][_0x4c089a(0x183)]&&((_0x398ba8=(_0x18d6ae=_0x3e205e[_0x4c089a(0x260)])==null?void 0x0:_0x18d6ae[_0x4c089a(0x1ae)])==null?void 0x0:_0x398ba8[_0x4c089a(0x18f)])!=='edge')_0x4be32a=function(){var _0x1cd4ef=_0x4c089a;return _0x3e205e[_0x1cd4ef(0x260)][_0x1cd4ef(0x183)]();},_0x1e0f39=function(_0x11003e,_0x1a86aa){return 0x3e8*(_0x1a86aa[0x0]-_0x11003e[0x0])+(_0x1a86aa[0x1]-_0x11003e[0x1])/0xf4240;};else try{let {performance:_0x4c0f6d}=require('perf_hooks');_0x4be32a=function(){var _0x26921d=_0x4c089a;return _0x4c0f6d[_0x26921d(0x1d5)]();};}catch{_0x4be32a=function(){return+new Date();};}}return{'elapsed':_0x1e0f39,'timeStamp':_0x4be32a,'now':()=>Date[_0x4c089a(0x1d5)]()};}function X(_0x3c3424,_0x27b72f,_0x42e1c4){var _0x3043b0=_0x3fa772,_0x51055f,_0x1dc4cb,_0x377a34,_0x336d4c,_0x3c0ecd,_0x42373b,_0x31c7d9;if(_0x3c3424[_0x3043b0(0x1b9)]!==void 0x0)return _0x3c3424[_0x3043b0(0x1b9)];let _0x42a069=((_0x1dc4cb=(_0x51055f=_0x3c3424[_0x3043b0(0x260)])==null?void 0x0:_0x51055f[_0x3043b0(0x212)])==null?void 0x0:_0x1dc4cb[_0x3043b0(0x1bf)])||((_0x336d4c=(_0x377a34=_0x3c3424[_0x3043b0(0x260)])==null?void 0x0:_0x377a34[_0x3043b0(0x1ae)])==null?void 0x0:_0x336d4c[_0x3043b0(0x18f)])==='edge',_0x3bcee7=!!(_0x42e1c4===_0x3043b0(0x15c)&&((_0x3c0ecd=_0x3c3424[_0x3043b0(0x1a1)])==null?void 0x0:_0x3c0ecd[_0x3043b0(0x23b)]));function _0x246ceb(_0x5502da){var _0x1bae75=_0x3043b0;if(_0x5502da[_0x1bae75(0x22e)]('/')&&_0x5502da[_0x1bae75(0x176)]('/')){let _0x20f17e=new RegExp(_0x5502da[_0x1bae75(0x206)](0x1,-0x1));return _0x42d7cb=>_0x20f17e[_0x1bae75(0x214)](_0x42d7cb);}else{if(_0x5502da[_0x1bae75(0x1d1)]('*')||_0x5502da[_0x1bae75(0x1d1)]('?')){let _0x5894f=new RegExp('^'+_0x5502da[_0x1bae75(0x21e)](/\\./g,String[_0x1bae75(0x1f4)](0x5c)+'.')[_0x1bae75(0x21e)](/\\*/g,'.*')[_0x1bae75(0x21e)](/\\?/g,'.')+String[_0x1bae75(0x1f4)](0x24));return _0x4e3e52=>_0x5894f[_0x1bae75(0x214)](_0x4e3e52);}else return _0x3581d9=>_0x3581d9===_0x5502da;}}let _0x434eb6=_0x27b72f[_0x3043b0(0x1cf)](_0x246ceb);return _0x3c3424['_consoleNinjaAllowedToStart']=_0x42a069||!_0x27b72f,!_0x3c3424[_0x3043b0(0x1b9)]&&((_0x42373b=_0x3c3424[_0x3043b0(0x208)])==null?void 0x0:_0x42373b[_0x3043b0(0x1a4)])&&(_0x3c3424[_0x3043b0(0x1b9)]=_0x434eb6['some'](_0x38c3cc=>_0x38c3cc(_0x3c3424[_0x3043b0(0x208)][_0x3043b0(0x1a4)]))),_0x3bcee7&&!_0x3c3424[_0x3043b0(0x1b9)]&&!((_0x31c7d9=_0x3c3424[_0x3043b0(0x208)])!=null&&_0x31c7d9['hostname'])&&(_0x3c3424[_0x3043b0(0x1b9)]=!0x0),_0x3c3424[_0x3043b0(0x1b9)];}function J(_0xe648bd,_0x4abecc,_0x1565ad,_0x1c2887,_0x4a4801,_0x33744e){var _0x4972c0=_0x3fa772;_0xe648bd=_0xe648bd,_0x4abecc=_0x4abecc,_0x1565ad=_0x1565ad,_0x1c2887=_0x1c2887,_0x4a4801=_0x4a4801,_0x4a4801=_0x4a4801||{},_0x4a4801[_0x4972c0(0x238)]=_0x4a4801[_0x4972c0(0x238)]||{},_0x4a4801['reducedLimits']=_0x4a4801['reducedLimits']||{},_0x4a4801[_0x4972c0(0x254)]=_0x4a4801['reducePolicy']||{},_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x174)]=_0x4a4801['reducePolicy'][_0x4972c0(0x174)]||{},_0x4a4801[_0x4972c0(0x254)]['global']=_0x4a4801['reducePolicy'][_0x4972c0(0x169)]||{};let _0x105198={'perLogpoint':{'reduceOnCount':_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x174)][_0x4972c0(0x192)]||0x32,'reduceOnAccumulatedProcessingTimeMs':_0x4a4801[_0x4972c0(0x254)]['perLogpoint'][_0x4972c0(0x23a)]||0x64,'resetWhenQuietMs':_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x174)][_0x4972c0(0x23e)]||0x1f4,'resetOnProcessingTimeAverageMs':_0x4a4801[_0x4972c0(0x254)]['perLogpoint'][_0x4972c0(0x15e)]||0x64},'global':{'reduceOnCount':_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x169)]['reduceOnCount']||0x3e8,'reduceOnAccumulatedProcessingTimeMs':_0x4a4801[_0x4972c0(0x254)]['global'][_0x4972c0(0x23a)]||0x12c,'resetWhenQuietMs':_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x169)][_0x4972c0(0x23e)]||0x32,'resetOnProcessingTimeAverageMs':_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x169)][_0x4972c0(0x15e)]||0x64}},_0x3e3c1b=b(_0xe648bd),_0x351127=_0x3e3c1b[_0x4972c0(0x18c)],_0x129903=_0x3e3c1b[_0x4972c0(0x217)];function _0x27a2bb(){var _0x5560f7=_0x4972c0;this[_0x5560f7(0x1e2)]=/^(?!(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)$)[_$a-zA-Z\\xA0-\\uFFFF][_$a-zA-Z0-9\\xA0-\\uFFFF]*$/,this[_0x5560f7(0x20e)]=/^(0|[1-9][0-9]*)$/,this[_0x5560f7(0x1d2)]=/'([^\\\\']|\\\\')*'/,this[_0x5560f7(0x1bd)]=_0xe648bd[_0x5560f7(0x216)],this[_0x5560f7(0x1ff)]=_0xe648bd['HTMLAllCollection'],this['_getOwnPropertyDescriptor']=Object[_0x5560f7(0x227)],this[_0x5560f7(0x1da)]=Object[_0x5560f7(0x17c)],this[_0x5560f7(0x23c)]=_0xe648bd['Symbol'],this['_regExpToString']=RegExp[_0x5560f7(0x1e0)][_0x5560f7(0x261)],this[_0x5560f7(0x253)]=Date[_0x5560f7(0x1e0)][_0x5560f7(0x261)];}_0x27a2bb[_0x4972c0(0x1e0)]['serialize']=function(_0x3f1448,_0xeffb4f,_0x36814a,_0x51888e){var _0x2863bb=_0x4972c0,_0x474a65=this,_0xc35d94=_0x36814a[_0x2863bb(0x19d)];function _0x151fe6(_0x49d6f5,_0x23cb59,_0x155d40){var _0x89c613=_0x2863bb;_0x23cb59[_0x89c613(0x205)]=_0x89c613(0x1bc),_0x23cb59[_0x89c613(0x239)]=_0x49d6f5[_0x89c613(0x1a9)],_0x375768=_0x155d40[_0x89c613(0x1bf)][_0x89c613(0x1cd)],_0x155d40[_0x89c613(0x1bf)][_0x89c613(0x1cd)]=_0x23cb59,_0x474a65[_0x89c613(0x1b6)](_0x23cb59,_0x155d40);}let _0x11e99d,_0x5ac6ec,_0x1a0153=_0xe648bd[_0x2863bb(0x1fa)];_0xe648bd[_0x2863bb(0x1fa)]=!0x0,_0xe648bd['console']&&(_0x11e99d=_0xe648bd['console'][_0x2863bb(0x239)],_0x5ac6ec=_0xe648bd[_0x2863bb(0x175)][_0x2863bb(0x17f)],_0x11e99d&&(_0xe648bd['console'][_0x2863bb(0x239)]=function(){}),_0x5ac6ec&&(_0xe648bd[_0x2863bb(0x175)][_0x2863bb(0x17f)]=function(){}));try{try{_0x36814a[_0x2863bb(0x19f)]++,_0x36814a[_0x2863bb(0x19d)]&&_0x36814a[_0x2863bb(0x258)][_0x2863bb(0x1fd)](_0xeffb4f);var _0x5e0e4e,_0xfc0644,_0x581ef3,_0x34c866,_0x297f08=[],_0x365f1b=[],_0x17e64e,_0x5eff44=this[_0x2863bb(0x1a0)](_0xeffb4f),_0x349f01=_0x5eff44==='array',_0x1cc8a7=!0x1,_0x37632f=_0x5eff44===_0x2863bb(0x213),_0x3b5d94=this[_0x2863bb(0x245)](_0x5eff44),_0x2723a1=this[_0x2863bb(0x26a)](_0x5eff44),_0xc6e1f3=_0x3b5d94||_0x2723a1,_0x37308c={},_0x267115=0x0,_0x44a108=!0x1,_0x375768,_0x559f15=/^(([1-9]{1}[0-9]*)|0)$/;if(_0x36814a[_0x2863bb(0x18b)]){if(_0x349f01){if(_0xfc0644=_0xeffb4f[_0x2863bb(0x1ba)],_0xfc0644>_0x36814a[_0x2863bb(0x198)]){for(_0x581ef3=0x0,_0x34c866=_0x36814a[_0x2863bb(0x198)],_0x5e0e4e=_0x581ef3;_0x5e0e4e<_0x34c866;_0x5e0e4e++)_0x365f1b[_0x2863bb(0x1fd)](_0x474a65[_0x2863bb(0x1b3)](_0x297f08,_0xeffb4f,_0x5eff44,_0x5e0e4e,_0x36814a));_0x3f1448[_0x2863bb(0x1a6)]=!0x0;}else{for(_0x581ef3=0x0,_0x34c866=_0xfc0644,_0x5e0e4e=_0x581ef3;_0x5e0e4e<_0x34c866;_0x5e0e4e++)_0x365f1b['push'](_0x474a65[_0x2863bb(0x1b3)](_0x297f08,_0xeffb4f,_0x5eff44,_0x5e0e4e,_0x36814a));}_0x36814a[_0x2863bb(0x1e4)]+=_0x365f1b['length'];}if(!(_0x5eff44===_0x2863bb(0x1f5)||_0x5eff44==='undefined')&&!_0x3b5d94&&_0x5eff44!==_0x2863bb(0x15d)&&_0x5eff44!==_0x2863bb(0x234)&&_0x5eff44!==_0x2863bb(0x20b)){var _0x5e1f5b=_0x51888e[_0x2863bb(0x25e)]||_0x36814a['props'];if(this[_0x2863bb(0x22b)](_0xeffb4f)?(_0x5e0e4e=0x0,_0xeffb4f[_0x2863bb(0x1bb)](function(_0x2c9b57){var _0x4ca4f4=_0x2863bb;if(_0x267115++,_0x36814a[_0x4ca4f4(0x1e4)]++,_0x267115>_0x5e1f5b){_0x44a108=!0x0;return;}if(!_0x36814a[_0x4ca4f4(0x210)]&&_0x36814a[_0x4ca4f4(0x19d)]&&_0x36814a[_0x4ca4f4(0x1e4)]>_0x36814a[_0x4ca4f4(0x269)]){_0x44a108=!0x0;return;}_0x365f1b['push'](_0x474a65[_0x4ca4f4(0x1b3)](_0x297f08,_0xeffb4f,_0x4ca4f4(0x1e7),_0x5e0e4e++,_0x36814a,function(_0x48ecee){return function(){return _0x48ecee;};}(_0x2c9b57)));})):this['_isMap'](_0xeffb4f)&&_0xeffb4f['forEach'](function(_0x409bc0,_0x5393ee){var _0x10ac23=_0x2863bb;if(_0x267115++,_0x36814a['autoExpandPropertyCount']++,_0x267115>_0x5e1f5b){_0x44a108=!0x0;return;}if(!_0x36814a[_0x10ac23(0x210)]&&_0x36814a[_0x10ac23(0x19d)]&&_0x36814a[_0x10ac23(0x1e4)]>_0x36814a[_0x10ac23(0x269)]){_0x44a108=!0x0;return;}var _0x46ed4e=_0x5393ee[_0x10ac23(0x261)]();_0x46ed4e[_0x10ac23(0x1ba)]>0x64&&(_0x46ed4e=_0x46ed4e[_0x10ac23(0x206)](0x0,0x64)+_0x10ac23(0x191)),_0x365f1b[_0x10ac23(0x1fd)](_0x474a65[_0x10ac23(0x1b3)](_0x297f08,_0xeffb4f,_0x10ac23(0x17d),_0x46ed4e,_0x36814a,function(_0x4654ce){return function(){return _0x4654ce;};}(_0x409bc0)));}),!_0x1cc8a7){try{for(_0x17e64e in _0xeffb4f)if(!(_0x349f01&&_0x559f15[_0x2863bb(0x214)](_0x17e64e))&&!this[_0x2863bb(0x25b)](_0xeffb4f,_0x17e64e,_0x36814a)){if(_0x267115++,_0x36814a[_0x2863bb(0x1e4)]++,_0x267115>_0x5e1f5b){_0x44a108=!0x0;break;}if(!_0x36814a[_0x2863bb(0x210)]&&_0x36814a[_0x2863bb(0x19d)]&&_0x36814a[_0x2863bb(0x1e4)]>_0x36814a[_0x2863bb(0x269)]){_0x44a108=!0x0;break;}_0x365f1b[_0x2863bb(0x1fd)](_0x474a65[_0x2863bb(0x16e)](_0x297f08,_0x37308c,_0xeffb4f,_0x5eff44,_0x17e64e,_0x36814a));}}catch{}if(_0x37308c['_p_length']=!0x0,_0x37632f&&(_0x37308c[_0x2863bb(0x20d)]=!0x0),!_0x44a108){var _0x490853=[][_0x2863bb(0x225)](this[_0x2863bb(0x1da)](_0xeffb4f))[_0x2863bb(0x225)](this[_0x2863bb(0x1aa)](_0xeffb4f));for(_0x5e0e4e=0x0,_0xfc0644=_0x490853['length'];_0x5e0e4e<_0xfc0644;_0x5e0e4e++)if(_0x17e64e=_0x490853[_0x5e0e4e],!(_0x349f01&&_0x559f15[_0x2863bb(0x214)](_0x17e64e[_0x2863bb(0x261)]()))&&!this[_0x2863bb(0x25b)](_0xeffb4f,_0x17e64e,_0x36814a)&&!_0x37308c[typeof _0x17e64e!=_0x2863bb(0x1f9)?'_p_'+_0x17e64e[_0x2863bb(0x261)]():_0x17e64e]){if(_0x267115++,_0x36814a[_0x2863bb(0x1e4)]++,_0x267115>_0x5e1f5b){_0x44a108=!0x0;break;}if(!_0x36814a[_0x2863bb(0x210)]&&_0x36814a['autoExpand']&&_0x36814a[_0x2863bb(0x1e4)]>_0x36814a[_0x2863bb(0x269)]){_0x44a108=!0x0;break;}_0x365f1b[_0x2863bb(0x1fd)](_0x474a65[_0x2863bb(0x16e)](_0x297f08,_0x37308c,_0xeffb4f,_0x5eff44,_0x17e64e,_0x36814a));}}}}}if(_0x3f1448['type']=_0x5eff44,_0xc6e1f3?(_0x3f1448[_0x2863bb(0x1f0)]=_0xeffb4f['valueOf'](),this[_0x2863bb(0x1ab)](_0x5eff44,_0x3f1448,_0x36814a,_0x51888e)):_0x5eff44==='date'?_0x3f1448[_0x2863bb(0x1f0)]=this['_dateToString'][_0x2863bb(0x243)](_0xeffb4f):_0x5eff44===_0x2863bb(0x20b)?_0x3f1448['value']=_0xeffb4f[_0x2863bb(0x261)]():_0x5eff44===_0x2863bb(0x166)?_0x3f1448[_0x2863bb(0x1f0)]=this[_0x2863bb(0x1d0)][_0x2863bb(0x243)](_0xeffb4f):_0x5eff44===_0x2863bb(0x1f9)&&this[_0x2863bb(0x23c)]?_0x3f1448['value']=this['_Symbol'][_0x2863bb(0x1e0)][_0x2863bb(0x261)][_0x2863bb(0x243)](_0xeffb4f):!_0x36814a[_0x2863bb(0x18b)]&&!(_0x5eff44===_0x2863bb(0x1f5)||_0x5eff44===_0x2863bb(0x216))&&(delete _0x3f1448[_0x2863bb(0x1f0)],_0x3f1448['capped']=!0x0),_0x44a108&&(_0x3f1448[_0x2863bb(0x188)]=!0x0),_0x375768=_0x36814a[_0x2863bb(0x1bf)][_0x2863bb(0x1cd)],_0x36814a['node'][_0x2863bb(0x1cd)]=_0x3f1448,this[_0x2863bb(0x1b6)](_0x3f1448,_0x36814a),_0x365f1b['length']){for(_0x5e0e4e=0x0,_0xfc0644=_0x365f1b[_0x2863bb(0x1ba)];_0x5e0e4e<_0xfc0644;_0x5e0e4e++)_0x365f1b[_0x5e0e4e](_0x5e0e4e);}_0x297f08[_0x2863bb(0x1ba)]&&(_0x3f1448[_0x2863bb(0x25e)]=_0x297f08);}catch(_0x333b83){_0x151fe6(_0x333b83,_0x3f1448,_0x36814a);}this['_additionalMetadata'](_0xeffb4f,_0x3f1448),this[_0x2863bb(0x19e)](_0x3f1448,_0x36814a),_0x36814a[_0x2863bb(0x1bf)]['current']=_0x375768,_0x36814a[_0x2863bb(0x19f)]--,_0x36814a[_0x2863bb(0x19d)]=_0xc35d94,_0x36814a[_0x2863bb(0x19d)]&&_0x36814a[_0x2863bb(0x258)][_0x2863bb(0x1b0)]();}finally{_0x11e99d&&(_0xe648bd[_0x2863bb(0x175)][_0x2863bb(0x239)]=_0x11e99d),_0x5ac6ec&&(_0xe648bd['console'][_0x2863bb(0x17f)]=_0x5ac6ec),_0xe648bd[_0x2863bb(0x1fa)]=_0x1a0153;}return _0x3f1448;},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1aa)]=function(_0x54e624){var _0x577a71=_0x4972c0;return Object[_0x577a71(0x199)]?Object[_0x577a71(0x199)](_0x54e624):[];},_0x27a2bb['prototype'][_0x4972c0(0x22b)]=function(_0x342efb){var _0x2cbd92=_0x4972c0;return!!(_0x342efb&&_0xe648bd['Set']&&this['_objectToString'](_0x342efb)===_0x2cbd92(0x19c)&&_0x342efb[_0x2cbd92(0x1bb)]);},_0x27a2bb['prototype'][_0x4972c0(0x25b)]=function(_0x4b81f2,_0x34d131,_0x3db946){var _0x18c043=_0x4972c0;if(!_0x3db946[_0x18c043(0x240)]){let _0x4abf91=this['_getOwnPropertyDescriptor'](_0x4b81f2,_0x34d131);if(_0x4abf91&&_0x4abf91[_0x18c043(0x172)])return!0x0;}return _0x3db946['noFunctions']?typeof _0x4b81f2[_0x34d131]==_0x18c043(0x213):!0x1;},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1a0)]=function(_0x39aa20){var _0xb82740=_0x4972c0,_0x484aa7='';return _0x484aa7=typeof _0x39aa20,_0x484aa7===_0xb82740(0x20a)?this[_0xb82740(0x259)](_0x39aa20)===_0xb82740(0x1ef)?_0x484aa7=_0xb82740(0x233):this[_0xb82740(0x259)](_0x39aa20)===_0xb82740(0x1f1)?_0x484aa7='date':this[_0xb82740(0x259)](_0x39aa20)===_0xb82740(0x202)?_0x484aa7='bigint':_0x39aa20===null?_0x484aa7=_0xb82740(0x1f5):_0x39aa20['constructor']&&(_0x484aa7=_0x39aa20['constructor'][_0xb82740(0x16c)]||_0x484aa7):_0x484aa7===_0xb82740(0x216)&&this[_0xb82740(0x1ff)]&&_0x39aa20 instanceof this[_0xb82740(0x1ff)]&&(_0x484aa7='HTMLAllCollection'),_0x484aa7;},_0x27a2bb[_0x4972c0(0x1e0)]['_objectToString']=function(_0x18c5db){var _0x543437=_0x4972c0;return Object[_0x543437(0x1e0)]['toString']['call'](_0x18c5db);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x245)]=function(_0x4d7673){var _0x257a15=_0x4972c0;return _0x4d7673===_0x257a15(0x168)||_0x4d7673==='string'||_0x4d7673==='number';},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x26a)]=function(_0x19140a){var _0xc8ac70=_0x4972c0;return _0x19140a==='Boolean'||_0x19140a===_0xc8ac70(0x15d)||_0x19140a===_0xc8ac70(0x251);},_0x27a2bb['prototype'][_0x4972c0(0x1b3)]=function(_0x4bc3b3,_0x1a866b,_0x48e504,_0x34c79e,_0x34c254,_0x579723){var _0x24d662=this;return function(_0x9f957f){var _0x50e283=_0x2259,_0x2d612d=_0x34c254[_0x50e283(0x1bf)][_0x50e283(0x1cd)],_0x213151=_0x34c254[_0x50e283(0x1bf)][_0x50e283(0x22d)],_0x1f083f=_0x34c254['node']['parent'];_0x34c254['node'][_0x50e283(0x1b1)]=_0x2d612d,_0x34c254[_0x50e283(0x1bf)][_0x50e283(0x22d)]=typeof _0x34c79e==_0x50e283(0x17a)?_0x34c79e:_0x9f957f,_0x4bc3b3[_0x50e283(0x1fd)](_0x24d662[_0x50e283(0x1e1)](_0x1a866b,_0x48e504,_0x34c79e,_0x34c254,_0x579723)),_0x34c254['node']['parent']=_0x1f083f,_0x34c254[_0x50e283(0x1bf)][_0x50e283(0x22d)]=_0x213151;};},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x16e)]=function(_0x50f5d4,_0x222d67,_0x2ff0d9,_0x4f8c01,_0xc2d2b2,_0xf85f43,_0x401f41){var _0x4b6f30=_0x4972c0,_0x11af12=this;return _0x222d67[typeof _0xc2d2b2!=_0x4b6f30(0x1f9)?_0x4b6f30(0x237)+_0xc2d2b2[_0x4b6f30(0x261)]():_0xc2d2b2]=!0x0,function(_0x18a4c4){var _0x21c95a=_0x4b6f30,_0x166c96=_0xf85f43['node'][_0x21c95a(0x1cd)],_0x8bb49a=_0xf85f43[_0x21c95a(0x1bf)]['index'],_0x5de03b=_0xf85f43[_0x21c95a(0x1bf)][_0x21c95a(0x1b1)];_0xf85f43[_0x21c95a(0x1bf)][_0x21c95a(0x1b1)]=_0x166c96,_0xf85f43[_0x21c95a(0x1bf)][_0x21c95a(0x22d)]=_0x18a4c4,_0x50f5d4[_0x21c95a(0x1fd)](_0x11af12[_0x21c95a(0x1e1)](_0x2ff0d9,_0x4f8c01,_0xc2d2b2,_0xf85f43,_0x401f41)),_0xf85f43[_0x21c95a(0x1bf)][_0x21c95a(0x1b1)]=_0x5de03b,_0xf85f43[_0x21c95a(0x1bf)][_0x21c95a(0x22d)]=_0x8bb49a;};},_0x27a2bb[_0x4972c0(0x1e0)]['_property']=function(_0xd05ba8,_0x191f16,_0x39d076,_0x5ddc9e,_0x502bde){var _0xc423de=_0x4972c0,_0x4215e7=this;_0x502bde||(_0x502bde=function(_0x165ded,_0x243578){return _0x165ded[_0x243578];});var _0x547ec1=_0x39d076[_0xc423de(0x261)](),_0x25f581=_0x5ddc9e['expressionsToEvaluate']||{},_0x1e6697=_0x5ddc9e[_0xc423de(0x18b)],_0x3cc994=_0x5ddc9e[_0xc423de(0x210)];try{var _0xb165af=this[_0xc423de(0x264)](_0xd05ba8),_0x15cca7=_0x547ec1;_0xb165af&&_0x15cca7[0x0]==='\\x27'&&(_0x15cca7=_0x15cca7[_0xc423de(0x160)](0x1,_0x15cca7[_0xc423de(0x1ba)]-0x2));var _0x1673f1=_0x5ddc9e['expressionsToEvaluate']=_0x25f581[_0xc423de(0x237)+_0x15cca7];_0x1673f1&&(_0x5ddc9e[_0xc423de(0x18b)]=_0x5ddc9e['depth']+0x1),_0x5ddc9e[_0xc423de(0x210)]=!!_0x1673f1;var _0x5099fa=typeof _0x39d076==_0xc423de(0x1f9),_0x22101b={'name':_0x5099fa||_0xb165af?_0x547ec1:this[_0xc423de(0x185)](_0x547ec1)};if(_0x5099fa&&(_0x22101b['symbol']=!0x0),!(_0x191f16===_0xc423de(0x233)||_0x191f16==='Error')){var _0x504b2c=this[_0xc423de(0x1c0)](_0xd05ba8,_0x39d076);if(_0x504b2c&&(_0x504b2c[_0xc423de(0x1ce)]&&(_0x22101b[_0xc423de(0x167)]=!0x0),_0x504b2c[_0xc423de(0x172)]&&!_0x1673f1&&!_0x5ddc9e['resolveGetters']))return _0x22101b[_0xc423de(0x1ca)]=!0x0,this[_0xc423de(0x1f2)](_0x22101b,_0x5ddc9e),_0x22101b;}var _0x2975c8;try{_0x2975c8=_0x502bde(_0xd05ba8,_0x39d076);}catch(_0x205498){return _0x22101b={'name':_0x547ec1,'type':_0xc423de(0x1bc),'error':_0x205498[_0xc423de(0x1a9)]},this['_processTreeNodeResult'](_0x22101b,_0x5ddc9e),_0x22101b;}var _0x161773=this[_0xc423de(0x1a0)](_0x2975c8),_0x25b2a3=this[_0xc423de(0x245)](_0x161773);if(_0x22101b[_0xc423de(0x205)]=_0x161773,_0x25b2a3)this[_0xc423de(0x1f2)](_0x22101b,_0x5ddc9e,_0x2975c8,function(){var _0x57fc46=_0xc423de;_0x22101b['value']=_0x2975c8[_0x57fc46(0x1a3)](),!_0x1673f1&&_0x4215e7[_0x57fc46(0x1ab)](_0x161773,_0x22101b,_0x5ddc9e,{});});else{var _0x2c0e8a=_0x5ddc9e[_0xc423de(0x19d)]&&_0x5ddc9e[_0xc423de(0x19f)]<_0x5ddc9e['autoExpandMaxDepth']&&_0x5ddc9e[_0xc423de(0x258)][_0xc423de(0x229)](_0x2975c8)<0x0&&_0x161773!==_0xc423de(0x213)&&_0x5ddc9e['autoExpandPropertyCount']<_0x5ddc9e[_0xc423de(0x269)];_0x2c0e8a||_0x5ddc9e[_0xc423de(0x19f)]<_0x1e6697||_0x1673f1?this[_0xc423de(0x24f)](_0x22101b,_0x2975c8,_0x5ddc9e,_0x1673f1||{}):this[_0xc423de(0x1f2)](_0x22101b,_0x5ddc9e,_0x2975c8,function(){var _0x308e8e=_0xc423de;_0x161773==='null'||_0x161773===_0x308e8e(0x216)||(delete _0x22101b['value'],_0x22101b['capped']=!0x0);});}return _0x22101b;}finally{_0x5ddc9e['expressionsToEvaluate']=_0x25f581,_0x5ddc9e[_0xc423de(0x18b)]=_0x1e6697,_0x5ddc9e[_0xc423de(0x210)]=_0x3cc994;}},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1ab)]=function(_0x4dd1a0,_0x57a2a2,_0x16be66,_0x138605){var _0x3a7e17=_0x4972c0,_0x4c2106=_0x138605[_0x3a7e17(0x235)]||_0x16be66[_0x3a7e17(0x235)];if((_0x4dd1a0===_0x3a7e17(0x1a2)||_0x4dd1a0===_0x3a7e17(0x15d))&&_0x57a2a2['value']){let _0x127005=_0x57a2a2['value']['length'];_0x16be66['allStrLength']+=_0x127005,_0x16be66[_0x3a7e17(0x201)]>_0x16be66['totalStrLength']?(_0x57a2a2[_0x3a7e17(0x1be)]='',delete _0x57a2a2[_0x3a7e17(0x1f0)]):_0x127005>_0x4c2106&&(_0x57a2a2[_0x3a7e17(0x1be)]=_0x57a2a2[_0x3a7e17(0x1f0)][_0x3a7e17(0x160)](0x0,_0x4c2106),delete _0x57a2a2[_0x3a7e17(0x1f0)]);}},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x264)]=function(_0xda70bd){var _0x5bba4b=_0x4972c0;return!!(_0xda70bd&&_0xe648bd[_0x5bba4b(0x17d)]&&this[_0x5bba4b(0x259)](_0xda70bd)===_0x5bba4b(0x1b2)&&_0xda70bd['forEach']);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x185)]=function(_0x54609f){var _0x5d1223=_0x4972c0;if(_0x54609f['match'](/^\\d+$/))return _0x54609f;var _0xb75f54;try{_0xb75f54=JSON[_0x5d1223(0x1dc)](''+_0x54609f);}catch{_0xb75f54='\\x22'+this['_objectToString'](_0x54609f)+'\\x22';}return _0xb75f54[_0x5d1223(0x244)](/^\"([a-zA-Z_][a-zA-Z_0-9]*)\"$/)?_0xb75f54=_0xb75f54[_0x5d1223(0x160)](0x1,_0xb75f54[_0x5d1223(0x1ba)]-0x2):_0xb75f54=_0xb75f54[_0x5d1223(0x21e)](/'/g,'\\x5c\\x27')[_0x5d1223(0x21e)](/\\\\\"/g,'\\x22')['replace'](/(^\"|\"$)/g,'\\x27'),_0xb75f54;},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1f2)]=function(_0x268cb3,_0x35cbfa,_0x1ef69b,_0x6f36a3){var _0x34debb=_0x4972c0;this[_0x34debb(0x1b6)](_0x268cb3,_0x35cbfa),_0x6f36a3&&_0x6f36a3(),this['_additionalMetadata'](_0x1ef69b,_0x268cb3),this[_0x34debb(0x19e)](_0x268cb3,_0x35cbfa);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1b6)]=function(_0x3c3850,_0x4794d1){var _0x3b79e0=_0x4972c0;this['_setNodeId'](_0x3c3850,_0x4794d1),this[_0x3b79e0(0x1af)](_0x3c3850,_0x4794d1),this[_0x3b79e0(0x266)](_0x3c3850,_0x4794d1),this[_0x3b79e0(0x15f)](_0x3c3850,_0x4794d1);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x203)]=function(_0x5ae280,_0x1e284f){},_0x27a2bb[_0x4972c0(0x1e0)]['_setNodeQueryPath']=function(_0x2cd13e,_0x40d6b4){},_0x27a2bb['prototype']['_setNodeLabel']=function(_0xdb4308,_0x55c8ab){},_0x27a2bb['prototype'][_0x4972c0(0x170)]=function(_0x31dc0d){var _0x2c0d85=_0x4972c0;return _0x31dc0d===this[_0x2c0d85(0x1bd)];},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x19e)]=function(_0x50226b,_0x25b15f){var _0x5b6b84=_0x4972c0;this['_setNodeLabel'](_0x50226b,_0x25b15f),this[_0x5b6b84(0x1ec)](_0x50226b),_0x25b15f[_0x5b6b84(0x241)]&&this[_0x5b6b84(0x23d)](_0x50226b),this['_addFunctionsNode'](_0x50226b,_0x25b15f),this[_0x5b6b84(0x207)](_0x50226b,_0x25b15f),this['_cleanNode'](_0x50226b);},_0x27a2bb['prototype']['_additionalMetadata']=function(_0x233dda,_0x2e87b5){var _0x399cdd=_0x4972c0;try{_0x233dda&&typeof _0x233dda[_0x399cdd(0x1ba)]==_0x399cdd(0x17a)&&(_0x2e87b5['length']=_0x233dda[_0x399cdd(0x1ba)]);}catch{}if(_0x2e87b5[_0x399cdd(0x205)]===_0x399cdd(0x17a)||_0x2e87b5[_0x399cdd(0x205)]===_0x399cdd(0x251)){if(isNaN(_0x2e87b5[_0x399cdd(0x1f0)]))_0x2e87b5['nan']=!0x0,delete _0x2e87b5[_0x399cdd(0x1f0)];else switch(_0x2e87b5[_0x399cdd(0x1f0)]){case Number[_0x399cdd(0x252)]:_0x2e87b5[_0x399cdd(0x24a)]=!0x0,delete _0x2e87b5[_0x399cdd(0x1f0)];break;case Number[_0x399cdd(0x1cb)]:_0x2e87b5[_0x399cdd(0x204)]=!0x0,delete _0x2e87b5[_0x399cdd(0x1f0)];break;case 0x0:this[_0x399cdd(0x26b)](_0x2e87b5[_0x399cdd(0x1f0)])&&(_0x2e87b5[_0x399cdd(0x1a7)]=!0x0);break;}}else _0x2e87b5[_0x399cdd(0x205)]===_0x399cdd(0x213)&&typeof _0x233dda[_0x399cdd(0x16c)]=='string'&&_0x233dda['name']&&_0x2e87b5[_0x399cdd(0x16c)]&&_0x233dda[_0x399cdd(0x16c)]!==_0x2e87b5[_0x399cdd(0x16c)]&&(_0x2e87b5[_0x399cdd(0x262)]=_0x233dda[_0x399cdd(0x16c)]);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x26b)]=function(_0x2bde78){var _0x157b6a=_0x4972c0;return 0x1/_0x2bde78===Number[_0x157b6a(0x1cb)];},_0x27a2bb[_0x4972c0(0x1e0)]['_sortProps']=function(_0x114493){var _0x40f8a5=_0x4972c0;!_0x114493[_0x40f8a5(0x25e)]||!_0x114493[_0x40f8a5(0x25e)][_0x40f8a5(0x1ba)]||_0x114493[_0x40f8a5(0x205)]===_0x40f8a5(0x233)||_0x114493[_0x40f8a5(0x205)]===_0x40f8a5(0x17d)||_0x114493['type']===_0x40f8a5(0x1e7)||_0x114493[_0x40f8a5(0x25e)][_0x40f8a5(0x25f)](function(_0x2f0103,_0x5c04ec){var _0x35b737=_0x40f8a5,_0x22c497=_0x2f0103['name'][_0x35b737(0x1b4)](),_0x221888=_0x5c04ec['name'][_0x35b737(0x1b4)]();return _0x22c497<_0x221888?-0x1:_0x22c497>_0x221888?0x1:0x0;});},_0x27a2bb[_0x4972c0(0x1e0)]['_addFunctionsNode']=function(_0x4c9613,_0x498dc2){var _0xd2e08f=_0x4972c0;if(!(_0x498dc2[_0xd2e08f(0x26c)]||!_0x4c9613[_0xd2e08f(0x25e)]||!_0x4c9613[_0xd2e08f(0x25e)][_0xd2e08f(0x1ba)])){for(var _0x1c871b=[],_0x47ffcb=[],_0x4be09a=0x0,_0x57241c=_0x4c9613[_0xd2e08f(0x25e)]['length'];_0x4be09a<_0x57241c;_0x4be09a++){var _0x5cf7ec=_0x4c9613[_0xd2e08f(0x25e)][_0x4be09a];_0x5cf7ec[_0xd2e08f(0x205)]===_0xd2e08f(0x213)?_0x1c871b[_0xd2e08f(0x1fd)](_0x5cf7ec):_0x47ffcb[_0xd2e08f(0x1fd)](_0x5cf7ec);}if(!(!_0x47ffcb[_0xd2e08f(0x1ba)]||_0x1c871b[_0xd2e08f(0x1ba)]<=0x1)){_0x4c9613[_0xd2e08f(0x25e)]=_0x47ffcb;var _0x177f60={'functionsNode':!0x0,'props':_0x1c871b};this['_setNodeId'](_0x177f60,_0x498dc2),this[_0xd2e08f(0x1c6)](_0x177f60,_0x498dc2),this[_0xd2e08f(0x1ec)](_0x177f60),this[_0xd2e08f(0x15f)](_0x177f60,_0x498dc2),_0x177f60['id']+='\\x20f',_0x4c9613[_0xd2e08f(0x25e)][_0xd2e08f(0x263)](_0x177f60);}}},_0x27a2bb['prototype'][_0x4972c0(0x207)]=function(_0x1186be,_0x4a9a58){},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1ec)]=function(_0x292332){},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1eb)]=function(_0x335b4d){var _0x422578=_0x4972c0;return Array[_0x422578(0x186)](_0x335b4d)||typeof _0x335b4d==_0x422578(0x20a)&&this[_0x422578(0x259)](_0x335b4d)===_0x422578(0x1ef);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x15f)]=function(_0x33f229,_0x391d67){},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x257)]=function(_0x8aef8a){var _0x5a1d5d=_0x4972c0;delete _0x8aef8a[_0x5a1d5d(0x178)],delete _0x8aef8a[_0x5a1d5d(0x1a8)],delete _0x8aef8a['_hasMapOnItsPath'];},_0x27a2bb['prototype'][_0x4972c0(0x266)]=function(_0x3fa706,_0x440bbe){};let _0x604b8a=new _0x27a2bb(),_0x235373={'props':_0x4a4801[_0x4972c0(0x238)]['props']||0x64,'elements':_0x4a4801[_0x4972c0(0x238)]['elements']||0x64,'strLength':_0x4a4801['defaultLimits'][_0x4972c0(0x235)]||0x400*0x32,'totalStrLength':_0x4a4801[_0x4972c0(0x238)][_0x4972c0(0x163)]||0x400*0x32,'autoExpandLimit':_0x4a4801[_0x4972c0(0x238)]['autoExpandLimit']||0x1388,'autoExpandMaxDepth':_0x4a4801[_0x4972c0(0x238)][_0x4972c0(0x20c)]||0xa},_0x1f4129={'props':_0x4a4801[_0x4972c0(0x23f)]['props']||0x5,'elements':_0x4a4801['reducedLimits'][_0x4972c0(0x198)]||0x5,'strLength':_0x4a4801[_0x4972c0(0x23f)][_0x4972c0(0x235)]||0x100,'totalStrLength':_0x4a4801[_0x4972c0(0x23f)][_0x4972c0(0x163)]||0x100*0x3,'autoExpandLimit':_0x4a4801[_0x4972c0(0x23f)][_0x4972c0(0x269)]||0x1e,'autoExpandMaxDepth':_0x4a4801['reducedLimits'][_0x4972c0(0x20c)]||0x2};if(_0x33744e){let _0x1589b6=_0x604b8a[_0x4972c0(0x24f)][_0x4972c0(0x1f3)](_0x604b8a);_0x604b8a[_0x4972c0(0x24f)]=function(_0x5c1776,_0x16c2f4,_0x25718a,_0xff233d){return _0x1589b6(_0x5c1776,_0x33744e(_0x16c2f4),_0x25718a,_0xff233d);};}function _0x55d563(_0x4734dc,_0x396ff7,_0x2582a7,_0x242e7c,_0x51863c,_0x51d36b){var _0x49e56f=_0x4972c0;let _0x34e22e,_0x36e4de;try{_0x36e4de=_0x129903(),_0x34e22e=_0x1565ad[_0x396ff7],!_0x34e22e||_0x36e4de-_0x34e22e['ts']>_0x105198[_0x49e56f(0x174)][_0x49e56f(0x23e)]&&_0x34e22e[_0x49e56f(0x255)]&&_0x34e22e[_0x49e56f(0x17e)]/_0x34e22e[_0x49e56f(0x255)]<_0x105198[_0x49e56f(0x174)][_0x49e56f(0x15e)]?(_0x1565ad[_0x396ff7]=_0x34e22e={'count':0x0,'time':0x0,'ts':_0x36e4de},_0x1565ad[_0x49e56f(0x248)]={}):_0x36e4de-_0x1565ad[_0x49e56f(0x248)]['ts']>_0x105198[_0x49e56f(0x169)][_0x49e56f(0x23e)]&&_0x1565ad[_0x49e56f(0x248)]['count']&&_0x1565ad['hits'][_0x49e56f(0x17e)]/_0x1565ad['hits']['count']<_0x105198['global'][_0x49e56f(0x15e)]&&(_0x1565ad[_0x49e56f(0x248)]={});let _0x33897f=[],_0x22db29=_0x34e22e[_0x49e56f(0x16a)]||_0x1565ad[_0x49e56f(0x248)][_0x49e56f(0x16a)]?_0x1f4129:_0x235373,_0x585b6e=_0x262782=>{var _0x2e50ee=_0x49e56f;let _0x4ca30a={};return _0x4ca30a[_0x2e50ee(0x25e)]=_0x262782['props'],_0x4ca30a[_0x2e50ee(0x198)]=_0x262782['elements'],_0x4ca30a[_0x2e50ee(0x235)]=_0x262782['strLength'],_0x4ca30a['totalStrLength']=_0x262782['totalStrLength'],_0x4ca30a[_0x2e50ee(0x269)]=_0x262782[_0x2e50ee(0x269)],_0x4ca30a['autoExpandMaxDepth']=_0x262782[_0x2e50ee(0x20c)],_0x4ca30a['sortProps']=!0x1,_0x4ca30a['noFunctions']=!_0x4abecc,_0x4ca30a[_0x2e50ee(0x18b)]=0x1,_0x4ca30a[_0x2e50ee(0x19f)]=0x0,_0x4ca30a[_0x2e50ee(0x230)]=_0x2e50ee(0x242),_0x4ca30a['rootExpression']=_0x2e50ee(0x24d),_0x4ca30a[_0x2e50ee(0x19d)]=!0x0,_0x4ca30a[_0x2e50ee(0x258)]=[],_0x4ca30a[_0x2e50ee(0x1e4)]=0x0,_0x4ca30a[_0x2e50ee(0x240)]=_0x4a4801[_0x2e50ee(0x240)],_0x4ca30a[_0x2e50ee(0x201)]=0x0,_0x4ca30a['node']={'current':void 0x0,'parent':void 0x0,'index':0x0},_0x4ca30a;};for(var _0xa24a84=0x0;_0xa24a84<_0x51863c[_0x49e56f(0x1ba)];_0xa24a84++)_0x33897f['push'](_0x604b8a[_0x49e56f(0x24f)]({'timeNode':_0x4734dc===_0x49e56f(0x17e)||void 0x0},_0x51863c[_0xa24a84],_0x585b6e(_0x22db29),{}));if(_0x4734dc==='trace'||_0x4734dc==='error'){let _0x4d1cee=Error[_0x49e56f(0x21b)];try{Error[_0x49e56f(0x21b)]=0x1/0x0,_0x33897f[_0x49e56f(0x1fd)](_0x604b8a[_0x49e56f(0x24f)]({'stackNode':!0x0},new Error()['stack'],_0x585b6e(_0x22db29),{'strLength':0x1/0x0}));}finally{Error['stackTraceLimit']=_0x4d1cee;}}return{'method':_0x49e56f(0x224),'version':_0x1c2887,'args':[{'ts':_0x2582a7,'session':_0x242e7c,'args':_0x33897f,'id':_0x396ff7,'context':_0x51d36b}]};}catch(_0xabf49f){return{'method':_0x49e56f(0x224),'version':_0x1c2887,'args':[{'ts':_0x2582a7,'session':_0x242e7c,'args':[{'type':_0x49e56f(0x1bc),'error':_0xabf49f&&_0xabf49f[_0x49e56f(0x1a9)]}],'id':_0x396ff7,'context':_0x51d36b}]};}finally{try{if(_0x34e22e&&_0x36e4de){let _0x515ae2=_0x129903();_0x34e22e[_0x49e56f(0x255)]++,_0x34e22e[_0x49e56f(0x17e)]+=_0x351127(_0x36e4de,_0x515ae2),_0x34e22e['ts']=_0x515ae2,_0x1565ad[_0x49e56f(0x248)][_0x49e56f(0x255)]++,_0x1565ad[_0x49e56f(0x248)][_0x49e56f(0x17e)]+=_0x351127(_0x36e4de,_0x515ae2),_0x1565ad[_0x49e56f(0x248)]['ts']=_0x515ae2,(_0x34e22e[_0x49e56f(0x255)]>_0x105198[_0x49e56f(0x174)][_0x49e56f(0x192)]||_0x34e22e[_0x49e56f(0x17e)]>_0x105198[_0x49e56f(0x174)]['reduceOnAccumulatedProcessingTimeMs'])&&(_0x34e22e[_0x49e56f(0x16a)]=!0x0),(_0x1565ad[_0x49e56f(0x248)][_0x49e56f(0x255)]>_0x105198[_0x49e56f(0x169)][_0x49e56f(0x192)]||_0x1565ad['hits'][_0x49e56f(0x17e)]>_0x105198['global'][_0x49e56f(0x23a)])&&(_0x1565ad['hits'][_0x49e56f(0x16a)]=!0x0);}}catch{}}}return _0x55d563;}function G(_0x3956e5){var _0x38c0e4=_0x3fa772;if(_0x3956e5&&typeof _0x3956e5==_0x38c0e4(0x20a)&&_0x3956e5['constructor'])switch(_0x3956e5[_0x38c0e4(0x25a)][_0x38c0e4(0x16c)]){case _0x38c0e4(0x190):return _0x3956e5['hasOwnProperty'](Symbol[_0x38c0e4(0x162)])?Promise[_0x38c0e4(0x1de)]():_0x3956e5;case'bound\\x20Promise':return Promise[_0x38c0e4(0x1de)]();}return _0x3956e5;}((_0x5938e4,_0x3db3c9,_0x290312,_0x1229dc,_0x2a2252,_0xd5993f,_0x5fbf7,_0x502a0d,_0x2449e9,_0x5426f2,_0x554e6f,_0x1df9a4)=>{var _0x17584a=_0x3fa772;if(_0x5938e4['_console_ninja'])return _0x5938e4['_console_ninja'];let _0x20f724={'consoleLog':()=>{},'consoleTrace':()=>{},'consoleTime':()=>{},'consoleTimeEnd':()=>{},'autoLog':()=>{},'autoLogMany':()=>{},'autoTraceMany':()=>{},'coverage':()=>{},'autoTrace':()=>{},'autoTime':()=>{},'autoTimeEnd':()=>{}};if(!X(_0x5938e4,_0x502a0d,_0x2a2252))return _0x5938e4[_0x17584a(0x1c3)]=_0x20f724,_0x5938e4['_console_ninja'];let _0x292f6a=b(_0x5938e4),_0x1b2e8f=_0x292f6a[_0x17584a(0x18c)],_0x1264cc=_0x292f6a[_0x17584a(0x217)],_0x18b9e0=_0x292f6a[_0x17584a(0x1d5)],_0x263a74={'hits':{},'ts':{}},_0x253b26=J(_0x5938e4,_0x2449e9,_0x263a74,_0xd5993f,_0x1df9a4,_0x2a2252===_0x17584a(0x194)?G:void 0x0),_0x3b668d=(_0x29c91c,_0x2ae76d,_0x48f89c,_0x4499a7,_0x1cb65d,_0x1818ff)=>{var _0x709010=_0x17584a;let _0x1f7244=_0x5938e4[_0x709010(0x1c3)];try{return _0x5938e4[_0x709010(0x1c3)]=_0x20f724,_0x253b26(_0x29c91c,_0x2ae76d,_0x48f89c,_0x4499a7,_0x1cb65d,_0x1818ff);}finally{_0x5938e4['_console_ninja']=_0x1f7244;}},_0x4606fb=_0x226809=>{_0x263a74['ts'][_0x226809]=_0x1264cc();},_0x45f151=(_0x18bea4,_0x1ff7f7)=>{var _0x147411=_0x17584a;let _0x39860e=_0x263a74['ts'][_0x1ff7f7];if(delete _0x263a74['ts'][_0x1ff7f7],_0x39860e){let _0x345a64=_0x1b2e8f(_0x39860e,_0x1264cc());_0x5a2eb1(_0x3b668d(_0x147411(0x17e),_0x18bea4,_0x18b9e0(),_0x20a9f4,[_0x345a64],_0x1ff7f7));}},_0x3fe8ca=_0x30af51=>{var _0x25b367=_0x17584a,_0x1745af;return _0x2a2252===_0x25b367(0x194)&&_0x5938e4[_0x25b367(0x187)]&&((_0x1745af=_0x30af51==null?void 0x0:_0x30af51[_0x25b367(0x1c4)])==null?void 0x0:_0x1745af['length'])&&(_0x30af51[_0x25b367(0x1c4)][0x0][_0x25b367(0x187)]=_0x5938e4[_0x25b367(0x187)]),_0x30af51;};_0x5938e4[_0x17584a(0x1c3)]={'consoleLog':(_0x477115,_0x513276)=>{var _0xf30037=_0x17584a;_0x5938e4[_0xf30037(0x175)][_0xf30037(0x224)][_0xf30037(0x16c)]!==_0xf30037(0x1e8)&&_0x5a2eb1(_0x3b668d(_0xf30037(0x224),_0x477115,_0x18b9e0(),_0x20a9f4,_0x513276));},'consoleTrace':(_0x3c5d0a,_0x334c6f)=>{var _0x172300=_0x17584a,_0x3c0514,_0x2c8c36;_0x5938e4[_0x172300(0x175)]['log'][_0x172300(0x16c)]!==_0x172300(0x18e)&&((_0x2c8c36=(_0x3c0514=_0x5938e4['process'])==null?void 0x0:_0x3c0514[_0x172300(0x212)])!=null&&_0x2c8c36[_0x172300(0x1bf)]&&(_0x5938e4[_0x172300(0x1e3)]=!0x0),_0x5a2eb1(_0x3fe8ca(_0x3b668d(_0x172300(0x219),_0x3c5d0a,_0x18b9e0(),_0x20a9f4,_0x334c6f))));},'consoleError':(_0x4732b1,_0x5813c9)=>{var _0x478577=_0x17584a;_0x5938e4[_0x478577(0x1e3)]=!0x0,_0x5a2eb1(_0x3fe8ca(_0x3b668d(_0x478577(0x239),_0x4732b1,_0x18b9e0(),_0x20a9f4,_0x5813c9)));},'consoleTime':_0x4ce4aa=>{_0x4606fb(_0x4ce4aa);},'consoleTimeEnd':(_0x48ba5a,_0x57643f)=>{_0x45f151(_0x57643f,_0x48ba5a);},'autoLog':(_0x58aa2f,_0x540014)=>{var _0x1620d9=_0x17584a;_0x5a2eb1(_0x3b668d(_0x1620d9(0x224),_0x540014,_0x18b9e0(),_0x20a9f4,[_0x58aa2f]));},'autoLogMany':(_0x3cd6d5,_0x2e1363)=>{var _0x47d5bf=_0x17584a;_0x5a2eb1(_0x3b668d(_0x47d5bf(0x224),_0x3cd6d5,_0x18b9e0(),_0x20a9f4,_0x2e1363));},'autoTrace':(_0x3edf83,_0xd5ca0d)=>{_0x5a2eb1(_0x3fe8ca(_0x3b668d('trace',_0xd5ca0d,_0x18b9e0(),_0x20a9f4,[_0x3edf83])));},'autoTraceMany':(_0x293e3b,_0x2bfd55)=>{var _0x10cd68=_0x17584a;_0x5a2eb1(_0x3fe8ca(_0x3b668d(_0x10cd68(0x219),_0x293e3b,_0x18b9e0(),_0x20a9f4,_0x2bfd55)));},'autoTime':(_0x286456,_0x267c5d,_0x1924bd)=>{_0x4606fb(_0x1924bd);},'autoTimeEnd':(_0x3bb828,_0x447fcd,_0x32e665)=>{_0x45f151(_0x447fcd,_0x32e665);},'coverage':_0x5ee76f=>{var _0x204ba1=_0x17584a;_0x5a2eb1({'method':_0x204ba1(0x236),'version':_0xd5993f,'args':[{'id':_0x5ee76f}]});}};let _0x5a2eb1=H(_0x5938e4,_0x3db3c9,_0x290312,_0x1229dc,_0x2a2252,_0x5426f2,_0x554e6f),_0x20a9f4=_0x5938e4['_console_ninja_session'];return _0x5938e4[_0x17584a(0x1c3)];})(globalThis,_0x3fa772(0x232),_0x3fa772(0x21a),_0x3fa772(0x1c7),_0x3fa772(0x1d4),_0x3fa772(0x1fe),'1771902794463',_0x3fa772(0x209),_0x3fa772(0x1c1),_0x3fa772(0x218),_0x3fa772(0x222),_0x3fa772(0x21c));");
+    return (0, eval)("globalThis._console_ninja") || (0, eval)("/* https://github.com/wallabyjs/console-ninja#how-does-it-work */'use strict';function _0x5b41(){var _0xabab66=['pop','parent','[object\\x20Map]','_addProperty','toLowerCase','_sendErrorMessage','_treeNodePropertiesBeforeFullValue','import(\\x27url\\x27)','_inNextEdge','_consoleNinjaAllowedToStart','length','forEach','unknown','_undefined','capped','node','_getOwnPropertyDescriptor','','split','_console_ninja','args','charAt','_setNodeLabel',\"/Users/th25/.vscode/extensions/wallabyjs.console-ninja-1.0.516/node_modules\",'_inBrowser','default','getter','NEGATIVE_INFINITY','host','current','set','map','_regExpToString','includes','_quotedRegExp','path','webpack','now','osName','angular','Console\\x20Ninja\\x20extension\\x20is\\x20connected\\x20to\\x20','_connected','_getOwnPropertyNames','_socket','stringify','WebSocket','resolve','_allowedToSend','prototype','_property','_keyStrRegExp','_ninjaIgnoreNextError','autoExpandPropertyCount','_connectToHostNow','onopen','Set','disabledLog','gateway.docker.internal','import(\\x27path\\x27)','_isArray','_setNodeExpandableState','https://tinyurl.com/37x8b79t','nodeModules','[object\\x20Array]','value','[object\\x20Date]','_processTreeNodeResult','bind','fromCharCode','null','unref','eventReceivedCallback','Console\\x20Ninja\\x20failed\\x20to\\x20send\\x20logs,\\x20refreshing\\x20the\\x20page\\x20may\\x20help;\\x20also\\x20see\\x20','symbol','ninjaSuppressConsole','ExpoDevice','_disposeWebsocket','push','1.0.0','_HTMLAllCollection','logger\\x20websocket\\x20error','allStrLength','[object\\x20BigInt]','_setNodeId','negativeInfinity','type','slice','_addLoadNode','location',[\"localhost\",\"127.0.0.1\",\"example.cypress.io\",\"10.0.2.2\",\"THs-Mac-mini-2.local\",\"192.168.68.106\"],'object','bigint','autoExpandMaxDepth','_p_name','_numberRegExp','_allowedToConnectOnSend','isExpressionToEvaluate','198RrhbGW','versions','function','test','remix','undefined','timeStamp','','trace','60884','stackTraceLimit',{\"resolveGetters\":false,\"defaultLimits\":{\"props\":100,\"elements\":100,\"strLength\":51200,\"totalStrLength\":51200,\"autoExpandLimit\":5000,\"autoExpandMaxDepth\":10},\"reducedLimits\":{\"props\":5,\"elements\":5,\"strLength\":256,\"totalStrLength\":768,\"autoExpandLimit\":30,\"autoExpandMaxDepth\":2},\"reducePolicy\":{\"perLogpoint\":{\"reduceOnCount\":50,\"reduceOnAccumulatedProcessingTimeMs\":100,\"resetWhenQuietMs\":500,\"resetOnProcessingTimeAverageMs\":100},\"global\":{\"reduceOnCount\":1000,\"reduceOnAccumulatedProcessingTimeMs\":300,\"resetWhenQuietMs\":50,\"resetOnProcessingTimeAverageMs\":100}}},'ws://','replace','failed\\x20to\\x20find\\x20and\\x20load\\x20WebSocket','96qMZQSY','catch','1','_WebSocketClass','log','concat','readyState','getOwnPropertyDescriptor','61000oZudqc','indexOf','parse','_isSet','_webSocketErrorDocsLink','index','startsWith','onerror','expId','1137321yuoPXn','127.0.0.1','array','Buffer','strLength','coverage','_p_','defaultLimits','error','reduceOnAccumulatedProcessingTimeMs','modules','_Symbol','_sortProps','resetWhenQuietMs','reducedLimits','resolveGetters','sortProps','root_exp_id','call','match','_isPrimitiveType','astro','dockerizedApp','hits','_connectAttemptCount','positiveInfinity','see\\x20https://tinyurl.com/2vt8jxzw\\x20for\\x20more\\x20info.','13652dTFnfA','root_exp',',\\x20see\\x20https://tinyurl.com/2vt8jxzw\\x20for\\x20more\\x20info.','serialize','2Yznibf','Number','POSITIVE_INFINITY','_dateToString','reducePolicy','count','url','_cleanNode','autoExpandPreviousObjects','_objectToString','constructor','_blacklistedProperty','emulator','_WebSocket','props','sort','process','toString','funcName','unshift','_isMap','\\x20browser','_setNodeExpressionPath','performance','failed\\x20to\\x20connect\\x20to\\x20host:\\x20','autoExpandLimit','_isPrimitiveWrapperType','_isNegativeZero','noFunctions','react-native','String','resetOnProcessingTimeAverageMs','_setNodePermissions','substr','41105TYgCXe','iterator','totalStrLength','send','11649290WvtArf','RegExp','setter','boolean','global','reduceLimits','68346xdLtlX','name','_reconnectTimeout','_addObjectProperty','10.0.2.2','_isUndefined','_attemptToReconnectShortly','get','_extendedWarning','perLogpoint','console','endsWith','logger\\x20failed\\x20to\\x20connect\\x20to\\x20host','_hasSymbolPropertyOnItsPath','_ws','number','onclose','getOwnPropertyNames','Map','time','warn','data','close','edge','hrtime','_console_ninja_session','_propertyName','isArray','origin','cappedProps','port','reload','depth','elapsed','join','disabledTrace','NEXT_RUNTIME','Promise','...','reduceOnCount','android','next.js','_maxConnectAttemptCount','logger\\x20failed\\x20to\\x20connect\\x20to\\x20host,\\x20see\\x20','background:\\x20rgb(30,30,30);\\x20color:\\x20rgb(255,213,92)','elements','getOwnPropertySymbols','2476222mVnPmu','onmessage','[object\\x20Set]','autoExpand','_treeNodePropertiesAfterFullValue','level','_type','expo','string','valueOf','hostname','toUpperCase','cappedElements','negativeZero','_hasSetOnItsPath','message','_getOwnPropertySymbols','_capIfString','getWebSocketClass','_connecting','env','_setNodeQueryPath'];_0x5b41=function(){return _0xabab66;};return _0x5b41();}function _0x2259(_0x51ef8c,_0x199dea){var _0x5b4122=_0x5b41();return _0x2259=function(_0x2259bd,_0x4d3e30){_0x2259bd=_0x2259bd-0x15c;var _0x3f55d7=_0x5b4122[_0x2259bd];return _0x3f55d7;},_0x2259(_0x51ef8c,_0x199dea);}var _0x3fa772=_0x2259;(function(_0x413f66,_0x597a2e){var _0x3c2ae2=_0x2259,_0x43a03f=_0x413f66();while(!![]){try{var _0x44f853=-parseInt(_0x3c2ae2(0x16b))/0x1*(parseInt(_0x3c2ae2(0x250))/0x2)+parseInt(_0x3c2ae2(0x220))/0x3*(-parseInt(_0x3c2ae2(0x24c))/0x4)+parseInt(_0x3c2ae2(0x161))/0x5*(-parseInt(_0x3c2ae2(0x211))/0x6)+-parseInt(_0x3c2ae2(0x19a))/0x7+-parseInt(_0x3c2ae2(0x228))/0x8+-parseInt(_0x3c2ae2(0x231))/0x9+parseInt(_0x3c2ae2(0x165))/0xa;if(_0x44f853===_0x597a2e)break;else _0x43a03f['push'](_0x43a03f['shift']());}catch(_0x4238d4){_0x43a03f['push'](_0x43a03f['shift']());}}}(_0x5b41,0x37bee));function z(_0x4e44cb,_0x1994af,_0xd1af2e,_0x5e99ed,_0x139d2f,_0x3c1107){var _0x5b682b=_0x2259,_0x2cc212,_0x33f342,_0x55c025,_0x208a36;this[_0x5b682b(0x169)]=_0x4e44cb,this[_0x5b682b(0x1cc)]=_0x1994af,this[_0x5b682b(0x189)]=_0xd1af2e,this[_0x5b682b(0x1ee)]=_0x5e99ed,this[_0x5b682b(0x247)]=_0x139d2f,this[_0x5b682b(0x1f7)]=_0x3c1107,this[_0x5b682b(0x1df)]=!0x0,this[_0x5b682b(0x20f)]=!0x0,this[_0x5b682b(0x1d9)]=!0x1,this[_0x5b682b(0x1ad)]=!0x1,this[_0x5b682b(0x1b8)]=((_0x33f342=(_0x2cc212=_0x4e44cb[_0x5b682b(0x260)])==null?void 0x0:_0x2cc212[_0x5b682b(0x1ae)])==null?void 0x0:_0x33f342[_0x5b682b(0x18f)])==='edge',this[_0x5b682b(0x1c8)]=!((_0x208a36=(_0x55c025=this[_0x5b682b(0x169)][_0x5b682b(0x260)])==null?void 0x0:_0x55c025[_0x5b682b(0x212)])!=null&&_0x208a36[_0x5b682b(0x1bf)])&&!this[_0x5b682b(0x1b8)],this[_0x5b682b(0x223)]=null,this['_connectAttemptCount']=0x0,this['_maxConnectAttemptCount']=0x14,this[_0x5b682b(0x22c)]=_0x5b682b(0x1ed),this[_0x5b682b(0x1b5)]=(this['_inBrowser']?_0x5b682b(0x1f8):'Console\\x20Ninja\\x20failed\\x20to\\x20send\\x20logs,\\x20restarting\\x20the\\x20process\\x20may\\x20help;\\x20also\\x20see\\x20')+this[_0x5b682b(0x22c)];}z[_0x3fa772(0x1e0)][_0x3fa772(0x1ac)]=async function(){var _0xe46f88=_0x3fa772,_0x1bc0e2,_0x12a0b9;if(this[_0xe46f88(0x223)])return this[_0xe46f88(0x223)];let _0x4f703d;if(this[_0xe46f88(0x1c8)]||this[_0xe46f88(0x1b8)])_0x4f703d=this['global'][_0xe46f88(0x1dd)];else{if((_0x1bc0e2=this[_0xe46f88(0x169)][_0xe46f88(0x260)])!=null&&_0x1bc0e2[_0xe46f88(0x25d)])_0x4f703d=(_0x12a0b9=this[_0xe46f88(0x169)][_0xe46f88(0x260)])==null?void 0x0:_0x12a0b9[_0xe46f88(0x25d)];else try{_0x4f703d=(await new Function(_0xe46f88(0x1d3),_0xe46f88(0x256),_0xe46f88(0x1ee),'return\\x20import(url.pathToFileURL(path.join(nodeModules,\\x20\\x27ws/index.js\\x27)).toString());')(await(0x0,eval)(_0xe46f88(0x1ea)),await(0x0,eval)(_0xe46f88(0x1b7)),this[_0xe46f88(0x1ee)]))[_0xe46f88(0x1c9)];}catch{try{_0x4f703d=require(require(_0xe46f88(0x1d3))[_0xe46f88(0x18d)](this[_0xe46f88(0x1ee)],'ws'));}catch{throw new Error(_0xe46f88(0x21f));}}}return this[_0xe46f88(0x223)]=_0x4f703d,_0x4f703d;},z[_0x3fa772(0x1e0)][_0x3fa772(0x1e5)]=function(){var _0x391f02=_0x3fa772;this[_0x391f02(0x1ad)]||this[_0x391f02(0x1d9)]||this['_connectAttemptCount']>=this['_maxConnectAttemptCount']||(this[_0x391f02(0x20f)]=!0x1,this[_0x391f02(0x1ad)]=!0x0,this['_connectAttemptCount']++,this[_0x391f02(0x179)]=new Promise((_0x7aa380,_0x523107)=>{var _0x360e77=_0x391f02;this['getWebSocketClass']()['then'](_0x29fb31=>{var _0x423936=_0x2259;let _0x2c49a5=new _0x29fb31(_0x423936(0x21d)+(!this[_0x423936(0x1c8)]&&this[_0x423936(0x247)]?_0x423936(0x1e9):this[_0x423936(0x1cc)])+':'+this[_0x423936(0x189)]);_0x2c49a5['onerror']=()=>{var _0x47e49b=_0x423936;this[_0x47e49b(0x1df)]=!0x1,this[_0x47e49b(0x1fc)](_0x2c49a5),this['_attemptToReconnectShortly'](),_0x523107(new Error(_0x47e49b(0x200)));},_0x2c49a5[_0x423936(0x1e6)]=()=>{var _0x51d7eb=_0x423936;this[_0x51d7eb(0x1c8)]||_0x2c49a5['_socket']&&_0x2c49a5[_0x51d7eb(0x1db)][_0x51d7eb(0x1f6)]&&_0x2c49a5[_0x51d7eb(0x1db)]['unref'](),_0x7aa380(_0x2c49a5);},_0x2c49a5[_0x423936(0x17b)]=()=>{var _0x57976d=_0x423936;this[_0x57976d(0x20f)]=!0x0,this[_0x57976d(0x1fc)](_0x2c49a5),this[_0x57976d(0x171)]();},_0x2c49a5[_0x423936(0x19b)]=_0x5b6435=>{var _0x18d249=_0x423936;try{if(!(_0x5b6435!=null&&_0x5b6435['data'])||!this['eventReceivedCallback'])return;let _0x4fdef6=JSON[_0x18d249(0x22a)](_0x5b6435[_0x18d249(0x180)]);this[_0x18d249(0x1f7)](_0x4fdef6['method'],_0x4fdef6[_0x18d249(0x1c4)],this[_0x18d249(0x169)],this[_0x18d249(0x1c8)]);}catch{}};})['then'](_0x1e4b6d=>(this['_connected']=!0x0,this['_connecting']=!0x1,this[_0x360e77(0x20f)]=!0x1,this[_0x360e77(0x1df)]=!0x0,this[_0x360e77(0x249)]=0x0,_0x1e4b6d))[_0x360e77(0x221)](_0xbad9a8=>(this[_0x360e77(0x1d9)]=!0x1,this['_connecting']=!0x1,console[_0x360e77(0x17f)](_0x360e77(0x196)+this[_0x360e77(0x22c)]),_0x523107(new Error(_0x360e77(0x268)+(_0xbad9a8&&_0xbad9a8[_0x360e77(0x1a9)])))));}));},z[_0x3fa772(0x1e0)][_0x3fa772(0x1fc)]=function(_0x35df59){var _0x3aede5=_0x3fa772;this['_connected']=!0x1,this[_0x3aede5(0x1ad)]=!0x1;try{_0x35df59[_0x3aede5(0x17b)]=null,_0x35df59[_0x3aede5(0x22f)]=null,_0x35df59[_0x3aede5(0x1e6)]=null;}catch{}try{_0x35df59[_0x3aede5(0x226)]<0x2&&_0x35df59[_0x3aede5(0x181)]();}catch{}},z[_0x3fa772(0x1e0)][_0x3fa772(0x171)]=function(){var _0x3a32c4=_0x3fa772;clearTimeout(this[_0x3a32c4(0x16d)]),!(this[_0x3a32c4(0x249)]>=this[_0x3a32c4(0x195)])&&(this[_0x3a32c4(0x16d)]=setTimeout(()=>{var _0x94530b=_0x3a32c4,_0x5cc891;this[_0x94530b(0x1d9)]||this[_0x94530b(0x1ad)]||(this[_0x94530b(0x1e5)](),(_0x5cc891=this['_ws'])==null||_0x5cc891['catch'](()=>this[_0x94530b(0x171)]()));},0x1f4),this[_0x3a32c4(0x16d)]['unref']&&this['_reconnectTimeout'][_0x3a32c4(0x1f6)]());},z['prototype'][_0x3fa772(0x164)]=async function(_0x10aefc){var _0x4d84ae=_0x3fa772;try{if(!this['_allowedToSend'])return;this[_0x4d84ae(0x20f)]&&this['_connectToHostNow'](),(await this[_0x4d84ae(0x179)])[_0x4d84ae(0x164)](JSON[_0x4d84ae(0x1dc)](_0x10aefc));}catch(_0x4450b9){this[_0x4d84ae(0x173)]?console[_0x4d84ae(0x17f)](this['_sendErrorMessage']+':\\x20'+(_0x4450b9&&_0x4450b9['message'])):(this['_extendedWarning']=!0x0,console[_0x4d84ae(0x17f)](this['_sendErrorMessage']+':\\x20'+(_0x4450b9&&_0x4450b9[_0x4d84ae(0x1a9)]),_0x10aefc)),this[_0x4d84ae(0x1df)]=!0x1,this[_0x4d84ae(0x171)]();}};function H(_0x460d83,_0x355471,_0x20198e,_0x28cc05,_0x1b6464,_0x592d8b,_0x204d66,_0x5da28b=ne){var _0x15bd25=_0x3fa772;let _0x3267c6=_0x20198e[_0x15bd25(0x1c2)](',')[_0x15bd25(0x1cf)](_0x51eb86=>{var _0x35b9a7=_0x15bd25,_0xa59305,_0x36f5a4,_0x4ce833,_0x16fd92,_0x78ddfb,_0x501bf4,_0xed8752,_0x48e410;try{if(!_0x460d83[_0x35b9a7(0x184)]){let _0x1f8a3f=((_0x36f5a4=(_0xa59305=_0x460d83['process'])==null?void 0x0:_0xa59305[_0x35b9a7(0x212)])==null?void 0x0:_0x36f5a4[_0x35b9a7(0x1bf)])||((_0x16fd92=(_0x4ce833=_0x460d83[_0x35b9a7(0x260)])==null?void 0x0:_0x4ce833[_0x35b9a7(0x1ae)])==null?void 0x0:_0x16fd92[_0x35b9a7(0x18f)])===_0x35b9a7(0x182);(_0x1b6464===_0x35b9a7(0x194)||_0x1b6464===_0x35b9a7(0x215)||_0x1b6464===_0x35b9a7(0x246)||_0x1b6464===_0x35b9a7(0x1d7))&&(_0x1b6464+=_0x1f8a3f?'\\x20server':_0x35b9a7(0x265));let _0x21415d='';_0x1b6464==='react-native'&&(_0x21415d=(((_0xed8752=(_0x501bf4=(_0x78ddfb=_0x460d83[_0x35b9a7(0x1a1)])==null?void 0x0:_0x78ddfb[_0x35b9a7(0x23b)])==null?void 0x0:_0x501bf4[_0x35b9a7(0x1fb)])==null?void 0x0:_0xed8752[_0x35b9a7(0x1d6)])||'emulator')['toLowerCase'](),_0x21415d&&(_0x1b6464+='\\x20'+_0x21415d,(_0x21415d===_0x35b9a7(0x193)||_0x21415d===_0x35b9a7(0x25c)&&((_0x48e410=_0x460d83[_0x35b9a7(0x208)])==null?void 0x0:_0x48e410['hostname'])===_0x35b9a7(0x16f))&&(_0x355471=_0x35b9a7(0x16f)))),_0x460d83['_console_ninja_session']={'id':+new Date(),'tool':_0x1b6464},_0x204d66&&_0x1b6464&&!_0x1f8a3f&&(_0x21415d?console[_0x35b9a7(0x224)](_0x35b9a7(0x1d8)+_0x21415d+_0x35b9a7(0x24e)):console[_0x35b9a7(0x224)]('%c\\x20Console\\x20Ninja\\x20extension\\x20is\\x20connected\\x20to\\x20'+(_0x1b6464[_0x35b9a7(0x1c5)](0x0)[_0x35b9a7(0x1a5)]()+_0x1b6464[_0x35b9a7(0x160)](0x1))+',',_0x35b9a7(0x197),_0x35b9a7(0x24b)));}let _0x48fdfc=new z(_0x460d83,_0x355471,_0x51eb86,_0x28cc05,_0x592d8b,_0x5da28b);return _0x48fdfc['send'][_0x35b9a7(0x1f3)](_0x48fdfc);}catch(_0x41310f){return console[_0x35b9a7(0x17f)](_0x35b9a7(0x177),_0x41310f&&_0x41310f['message']),()=>{};}});return _0x24541d=>_0x3267c6[_0x15bd25(0x1bb)](_0x376b6f=>_0x376b6f(_0x24541d));}function ne(_0x2be4fb,_0x301f93,_0x523214,_0x6be156){var _0x5d0a8f=_0x3fa772;_0x6be156&&_0x2be4fb===_0x5d0a8f(0x18a)&&_0x523214[_0x5d0a8f(0x208)][_0x5d0a8f(0x18a)]();}function b(_0x3e205e){var _0x4c089a=_0x3fa772,_0x18d6ae,_0x398ba8;let _0x1e0f39=function(_0x56a091,_0xe8b36b){return _0xe8b36b-_0x56a091;},_0x4be32a;if(_0x3e205e[_0x4c089a(0x267)])_0x4be32a=function(){var _0x317280=_0x4c089a;return _0x3e205e[_0x317280(0x267)][_0x317280(0x1d5)]();};else{if(_0x3e205e['process']&&_0x3e205e[_0x4c089a(0x260)][_0x4c089a(0x183)]&&((_0x398ba8=(_0x18d6ae=_0x3e205e[_0x4c089a(0x260)])==null?void 0x0:_0x18d6ae[_0x4c089a(0x1ae)])==null?void 0x0:_0x398ba8[_0x4c089a(0x18f)])!=='edge')_0x4be32a=function(){var _0x1cd4ef=_0x4c089a;return _0x3e205e[_0x1cd4ef(0x260)][_0x1cd4ef(0x183)]();},_0x1e0f39=function(_0x11003e,_0x1a86aa){return 0x3e8*(_0x1a86aa[0x0]-_0x11003e[0x0])+(_0x1a86aa[0x1]-_0x11003e[0x1])/0xf4240;};else try{let {performance:_0x4c0f6d}=require('perf_hooks');_0x4be32a=function(){var _0x26921d=_0x4c089a;return _0x4c0f6d[_0x26921d(0x1d5)]();};}catch{_0x4be32a=function(){return+new Date();};}}return{'elapsed':_0x1e0f39,'timeStamp':_0x4be32a,'now':()=>Date[_0x4c089a(0x1d5)]()};}function X(_0x3c3424,_0x27b72f,_0x42e1c4){var _0x3043b0=_0x3fa772,_0x51055f,_0x1dc4cb,_0x377a34,_0x336d4c,_0x3c0ecd,_0x42373b,_0x31c7d9;if(_0x3c3424[_0x3043b0(0x1b9)]!==void 0x0)return _0x3c3424[_0x3043b0(0x1b9)];let _0x42a069=((_0x1dc4cb=(_0x51055f=_0x3c3424[_0x3043b0(0x260)])==null?void 0x0:_0x51055f[_0x3043b0(0x212)])==null?void 0x0:_0x1dc4cb[_0x3043b0(0x1bf)])||((_0x336d4c=(_0x377a34=_0x3c3424[_0x3043b0(0x260)])==null?void 0x0:_0x377a34[_0x3043b0(0x1ae)])==null?void 0x0:_0x336d4c[_0x3043b0(0x18f)])==='edge',_0x3bcee7=!!(_0x42e1c4===_0x3043b0(0x15c)&&((_0x3c0ecd=_0x3c3424[_0x3043b0(0x1a1)])==null?void 0x0:_0x3c0ecd[_0x3043b0(0x23b)]));function _0x246ceb(_0x5502da){var _0x1bae75=_0x3043b0;if(_0x5502da[_0x1bae75(0x22e)]('/')&&_0x5502da[_0x1bae75(0x176)]('/')){let _0x20f17e=new RegExp(_0x5502da[_0x1bae75(0x206)](0x1,-0x1));return _0x42d7cb=>_0x20f17e[_0x1bae75(0x214)](_0x42d7cb);}else{if(_0x5502da[_0x1bae75(0x1d1)]('*')||_0x5502da[_0x1bae75(0x1d1)]('?')){let _0x5894f=new RegExp('^'+_0x5502da[_0x1bae75(0x21e)](/\\./g,String[_0x1bae75(0x1f4)](0x5c)+'.')[_0x1bae75(0x21e)](/\\*/g,'.*')[_0x1bae75(0x21e)](/\\?/g,'.')+String[_0x1bae75(0x1f4)](0x24));return _0x4e3e52=>_0x5894f[_0x1bae75(0x214)](_0x4e3e52);}else return _0x3581d9=>_0x3581d9===_0x5502da;}}let _0x434eb6=_0x27b72f[_0x3043b0(0x1cf)](_0x246ceb);return _0x3c3424['_consoleNinjaAllowedToStart']=_0x42a069||!_0x27b72f,!_0x3c3424[_0x3043b0(0x1b9)]&&((_0x42373b=_0x3c3424[_0x3043b0(0x208)])==null?void 0x0:_0x42373b[_0x3043b0(0x1a4)])&&(_0x3c3424[_0x3043b0(0x1b9)]=_0x434eb6['some'](_0x38c3cc=>_0x38c3cc(_0x3c3424[_0x3043b0(0x208)][_0x3043b0(0x1a4)]))),_0x3bcee7&&!_0x3c3424[_0x3043b0(0x1b9)]&&!((_0x31c7d9=_0x3c3424[_0x3043b0(0x208)])!=null&&_0x31c7d9['hostname'])&&(_0x3c3424[_0x3043b0(0x1b9)]=!0x0),_0x3c3424[_0x3043b0(0x1b9)];}function J(_0xe648bd,_0x4abecc,_0x1565ad,_0x1c2887,_0x4a4801,_0x33744e){var _0x4972c0=_0x3fa772;_0xe648bd=_0xe648bd,_0x4abecc=_0x4abecc,_0x1565ad=_0x1565ad,_0x1c2887=_0x1c2887,_0x4a4801=_0x4a4801,_0x4a4801=_0x4a4801||{},_0x4a4801[_0x4972c0(0x238)]=_0x4a4801[_0x4972c0(0x238)]||{},_0x4a4801['reducedLimits']=_0x4a4801['reducedLimits']||{},_0x4a4801[_0x4972c0(0x254)]=_0x4a4801['reducePolicy']||{},_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x174)]=_0x4a4801['reducePolicy'][_0x4972c0(0x174)]||{},_0x4a4801[_0x4972c0(0x254)]['global']=_0x4a4801['reducePolicy'][_0x4972c0(0x169)]||{};let _0x105198={'perLogpoint':{'reduceOnCount':_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x174)][_0x4972c0(0x192)]||0x32,'reduceOnAccumulatedProcessingTimeMs':_0x4a4801[_0x4972c0(0x254)]['perLogpoint'][_0x4972c0(0x23a)]||0x64,'resetWhenQuietMs':_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x174)][_0x4972c0(0x23e)]||0x1f4,'resetOnProcessingTimeAverageMs':_0x4a4801[_0x4972c0(0x254)]['perLogpoint'][_0x4972c0(0x15e)]||0x64},'global':{'reduceOnCount':_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x169)]['reduceOnCount']||0x3e8,'reduceOnAccumulatedProcessingTimeMs':_0x4a4801[_0x4972c0(0x254)]['global'][_0x4972c0(0x23a)]||0x12c,'resetWhenQuietMs':_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x169)][_0x4972c0(0x23e)]||0x32,'resetOnProcessingTimeAverageMs':_0x4a4801[_0x4972c0(0x254)][_0x4972c0(0x169)][_0x4972c0(0x15e)]||0x64}},_0x3e3c1b=b(_0xe648bd),_0x351127=_0x3e3c1b[_0x4972c0(0x18c)],_0x129903=_0x3e3c1b[_0x4972c0(0x217)];function _0x27a2bb(){var _0x5560f7=_0x4972c0;this[_0x5560f7(0x1e2)]=/^(?!(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)$)[_$a-zA-Z\\xA0-\\uFFFF][_$a-zA-Z0-9\\xA0-\\uFFFF]*$/,this[_0x5560f7(0x20e)]=/^(0|[1-9][0-9]*)$/,this[_0x5560f7(0x1d2)]=/'([^\\\\']|\\\\')*'/,this[_0x5560f7(0x1bd)]=_0xe648bd[_0x5560f7(0x216)],this[_0x5560f7(0x1ff)]=_0xe648bd['HTMLAllCollection'],this['_getOwnPropertyDescriptor']=Object[_0x5560f7(0x227)],this[_0x5560f7(0x1da)]=Object[_0x5560f7(0x17c)],this[_0x5560f7(0x23c)]=_0xe648bd['Symbol'],this['_regExpToString']=RegExp[_0x5560f7(0x1e0)][_0x5560f7(0x261)],this[_0x5560f7(0x253)]=Date[_0x5560f7(0x1e0)][_0x5560f7(0x261)];}_0x27a2bb[_0x4972c0(0x1e0)]['serialize']=function(_0x3f1448,_0xeffb4f,_0x36814a,_0x51888e){var _0x2863bb=_0x4972c0,_0x474a65=this,_0xc35d94=_0x36814a[_0x2863bb(0x19d)];function _0x151fe6(_0x49d6f5,_0x23cb59,_0x155d40){var _0x89c613=_0x2863bb;_0x23cb59[_0x89c613(0x205)]=_0x89c613(0x1bc),_0x23cb59[_0x89c613(0x239)]=_0x49d6f5[_0x89c613(0x1a9)],_0x375768=_0x155d40[_0x89c613(0x1bf)][_0x89c613(0x1cd)],_0x155d40[_0x89c613(0x1bf)][_0x89c613(0x1cd)]=_0x23cb59,_0x474a65[_0x89c613(0x1b6)](_0x23cb59,_0x155d40);}let _0x11e99d,_0x5ac6ec,_0x1a0153=_0xe648bd[_0x2863bb(0x1fa)];_0xe648bd[_0x2863bb(0x1fa)]=!0x0,_0xe648bd['console']&&(_0x11e99d=_0xe648bd['console'][_0x2863bb(0x239)],_0x5ac6ec=_0xe648bd[_0x2863bb(0x175)][_0x2863bb(0x17f)],_0x11e99d&&(_0xe648bd['console'][_0x2863bb(0x239)]=function(){}),_0x5ac6ec&&(_0xe648bd[_0x2863bb(0x175)][_0x2863bb(0x17f)]=function(){}));try{try{_0x36814a[_0x2863bb(0x19f)]++,_0x36814a[_0x2863bb(0x19d)]&&_0x36814a[_0x2863bb(0x258)][_0x2863bb(0x1fd)](_0xeffb4f);var _0x5e0e4e,_0xfc0644,_0x581ef3,_0x34c866,_0x297f08=[],_0x365f1b=[],_0x17e64e,_0x5eff44=this[_0x2863bb(0x1a0)](_0xeffb4f),_0x349f01=_0x5eff44==='array',_0x1cc8a7=!0x1,_0x37632f=_0x5eff44===_0x2863bb(0x213),_0x3b5d94=this[_0x2863bb(0x245)](_0x5eff44),_0x2723a1=this[_0x2863bb(0x26a)](_0x5eff44),_0xc6e1f3=_0x3b5d94||_0x2723a1,_0x37308c={},_0x267115=0x0,_0x44a108=!0x1,_0x375768,_0x559f15=/^(([1-9]{1}[0-9]*)|0)$/;if(_0x36814a[_0x2863bb(0x18b)]){if(_0x349f01){if(_0xfc0644=_0xeffb4f[_0x2863bb(0x1ba)],_0xfc0644>_0x36814a[_0x2863bb(0x198)]){for(_0x581ef3=0x0,_0x34c866=_0x36814a[_0x2863bb(0x198)],_0x5e0e4e=_0x581ef3;_0x5e0e4e<_0x34c866;_0x5e0e4e++)_0x365f1b[_0x2863bb(0x1fd)](_0x474a65[_0x2863bb(0x1b3)](_0x297f08,_0xeffb4f,_0x5eff44,_0x5e0e4e,_0x36814a));_0x3f1448[_0x2863bb(0x1a6)]=!0x0;}else{for(_0x581ef3=0x0,_0x34c866=_0xfc0644,_0x5e0e4e=_0x581ef3;_0x5e0e4e<_0x34c866;_0x5e0e4e++)_0x365f1b['push'](_0x474a65[_0x2863bb(0x1b3)](_0x297f08,_0xeffb4f,_0x5eff44,_0x5e0e4e,_0x36814a));}_0x36814a[_0x2863bb(0x1e4)]+=_0x365f1b['length'];}if(!(_0x5eff44===_0x2863bb(0x1f5)||_0x5eff44==='undefined')&&!_0x3b5d94&&_0x5eff44!==_0x2863bb(0x15d)&&_0x5eff44!==_0x2863bb(0x234)&&_0x5eff44!==_0x2863bb(0x20b)){var _0x5e1f5b=_0x51888e[_0x2863bb(0x25e)]||_0x36814a['props'];if(this[_0x2863bb(0x22b)](_0xeffb4f)?(_0x5e0e4e=0x0,_0xeffb4f[_0x2863bb(0x1bb)](function(_0x2c9b57){var _0x4ca4f4=_0x2863bb;if(_0x267115++,_0x36814a[_0x4ca4f4(0x1e4)]++,_0x267115>_0x5e1f5b){_0x44a108=!0x0;return;}if(!_0x36814a[_0x4ca4f4(0x210)]&&_0x36814a[_0x4ca4f4(0x19d)]&&_0x36814a[_0x4ca4f4(0x1e4)]>_0x36814a[_0x4ca4f4(0x269)]){_0x44a108=!0x0;return;}_0x365f1b['push'](_0x474a65[_0x4ca4f4(0x1b3)](_0x297f08,_0xeffb4f,_0x4ca4f4(0x1e7),_0x5e0e4e++,_0x36814a,function(_0x48ecee){return function(){return _0x48ecee;};}(_0x2c9b57)));})):this['_isMap'](_0xeffb4f)&&_0xeffb4f['forEach'](function(_0x409bc0,_0x5393ee){var _0x10ac23=_0x2863bb;if(_0x267115++,_0x36814a['autoExpandPropertyCount']++,_0x267115>_0x5e1f5b){_0x44a108=!0x0;return;}if(!_0x36814a[_0x10ac23(0x210)]&&_0x36814a[_0x10ac23(0x19d)]&&_0x36814a[_0x10ac23(0x1e4)]>_0x36814a[_0x10ac23(0x269)]){_0x44a108=!0x0;return;}var _0x46ed4e=_0x5393ee[_0x10ac23(0x261)]();_0x46ed4e[_0x10ac23(0x1ba)]>0x64&&(_0x46ed4e=_0x46ed4e[_0x10ac23(0x206)](0x0,0x64)+_0x10ac23(0x191)),_0x365f1b[_0x10ac23(0x1fd)](_0x474a65[_0x10ac23(0x1b3)](_0x297f08,_0xeffb4f,_0x10ac23(0x17d),_0x46ed4e,_0x36814a,function(_0x4654ce){return function(){return _0x4654ce;};}(_0x409bc0)));}),!_0x1cc8a7){try{for(_0x17e64e in _0xeffb4f)if(!(_0x349f01&&_0x559f15[_0x2863bb(0x214)](_0x17e64e))&&!this[_0x2863bb(0x25b)](_0xeffb4f,_0x17e64e,_0x36814a)){if(_0x267115++,_0x36814a[_0x2863bb(0x1e4)]++,_0x267115>_0x5e1f5b){_0x44a108=!0x0;break;}if(!_0x36814a[_0x2863bb(0x210)]&&_0x36814a[_0x2863bb(0x19d)]&&_0x36814a[_0x2863bb(0x1e4)]>_0x36814a[_0x2863bb(0x269)]){_0x44a108=!0x0;break;}_0x365f1b[_0x2863bb(0x1fd)](_0x474a65[_0x2863bb(0x16e)](_0x297f08,_0x37308c,_0xeffb4f,_0x5eff44,_0x17e64e,_0x36814a));}}catch{}if(_0x37308c['_p_length']=!0x0,_0x37632f&&(_0x37308c[_0x2863bb(0x20d)]=!0x0),!_0x44a108){var _0x490853=[][_0x2863bb(0x225)](this[_0x2863bb(0x1da)](_0xeffb4f))[_0x2863bb(0x225)](this[_0x2863bb(0x1aa)](_0xeffb4f));for(_0x5e0e4e=0x0,_0xfc0644=_0x490853['length'];_0x5e0e4e<_0xfc0644;_0x5e0e4e++)if(_0x17e64e=_0x490853[_0x5e0e4e],!(_0x349f01&&_0x559f15[_0x2863bb(0x214)](_0x17e64e[_0x2863bb(0x261)]()))&&!this[_0x2863bb(0x25b)](_0xeffb4f,_0x17e64e,_0x36814a)&&!_0x37308c[typeof _0x17e64e!=_0x2863bb(0x1f9)?'_p_'+_0x17e64e[_0x2863bb(0x261)]():_0x17e64e]){if(_0x267115++,_0x36814a[_0x2863bb(0x1e4)]++,_0x267115>_0x5e1f5b){_0x44a108=!0x0;break;}if(!_0x36814a[_0x2863bb(0x210)]&&_0x36814a['autoExpand']&&_0x36814a[_0x2863bb(0x1e4)]>_0x36814a[_0x2863bb(0x269)]){_0x44a108=!0x0;break;}_0x365f1b[_0x2863bb(0x1fd)](_0x474a65[_0x2863bb(0x16e)](_0x297f08,_0x37308c,_0xeffb4f,_0x5eff44,_0x17e64e,_0x36814a));}}}}}if(_0x3f1448['type']=_0x5eff44,_0xc6e1f3?(_0x3f1448[_0x2863bb(0x1f0)]=_0xeffb4f['valueOf'](),this[_0x2863bb(0x1ab)](_0x5eff44,_0x3f1448,_0x36814a,_0x51888e)):_0x5eff44==='date'?_0x3f1448[_0x2863bb(0x1f0)]=this['_dateToString'][_0x2863bb(0x243)](_0xeffb4f):_0x5eff44===_0x2863bb(0x20b)?_0x3f1448['value']=_0xeffb4f[_0x2863bb(0x261)]():_0x5eff44===_0x2863bb(0x166)?_0x3f1448[_0x2863bb(0x1f0)]=this[_0x2863bb(0x1d0)][_0x2863bb(0x243)](_0xeffb4f):_0x5eff44===_0x2863bb(0x1f9)&&this[_0x2863bb(0x23c)]?_0x3f1448['value']=this['_Symbol'][_0x2863bb(0x1e0)][_0x2863bb(0x261)][_0x2863bb(0x243)](_0xeffb4f):!_0x36814a[_0x2863bb(0x18b)]&&!(_0x5eff44===_0x2863bb(0x1f5)||_0x5eff44===_0x2863bb(0x216))&&(delete _0x3f1448[_0x2863bb(0x1f0)],_0x3f1448['capped']=!0x0),_0x44a108&&(_0x3f1448[_0x2863bb(0x188)]=!0x0),_0x375768=_0x36814a[_0x2863bb(0x1bf)][_0x2863bb(0x1cd)],_0x36814a['node'][_0x2863bb(0x1cd)]=_0x3f1448,this[_0x2863bb(0x1b6)](_0x3f1448,_0x36814a),_0x365f1b['length']){for(_0x5e0e4e=0x0,_0xfc0644=_0x365f1b[_0x2863bb(0x1ba)];_0x5e0e4e<_0xfc0644;_0x5e0e4e++)_0x365f1b[_0x5e0e4e](_0x5e0e4e);}_0x297f08[_0x2863bb(0x1ba)]&&(_0x3f1448[_0x2863bb(0x25e)]=_0x297f08);}catch(_0x333b83){_0x151fe6(_0x333b83,_0x3f1448,_0x36814a);}this['_additionalMetadata'](_0xeffb4f,_0x3f1448),this[_0x2863bb(0x19e)](_0x3f1448,_0x36814a),_0x36814a[_0x2863bb(0x1bf)]['current']=_0x375768,_0x36814a[_0x2863bb(0x19f)]--,_0x36814a[_0x2863bb(0x19d)]=_0xc35d94,_0x36814a[_0x2863bb(0x19d)]&&_0x36814a[_0x2863bb(0x258)][_0x2863bb(0x1b0)]();}finally{_0x11e99d&&(_0xe648bd[_0x2863bb(0x175)][_0x2863bb(0x239)]=_0x11e99d),_0x5ac6ec&&(_0xe648bd['console'][_0x2863bb(0x17f)]=_0x5ac6ec),_0xe648bd[_0x2863bb(0x1fa)]=_0x1a0153;}return _0x3f1448;},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1aa)]=function(_0x54e624){var _0x577a71=_0x4972c0;return Object[_0x577a71(0x199)]?Object[_0x577a71(0x199)](_0x54e624):[];},_0x27a2bb['prototype'][_0x4972c0(0x22b)]=function(_0x342efb){var _0x2cbd92=_0x4972c0;return!!(_0x342efb&&_0xe648bd['Set']&&this['_objectToString'](_0x342efb)===_0x2cbd92(0x19c)&&_0x342efb[_0x2cbd92(0x1bb)]);},_0x27a2bb['prototype'][_0x4972c0(0x25b)]=function(_0x4b81f2,_0x34d131,_0x3db946){var _0x18c043=_0x4972c0;if(!_0x3db946[_0x18c043(0x240)]){let _0x4abf91=this['_getOwnPropertyDescriptor'](_0x4b81f2,_0x34d131);if(_0x4abf91&&_0x4abf91[_0x18c043(0x172)])return!0x0;}return _0x3db946['noFunctions']?typeof _0x4b81f2[_0x34d131]==_0x18c043(0x213):!0x1;},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1a0)]=function(_0x39aa20){var _0xb82740=_0x4972c0,_0x484aa7='';return _0x484aa7=typeof _0x39aa20,_0x484aa7===_0xb82740(0x20a)?this[_0xb82740(0x259)](_0x39aa20)===_0xb82740(0x1ef)?_0x484aa7=_0xb82740(0x233):this[_0xb82740(0x259)](_0x39aa20)===_0xb82740(0x1f1)?_0x484aa7='date':this[_0xb82740(0x259)](_0x39aa20)===_0xb82740(0x202)?_0x484aa7='bigint':_0x39aa20===null?_0x484aa7=_0xb82740(0x1f5):_0x39aa20['constructor']&&(_0x484aa7=_0x39aa20['constructor'][_0xb82740(0x16c)]||_0x484aa7):_0x484aa7===_0xb82740(0x216)&&this[_0xb82740(0x1ff)]&&_0x39aa20 instanceof this[_0xb82740(0x1ff)]&&(_0x484aa7='HTMLAllCollection'),_0x484aa7;},_0x27a2bb[_0x4972c0(0x1e0)]['_objectToString']=function(_0x18c5db){var _0x543437=_0x4972c0;return Object[_0x543437(0x1e0)]['toString']['call'](_0x18c5db);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x245)]=function(_0x4d7673){var _0x257a15=_0x4972c0;return _0x4d7673===_0x257a15(0x168)||_0x4d7673==='string'||_0x4d7673==='number';},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x26a)]=function(_0x19140a){var _0xc8ac70=_0x4972c0;return _0x19140a==='Boolean'||_0x19140a===_0xc8ac70(0x15d)||_0x19140a===_0xc8ac70(0x251);},_0x27a2bb['prototype'][_0x4972c0(0x1b3)]=function(_0x4bc3b3,_0x1a866b,_0x48e504,_0x34c79e,_0x34c254,_0x579723){var _0x24d662=this;return function(_0x9f957f){var _0x50e283=_0x2259,_0x2d612d=_0x34c254[_0x50e283(0x1bf)][_0x50e283(0x1cd)],_0x213151=_0x34c254[_0x50e283(0x1bf)][_0x50e283(0x22d)],_0x1f083f=_0x34c254['node']['parent'];_0x34c254['node'][_0x50e283(0x1b1)]=_0x2d612d,_0x34c254[_0x50e283(0x1bf)][_0x50e283(0x22d)]=typeof _0x34c79e==_0x50e283(0x17a)?_0x34c79e:_0x9f957f,_0x4bc3b3[_0x50e283(0x1fd)](_0x24d662[_0x50e283(0x1e1)](_0x1a866b,_0x48e504,_0x34c79e,_0x34c254,_0x579723)),_0x34c254['node']['parent']=_0x1f083f,_0x34c254[_0x50e283(0x1bf)][_0x50e283(0x22d)]=_0x213151;};},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x16e)]=function(_0x50f5d4,_0x222d67,_0x2ff0d9,_0x4f8c01,_0xc2d2b2,_0xf85f43,_0x401f41){var _0x4b6f30=_0x4972c0,_0x11af12=this;return _0x222d67[typeof _0xc2d2b2!=_0x4b6f30(0x1f9)?_0x4b6f30(0x237)+_0xc2d2b2[_0x4b6f30(0x261)]():_0xc2d2b2]=!0x0,function(_0x18a4c4){var _0x21c95a=_0x4b6f30,_0x166c96=_0xf85f43['node'][_0x21c95a(0x1cd)],_0x8bb49a=_0xf85f43[_0x21c95a(0x1bf)]['index'],_0x5de03b=_0xf85f43[_0x21c95a(0x1bf)][_0x21c95a(0x1b1)];_0xf85f43[_0x21c95a(0x1bf)][_0x21c95a(0x1b1)]=_0x166c96,_0xf85f43[_0x21c95a(0x1bf)][_0x21c95a(0x22d)]=_0x18a4c4,_0x50f5d4[_0x21c95a(0x1fd)](_0x11af12[_0x21c95a(0x1e1)](_0x2ff0d9,_0x4f8c01,_0xc2d2b2,_0xf85f43,_0x401f41)),_0xf85f43[_0x21c95a(0x1bf)][_0x21c95a(0x1b1)]=_0x5de03b,_0xf85f43[_0x21c95a(0x1bf)][_0x21c95a(0x22d)]=_0x8bb49a;};},_0x27a2bb[_0x4972c0(0x1e0)]['_property']=function(_0xd05ba8,_0x191f16,_0x39d076,_0x5ddc9e,_0x502bde){var _0xc423de=_0x4972c0,_0x4215e7=this;_0x502bde||(_0x502bde=function(_0x165ded,_0x243578){return _0x165ded[_0x243578];});var _0x547ec1=_0x39d076[_0xc423de(0x261)](),_0x25f581=_0x5ddc9e['expressionsToEvaluate']||{},_0x1e6697=_0x5ddc9e[_0xc423de(0x18b)],_0x3cc994=_0x5ddc9e[_0xc423de(0x210)];try{var _0xb165af=this[_0xc423de(0x264)](_0xd05ba8),_0x15cca7=_0x547ec1;_0xb165af&&_0x15cca7[0x0]==='\\x27'&&(_0x15cca7=_0x15cca7[_0xc423de(0x160)](0x1,_0x15cca7[_0xc423de(0x1ba)]-0x2));var _0x1673f1=_0x5ddc9e['expressionsToEvaluate']=_0x25f581[_0xc423de(0x237)+_0x15cca7];_0x1673f1&&(_0x5ddc9e[_0xc423de(0x18b)]=_0x5ddc9e['depth']+0x1),_0x5ddc9e[_0xc423de(0x210)]=!!_0x1673f1;var _0x5099fa=typeof _0x39d076==_0xc423de(0x1f9),_0x22101b={'name':_0x5099fa||_0xb165af?_0x547ec1:this[_0xc423de(0x185)](_0x547ec1)};if(_0x5099fa&&(_0x22101b['symbol']=!0x0),!(_0x191f16===_0xc423de(0x233)||_0x191f16==='Error')){var _0x504b2c=this[_0xc423de(0x1c0)](_0xd05ba8,_0x39d076);if(_0x504b2c&&(_0x504b2c[_0xc423de(0x1ce)]&&(_0x22101b[_0xc423de(0x167)]=!0x0),_0x504b2c[_0xc423de(0x172)]&&!_0x1673f1&&!_0x5ddc9e['resolveGetters']))return _0x22101b[_0xc423de(0x1ca)]=!0x0,this[_0xc423de(0x1f2)](_0x22101b,_0x5ddc9e),_0x22101b;}var _0x2975c8;try{_0x2975c8=_0x502bde(_0xd05ba8,_0x39d076);}catch(_0x205498){return _0x22101b={'name':_0x547ec1,'type':_0xc423de(0x1bc),'error':_0x205498[_0xc423de(0x1a9)]},this['_processTreeNodeResult'](_0x22101b,_0x5ddc9e),_0x22101b;}var _0x161773=this[_0xc423de(0x1a0)](_0x2975c8),_0x25b2a3=this[_0xc423de(0x245)](_0x161773);if(_0x22101b[_0xc423de(0x205)]=_0x161773,_0x25b2a3)this[_0xc423de(0x1f2)](_0x22101b,_0x5ddc9e,_0x2975c8,function(){var _0x57fc46=_0xc423de;_0x22101b['value']=_0x2975c8[_0x57fc46(0x1a3)](),!_0x1673f1&&_0x4215e7[_0x57fc46(0x1ab)](_0x161773,_0x22101b,_0x5ddc9e,{});});else{var _0x2c0e8a=_0x5ddc9e[_0xc423de(0x19d)]&&_0x5ddc9e[_0xc423de(0x19f)]<_0x5ddc9e['autoExpandMaxDepth']&&_0x5ddc9e[_0xc423de(0x258)][_0xc423de(0x229)](_0x2975c8)<0x0&&_0x161773!==_0xc423de(0x213)&&_0x5ddc9e['autoExpandPropertyCount']<_0x5ddc9e[_0xc423de(0x269)];_0x2c0e8a||_0x5ddc9e[_0xc423de(0x19f)]<_0x1e6697||_0x1673f1?this[_0xc423de(0x24f)](_0x22101b,_0x2975c8,_0x5ddc9e,_0x1673f1||{}):this[_0xc423de(0x1f2)](_0x22101b,_0x5ddc9e,_0x2975c8,function(){var _0x308e8e=_0xc423de;_0x161773==='null'||_0x161773===_0x308e8e(0x216)||(delete _0x22101b['value'],_0x22101b['capped']=!0x0);});}return _0x22101b;}finally{_0x5ddc9e['expressionsToEvaluate']=_0x25f581,_0x5ddc9e[_0xc423de(0x18b)]=_0x1e6697,_0x5ddc9e[_0xc423de(0x210)]=_0x3cc994;}},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1ab)]=function(_0x4dd1a0,_0x57a2a2,_0x16be66,_0x138605){var _0x3a7e17=_0x4972c0,_0x4c2106=_0x138605[_0x3a7e17(0x235)]||_0x16be66[_0x3a7e17(0x235)];if((_0x4dd1a0===_0x3a7e17(0x1a2)||_0x4dd1a0===_0x3a7e17(0x15d))&&_0x57a2a2['value']){let _0x127005=_0x57a2a2['value']['length'];_0x16be66['allStrLength']+=_0x127005,_0x16be66[_0x3a7e17(0x201)]>_0x16be66['totalStrLength']?(_0x57a2a2[_0x3a7e17(0x1be)]='',delete _0x57a2a2[_0x3a7e17(0x1f0)]):_0x127005>_0x4c2106&&(_0x57a2a2[_0x3a7e17(0x1be)]=_0x57a2a2[_0x3a7e17(0x1f0)][_0x3a7e17(0x160)](0x0,_0x4c2106),delete _0x57a2a2[_0x3a7e17(0x1f0)]);}},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x264)]=function(_0xda70bd){var _0x5bba4b=_0x4972c0;return!!(_0xda70bd&&_0xe648bd[_0x5bba4b(0x17d)]&&this[_0x5bba4b(0x259)](_0xda70bd)===_0x5bba4b(0x1b2)&&_0xda70bd['forEach']);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x185)]=function(_0x54609f){var _0x5d1223=_0x4972c0;if(_0x54609f['match'](/^\\d+$/))return _0x54609f;var _0xb75f54;try{_0xb75f54=JSON[_0x5d1223(0x1dc)](''+_0x54609f);}catch{_0xb75f54='\\x22'+this['_objectToString'](_0x54609f)+'\\x22';}return _0xb75f54[_0x5d1223(0x244)](/^\"([a-zA-Z_][a-zA-Z_0-9]*)\"$/)?_0xb75f54=_0xb75f54[_0x5d1223(0x160)](0x1,_0xb75f54[_0x5d1223(0x1ba)]-0x2):_0xb75f54=_0xb75f54[_0x5d1223(0x21e)](/'/g,'\\x5c\\x27')[_0x5d1223(0x21e)](/\\\\\"/g,'\\x22')['replace'](/(^\"|\"$)/g,'\\x27'),_0xb75f54;},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1f2)]=function(_0x268cb3,_0x35cbfa,_0x1ef69b,_0x6f36a3){var _0x34debb=_0x4972c0;this[_0x34debb(0x1b6)](_0x268cb3,_0x35cbfa),_0x6f36a3&&_0x6f36a3(),this['_additionalMetadata'](_0x1ef69b,_0x268cb3),this[_0x34debb(0x19e)](_0x268cb3,_0x35cbfa);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1b6)]=function(_0x3c3850,_0x4794d1){var _0x3b79e0=_0x4972c0;this['_setNodeId'](_0x3c3850,_0x4794d1),this[_0x3b79e0(0x1af)](_0x3c3850,_0x4794d1),this[_0x3b79e0(0x266)](_0x3c3850,_0x4794d1),this[_0x3b79e0(0x15f)](_0x3c3850,_0x4794d1);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x203)]=function(_0x5ae280,_0x1e284f){},_0x27a2bb[_0x4972c0(0x1e0)]['_setNodeQueryPath']=function(_0x2cd13e,_0x40d6b4){},_0x27a2bb['prototype']['_setNodeLabel']=function(_0xdb4308,_0x55c8ab){},_0x27a2bb['prototype'][_0x4972c0(0x170)]=function(_0x31dc0d){var _0x2c0d85=_0x4972c0;return _0x31dc0d===this[_0x2c0d85(0x1bd)];},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x19e)]=function(_0x50226b,_0x25b15f){var _0x5b6b84=_0x4972c0;this['_setNodeLabel'](_0x50226b,_0x25b15f),this[_0x5b6b84(0x1ec)](_0x50226b),_0x25b15f[_0x5b6b84(0x241)]&&this[_0x5b6b84(0x23d)](_0x50226b),this['_addFunctionsNode'](_0x50226b,_0x25b15f),this[_0x5b6b84(0x207)](_0x50226b,_0x25b15f),this['_cleanNode'](_0x50226b);},_0x27a2bb['prototype']['_additionalMetadata']=function(_0x233dda,_0x2e87b5){var _0x399cdd=_0x4972c0;try{_0x233dda&&typeof _0x233dda[_0x399cdd(0x1ba)]==_0x399cdd(0x17a)&&(_0x2e87b5['length']=_0x233dda[_0x399cdd(0x1ba)]);}catch{}if(_0x2e87b5[_0x399cdd(0x205)]===_0x399cdd(0x17a)||_0x2e87b5[_0x399cdd(0x205)]===_0x399cdd(0x251)){if(isNaN(_0x2e87b5[_0x399cdd(0x1f0)]))_0x2e87b5['nan']=!0x0,delete _0x2e87b5[_0x399cdd(0x1f0)];else switch(_0x2e87b5[_0x399cdd(0x1f0)]){case Number[_0x399cdd(0x252)]:_0x2e87b5[_0x399cdd(0x24a)]=!0x0,delete _0x2e87b5[_0x399cdd(0x1f0)];break;case Number[_0x399cdd(0x1cb)]:_0x2e87b5[_0x399cdd(0x204)]=!0x0,delete _0x2e87b5[_0x399cdd(0x1f0)];break;case 0x0:this[_0x399cdd(0x26b)](_0x2e87b5[_0x399cdd(0x1f0)])&&(_0x2e87b5[_0x399cdd(0x1a7)]=!0x0);break;}}else _0x2e87b5[_0x399cdd(0x205)]===_0x399cdd(0x213)&&typeof _0x233dda[_0x399cdd(0x16c)]=='string'&&_0x233dda['name']&&_0x2e87b5[_0x399cdd(0x16c)]&&_0x233dda[_0x399cdd(0x16c)]!==_0x2e87b5[_0x399cdd(0x16c)]&&(_0x2e87b5[_0x399cdd(0x262)]=_0x233dda[_0x399cdd(0x16c)]);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x26b)]=function(_0x2bde78){var _0x157b6a=_0x4972c0;return 0x1/_0x2bde78===Number[_0x157b6a(0x1cb)];},_0x27a2bb[_0x4972c0(0x1e0)]['_sortProps']=function(_0x114493){var _0x40f8a5=_0x4972c0;!_0x114493[_0x40f8a5(0x25e)]||!_0x114493[_0x40f8a5(0x25e)][_0x40f8a5(0x1ba)]||_0x114493[_0x40f8a5(0x205)]===_0x40f8a5(0x233)||_0x114493[_0x40f8a5(0x205)]===_0x40f8a5(0x17d)||_0x114493['type']===_0x40f8a5(0x1e7)||_0x114493[_0x40f8a5(0x25e)][_0x40f8a5(0x25f)](function(_0x2f0103,_0x5c04ec){var _0x35b737=_0x40f8a5,_0x22c497=_0x2f0103['name'][_0x35b737(0x1b4)](),_0x221888=_0x5c04ec['name'][_0x35b737(0x1b4)]();return _0x22c497<_0x221888?-0x1:_0x22c497>_0x221888?0x1:0x0;});},_0x27a2bb[_0x4972c0(0x1e0)]['_addFunctionsNode']=function(_0x4c9613,_0x498dc2){var _0xd2e08f=_0x4972c0;if(!(_0x498dc2[_0xd2e08f(0x26c)]||!_0x4c9613[_0xd2e08f(0x25e)]||!_0x4c9613[_0xd2e08f(0x25e)][_0xd2e08f(0x1ba)])){for(var _0x1c871b=[],_0x47ffcb=[],_0x4be09a=0x0,_0x57241c=_0x4c9613[_0xd2e08f(0x25e)]['length'];_0x4be09a<_0x57241c;_0x4be09a++){var _0x5cf7ec=_0x4c9613[_0xd2e08f(0x25e)][_0x4be09a];_0x5cf7ec[_0xd2e08f(0x205)]===_0xd2e08f(0x213)?_0x1c871b[_0xd2e08f(0x1fd)](_0x5cf7ec):_0x47ffcb[_0xd2e08f(0x1fd)](_0x5cf7ec);}if(!(!_0x47ffcb[_0xd2e08f(0x1ba)]||_0x1c871b[_0xd2e08f(0x1ba)]<=0x1)){_0x4c9613[_0xd2e08f(0x25e)]=_0x47ffcb;var _0x177f60={'functionsNode':!0x0,'props':_0x1c871b};this['_setNodeId'](_0x177f60,_0x498dc2),this[_0xd2e08f(0x1c6)](_0x177f60,_0x498dc2),this[_0xd2e08f(0x1ec)](_0x177f60),this[_0xd2e08f(0x15f)](_0x177f60,_0x498dc2),_0x177f60['id']+='\\x20f',_0x4c9613[_0xd2e08f(0x25e)][_0xd2e08f(0x263)](_0x177f60);}}},_0x27a2bb['prototype'][_0x4972c0(0x207)]=function(_0x1186be,_0x4a9a58){},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1ec)]=function(_0x292332){},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x1eb)]=function(_0x335b4d){var _0x422578=_0x4972c0;return Array[_0x422578(0x186)](_0x335b4d)||typeof _0x335b4d==_0x422578(0x20a)&&this[_0x422578(0x259)](_0x335b4d)===_0x422578(0x1ef);},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x15f)]=function(_0x33f229,_0x391d67){},_0x27a2bb[_0x4972c0(0x1e0)][_0x4972c0(0x257)]=function(_0x8aef8a){var _0x5a1d5d=_0x4972c0;delete _0x8aef8a[_0x5a1d5d(0x178)],delete _0x8aef8a[_0x5a1d5d(0x1a8)],delete _0x8aef8a['_hasMapOnItsPath'];},_0x27a2bb['prototype'][_0x4972c0(0x266)]=function(_0x3fa706,_0x440bbe){};let _0x604b8a=new _0x27a2bb(),_0x235373={'props':_0x4a4801[_0x4972c0(0x238)]['props']||0x64,'elements':_0x4a4801[_0x4972c0(0x238)]['elements']||0x64,'strLength':_0x4a4801['defaultLimits'][_0x4972c0(0x235)]||0x400*0x32,'totalStrLength':_0x4a4801[_0x4972c0(0x238)][_0x4972c0(0x163)]||0x400*0x32,'autoExpandLimit':_0x4a4801[_0x4972c0(0x238)]['autoExpandLimit']||0x1388,'autoExpandMaxDepth':_0x4a4801[_0x4972c0(0x238)][_0x4972c0(0x20c)]||0xa},_0x1f4129={'props':_0x4a4801[_0x4972c0(0x23f)]['props']||0x5,'elements':_0x4a4801['reducedLimits'][_0x4972c0(0x198)]||0x5,'strLength':_0x4a4801[_0x4972c0(0x23f)][_0x4972c0(0x235)]||0x100,'totalStrLength':_0x4a4801[_0x4972c0(0x23f)][_0x4972c0(0x163)]||0x100*0x3,'autoExpandLimit':_0x4a4801[_0x4972c0(0x23f)][_0x4972c0(0x269)]||0x1e,'autoExpandMaxDepth':_0x4a4801['reducedLimits'][_0x4972c0(0x20c)]||0x2};if(_0x33744e){let _0x1589b6=_0x604b8a[_0x4972c0(0x24f)][_0x4972c0(0x1f3)](_0x604b8a);_0x604b8a[_0x4972c0(0x24f)]=function(_0x5c1776,_0x16c2f4,_0x25718a,_0xff233d){return _0x1589b6(_0x5c1776,_0x33744e(_0x16c2f4),_0x25718a,_0xff233d);};}function _0x55d563(_0x4734dc,_0x396ff7,_0x2582a7,_0x242e7c,_0x51863c,_0x51d36b){var _0x49e56f=_0x4972c0;let _0x34e22e,_0x36e4de;try{_0x36e4de=_0x129903(),_0x34e22e=_0x1565ad[_0x396ff7],!_0x34e22e||_0x36e4de-_0x34e22e['ts']>_0x105198[_0x49e56f(0x174)][_0x49e56f(0x23e)]&&_0x34e22e[_0x49e56f(0x255)]&&_0x34e22e[_0x49e56f(0x17e)]/_0x34e22e[_0x49e56f(0x255)]<_0x105198[_0x49e56f(0x174)][_0x49e56f(0x15e)]?(_0x1565ad[_0x396ff7]=_0x34e22e={'count':0x0,'time':0x0,'ts':_0x36e4de},_0x1565ad[_0x49e56f(0x248)]={}):_0x36e4de-_0x1565ad[_0x49e56f(0x248)]['ts']>_0x105198[_0x49e56f(0x169)][_0x49e56f(0x23e)]&&_0x1565ad[_0x49e56f(0x248)]['count']&&_0x1565ad['hits'][_0x49e56f(0x17e)]/_0x1565ad['hits']['count']<_0x105198['global'][_0x49e56f(0x15e)]&&(_0x1565ad[_0x49e56f(0x248)]={});let _0x33897f=[],_0x22db29=_0x34e22e[_0x49e56f(0x16a)]||_0x1565ad[_0x49e56f(0x248)][_0x49e56f(0x16a)]?_0x1f4129:_0x235373,_0x585b6e=_0x262782=>{var _0x2e50ee=_0x49e56f;let _0x4ca30a={};return _0x4ca30a[_0x2e50ee(0x25e)]=_0x262782['props'],_0x4ca30a[_0x2e50ee(0x198)]=_0x262782['elements'],_0x4ca30a[_0x2e50ee(0x235)]=_0x262782['strLength'],_0x4ca30a['totalStrLength']=_0x262782['totalStrLength'],_0x4ca30a[_0x2e50ee(0x269)]=_0x262782[_0x2e50ee(0x269)],_0x4ca30a['autoExpandMaxDepth']=_0x262782[_0x2e50ee(0x20c)],_0x4ca30a['sortProps']=!0x1,_0x4ca30a['noFunctions']=!_0x4abecc,_0x4ca30a[_0x2e50ee(0x18b)]=0x1,_0x4ca30a[_0x2e50ee(0x19f)]=0x0,_0x4ca30a[_0x2e50ee(0x230)]=_0x2e50ee(0x242),_0x4ca30a['rootExpression']=_0x2e50ee(0x24d),_0x4ca30a[_0x2e50ee(0x19d)]=!0x0,_0x4ca30a[_0x2e50ee(0x258)]=[],_0x4ca30a[_0x2e50ee(0x1e4)]=0x0,_0x4ca30a[_0x2e50ee(0x240)]=_0x4a4801[_0x2e50ee(0x240)],_0x4ca30a[_0x2e50ee(0x201)]=0x0,_0x4ca30a['node']={'current':void 0x0,'parent':void 0x0,'index':0x0},_0x4ca30a;};for(var _0xa24a84=0x0;_0xa24a84<_0x51863c[_0x49e56f(0x1ba)];_0xa24a84++)_0x33897f['push'](_0x604b8a[_0x49e56f(0x24f)]({'timeNode':_0x4734dc===_0x49e56f(0x17e)||void 0x0},_0x51863c[_0xa24a84],_0x585b6e(_0x22db29),{}));if(_0x4734dc==='trace'||_0x4734dc==='error'){let _0x4d1cee=Error[_0x49e56f(0x21b)];try{Error[_0x49e56f(0x21b)]=0x1/0x0,_0x33897f[_0x49e56f(0x1fd)](_0x604b8a[_0x49e56f(0x24f)]({'stackNode':!0x0},new Error()['stack'],_0x585b6e(_0x22db29),{'strLength':0x1/0x0}));}finally{Error['stackTraceLimit']=_0x4d1cee;}}return{'method':_0x49e56f(0x224),'version':_0x1c2887,'args':[{'ts':_0x2582a7,'session':_0x242e7c,'args':_0x33897f,'id':_0x396ff7,'context':_0x51d36b}]};}catch(_0xabf49f){return{'method':_0x49e56f(0x224),'version':_0x1c2887,'args':[{'ts':_0x2582a7,'session':_0x242e7c,'args':[{'type':_0x49e56f(0x1bc),'error':_0xabf49f&&_0xabf49f[_0x49e56f(0x1a9)]}],'id':_0x396ff7,'context':_0x51d36b}]};}finally{try{if(_0x34e22e&&_0x36e4de){let _0x515ae2=_0x129903();_0x34e22e[_0x49e56f(0x255)]++,_0x34e22e[_0x49e56f(0x17e)]+=_0x351127(_0x36e4de,_0x515ae2),_0x34e22e['ts']=_0x515ae2,_0x1565ad[_0x49e56f(0x248)][_0x49e56f(0x255)]++,_0x1565ad[_0x49e56f(0x248)][_0x49e56f(0x17e)]+=_0x351127(_0x36e4de,_0x515ae2),_0x1565ad[_0x49e56f(0x248)]['ts']=_0x515ae2,(_0x34e22e[_0x49e56f(0x255)]>_0x105198[_0x49e56f(0x174)][_0x49e56f(0x192)]||_0x34e22e[_0x49e56f(0x17e)]>_0x105198[_0x49e56f(0x174)]['reduceOnAccumulatedProcessingTimeMs'])&&(_0x34e22e[_0x49e56f(0x16a)]=!0x0),(_0x1565ad[_0x49e56f(0x248)][_0x49e56f(0x255)]>_0x105198[_0x49e56f(0x169)][_0x49e56f(0x192)]||_0x1565ad['hits'][_0x49e56f(0x17e)]>_0x105198['global'][_0x49e56f(0x23a)])&&(_0x1565ad['hits'][_0x49e56f(0x16a)]=!0x0);}}catch{}}}return _0x55d563;}function G(_0x3956e5){var _0x38c0e4=_0x3fa772;if(_0x3956e5&&typeof _0x3956e5==_0x38c0e4(0x20a)&&_0x3956e5['constructor'])switch(_0x3956e5[_0x38c0e4(0x25a)][_0x38c0e4(0x16c)]){case _0x38c0e4(0x190):return _0x3956e5['hasOwnProperty'](Symbol[_0x38c0e4(0x162)])?Promise[_0x38c0e4(0x1de)]():_0x3956e5;case'bound\\x20Promise':return Promise[_0x38c0e4(0x1de)]();}return _0x3956e5;}((_0x5938e4,_0x3db3c9,_0x290312,_0x1229dc,_0x2a2252,_0xd5993f,_0x5fbf7,_0x502a0d,_0x2449e9,_0x5426f2,_0x554e6f,_0x1df9a4)=>{var _0x17584a=_0x3fa772;if(_0x5938e4['_console_ninja'])return _0x5938e4['_console_ninja'];let _0x20f724={'consoleLog':()=>{},'consoleTrace':()=>{},'consoleTime':()=>{},'consoleTimeEnd':()=>{},'autoLog':()=>{},'autoLogMany':()=>{},'autoTraceMany':()=>{},'coverage':()=>{},'autoTrace':()=>{},'autoTime':()=>{},'autoTimeEnd':()=>{}};if(!X(_0x5938e4,_0x502a0d,_0x2a2252))return _0x5938e4[_0x17584a(0x1c3)]=_0x20f724,_0x5938e4['_console_ninja'];let _0x292f6a=b(_0x5938e4),_0x1b2e8f=_0x292f6a[_0x17584a(0x18c)],_0x1264cc=_0x292f6a[_0x17584a(0x217)],_0x18b9e0=_0x292f6a[_0x17584a(0x1d5)],_0x263a74={'hits':{},'ts':{}},_0x253b26=J(_0x5938e4,_0x2449e9,_0x263a74,_0xd5993f,_0x1df9a4,_0x2a2252===_0x17584a(0x194)?G:void 0x0),_0x3b668d=(_0x29c91c,_0x2ae76d,_0x48f89c,_0x4499a7,_0x1cb65d,_0x1818ff)=>{var _0x709010=_0x17584a;let _0x1f7244=_0x5938e4[_0x709010(0x1c3)];try{return _0x5938e4[_0x709010(0x1c3)]=_0x20f724,_0x253b26(_0x29c91c,_0x2ae76d,_0x48f89c,_0x4499a7,_0x1cb65d,_0x1818ff);}finally{_0x5938e4['_console_ninja']=_0x1f7244;}},_0x4606fb=_0x226809=>{_0x263a74['ts'][_0x226809]=_0x1264cc();},_0x45f151=(_0x18bea4,_0x1ff7f7)=>{var _0x147411=_0x17584a;let _0x39860e=_0x263a74['ts'][_0x1ff7f7];if(delete _0x263a74['ts'][_0x1ff7f7],_0x39860e){let _0x345a64=_0x1b2e8f(_0x39860e,_0x1264cc());_0x5a2eb1(_0x3b668d(_0x147411(0x17e),_0x18bea4,_0x18b9e0(),_0x20a9f4,[_0x345a64],_0x1ff7f7));}},_0x3fe8ca=_0x30af51=>{var _0x25b367=_0x17584a,_0x1745af;return _0x2a2252===_0x25b367(0x194)&&_0x5938e4[_0x25b367(0x187)]&&((_0x1745af=_0x30af51==null?void 0x0:_0x30af51[_0x25b367(0x1c4)])==null?void 0x0:_0x1745af['length'])&&(_0x30af51[_0x25b367(0x1c4)][0x0][_0x25b367(0x187)]=_0x5938e4[_0x25b367(0x187)]),_0x30af51;};_0x5938e4[_0x17584a(0x1c3)]={'consoleLog':(_0x477115,_0x513276)=>{var _0xf30037=_0x17584a;_0x5938e4[_0xf30037(0x175)][_0xf30037(0x224)][_0xf30037(0x16c)]!==_0xf30037(0x1e8)&&_0x5a2eb1(_0x3b668d(_0xf30037(0x224),_0x477115,_0x18b9e0(),_0x20a9f4,_0x513276));},'consoleTrace':(_0x3c5d0a,_0x334c6f)=>{var _0x172300=_0x17584a,_0x3c0514,_0x2c8c36;_0x5938e4[_0x172300(0x175)]['log'][_0x172300(0x16c)]!==_0x172300(0x18e)&&((_0x2c8c36=(_0x3c0514=_0x5938e4['process'])==null?void 0x0:_0x3c0514[_0x172300(0x212)])!=null&&_0x2c8c36[_0x172300(0x1bf)]&&(_0x5938e4[_0x172300(0x1e3)]=!0x0),_0x5a2eb1(_0x3fe8ca(_0x3b668d(_0x172300(0x219),_0x3c5d0a,_0x18b9e0(),_0x20a9f4,_0x334c6f))));},'consoleError':(_0x4732b1,_0x5813c9)=>{var _0x478577=_0x17584a;_0x5938e4[_0x478577(0x1e3)]=!0x0,_0x5a2eb1(_0x3fe8ca(_0x3b668d(_0x478577(0x239),_0x4732b1,_0x18b9e0(),_0x20a9f4,_0x5813c9)));},'consoleTime':_0x4ce4aa=>{_0x4606fb(_0x4ce4aa);},'consoleTimeEnd':(_0x48ba5a,_0x57643f)=>{_0x45f151(_0x57643f,_0x48ba5a);},'autoLog':(_0x58aa2f,_0x540014)=>{var _0x1620d9=_0x17584a;_0x5a2eb1(_0x3b668d(_0x1620d9(0x224),_0x540014,_0x18b9e0(),_0x20a9f4,[_0x58aa2f]));},'autoLogMany':(_0x3cd6d5,_0x2e1363)=>{var _0x47d5bf=_0x17584a;_0x5a2eb1(_0x3b668d(_0x47d5bf(0x224),_0x3cd6d5,_0x18b9e0(),_0x20a9f4,_0x2e1363));},'autoTrace':(_0x3edf83,_0xd5ca0d)=>{_0x5a2eb1(_0x3fe8ca(_0x3b668d('trace',_0xd5ca0d,_0x18b9e0(),_0x20a9f4,[_0x3edf83])));},'autoTraceMany':(_0x293e3b,_0x2bfd55)=>{var _0x10cd68=_0x17584a;_0x5a2eb1(_0x3fe8ca(_0x3b668d(_0x10cd68(0x219),_0x293e3b,_0x18b9e0(),_0x20a9f4,_0x2bfd55)));},'autoTime':(_0x286456,_0x267c5d,_0x1924bd)=>{_0x4606fb(_0x1924bd);},'autoTimeEnd':(_0x3bb828,_0x447fcd,_0x32e665)=>{_0x45f151(_0x447fcd,_0x32e665);},'coverage':_0x5ee76f=>{var _0x204ba1=_0x17584a;_0x5a2eb1({'method':_0x204ba1(0x236),'version':_0xd5993f,'args':[{'id':_0x5ee76f}]});}};let _0x5a2eb1=H(_0x5938e4,_0x3db3c9,_0x290312,_0x1229dc,_0x2a2252,_0x5426f2,_0x554e6f),_0x20a9f4=_0x5938e4['_console_ninja_session'];return _0x5938e4[_0x17584a(0x1c3)];})(globalThis,_0x3fa772(0x232),_0x3fa772(0x21a),_0x3fa772(0x1c7),_0x3fa772(0x1d4),_0x3fa772(0x1fe),'1772011193680',_0x3fa772(0x209),_0x3fa772(0x1c1),_0x3fa772(0x218),_0x3fa772(0x222),_0x3fa772(0x21c));");
   } catch (e) {
     console.error(e);
   }
@@ -15682,6 +21914,7 @@ function oo_te(/**@type{any}**/v, /**@type{any}**/i) {
   \************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   useAttributes: () => (/* binding */ useAttributes)
@@ -15707,6 +21940,7 @@ const useAttributes = () => {
   \********************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   useDeviceType: () => (/* binding */ useDeviceType)
@@ -15739,6 +21973,7 @@ const useDeviceType = () => {
   \*******************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   usePanel: () => (/* binding */ usePanel)
@@ -15764,6 +21999,7 @@ const usePanel = () => {
   \**************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   useRangeHandler: () => (/* binding */ useRangeHandler)
@@ -15861,6 +22097,7 @@ const useRangeHandler = ({
   \************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   useRangeValue: () => (/* binding */ useRangeValue)
@@ -15921,6 +22158,7 @@ const useRangeValue = ({
   \******************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ArrowMinimal: () => (/* binding */ ArrowMinimal),
@@ -16101,6 +22339,7 @@ const TriangleOutline = ({
   \******************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DashedBorder: () => (/* binding */ DashedBorder),
@@ -16315,6 +22554,7 @@ const DoubleBorder = () => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_M
   \************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AlignCenter: () => (/* binding */ AlignCenter),
@@ -16842,6 +23082,7 @@ const DecreaseButton = () => {
   \****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ICONS: () => (/* binding */ ICONS)
@@ -16987,6 +23228,7 @@ const ICONS = {
   \*****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   OrientationFourIcon: () => (/* binding */ OrientationFourIcon),
@@ -17336,6 +23578,7 @@ const OrientationFourIcon = ({
   \**********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DotsPagination: () => (/* binding */ DotsPagination),
@@ -17489,7 +23732,8 @@ const NumbersPagination = () => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPOR
   \********************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/smart-post-carousel","version":"0.1.0","title":"Smart Post Carousel","category":"smart-post-carousel","description":"Display posts in a responsive carousel with smooth navigation.","example":{},"supports":{"html":false,"align":["wide","full"]},"attributes":{"showReadMore":{"type":"boolean","default":false},"showTitle":{"type":"boolean","default":false},"partialView":{"type":"boolean","default":false},"showTaxonomy":{"type":"boolean","default":false},"showMetaData":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showSocialShare":{"type":"boolean","default":false},"showFeaturedImage":{"type":"boolean","default":false},"carouselStyle":{"type":"string","default":"standard"},"contentOrientation":{"type":"string","default":"orientation_one"},"columns":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"height":{"type":"object","default":{"desktop":445,"tablet":445,"mobile":445}},"gap":{"type":"object","default":{"desktop":24,"tablet":48,"mobile":24}},"slideGroup":{"type":"object","default":{"desktop":1,"tablet":1,"mobile":1}},"autoPlay":{"type":"boolean","default":true},"delay":{"type":"number","default":2000},"speed":{"type":"number","default":600},"direction":{"type":"string","default":"right"},"contentAlignment":{"type":"string","default":"flex-start"},"preloader":{"type":"boolean","default":false},"equalHeight":{"type":"boolean","default":false},"onHover":{"type":"boolean","default":false},"linkOpen":{"type":"string","default":"newTab"},"effect":{"type":"string","default":"slide"},"adaptiveHeight":{"type":"boolean","default":false},"infiniteLoop":{"type":"boolean","default":true},"keyNavigation":{"type":"boolean","default":true},"freeScroll":{"type":"boolean","default":false},"navigationArrow":{"type":"boolean","default":true},"paginationDots":{"type":"boolean","default":true},"numberOfSlides":{"type":"number","default":3},"arrowStyle":{"type":"string","default":"chevron-solid"},"visibilityOnHover":{"type":"boolean","default":false},"iconSize":{"type":"object","default":{"desktop":16,"tablet":16,"mobile":16}},"iconWidth":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"iconHeight":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"spaceBetweenArrow":{"type":"object","default":{"desktop":100,"tablet":100,"mobile":100}},"horizontalPosition":{"type":"object","default":{"desktop":44,"tablet":0,"mobile":0}},"verticalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}},"navArrowStyleType":{"type":"string","default":"normal"},"iconColor":{"type":"string","default":"#fff"},"iconHoverColor":{"type":"string","default":"#fff"},"iconBackGroundColor":{"type":"string","default":"#4e4f52"},"iconBackGroundHoverColor":{"type":"string","default":"#4e6e3e"},"borderStyle":{"type":"string","default":"none"},"borderWidth":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}},"borderColor":{"type":"string","default":"#11111"},"borderRadius":{"type":"object","default":{"desktop":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"tablet":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"mobile":{"top":50,"right":50,"bottom":50,"left":50,"linked":true}}},"showBoxShadow":{"type":"boolean","default":false},"boxShadow":{"type":"object","default":{"desktop":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"tablet":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"mobile":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"}}},"shadowColor":{"type":"string","default":"#d6d8de"},"paginationStyle":{"type":"string","default":"dots"},"paginationWidth":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationHeight":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationDotGap":{"type":"object","default":{"desktop":6,"tablet":6,"mobile":6}},"paginationVerticalPosition":{"type":"object","default":{"desktop":-36,"tablet":-36,"mobile":-36}},"paginationHorizontalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}},"paginationDotStyleType":{"type":"string","default":"normal"},"dotNormalTextColor":{"type":"string","default":"#000000"},"dotActiveTextColor":{"type":"string","default":"#ffffff"},"dotNormalBackGroundNormalColor":{"type":"string","default":"#cacbcf"},"dotNormalBackGroundActiveColor":{"type":"string","default":"#4E6E3E"},"paginationBorderStyle":{"type":"string","default":"none"},"paginationHover":{"type":"string","default":"normal"}},"render":"file:./render.php","textdomain":"smart-post-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/smart-post-carousel","version":"0.1.0","title":"Smart Post Carousel","category":"smart-post-carousel","description":"Display posts in a responsive carousel with smooth navigation.","example":{},"supports":{"html":false,"align":["wide","full"]},"attributes":{"showReadMore":{"type":"boolean","default":false},"showTitle":{"type":"boolean","default":false},"partialView":{"type":"boolean","default":false},"showTaxonomy":{"type":"boolean","default":false},"showMetaData":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showSocialShare":{"type":"boolean","default":false},"showFeaturedImage":{"type":"boolean","default":false},"carouselStyle":{"type":"string","default":"standard"},"contentOrientation":{"type":"string","default":"orientation_one"},"columns":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"height":{"type":"object","default":{"desktop":445,"tablet":445,"mobile":445}},"gap":{"type":"object","default":{"desktop":24,"tablet":48,"mobile":24}},"slideGroup":{"type":"object","default":{"desktop":1,"tablet":1,"mobile":1}},"autoPlay":{"type":"boolean","default":true},"delay":{"type":"number","default":2000},"speed":{"type":"number","default":600},"direction":{"type":"string","default":"right"},"contentAlignment":{"type":"string","default":"flex-start"},"preloader":{"type":"boolean","default":false},"equalHeight":{"type":"boolean","default":false},"onHover":{"type":"boolean","default":false},"linkOpen":{"type":"string","default":"newTab"},"effect":{"type":"string","default":"slide"},"adaptiveHeight":{"type":"boolean","default":false},"infiniteLoop":{"type":"boolean","default":true},"keyNavigation":{"type":"boolean","default":true},"freeScroll":{"type":"boolean","default":false},"navigationArrow":{"type":"boolean","default":true},"paginationDots":{"type":"boolean","default":true},"numberOfSlides":{"type":"number","default":3},"arrowStyle":{"type":"string","default":"chevron-solid"},"visibilityOnHover":{"type":"boolean","default":false},"iconSize":{"type":"object","default":{"desktop":16,"tablet":16,"mobile":16}},"iconWidth":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"iconHeight":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"spaceBetweenArrow":{"type":"object","default":{"desktop":100,"tablet":100,"mobile":100}},"horizontalPosition":{"type":"object","default":{"desktop":44,"tablet":0,"mobile":0}},"verticalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}},"navArrowStyleType":{"type":"string","default":"normal"},"iconColor":{"type":"string","default":"#fff"},"iconHoverColor":{"type":"string","default":"#fff"},"iconBackGroundColor":{"type":"string","default":"#4e4f52"},"iconBackGroundHoverColor":{"type":"string","default":"#4e6e3e"},"borderStyle":{"type":"string","default":"none"},"borderWidth":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}},"borderColor":{"type":"string","default":"#11111"},"borderRadius":{"type":"object","default":{"desktop":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"tablet":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"mobile":{"top":50,"right":50,"bottom":50,"left":50,"linked":true}}},"showBoxShadow":{"type":"boolean","default":false},"boxShadow":{"type":"object","default":{"desktop":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"tablet":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"mobile":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"}}},"shadowColor":{"type":"string","default":"#d6d8de"},"paginationStyle":{"type":"string","default":"dots"},"paginationWidth":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationHeight":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationDotGap":{"type":"object","default":{"desktop":6,"tablet":6,"mobile":6}},"paginationVerticalPosition":{"type":"object","default":{"desktop":-36,"tablet":-36,"mobile":-36}},"paginationHorizontalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}},"paginationDotStyleType":{"type":"string","default":"normal"},"dotNormalTextColor":{"type":"string","default":"#000000"},"dotActiveTextColor":{"type":"string","default":"#ffffff"},"dotNormalBackGroundNormalColor":{"type":"string","default":"#cacbcf"},"dotNormalBackGroundActiveColor":{"type":"string","default":"#4E6E3E"},"paginationBorderStyle":{"type":"string","default":"none"},"paginationHover":{"type":"string","default":"normal"},"metaDataAllContentArray":{"type":"array","default":[{"id":"1","value":"author","label":"Author","show":true,"position":"left"},{"id":"2","value":"date","label":"Date","show":true,"position":"left"},{"id":"3","value":"comments","label":"Comments","show":true,"position":"right"},{"id":"4","value":"views","label":"Views","show":true,"position":"right"},{"id":"5","value":"likes","label":"Likes","show":true,"position":"right"},{"id":"6","value":"reading-time","label":"Reading Time","show":true,"position":"left"}]},"metaDisplayType":{"type":"string","default":"inline"},"authorDisplayStyle":{"type":"string","default":"iconName"}},"render":"file:./render.php","textdomain":"smart-post-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ },
 
@@ -17499,6 +23743,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
   \*****************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Edit)
@@ -17579,6 +23824,7 @@ function Edit({
   \*********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -17591,6 +23837,7 @@ __webpack_require__.r(__webpack_exports__);
   \******************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
@@ -17619,6 +23866,7 @@ __webpack_require__.r(__webpack_exports__);
   \********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -17631,15 +23879,21 @@ __webpack_require__.r(__webpack_exports__);
   \************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CHUNKED_EFFECTS: () => (/* binding */ CHUNKED_EFFECTS),
 /* harmony export */   EFFECT_MAP: () => (/* binding */ EFFECT_MAP),
 /* harmony export */   arrayChunk: () => (/* binding */ arrayChunk),
 /* harmony export */   countWordAndCharacter: () => (/* binding */ countWordAndCharacter),
+/* harmony export */   getGravatarUrl: () => (/* binding */ getGravatarUrl),
 /* harmony export */   getPostDate: () => (/* binding */ getPostDate),
 /* harmony export */   stripComments: () => (/* binding */ stripComments)
 /* harmony export */ });
+/* harmony import */ var md5__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! md5 */ "./node_modules/md5/md5.js");
+/* harmony import */ var md5__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(md5__WEBPACK_IMPORTED_MODULE_0__);
+// Import Files
+
 const stripComments = (content = "") => {
   if (!content) return "";
   return content.replace(/<!--\s*wp:[\s\S]*?-->/g, "").replace(/<!--\s*\/wp:[\s\S]*?-->/g, "").replace(/<\/?[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
@@ -17710,6 +23964,11 @@ const arrayChunk = (array, size) => {
   }
   return chunks;
 };
+const getGravatarUrl = (email, size = 48) => {
+  if (!email) return "";
+  const hash = md5__WEBPACK_IMPORTED_MODULE_0___default()(email.trim().toLowerCase());
+  return `https://www.gravatar.com/avatar/${hash}?s=${size}&d=mp`;
+};
 
 /***/ },
 
@@ -17719,6 +23978,7 @@ const arrayChunk = (array, size) => {
   \*************************************/
 (module) {
 
+"use strict";
 module.exports = window["wp"]["blockEditor"];
 
 /***/ },
@@ -17729,6 +23989,7 @@ module.exports = window["wp"]["blockEditor"];
   \********************************/
 (module) {
 
+"use strict";
 module.exports = window["wp"]["blocks"];
 
 /***/ },
@@ -17739,6 +24000,7 @@ module.exports = window["wp"]["blocks"];
   \************************************/
 (module) {
 
+"use strict";
 module.exports = window["wp"]["components"];
 
 /***/ },
@@ -17749,6 +24011,7 @@ module.exports = window["wp"]["components"];
   \******************************/
 (module) {
 
+"use strict";
 module.exports = window["wp"]["data"];
 
 /***/ },
@@ -17759,6 +24022,7 @@ module.exports = window["wp"]["data"];
   \*********************************/
 (module) {
 
+"use strict";
 module.exports = window["wp"]["element"];
 
 /***/ },
@@ -17769,6 +24033,7 @@ module.exports = window["wp"]["element"];
   \******************************/
 (module) {
 
+"use strict";
 module.exports = window["wp"]["i18n"];
 
 /***/ },
@@ -17779,7 +24044,19 @@ module.exports = window["wp"]["i18n"];
   \************************/
 (module) {
 
+"use strict";
 module.exports = window["React"];
+
+/***/ },
+
+/***/ "react-dom"
+/*!***************************!*\
+  !*** external "ReactDOM" ***!
+  \***************************/
+(module) {
+
+"use strict";
+module.exports = window["ReactDOM"];
 
 /***/ },
 
@@ -17789,6 +24066,7 @@ module.exports = window["React"];
   \**********************************/
 (module) {
 
+"use strict";
 module.exports = window["ReactJSXRuntime"];
 
 /***/ }

@@ -28,6 +28,9 @@
 .wp-block-create-block-smart-post-carousel .smart-post-carousel-swiper .swiper-pagination-bullet {
   background: #4e98f3;
 }
+.wp-block-create-block-smart-post-carousel .sp-smart-post-component-mb {
+  margin-bottom: 16px;
+}
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-marquee-wrapper {
   width: 100%;
   overflow: hidden;
@@ -161,6 +164,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-item .sp-smart-post-carousel-author-avatar {
+  width: 16px;
+  height: 16px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  flex-shrink: 0;
+}
 .wp-block-create-block-smart-post-carousel {
   /* ---------------- CATEGORY ---------------- */
 }
@@ -233,6 +243,22 @@
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-card-meta-wrapper {
   justify-content: var(--alignment);
+  max-width: 100%;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-card-meta-wrapper.split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-card-meta-wrapper.split .sp-smart-post-carousel-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-card-meta-wrapper.split .sp-smart-post-carousel-meta-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-category {
   position: absolute;
@@ -267,6 +293,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-card-meta-wrapper.split-left-right {
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-date {
   display: none;
@@ -480,9 +510,6 @@
   /* ══════════════════════════════
        SCROLLBAR
     ══════════════════════════════ */
-}
-.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel .swiper-scrollbar {
-  display: none !important;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel .sp-smart-post-carousel-swiper-scrollbar {
   width: 100%;

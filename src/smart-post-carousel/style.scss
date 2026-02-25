@@ -31,6 +31,10 @@
 		}
 	}
 
+	.sp-smart-post-component-mb {
+		margin-bottom: 16px;
+	}
+
 	.sp-smart-post-carousel-marquee-wrapper {
 		width: 100%;
 		overflow: hidden;
@@ -173,6 +177,12 @@
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
+		.sp-smart-post-carousel-author-avatar {
+			width: 16px;
+			height: 16px;
+			object-fit: cover;
+			flex-shrink: 0;
+		}
 	}
 
 	/* ---------------- CATEGORY ---------------- */
@@ -257,6 +267,24 @@
 
 		.sp-smart-post-carousel-card-meta-wrapper {
 			justify-content: var(--alignment);
+			max-width: 100%;
+			&.split {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.sp-smart-post-carousel-meta-left {
+					display: flex;
+					align-items: center;
+					gap: 5px;
+				}
+
+				.sp-smart-post-carousel-meta-right {
+					display: flex;
+					align-items: center;
+					gap: 5px;
+				}
+			}
 		}
 
 		.sp-smart-post-carousel-category {
@@ -293,6 +321,11 @@
 			display: flex;
 			flex-wrap: wrap;
 			gap: 5px;
+
+			&.split-left-right {
+				justify-content: space-between;
+				flex-wrap: nowrap;
+			}
 		}
 
 		.sp-smart-post-carousel-date {
@@ -535,10 +568,6 @@
 		/* ══════════════════════════════
        SCROLLBAR
     ══════════════════════════════ */
-
-		.swiper-scrollbar {
-			display: none !important;
-		}
 
 		.sp-smart-post-carousel-swiper-scrollbar {
 			width: 100%;

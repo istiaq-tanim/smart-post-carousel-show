@@ -73,6 +73,7 @@ export default function SwiperCarousel({ attributes, posts }) {
 		dotNormalBackGroundActiveColor,
 		dotNormalTextColor,
 		dotActiveTextColor,
+		paginationDotStyleType,
 	} = attributes;
 
 	// All References
