@@ -20,6 +20,8 @@ function PostCard({ post, attributes }) {
 	const views = post?.view_count || 0;
 	const likes = post?.like_count || 0;
 
+
+
 	const image =
 		post?.post_thumbnail_url ||
 		"http://localhost:10038/wp-content/plugins/smart-post-show-pro/public/assets/img/placeholder.png";
@@ -27,9 +29,8 @@ function PostCard({ post, attributes }) {
 	// orientation class
 	const orientation = attributes?.contentOrientation || "orientation_one";
 
-	const cardClassName = `sp-smart-post-carousel-card ${orientation}${
-		equalHeight ? " equal-height" : ""
-	}`;
+	const cardClassName = `sp-smart-post-carousel-card ${orientation}${equalHeight ? " equal-height" : ""
+		}`;
 
 	return (
 		<div
@@ -86,6 +87,25 @@ function PostCard({ post, attributes }) {
 
 					<ReadingTime content={post.content} attributes={attributes} />
 				</div>
+
+				<div className="sp-smart-post-carousel-excerpt-wrapper">
+					<p className="sp-smart-post-carousel-excerpt">
+						<span>{post?.excerpt.slice(0, 50)}...</span>
+					</p>
+				</div>
+
+
+				<div className="sp-smart-post-carousel-read-more-button">
+					<a className="sp-smart-post-carousel-read-more-btn-link">
+						Read More
+					</a>
+				</div>
+
+				<ul className="sp-smart-post-carousel-social-share">
+					<li className="sp-smart-post-carousel-social-share-icon">
+						<i className={`sp-icon-facebook`}></i>
+					</li>
+				</ul>
 			</div>
 		</div>
 	);

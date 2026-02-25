@@ -71,9 +71,9 @@ return array(
 			'height' => array(
 				'type' => 'object',
 				'default' => array(
-					'desktop' => 445,
-					'tablet' => 445,
-					'mobile' => 445
+					'desktop' => 642,
+					'tablet' => 642,
+					'mobile' => 642
 				)
 			),
 			'gap' => array(

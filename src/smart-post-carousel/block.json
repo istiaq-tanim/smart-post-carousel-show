@@ -9,7 +9,10 @@
 	"example": {},
 	"supports": {
 		"html": false,
-		"align": ["wide", "full"]
+		"align": [
+			"wide",
+			"full"
+		]
 	},
 	"attributes": {
 		"showReadMore": {
@@ -63,9 +66,9 @@
 		"height": {
 			"type": "object",
 			"default": {
-				"desktop": 445,
-				"tablet": 445,
-				"mobile": 445
+				"desktop": 642,
+				"tablet": 642,
+				"mobile": 642
 			}
 		},
 		"gap": {
