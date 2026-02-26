@@ -12,13 +12,15 @@ function CustomColorPicker({
 	const anchorRef = useRef(null);
 
 	const handleColorChange = (value) => {
-		onChange(value.hex);
+		onChange(value ? value.hex : defaultValue);
 	};
 
 	const handleReset = () => {
 		onChange(defaultValue);
 		setIsOpen(false);
 	};
+
+	console.log(value);
 
 	return (
 		<div className="custom-color-picker-control">

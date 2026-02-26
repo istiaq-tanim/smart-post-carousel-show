@@ -481,13 +481,29 @@ return array(
 				'type' => 'string',
 				'default' => 'outline'
 			),
+			'dateFormat' => array(
+				'type' => 'string',
+				'default' => 'default'
+			),
+			'metaEffect' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
 			'metaColor' => array(
 				'type' => 'string',
 				'default' => '#4e6e3e'
 			),
-			'dateFormat' => array(
-				'type' => 'string',
-				'default' => 'default'
+			'meta' => array(
+				'type' => 'object',
+				'default' => array(
+					'tags' => 'p',
+					'family' => 'Roboto',
+					'fontSize' => 16,
+					'weight' => 400,
+					'height' => 1.5,
+					'spacing' => 0,
+					'text' => 'List item title'
+				)
 			)
 		),
 		'render' => 'file:./render.php',

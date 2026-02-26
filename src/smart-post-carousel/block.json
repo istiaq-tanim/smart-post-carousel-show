@@ -473,13 +473,29 @@
 			"type": "string",
 			"default": "outline"
 		},
+		"dateFormat": {
+			"type": "string",
+			"default": "default"
+		},
+		"metaEffect": {
+			"type": "string",
+			"default": "normal"
+		},
 		"metaColor": {
 			"type": "string",
 			"default": "#4e6e3e"
 		},
-		"dateFormat": {
-			"type": "string",
-			"default": "default"
+		"meta": {
+			"type": "object",
+			"default": {
+				"tags": "p",
+				"family": "Roboto",
+				"fontSize": 16,
+				"weight": 400,
+				"height": 1.5,
+				"spacing": 0,
+				"text": "List item title"
+			}
 		}
 	},
 	"render": "file:./render.php",
