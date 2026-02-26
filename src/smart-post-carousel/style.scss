@@ -162,13 +162,13 @@
 		align-items: center;
 		gap: 4px;
 		font-weight: 400;
-		color: var(--smart-post-secondary);
+		// color: var(--smart-post-secondary);
 		font-size: 12px;
 
 		svg {
 			width: 14px;
 			height: 14px;
-			color: #666;
+			// color: #666;
 			flex-shrink: 0;
 		}
 
@@ -338,6 +338,156 @@
 		.sp-smart-post-carousel-template-content {
 			min-height: 0;
 		}
+	}
+
+	/* Excerpt Style */
+
+	.sp-smart-post-carousel-excerpt-wrapper {
+		.sp-smart-post-carousel-excerpt {
+			font-weight: 400;
+			color: var(--smart-post-dark-2-text);
+			font-size: 16px;
+			margin: 14px 0px 0px 0px;
+		}
+	}
+
+	/* Read More Button */
+
+	.sp-smart-post-carousel-read-more-button {
+		display: flex;
+		.sp-smart-post-carousel-read-more-btn-link {
+			background: #fff;
+			color: var(--smart-post-dark-2-text);
+			padding: 8px 16px 8px 16px;
+			border: 1px solid var(--smart-post-dark-2-text);
+			margin: 16px 0px 0px 0px;
+			font-weight: 500;
+			text-transform: uppercase;
+			font-size: 12px;
+			text-decoration: none;
+		}
+	}
+
+	.sp-smart-post-carousel-social-share {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		padding: 0;
+
+		.sp-smart-post-carousel-social-share-icon {
+			list-style: none;
+		}
+	}
+
+	/* Social share icon original color style */
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-facebook {
+		background-color: #0765ff;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-x {
+		background-color: #000000;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-linkedin {
+		background-color: #0b65c2;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-pinterest {
+		background-color: #e60022;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-mail {
+		background: #da4a3e;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-instagram {
+		background: radial-gradient(
+				182.61% 44.3% at -16.75% 7.2%,
+				#3771c8 0%,
+				#3771c8 12.8%,
+				rgba(102, 0, 255, 0) 100%
+			),
+			radial-gradient(
+				92.18% 99.11% at 26.56% 107.7%,
+				#fd5 0%,
+				#fd5 10%,
+				#ff543e 50%,
+				#c837ab 100%
+			);
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-vkontakte {
+		background-color: #0177ff;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-digg {
+		background: #1b1a19;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-tumblr {
+		background-color: #011935;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-reddit {
+		background-color: #fd4500;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-whatsapp {
+		background-color: #0bc144;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-pocket {
+		background: #ef4155;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-xing {
+		background: #0698a0;
+		color: #fff;
+	}
+
+	.sp-smart-post-carousel-social-share
+		.sp-smart-post-carousel-social-share-icon
+		.sp-icon-clone {
+		background: #04a963;
+		color: #fff;
 	}
 
 	/*Navigation Arrow Style */

@@ -1,10 +1,16 @@
-import { ICONS } from "../../../smart-post-carousel/assets/metaIcon";
+import { userIcons } from "../../../const";
 
 export default function AuthorMeta({
 	author,
 	authorAvatar,
 	authorDisplayType,
+	authorIconStyle,
+	color,
 }) {
+	const authorIcon =
+		userIcons.find((i) => i.value === authorIconStyle)?.icon ||
+		userIcons[0].icon;
+
 	switch (authorDisplayType) {
 		case "gravatar":
 			return (
@@ -34,7 +40,7 @@ export default function AuthorMeta({
 		case "iconName":
 			return (
 				<span className="sp-smart-post-carousel-card-meta-item">
-					{ICONS["author"]}
+					<span style={{ color }}>{authorIcon}</span>
 					<span className="sp-smart-post-carousel-card-meta-item-text">
 						{author}
 					</span>

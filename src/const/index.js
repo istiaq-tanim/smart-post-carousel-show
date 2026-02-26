@@ -28,6 +28,16 @@ import {
 	ScrollbarPagination,
 	StrokesPagination,
 } from "../smart-post-carousel/assets/paginationIcon";
+import {
+	BasicOutline,
+	Circle,
+	Female,
+	Minimal,
+	Outline,
+	Rounded,
+	UserAuthor,
+	UserSolid,
+} from "../smart-post-carousel/assets/userIcon";
 
 export const LayoutItems = [
 	{
@@ -127,6 +137,21 @@ export const authorDisplayStyle = [
 	{
 		label: "Author Name with Icon",
 		value: "iconName",
+	},
+];
+export const dateFormat = [
+	{
+		disabled: true,
+		label: "Select Date Format",
+		value: "",
+	},
+	{
+		label: "Default",
+		value: "default",
+	},
+	{
+		label: "Time Ago (Human Time)",
+		value: "timeAgo",
 	},
 ];
 export const animationEffect = [
@@ -287,3 +312,46 @@ export const getRenderBullet = (paginationStyle) => {
 				`<span class="${className} sp-pagination-dot"></span>`;
 	}
 };
+
+export const userIcons = [
+	{
+		label: "Outline",
+		value: "outline",
+		icon: <Outline />,
+	},
+	{
+		label: "Basic Outline",
+		value: "basic-outline",
+		icon: <BasicOutline />,
+	},
+	{
+		label: "Solid",
+		value: "user-solid",
+		icon: <UserSolid />,
+	},
+	{
+		label: "Profile Rounded",
+		value: "rounded",
+		icon: <Rounded />,
+	},
+	{
+		label: "Profile Circle",
+		value: "circle",
+		icon: <Circle />,
+	},
+	{
+		label: "Female",
+		value: "female",
+		icon: <Female />,
+	},
+	{
+		label: "Author",
+		value: "author",
+		icon: <UserAuthor />,
+	},
+	{
+		label: "Minimal",
+		value: "minimal",
+		icon: <Minimal />,
+	},
+];

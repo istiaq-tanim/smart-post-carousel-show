@@ -63,9 +63,9 @@
 		"height": {
 			"type": "object",
 			"default": {
-				"desktop": 445,
-				"tablet": 445,
-				"mobile": 445
+				"desktop": 642,
+				"tablet": 642,
+				"mobile": 642
 			}
 		},
 		"gap": {
@@ -379,6 +379,41 @@
 			"type": "string",
 			"default": "normal"
 		},
+		"allContentArray": {
+			"type": "array",
+			"default": [
+				{
+					"id": "1",
+					"value": "category",
+					"label": "Taxonomy (Category)"
+				},
+				{
+					"id": "2",
+					"value": "title",
+					"label": "Title"
+				},
+				{
+					"id": "3",
+					"value": "meta",
+					"label": "Meta Data"
+				},
+				{
+					"id": "4",
+					"value": "excerpt",
+					"label": "Excerpt"
+				},
+				{
+					"id": "5",
+					"value": "readMore",
+					"label": "Read More"
+				},
+				{
+					"id": "6",
+					"value": "social",
+					"label": "Social Share"
+				}
+			]
+		},
 		"metaDataAllContentArray": {
 			"type": "array",
 			"default": [
@@ -433,6 +468,18 @@
 		"authorDisplayStyle": {
 			"type": "string",
 			"default": "iconName"
+		},
+		"authorIcon": {
+			"type": "string",
+			"default": "outline"
+		},
+		"metaColor": {
+			"type": "string",
+			"default": "#4e6e3e"
+		},
+		"dateFormat": {
+			"type": "string",
+			"default": "default"
 		}
 	},
 	"render": "file:./render.php",

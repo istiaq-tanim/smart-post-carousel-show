@@ -39,15 +39,38 @@ export const getPostDate = (post) => {
 
 	// fallback
 	else {
-		dateObj = new Date();
+		date = new Date();
 	}
+
+	// time ago helper
+	const getTimeAgo = (date) => {
+		const seconds = Math.floor((new Date() - date) / 1000);
+
+		const intervals = [
+			{ label: "year", seconds: 31536000 },
+			{ label: "month", seconds: 2592000 },
+			{ label: "week", seconds: 604800 },
+			{ label: "day", seconds: 86400 },
+			{ label: "hour", seconds: 3600 },
+			{ label: "minute", seconds: 60 },
+			{ label: "second", seconds: 1 },
+		];
+
+		for (const interval of intervals) {
+			const count = Math.floor(seconds / interval.seconds);
+			if (count >= 1) {
+				return `${count} ${interval.label}${count !== 1 ? "s" : ""} ago`;
+			}
+		}
+
+		return "just now";
+	};
 
 	return {
 		day: date.toLocaleDateString("en-US", { day: "2-digit" }),
 		month: date.toLocaleDateString("en-US", { month: "short" }),
 		monthFull: date.toLocaleDateString("en-US", { month: "long" }),
 		year: date.toLocaleDateString("en-US", { year: "numeric" }),
-
 		full: date.toLocaleDateString("en-US", {
 			year: "numeric",
 			month: "long",
@@ -58,6 +81,7 @@ export const getPostDate = (post) => {
 			day: "numeric",
 			year: "numeric",
 		}),
+		timeAgo: getTimeAgo(date),
 	};
 };
 
@@ -85,3 +109,6 @@ export const getGravatarUrl = (email, size = 48) => {
 	const hash = md5(email.trim().toLowerCase());
 	return `https://www.gravatar.com/avatar/${hash}?s=${size}&d=mp`;
 };
+
+export const getVisibility = (metaDataAllContentArray, metaValue) =>
+	metaDataAllContentArray?.find((item) => item.value === metaValue)?.show;

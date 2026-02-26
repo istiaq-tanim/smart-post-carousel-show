@@ -71,9 +71,9 @@ return array(
 			'height' => array(
 				'type' => 'object',
 				'default' => array(
-					'desktop' => 445,
-					'tablet' => 445,
-					'mobile' => 445
+					'desktop' => 642,
+					'tablet' => 642,
+					'mobile' => 642
 				)
 			),
 			'gap' => array(
@@ -387,6 +387,41 @@ return array(
 				'type' => 'string',
 				'default' => 'normal'
 			),
+			'allContentArray' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => '1',
+						'value' => 'category',
+						'label' => 'Taxonomy (Category)'
+					),
+					array(
+						'id' => '2',
+						'value' => 'title',
+						'label' => 'Title'
+					),
+					array(
+						'id' => '3',
+						'value' => 'meta',
+						'label' => 'Meta Data'
+					),
+					array(
+						'id' => '4',
+						'value' => 'excerpt',
+						'label' => 'Excerpt'
+					),
+					array(
+						'id' => '5',
+						'value' => 'readMore',
+						'label' => 'Read More'
+					),
+					array(
+						'id' => '6',
+						'value' => 'social',
+						'label' => 'Social Share'
+					)
+				)
+			),
 			'metaDataAllContentArray' => array(
 				'type' => 'array',
 				'default' => array(
@@ -441,6 +476,18 @@ return array(
 			'authorDisplayStyle' => array(
 				'type' => 'string',
 				'default' => 'iconName'
+			),
+			'authorIcon' => array(
+				'type' => 'string',
+				'default' => 'outline'
+			),
+			'metaColor' => array(
+				'type' => 'string',
+				'default' => '#4e6e3e'
+			),
+			'dateFormat' => array(
+				'type' => 'string',
+				'default' => 'default'
 			)
 		),
 		'render' => 'file:./render.php',
