@@ -522,3 +522,105 @@ export const DecreaseButton = () => {
 		</svg>
 	);
 };
+
+export const FacebookIcon = () => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		width="16"
+		height="16"
+		fill="currentColor"
+	>
+		<path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.931-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+	</svg>
+);
+
+function Typo({ onClick, active }) {
+	const strokeColor = active ? "#6f22dd" : "#2F2F2F";
+	return (
+		<svg
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			onClick={onClick}
+		>
+			<rect
+				x="0.8"
+				y="0.8"
+				width="22.4"
+				height="22.4"
+				rx="3.2"
+				stroke={strokeColor}
+				stroke-width="1.6"
+			/>
+			<path
+				d="M13.0315 16.75L11.0684 11.1504C10.1567 8.55012 9.70094 7.25 8.9601 7.25C8.21926 7.25 7.76345 8.55012 6.85184 11.1504L4.88867 16.75M6.5851 12H11.3351"
+				stroke={strokeColor}
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+			<path
+				d="M19.0884 13.3159V16.3695M19.0884 13.3159C19.1204 12.7574 19.1217 12.3319 19.0546 11.9846C18.8965 11.166 18.0411 10.6727 17.2134 10.5723C16.4212 10.4763 15.7853 10.6802 15.142 11.6175M19.0884 13.3159H17.1588C16.8624 13.3159 16.5634 13.3302 16.2778 13.4096C14.532 13.8949 14.66 16.3431 16.4108 16.6449C16.6053 16.6784 16.8039 16.6928 17.0008 16.6839C17.4606 16.6634 17.8848 16.4413 18.249 16.1597C18.6754 15.8299 19.0884 15.3695 19.0884 14.6731V13.3159Z"
+				stroke={strokeColor}
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</svg>
+	);
+}
+
+export default Typo;
+
+export const TransparentIcon = () => (
+	<svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="none">
+		<path fill="#CCC" d="M0 2a2 2 0 0 1 2-2h2v4H0V2Z" />
+		<path fill="#8C8F94" d="M4 0h4v4H4z" />
+		<path fill="#CCC" d="M8 0h4v4H8z" />
+		<path fill="#8C8F94" d="M12 0h2a2 2 0 0 1 2 2v2h-4V0ZM0 4h4v4H0z" />
+		<path fill="#CCC" d="M4 4h4v4H4z" />
+		<path fill="#8C8F94" d="M8 4h4v4H8z" />
+		<path fill="#CCC" d="M12 4h4v4h-4zM0 8h4v4H0z" />
+		<path fill="#8C8F94" d="M4 8h4v4H4z" />
+		<path fill="#CCC" d="M8 8h4v4H8z" />
+		<path fill="#8C8F94" d="M12 8h4v4h-4zM0 12h4v4H2a2 2 0 0 1-2-2v-2Z" />
+		<path fill="#CCC" d="M4 12h4v4H4z" />
+		<path fill="#8C8F94" d="M8 12h4v4H8z" />
+		<path fill="#CCC" d="M12 12h4v2a2 2 0 0 1-2 2h-2v-4Z" />
+	</svg>
+);
+
+export const BgIcon = () => (
+	<svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="none">
+		<rect width={16} height={16} x={0} y={0} fill="#8C8F94" rx={2} />
+	</svg>
+);
+
+export const GradientIcon = () => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		xmlSpace="preserve"
+		width={17}
+		height={17}
+		style={{
+			enableBackground: "new 0 0 17 16",
+		}}
+		viewBox="0 0 17 16"
+	>
+		<path
+			d="M16.9 14V2c0-1.1-.9-2-2-2h-12c-.5 0-1 .2-1.4.6l14.8 14.8c.4-.4.6-.9.6-1.4z"
+			style={{
+				fill: "#ccc",
+			}}
+		/>
+		<path
+			d="M1.5.6C1.2.9.9 1.4.9 2v12c0 1.1.9 2 2 2h12c.6 0 1.1-.2 1.4-.6L1.5.6z"
+			style={{
+				fill: "#8c8f94",
+			}}
+		/>
+	</svg>
+);

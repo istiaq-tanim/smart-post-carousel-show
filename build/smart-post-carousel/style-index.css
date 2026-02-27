@@ -131,9 +131,22 @@
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-  padding-top: 5px;
+  -moz-column-gap: var(--meta-column-gap, 8px);
+       column-gap: var(--meta-column-gap, 8px);
+  row-gap: var(--meta-row-gap, 12px);
+  margin: var(--meta-margin);
   justify-content: var(--alignment);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-wrapper .sp-smart-post-carousel-meta-separator {
+  display: flex;
+  align-items: center;
+  color: var(--metaSeparatorColor);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-wrapper .sp-smart-post-carousel-meta-separator:hover {
+  color: var(--meta-hover-color, inherit);
 }
 .wp-block-create-block-smart-post-carousel {
   /* Equal height override - MOVED OUTSIDE the card base */
@@ -150,13 +163,17 @@
   align-items: center;
   gap: 4px;
   font-weight: 400;
-  color: var(--smart-post-secondary);
-  font-size: 12px;
+  color: var(--meta-normal-color, inherit);
+  transition: color 0.3s ease;
+  font-family: var(--meta-font-family, inherit);
+  font-size: var(--meta-font-size, 12px);
+  font-weight: var(--meta-font-weight, 400);
+  line-height: var(--meta-line-height, 1.5);
+  letter-spacing: var(--meta-letter-spacing, 0px);
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-item svg {
-  width: 14px;
-  height: 14px;
-  color: #666;
+  width: 1em;
+  height: 1em;
   flex-shrink: 0;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-item-text {
@@ -170,6 +187,9 @@
   -o-object-fit: cover;
      object-fit: cover;
   flex-shrink: 0;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-meta-item:hover {
+  color: var(--meta-hover-color, inherit);
 }
 .wp-block-create-block-smart-post-carousel {
   /* ---------------- CATEGORY ---------------- */
@@ -306,6 +326,100 @@
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four.equal-height .sp-smart-post-carousel-template-content {
   min-height: 0;
+}
+.wp-block-create-block-smart-post-carousel {
+  /* Excerpt Style */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-excerpt-wrapper .sp-smart-post-carousel-excerpt {
+  font-weight: 400;
+  color: var(--smart-post-dark-2-text);
+  font-size: 16px;
+  margin: 14px 0px 0px 0px;
+}
+.wp-block-create-block-smart-post-carousel {
+  /* Read More Button */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button {
+  display: flex;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link {
+  background: #fff;
+  color: var(--smart-post-dark-2-text);
+  padding: 8px 16px 8px 16px;
+  border: 1px solid var(--smart-post-dark-2-text);
+  margin: 16px 0px 0px 0px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-decoration: none;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon {
+  list-style: none;
+}
+.wp-block-create-block-smart-post-carousel {
+  /* Social share icon original color style */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-facebook {
+  background-color: #0765ff;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-x {
+  background-color: #000000;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-linkedin {
+  background-color: #0b65c2;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-pinterest {
+  background-color: #e60022;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-mail {
+  background: #da4a3e;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-instagram {
+  background: radial-gradient(182.61% 44.3% at -16.75% 7.2%, #3771c8 0%, #3771c8 12.8%, rgba(102, 0, 255, 0) 100%), radial-gradient(92.18% 99.11% at 26.56% 107.7%, #fd5 0%, #fd5 10%, #ff543e 50%, #c837ab 100%);
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-vkontakte {
+  background-color: #0177ff;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-digg {
+  background: #1b1a19;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-tumblr {
+  background-color: #011935;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-reddit {
+  background-color: #fd4500;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-whatsapp {
+  background-color: #0bc144;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-pocket {
+  background: #ef4155;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-xing {
+  background: #0698a0;
+  color: #fff;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share .sp-smart-post-carousel-social-share-icon .sp-icon-clone {
+  background: #04a963;
+  color: #fff;
 }
 .wp-block-create-block-smart-post-carousel {
   /*Navigation Arrow Style */

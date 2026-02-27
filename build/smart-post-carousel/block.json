@@ -66,9 +66,9 @@
     "height": {
       "type": "object",
       "default": {
-        "desktop": 445,
-        "tablet": 445,
-        "mobile": 445
+        "desktop": 642,
+        "tablet": 642,
+        "mobile": 642
       }
     },
     "gap": {
@@ -382,6 +382,41 @@
       "type": "string",
       "default": "normal"
     },
+    "allContentArray": {
+      "type": "array",
+      "default": [
+        {
+          "id": "1",
+          "value": "category",
+          "label": "Taxonomy (Category)"
+        },
+        {
+          "id": "2",
+          "value": "title",
+          "label": "Title"
+        },
+        {
+          "id": "3",
+          "value": "meta",
+          "label": "Meta Data"
+        },
+        {
+          "id": "4",
+          "value": "excerpt",
+          "label": "Excerpt"
+        },
+        {
+          "id": "5",
+          "value": "readMore",
+          "label": "Read More"
+        },
+        {
+          "id": "6",
+          "value": "social",
+          "label": "Social Share"
+        }
+      ]
+    },
     "metaDataAllContentArray": {
       "type": "array",
       "default": [
@@ -436,6 +471,90 @@
     "authorDisplayStyle": {
       "type": "string",
       "default": "iconName"
+    },
+    "authorIcon": {
+      "type": "string",
+      "default": "outline"
+    },
+    "dateFormat": {
+      "type": "string",
+      "default": "default"
+    },
+    "metaEffect": {
+      "type": "string",
+      "default": "normal"
+    },
+    "metaColor": {
+      "type": "object",
+      "default": {
+        "normal": "#4e6e3e",
+        "hover": ""
+      }
+    },
+    "metaTypo": {
+      "type": "object",
+      "default": {
+        "tags": "div",
+        "family": "Roboto",
+        "fontSize": 14,
+        "weight": 400,
+        "height": 1.2,
+        "spacing": 0,
+        "text": "List item title"
+      }
+    },
+    "metaColumnGap": {
+      "type": "number",
+      "default": 8
+    },
+    "metaRowGap": {
+      "type": "number",
+      "default": 12
+    },
+    "metaMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "metaSeparatorStyle": {
+      "type": "string",
+      "default": "space"
+    },
+    "metaSeparatorColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "contentEffect": {
+      "type": "string",
+      "default": "default"
+    },
+    "contentBackGroundStyles": {
+      "type": "object",
+      "default": {
+        "type": "transparent",
+        "background": "#000000"
+      }
     }
   },
   "render": "file:./render.php",

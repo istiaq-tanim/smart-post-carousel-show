@@ -12,7 +12,7 @@ function CustomColorPicker({
 	const anchorRef = useRef(null);
 
 	const handleColorChange = (value) => {
-		onChange(value.hex);
+		onChange(value ? value.hex : defaultValue);
 	};
 
 	const handleReset = () => {

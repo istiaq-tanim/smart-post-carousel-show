@@ -2,7 +2,7 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/CustomRangeControl/editor.scss ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************/
 .custom-range-control {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .range-control {
@@ -652,7 +652,7 @@
   fill: var(--sp-smart-primary-2-600);
 }
 /*!**********************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/DragandDrop/editor.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/DragAndDrop/editor.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************************************/
 .shaped-plugin-multiple-select .sp-smart-post-carousel-multiple-select-dnd-label {
   font-size: 13px;
@@ -1642,6 +1642,46 @@
 }
 .wp-block-create-block-smart-post-carousel .swiper {
   cursor: grab;
+}
+.background-style {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 16px 0;
+}
+.background-style span {
+  font-size: 14px;
+  font-weight: 500;
+}
+.background-style__buttons {
+  display: flex;
+  gap: 8px;
+}
+.background-style__btn {
+  padding: 3px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  line-height: 0;
+}
+.background-style__btn span {
+  display: none;
+}
+.background-style__btn svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.background-style__btn:hover {
+  color: #641dd7;
+  border-color: #641dd7;
+}
+.background-style__btn.active {
+  border-color: #884ae3;
 }
 
 /*# sourceMappingURL=index.css.map*/

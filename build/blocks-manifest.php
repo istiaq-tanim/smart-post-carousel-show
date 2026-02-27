@@ -71,9 +71,9 @@ return array(
 			'height' => array(
 				'type' => 'object',
 				'default' => array(
-					'desktop' => 445,
-					'tablet' => 445,
-					'mobile' => 445
+					'desktop' => 642,
+					'tablet' => 642,
+					'mobile' => 642
 				)
 			),
 			'gap' => array(
@@ -387,6 +387,41 @@ return array(
 				'type' => 'string',
 				'default' => 'normal'
 			),
+			'allContentArray' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => '1',
+						'value' => 'category',
+						'label' => 'Taxonomy (Category)'
+					),
+					array(
+						'id' => '2',
+						'value' => 'title',
+						'label' => 'Title'
+					),
+					array(
+						'id' => '3',
+						'value' => 'meta',
+						'label' => 'Meta Data'
+					),
+					array(
+						'id' => '4',
+						'value' => 'excerpt',
+						'label' => 'Excerpt'
+					),
+					array(
+						'id' => '5',
+						'value' => 'readMore',
+						'label' => 'Read More'
+					),
+					array(
+						'id' => '6',
+						'value' => 'social',
+						'label' => 'Social Share'
+					)
+				)
+			),
 			'metaDataAllContentArray' => array(
 				'type' => 'array',
 				'default' => array(
@@ -441,6 +476,90 @@ return array(
 			'authorDisplayStyle' => array(
 				'type' => 'string',
 				'default' => 'iconName'
+			),
+			'authorIcon' => array(
+				'type' => 'string',
+				'default' => 'outline'
+			),
+			'dateFormat' => array(
+				'type' => 'string',
+				'default' => 'default'
+			),
+			'metaEffect' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'metaColor' => array(
+				'type' => 'object',
+				'default' => array(
+					'normal' => '#4e6e3e',
+					'hover' => ''
+				)
+			),
+			'metaTypo' => array(
+				'type' => 'object',
+				'default' => array(
+					'tags' => 'div',
+					'family' => 'Roboto',
+					'fontSize' => 14,
+					'weight' => 400,
+					'height' => 1.2,
+					'spacing' => 0,
+					'text' => 'List item title'
+				)
+			),
+			'metaColumnGap' => array(
+				'type' => 'number',
+				'default' => 8
+			),
+			'metaRowGap' => array(
+				'type' => 'number',
+				'default' => 12
+			),
+			'metaMargin' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
+				)
+			),
+			'metaSeparatorStyle' => array(
+				'type' => 'string',
+				'default' => 'space'
+			),
+			'metaSeparatorColor' => array(
+				'type' => 'string',
+				'default' => '#000000'
+			),
+			'contentEffect' => array(
+				'type' => 'string',
+				'default' => 'default'
+			),
+			'contentBackGroundStyles' => array(
+				'type' => 'object',
+				'default' => array(
+					'type' => 'transparent',
+					'background' => '#000000'
+				)
 			)
 		),
 		'render' => 'file:./render.php',

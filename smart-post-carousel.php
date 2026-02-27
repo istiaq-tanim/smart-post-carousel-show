@@ -52,6 +52,13 @@ add_action(
 add_action(
 	'enqueue_block_editor_assets',
 	function () {
+		wp_enqueue_style(
+			'font-awesome',
+			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
+			array(),
+			'6.5.0'
+		);
+
 		wp_enqueue_script(
 			'spcp-editor-script',
 			plugins_url( 'build/index.js', __FILE__ ),
@@ -80,6 +87,13 @@ add_action(
 		if ( ! has_block( 'smart-post-carousel/carousel' ) ) {
 			return;
 		}
+
+		wp_enqueue_style(
+			'font-awesome',
+			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
+			array(),
+			'6.5.0'
+		);
 
 		wp_enqueue_script(
 			'smart-post-carousel-frontend',

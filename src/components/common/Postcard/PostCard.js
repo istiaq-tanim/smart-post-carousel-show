@@ -1,9 +1,9 @@
+import { useMemo } from "@wordpress/element";
 import { getPostDate } from "../../../../utils";
 import { useDeviceType } from "../../../hooks/useDevice";
-import AuthorMeta from "./AuthorMetaItem";
+
 import CategoryList from "./CategoryList";
-import MetaItem from "./MetaItem";
-import { ReadingTime } from "./ReadingTime";
+import getContentElement from "./renderers/getContentElement";
 
 function PostCard({ post, attributes }) {
 	const title = post?.title;
@@ -17,6 +17,16 @@ function PostCard({ post, attributes }) {
 		metaDataAllContentArray = [],
 		metaDisplayType,
 		authorDisplayStyle,
+		allContentArray,
+		authorIcon,
+		metaColor,
+		dateFormat,
+		metaRowGap,
+		metaColumnGap,
+		metaMargin,
+		metaSeparatorStyle,
+		metaSeparatorColor,
+		metaTypo,
 	} = attributes;
 
 	const author =
@@ -42,39 +52,72 @@ function PostCard({ post, attributes }) {
 		equalHeight ? " equal-height" : ""
 	}`;
 
-	const getMetaElement = (item) => {
-		switch (item.value) {
-			case "author":
-				return (
-					<AuthorMeta
-						key="author"
-						author={author}
-						authorAvatar={authorAvatar}
-						authorDisplayType={authorDisplayStyle}
-					/>
-				);
-			case "date":
-				return orientation !== "orientation_two" ? (
-					<MetaItem key="date" icon="date" text={postDate.meta} />
-				) : null;
-			case "comments":
-				return <MetaItem key="comments" icon="comments" text={commentsCount} />;
-			case "views":
-				return <MetaItem key="views" icon="views" text={views} />;
-			case "likes":
-				return <MetaItem key="likes" icon="likes" text={likes} />;
-			case "reading-time":
-				return (
-					<ReadingTime
-						key="reading-time"
-						content={post.content}
-						attributes={attributes}
-					/>
-				);
-			default:
-				return null;
-		}
-	};
+	const metaContext = useMemo(
+		() => ({
+			author,
+			authorAvatar,
+			authorDisplayStyle,
+			postDate,
+			commentsCount,
+			views,
+			likes,
+			post,
+			attributes,
+			orientation,
+			authorIcon,
+			dateFormat,
+			metaColor,
+			metaTypo,
+		}),
+		[
+			author,
+			authorAvatar,
+			authorDisplayStyle,
+			postDate,
+			commentsCount,
+			views,
+			likes,
+			post,
+			attributes,
+			orientation,
+			authorIcon,
+			dateFormat,
+			metaColor,
+			metaTypo,
+		],
+	);
+	const contentContext = useMemo(
+		() => ({
+			post,
+			title,
+			orientation,
+			contentAlignment,
+			metaDataAllContentArray,
+			metaDisplayType,
+			metaContext,
+			metaColor,
+			metaRowGap,
+			metaColumnGap,
+			metaMargin,
+			metaSeparatorStyle,
+			metaSeparatorColor,
+		}),
+		[
+			post,
+			title,
+			orientation,
+			contentAlignment,
+			metaDataAllContentArray,
+			metaDisplayType,
+			metaContext,
+			metaColor,
+			metaRowGap,
+			metaColumnGap,
+			metaMargin,
+			metaSeparatorStyle,
+			metaSeparatorColor,
+		],
+	);
 
 	return (
 		<div
@@ -106,38 +149,7 @@ function PostCard({ post, attributes }) {
 				className="sp-smart-post-carousel-template-content"
 				style={{ "--alignment": `${contentAlignment}` }}
 			>
-				{orientation !== "orientation_three" && (
-					<CategoryList categories={post.category} />
-				)}
-
-				<h3
-					className="sp-smart-post-carousel-card-title"
-					dangerouslySetInnerHTML={{ __html: title }}
-				/>
-
-				<div
-					className={`sp-smart-post-carousel-card-meta-wrapper ${metaDisplayType}`}
-				>
-					{metaDisplayType === "split" ? (
-						<>
-							<div className="sp-smart-post-carousel-meta-left">
-								{metaDataAllContentArray
-									.filter((item) => item.show && item.position === "left")
-									.map((item) => getMetaElement(item))}
-							</div>
-
-							<div className="sp-smart-post-carousel-meta-right">
-								{metaDataAllContentArray
-									.filter((item) => item.show && item.position === "right")
-									.map((item) => getMetaElement(item))}
-							</div>
-						</>
-					) : (
-						metaDataAllContentArray
-							.filter((item) => item.show)
-							.map((item) => getMetaElement(item))
-					)}
-				</div>
+				{allContentArray.map((item) => getContentElement(item, contentContext))}
 			</div>
 		</div>
 	);

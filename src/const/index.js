@@ -12,8 +12,11 @@ import {
 	TriangleOutline,
 } from "../smart-post-carousel/assets/arrowIcons";
 import {
+	BgIcon,
 	CarouselStandardIcon,
 	CarouselTickerIcon,
+	GradientIcon,
+	TransparentIcon,
 } from "../smart-post-carousel/assets/icon";
 import {
 	OrientationFourIcon,
@@ -28,6 +31,16 @@ import {
 	ScrollbarPagination,
 	StrokesPagination,
 } from "../smart-post-carousel/assets/paginationIcon";
+import {
+	BasicOutline,
+	Circle,
+	Female,
+	Minimal,
+	Outline,
+	Rounded,
+	UserAuthor,
+	UserSolid,
+} from "../smart-post-carousel/assets/userIcon";
 
 export const LayoutItems = [
 	{
@@ -127,6 +140,48 @@ export const authorDisplayStyle = [
 	{
 		label: "Author Name with Icon",
 		value: "iconName",
+	},
+];
+export const metaSeparatorStyles = [
+	{
+		disabled: true,
+		label: "Select a Separator",
+		value: "",
+	},
+	{
+		label: "Normal Space",
+		value: "space",
+	},
+	{
+		label: "Full Stop (.)",
+		value: "fullStop",
+	},
+	{
+		label: "Straight Line (|)",
+		value: "straight",
+	},
+	{
+		label: "Slash (/)",
+		value: "slash",
+	},
+	{
+		label: "Back Slash",
+		value: "backSlash",
+	},
+];
+export const dateFormat = [
+	{
+		disabled: true,
+		label: "Select Date Format",
+		value: "",
+	},
+	{
+		label: "Default",
+		value: "default",
+	},
+	{
+		label: "Time Ago (Human Time)",
+		value: "timeAgo",
 	},
 ];
 export const animationEffect = [
@@ -287,3 +342,104 @@ export const getRenderBullet = (paginationStyle) => {
 				`<span class="${className} sp-pagination-dot"></span>`;
 	}
 };
+
+export const userIcons = [
+	{
+		label: "Outline",
+		value: "outline",
+		icon: <Outline />,
+	},
+	{
+		label: "Basic Outline",
+		value: "basic-outline",
+		icon: <BasicOutline />,
+	},
+	{
+		label: "Solid",
+		value: "user-solid",
+		icon: <UserSolid />,
+	},
+	{
+		label: "Profile Rounded",
+		value: "rounded",
+		icon: <Rounded />,
+	},
+	{
+		label: "Profile Circle",
+		value: "circle",
+		icon: <Circle />,
+	},
+	{
+		label: "Female",
+		value: "female",
+		icon: <Female />,
+	},
+	{
+		label: "Author",
+		value: "author",
+		icon: <UserAuthor />,
+	},
+	{
+		label: "Minimal",
+		value: "minimal",
+		icon: <Minimal />,
+	},
+];
+
+export const fontFamilyOptions = [
+	{ label: "Roboto", value: "Roboto" },
+	{ label: "Tahoma", value: "Tahoma" },
+	{ label: "Arial", value: "Arial" },
+	{ label: "Georgia", value: "Georgia" },
+	{ label: "Times New Roman", value: "Times New Roman" },
+	{ label: "Courier New", value: "Courier New" },
+	{ label: "Verdana", value: "Verdana" },
+];
+
+export const fontWeight = [
+	{ label: "200", value: "200" },
+	{ label: "400", value: "400" },
+	{ label: "600", value: "600" },
+	{ label: "800", value: "800" },
+];
+
+export const tags = [
+	{
+		label: "Default",
+		value: "div",
+	},
+	{
+		label: "Heading h1",
+		value: "h1",
+	},
+	{
+		label: "Heading h2",
+		value: "h2",
+	},
+	{
+		label: "Heading h3",
+		value: "h3",
+	},
+	{
+		label: "Body",
+		value: "body",
+	},
+];
+
+export const backGroundStyles = [
+	{
+		name: "transparent",
+		title: "Transparent",
+		icon: TransparentIcon,
+	},
+	{
+		name: "solid",
+		title: "solid",
+		icon: BgIcon,
+	},
+	{
+		name: "gradient",
+		title: "gradient",
+		icon: GradientIcon,
+	},
+];
