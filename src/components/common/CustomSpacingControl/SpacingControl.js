@@ -96,7 +96,7 @@ function SpacingControl({
 
 						{showUnit && (
 							<UnitDropdown
-								value={currentValues.type || "outset"}
+								value={currentValues.type}
 								options={options}
 								onChange={handleUnitChange}
 							/>

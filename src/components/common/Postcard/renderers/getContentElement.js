@@ -1,5 +1,7 @@
+import { useDeviceType } from "../../../../hooks/useDevice";
 import { FacebookIcon } from "../../../../smart-post-carousel/assets/icon";
 import CategoryList from "../CategoryList";
+import MetaSeparator from "../MetaSeparator";
 import getMetaElement from "./getMetaElement";
 
 const getContentElement = (
@@ -11,9 +13,16 @@ const getContentElement = (
 		metaDataAllContentArray,
 		metaDisplayType,
 		metaContext,
-		metaColor,
+		metaColumnGap,
+		metaRowGap,
+		metaMargin,
+		metaSeparatorStyle,
+		metaSeparatorColor,
 	},
 ) => {
+	const deviceType = useDeviceType();
+	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
+
 	switch (item.value) {
 		case "category":
 			return orientation !== "orientation_three" ? (
@@ -30,29 +39,63 @@ const getContentElement = (
 			);
 
 		case "meta":
+			const visibleItems = metaDataAllContentArray.filter((i) => i.show);
 			return (
 				<div
 					key="meta"
 					className={`sp-smart-post-carousel-card-meta-wrapper ${metaDisplayType}`}
-					style={{ color: metaColor }}
+					style={{
+						"--meta-column-gap": `${metaColumnGap ?? 8}px`,
+						"--meta-row-gap": `${metaRowGap ?? 12}px`,
+						"--meta-margin": `${metaMargin[normalizedDeviceType]?.top ?? 0}px ${
+							metaMargin[normalizedDeviceType]?.right ?? 0
+						}px ${metaMargin[normalizedDeviceType]?.bottom ?? 0}px ${
+							metaMargin[normalizedDeviceType]?.left ?? 0
+						}px`,
+						"--metaSeparatorColor": `${metaSeparatorColor ?? "#000000"}`,
+						"--meta-font-family": metaContext?.metaTypo?.family ?? "inherit",
+						"--meta-font-size": `${metaContext?.metaTypo?.fontSize ?? 12}px`,
+						"--meta-font-weight": metaContext?.metaTypo?.weight ?? 400,
+						"--meta-line-height": metaContext?.metaTypo?.height ?? 1.5,
+						"--meta-letter-spacing": `${metaContext?.metaTypo?.spacing ?? 0}px`,
+					}}
 				>
 					{metaDisplayType === "split" ? (
 						<>
 							<div className="sp-smart-post-carousel-meta-left">
 								{metaDataAllContentArray
 									.filter((i) => i.show && i.position === "left")
-									.map((i) => getMetaElement(i, metaContext))}
+									.map((i, index, arr) => (
+										<>
+											{getMetaElement(i, metaContext)}
+											{index < arr.length - 1 && (
+												<MetaSeparator type={metaSeparatorStyle} />
+											)}
+										</>
+									))}
 							</div>
 							<div className="sp-smart-post-carousel-meta-right">
 								{metaDataAllContentArray
 									.filter((i) => i.show && i.position === "right")
-									.map((i) => getMetaElement(i, metaContext))}
+									.map((i, index, arr) => (
+										<>
+											{getMetaElement(i, metaContext)}
+											{index < arr.length - 1 && (
+												<MetaSeparator type={metaSeparatorStyle} />
+											)}
+										</>
+									))}
 							</div>
 						</>
 					) : (
-						metaDataAllContentArray
-							.filter((i) => i.show)
-							.map((i) => getMetaElement(i, metaContext))
+						visibleItems.map((i, index) => (
+							<>
+								{getMetaElement(i, metaContext)}
+								{index < visibleItems.length - 1 && (
+									<MetaSeparator type={metaSeparatorStyle} />
+								)}
+							</>
+						))
 					)}
 				</div>
 			);

@@ -1,11 +1,8 @@
 import { useMemo } from "@wordpress/element";
 import { getPostDate } from "../../../../utils";
 import { useDeviceType } from "../../../hooks/useDevice";
-import { FacebookIcon } from "../../../smart-post-carousel/assets/icon";
 
 import CategoryList from "./CategoryList";
-
-import getMetaElement from "./renderers/getMetaElement";
 import getContentElement from "./renderers/getContentElement";
 
 function PostCard({ post, attributes }) {
@@ -24,6 +21,12 @@ function PostCard({ post, attributes }) {
 		authorIcon,
 		metaColor,
 		dateFormat,
+		metaRowGap,
+		metaColumnGap,
+		metaMargin,
+		metaSeparatorStyle,
+		metaSeparatorColor,
+		metaTypo,
 	} = attributes;
 
 	const author =
@@ -64,6 +67,7 @@ function PostCard({ post, attributes }) {
 			authorIcon,
 			dateFormat,
 			metaColor,
+			metaTypo,
 		}),
 		[
 			author,
@@ -79,6 +83,7 @@ function PostCard({ post, attributes }) {
 			authorIcon,
 			dateFormat,
 			metaColor,
+			metaTypo,
 		],
 	);
 	const contentContext = useMemo(
@@ -91,6 +96,11 @@ function PostCard({ post, attributes }) {
 			metaDisplayType,
 			metaContext,
 			metaColor,
+			metaRowGap,
+			metaColumnGap,
+			metaMargin,
+			metaSeparatorStyle,
+			metaSeparatorColor,
 		}),
 		[
 			post,
@@ -101,6 +111,11 @@ function PostCard({ post, attributes }) {
 			metaDisplayType,
 			metaContext,
 			metaColor,
+			metaRowGap,
+			metaColumnGap,
+			metaMargin,
+			metaSeparatorStyle,
+			metaSeparatorColor,
 		],
 	);
 

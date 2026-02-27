@@ -20,8 +20,6 @@ function CustomColorPicker({
 		setIsOpen(false);
 	};
 
-	console.log(value);
-
 	return (
 		<div className="custom-color-picker-control">
 			<div className="color-picker-control">

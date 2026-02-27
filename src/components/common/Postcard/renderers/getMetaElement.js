@@ -1,4 +1,3 @@
-import { userIcons } from "../../../../const";
 import AuthorMeta from "../AuthorMetaItem";
 import MetaItem from "../MetaItem";
 import { ReadingTime } from "../ReadingTime";
@@ -19,6 +18,7 @@ const getMetaElement = (
 		authorIcon,
 		dateFormat,
 		metaColor,
+		metaTypo,
 	},
 ) => {
 	switch (item.value) {
@@ -26,6 +26,7 @@ const getMetaElement = (
 			return (
 				<AuthorMeta
 					key="author"
+					typo={metaTypo}
 					author={author}
 					authorAvatar={authorAvatar}
 					authorIconStyle={authorIcon}
@@ -37,20 +38,42 @@ const getMetaElement = (
 			return orientation !== "orientation_two" ? (
 				<MetaItem
 					key="date"
+					color={metaColor}
+					typo={metaTypo}
 					icon="date"
 					text={dateFormat === "timeAgo" ? postDate.timeAgo : postDate.meta}
 				/>
 			) : null;
 		case "comments":
-			return <MetaItem key="comments" icon="comments" text={commentsCount} />;
+			return (
+				<MetaItem
+					key="comments"
+					color={metaColor}
+					typo={metaTypo}
+					icon="comments"
+					text={commentsCount}
+				/>
+			);
 		case "views":
-			return <MetaItem key="views" icon="views" text={views} />;
+			return (
+				<MetaItem
+					key="views"
+					color={metaColor}
+					icon="views"
+					typo={metaTypo}
+					text={views}
+				/>
+			);
 		case "likes":
-			return <MetaItem key="likes" icon="likes" text={likes} />;
+			return (
+				<MetaItem key="likes" color={metaColor} icon="likes" text={likes} />
+			);
 		case "reading-time":
 			return (
 				<ReadingTime
 					key="reading-time"
+					typo={metaTypo}
+					color={metaColor}
 					content={post.content}
 					attributes={attributes}
 				/>

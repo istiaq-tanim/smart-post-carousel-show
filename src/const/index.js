@@ -12,8 +12,11 @@ import {
 	TriangleOutline,
 } from "../smart-post-carousel/assets/arrowIcons";
 import {
+	BgIcon,
 	CarouselStandardIcon,
 	CarouselTickerIcon,
+	GradientIcon,
+	TransparentIcon,
 } from "../smart-post-carousel/assets/icon";
 import {
 	OrientationFourIcon,
@@ -137,6 +140,33 @@ export const authorDisplayStyle = [
 	{
 		label: "Author Name with Icon",
 		value: "iconName",
+	},
+];
+export const metaSeparatorStyles = [
+	{
+		disabled: true,
+		label: "Select a Separator",
+		value: "",
+	},
+	{
+		label: "Normal Space",
+		value: "space",
+	},
+	{
+		label: "Full Stop (.)",
+		value: "fullStop",
+	},
+	{
+		label: "Straight Line (|)",
+		value: "straight",
+	},
+	{
+		label: "Slash (/)",
+		value: "slash",
+	},
+	{
+		label: "Back Slash",
+		value: "backSlash",
 	},
 ];
 export const dateFormat = [
@@ -376,7 +406,7 @@ export const fontWeight = [
 export const tags = [
 	{
 		label: "Default",
-		value: "p",
+		value: "div",
 	},
 	{
 		label: "Heading h1",
@@ -393,5 +423,23 @@ export const tags = [
 	{
 		label: "Body",
 		value: "body",
+	},
+];
+
+export const backGroundStyles = [
+	{
+		name: "transparent",
+		title: "Transparent",
+		icon: TransparentIcon,
+	},
+	{
+		name: "solid",
+		title: "solid",
+		icon: BgIcon,
+	},
+	{
+		name: "gradient",
+		title: "gradient",
+		icon: GradientIcon,
 	},
 ];

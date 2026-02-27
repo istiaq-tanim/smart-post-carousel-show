@@ -485,19 +485,75 @@
       "default": "normal"
     },
     "metaColor": {
-      "type": "string",
-      "default": "#4e6e3e"
-    },
-    "meta": {
       "type": "object",
       "default": {
-        "tags": "p",
+        "normal": "#4e6e3e",
+        "hover": ""
+      }
+    },
+    "metaTypo": {
+      "type": "object",
+      "default": {
+        "tags": "div",
         "family": "Roboto",
-        "fontSize": 16,
+        "fontSize": 14,
         "weight": 400,
-        "height": 1.5,
+        "height": 1.2,
         "spacing": 0,
         "text": "List item title"
+      }
+    },
+    "metaColumnGap": {
+      "type": "number",
+      "default": 8
+    },
+    "metaRowGap": {
+      "type": "number",
+      "default": 12
+    },
+    "metaMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "metaSeparatorStyle": {
+      "type": "string",
+      "default": "space"
+    },
+    "metaSeparatorColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "contentEffect": {
+      "type": "string",
+      "default": "default"
+    },
+    "contentBackGroundStyles": {
+      "type": "object",
+      "default": {
+        "type": "transparent",
+        "background": "#000000"
       }
     }
   },

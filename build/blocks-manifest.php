@@ -490,19 +490,75 @@ return array(
 				'default' => 'normal'
 			),
 			'metaColor' => array(
-				'type' => 'string',
-				'default' => '#4e6e3e'
-			),
-			'meta' => array(
 				'type' => 'object',
 				'default' => array(
-					'tags' => 'p',
+					'normal' => '#4e6e3e',
+					'hover' => ''
+				)
+			),
+			'metaTypo' => array(
+				'type' => 'object',
+				'default' => array(
+					'tags' => 'div',
 					'family' => 'Roboto',
-					'fontSize' => 16,
+					'fontSize' => 14,
 					'weight' => 400,
-					'height' => 1.5,
+					'height' => 1.2,
 					'spacing' => 0,
 					'text' => 'List item title'
+				)
+			),
+			'metaColumnGap' => array(
+				'type' => 'number',
+				'default' => 8
+			),
+			'metaRowGap' => array(
+				'type' => 'number',
+				'default' => 12
+			),
+			'metaMargin' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
+				)
+			),
+			'metaSeparatorStyle' => array(
+				'type' => 'string',
+				'default' => 'space'
+			),
+			'metaSeparatorColor' => array(
+				'type' => 'string',
+				'default' => '#000000'
+			),
+			'contentEffect' => array(
+				'type' => 'string',
+				'default' => 'default'
+			),
+			'contentBackGroundStyles' => array(
+				'type' => 'object',
+				'default' => array(
+					'type' => 'transparent',
+					'background' => '#000000'
 				)
 			)
 		),

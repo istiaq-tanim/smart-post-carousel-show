@@ -35,3 +35,51 @@
 		cursor: grab;
 	}
 }
+
+.background-style {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 16px 16px 0;
+
+	span {
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+	&__buttons {
+		display: flex;
+		gap: 8px;
+	}
+
+	&__btn {
+		padding: 3px;
+		border: 1px solid transparent;
+		border-radius: 2px;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: transparent;
+		line-height: 0;
+
+		span {
+			display: none;
+		}
+
+		svg {
+			display: block;
+			width: 16px;
+			height: 16px;
+		}
+
+		&:hover {
+			color: #641dd7;
+			border-color: #641dd7;
+		}
+
+		&.active {
+			border-color: #884ae3;
+		}
+	}
+}

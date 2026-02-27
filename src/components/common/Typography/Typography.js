@@ -37,9 +37,7 @@ function Typography({ label, onChange = () => {}, values, attributeKey }) {
 			{isOpen && (
 				<Popover onClose={() => setIsOpen(false)} placement="bottom-end">
 					<div style={{ padding: "20px", minWidth: "450px" }}>
-						<h3 style={{ marginTop: 0, marginBottom: "16px" }}>
-							{label} Typography
-						</h3>
+						<h3 style={{ marginTop: 0, marginBottom: "16px" }}>{label}</h3>
 
 						<CustomSelection
 							label="Select Global Style"
