@@ -75,8 +75,21 @@
   height: var(--cardHeight);
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--card-bg, transparent);
+  border-width: var(--card-border-width, 1px);
   overflow: hidden;
+  border-style: var(--card-border, none);
+  border-color: var(--card-border-color);
+  border-radius: var(--card-border-radius, 0px);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card:hover {
+  background: var(--card-hover-bg, transparent);
+  border-width: var(--card-hover-border-width, var(--card-border-width, 1px));
+  border-style: var(--card-hover-border);
+  border-color: var(--card-hover-border-color);
+  border-radius: var(--card-hover-border-radius, var(--card-border-radius, 0px));
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card {
   /* IMAGE */
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image {
@@ -290,9 +303,12 @@
   /*  ORIENTATION FOUR — Overlay Category  */
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four {
-  background: #f2f2f2;
+  background: var(--card-bg, #f2f2f2);
   display: flex;
   flex-direction: column;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four:hover {
+  background: var(--card-hover-bg, var(--card-bg, #f2f2f2));
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-category {
   position: absolute;

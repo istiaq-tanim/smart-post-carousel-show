@@ -27,10 +27,19 @@ function PostCard({ post, attributes }) {
 		metaSeparatorStyle,
 		metaSeparatorColor,
 		metaTypo,
+		contentBackGroundStyles,
+		contentBorderStyle,
+		contentHoverBorderStyle,
+		contentBorderWidthNormal,
+		contentBorderWidthHover,
+		contentBorderColorNormal,
+		contentBorderColorHover,
+		contentBorderRadiusNormal,
+		contentBorderRadiusHover
 	} = attributes;
 
 	const author =
-		post?._embedded?.author?.[0]?.name || post?.author || "Salah Uddin";
+		post?._embedded?.author?.[0]?.name || post?.author || "Kazi Istiaq Mahamud";
 
 	const postDate = getPostDate(post);
 
@@ -48,9 +57,8 @@ function PostCard({ post, attributes }) {
 		? post?.author_avatar_url
 		: "`https://www.gravatar.com/avatar/?d=mp&s=48`;";
 
-	const cardClassName = `sp-smart-post-carousel-card ${orientation}${
-		equalHeight ? " equal-height" : ""
-	}`;
+	const cardClassName = `sp-smart-post-carousel-card ${orientation}${equalHeight ? " equal-height" : ""
+		}`;
 
 	const metaContext = useMemo(
 		() => ({
@@ -119,6 +127,23 @@ function PostCard({ post, attributes }) {
 		],
 	);
 
+	const bgType = contentBackGroundStyles?.type || "transparent";
+	const hoverBgType = contentBackGroundStyles?.hoverType || "transparent";
+
+	const normalBg =
+		bgType === "gradient"
+			? contentBackGroundStyles?.gradientBackground
+			: bgType === "solid"
+				? contentBackGroundStyles?.solidBackground
+				: null;
+
+	const hoverBg =
+		hoverBgType === "gradient"
+			? contentBackGroundStyles?.hoverGradientBackground
+			: hoverBgType === "solid"
+				? contentBackGroundStyles?.hoverSolidBackground
+				: null;
+
 	return (
 		<div
 			className={cardClassName}
@@ -126,6 +151,16 @@ function PostCard({ post, attributes }) {
 				"--cardHeight": !equalHeight
 					? `${height[normalizedDeviceType]}px`
 					: undefined,
+				...(normalBg && { "--card-bg": normalBg }),
+				...(hoverBg && { "--card-hover-bg": hoverBg }),
+				"--card-border": contentBorderStyle || "none",
+				"--card-hover-border": contentHoverBorderStyle || "none",
+				"--card-border-width": `${contentBorderWidthNormal[normalizedDeviceType] || 1}px`,
+				"--card-hover-border-width": `${contentBorderWidthHover[normalizedDeviceType] || 1}px`,
+				"--card-border-color": contentBorderColorNormal || "#000",
+				"--card-hover-border-color": contentBorderColorHover || "#000",
+				"--card-border-radius": `${contentBorderRadiusNormal?.[normalizedDeviceType] ?? 0}px`,
+				"--card-hover-border-radius": `${contentBorderRadiusHover?.[normalizedDeviceType] ?? 0}px`
 			}}
 		>
 			{/* IMAGE */}

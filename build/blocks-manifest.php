@@ -558,7 +558,59 @@ return array(
 				'type' => 'object',
 				'default' => array(
 					'type' => 'transparent',
-					'background' => '#000000'
+					'hoverType' => 'transparent',
+					'solidBackground' => '#fff',
+					'gradientBackground' => '',
+					'hoverSolidBackground' => '#fff',
+					'hoverGradientBackground' => ''
+				)
+			),
+			'contentBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'contentHoverBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'contentBorderWidthNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'contentBorderWidthHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'contentBorderColorNormal' => array(
+				'type' => 'string',
+				'default' => '#000000'
+			),
+			'contentBorderColorHover' => array(
+				'type' => 'string',
+				'default' => '#000000'
+			),
+			'contentBorderRadiusNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'contentBorderRadiusHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
 				)
 			)
 		),

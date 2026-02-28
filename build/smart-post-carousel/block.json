@@ -553,7 +553,59 @@
       "type": "object",
       "default": {
         "type": "transparent",
-        "background": "#000000"
+        "hoverType": "transparent",
+        "solidBackground": "#fff",
+        "gradientBackground": "",
+        "hoverSolidBackground": "#fff",
+        "hoverGradientBackground": ""
+      }
+    },
+    "contentBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "contentHoverBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "contentBorderWidthNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "contentBorderWidthHover": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "contentBorderColorNormal": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "contentBorderColorHover": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "contentBorderRadiusNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "contentBorderRadiusHover": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
       }
     }
   },
