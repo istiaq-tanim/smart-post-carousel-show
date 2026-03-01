@@ -37,9 +37,8 @@ function SwiperNavigationButton({
 
 	return (
 		<div
-			className={`sp-smart-post-carousel-swiper-nav-arrow ${
-				visibilityOnHover ? "visible-on-hover" : ""
-			}`}
+			className={`sp-smart-post-carousel-swiper-nav-arrow ${visibilityOnHover ? "visible-on-hover" : ""
+				}`}
 			style={{
 				"--iconBackGroundHeight": `${iconHeight[normalizedDeviceType]}px`,
 				"--iconBackGroundWidth": `${iconWidth[normalizedDeviceType]}px`,
@@ -59,19 +58,15 @@ function SwiperNavigationButton({
 					"--borderColor": borderColor,
 				}),
 				"--borderRadius": `${borderRadius[normalizedDeviceType].top}px ${borderRadius[normalizedDeviceType].right}px ${borderRadius[normalizedDeviceType].bottom}px ${borderRadius[normalizedDeviceType].left}px`,
-				"--boxShadow": `${
-					boxShadow[normalizedDeviceType].type === "inset" ? "inset" : ""
-				} ${boxShadow[normalizedDeviceType].xOffset}px ${
-					boxShadow[normalizedDeviceType].yOffset
-				}px ${boxShadow[normalizedDeviceType].blur}px ${
-					boxShadow[normalizedDeviceType].spread
-				}px ${shadowColor}`,
+				"--boxShadow": `${boxShadow[normalizedDeviceType].type === "inset" ? "inset" : ""
+					} ${boxShadow[normalizedDeviceType].xOffset}px ${boxShadow[normalizedDeviceType].yOffset
+					}px ${boxShadow[normalizedDeviceType].blur}px ${boxShadow[normalizedDeviceType].spread
+					}px ${shadowColor}`,
 			}}
 		>
 			<span
-				className={`sp-smart-post-carousel-swiper-nav-arrow-btn prev-btn ${
-					hasBorder ? "has-border" : ""
-				}`}
+				className={`sp-smart-post-carousel-swiper-nav-arrow-btn prev-btn ${hasBorder ? "has-border" : ""
+					}`}
 				ref={swiperPrevButtonRef}
 				style={{ fontSize: `${iconSize[normalizedDeviceType]}px` }}
 			>
@@ -79,9 +74,8 @@ function SwiperNavigationButton({
 			</span>
 
 			<span
-				className={`sp-smart-post-carousel-swiper-nav-arrow-btn next-btn ${
-					hasBorder ? "has-border" : ""
-				}`}
+				className={`sp-smart-post-carousel-swiper-nav-arrow-btn next-btn ${hasBorder ? "has-border" : ""
+					}`}
 				ref={swiperNextButtonRef}
 				style={{ fontSize: `${iconSize[normalizedDeviceType]}px` }}
 			>

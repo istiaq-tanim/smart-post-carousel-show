@@ -17,6 +17,10 @@
 			display: flex;
 		}
 
+		.sp-smart-post-carousel-card.equal-height {
+			flex: 1;
+		}
+
 		.swiper-button-prev,
 		.swiper-button-next {
 			color: #4e98f3;
@@ -81,15 +85,17 @@
 	.sp-smart-post-carousel-card {
 		transition: all 0.3s ease;
 		width: 100%;
-		height: var(--cardHeight);
+		height: var(--cardHeight, auto);
 		display: flex;
 		flex-direction: column;
 		background: var(--card-bg, transparent);
 		border-width: var(--card-border-width, 1px);
-		overflow: hidden;
 		border-style: var(--card-border, none);
 		border-color: var(--card-border-color);
 		border-radius: var(--card-border-radius, 0px);
+		box-shadow: var(--contentBoxShadow);
+
+		transition: all 0.3s ease;
 
 		&:hover {
 			background: var(--card-hover-bg, transparent);
@@ -105,11 +111,18 @@
 			);
 		}
 
+		.sp-smart-post-carousel-card-wrapper {
+			padding: var(--card-padding, 0px);
+			margin: var(--card-Margin, 0px);
+		}
+
 		/* IMAGE */
 		&-image {
 			position: relative;
 			width: 100%;
 			height: 245px;
+			min-height: 245px;
+			flex-shrink: 0;
 			overflow: hidden;
 
 			img {
@@ -126,9 +139,10 @@
 		}
 
 		.sp-smart-post-carousel-template-content {
+			flex: 1;
 			display: flex;
 			flex-direction: column;
-			padding-top: 10px;
+			padding: var(--card-innerPadding);
 			align-items: var(--alignment);
 			&[style*="--alignment: flex-start"] {
 				text-align: left;
@@ -165,6 +179,7 @@
 			row-gap: var(--meta-row-gap, 12px);
 			margin: var(--meta-margin);
 			justify-content: var(--alignment);
+			margin-top: 6px;
 			.sp-smart-post-carousel-meta-separator {
 				display: flex;
 				align-items: center;
@@ -179,10 +194,10 @@
 	}
 
 	/* Equal height override - MOVED OUTSIDE the card base */
-	.sp-smart-post-carousel-card.equal-height {
-		height: 100%;
-		min-height: 100%;
-	}
+	// .sp-smart-post-carousel-card.equal-height {
+	// 	height: 100%;
+	// 	min-height: 100%;
+	// }
 
 	/* ---------------- META ITEM ---------------- */
 
@@ -376,11 +391,11 @@
 	}
 
 	/* Fix for orientation_four with equal-height */
-	.sp-smart-post-carousel-card.orientation_four.equal-height {
-		.sp-smart-post-carousel-template-content {
-			min-height: 0;
-		}
-	}
+	// .sp-smart-post-carousel-card.orientation_four.equal-height {
+	// 	.sp-smart-post-carousel-template-content {
+	// 		min-height: 0;
+	// 	}
+	// }
 
 	/* Excerpt Style */
 
@@ -612,7 +627,7 @@
 	}
 
 	.custom-range-control {
-		margin-bottom: 16px;
+		margin: 16px 0px;
 	}
 
 	/* ─── Base Wrapper ─── */

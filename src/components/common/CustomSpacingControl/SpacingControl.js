@@ -2,13 +2,13 @@ import { useRef } from "react";
 import { useDeviceType } from "../../../hooks/useDevice";
 import {
 	Link,
-	Unlink,
 	ResetIcon,
+	Unlink,
 } from "../../../smart-post-carousel/assets/icon";
 import DeviceDropdown from "../CustomRangeControl/DeviceDropDown";
+import UnitDropdown from "../UnitDropDown/UnitDropDown";
 import NumberControl from "./NumberControl";
 import "./editor.scss";
-import UnitDropdown from "../UnitDropDown/UnitDropDown";
 
 function SpacingControl({
 	label,
@@ -19,10 +19,12 @@ function SpacingControl({
 	},
 	showLabels = false,
 	labels = {},
-	onChange = () => {},
+	onChange = () => { },
 	step = 4,
 	showUnit,
 	options,
+	min = 0,
+	max = 100
 }) {
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
@@ -43,9 +45,9 @@ function SpacingControl({
 	const handleValueChange = (field, value) => {
 		const updateDeviceValue = currentValues.linked
 			? {
-					...currentValues,
-					...fields.reduce((acc, key) => ({ ...acc, [key]: value }), {}),
-			  }
+				...currentValues,
+				...fields.reduce((acc, key) => ({ ...acc, [key]: value }), {}),
+			}
 			: { ...currentValues, [field]: value };
 
 		onChange({ ...values, [normalizedDeviceType]: updateDeviceValue });
@@ -110,7 +112,8 @@ function SpacingControl({
 						<NumberControl
 							value={currentValues[field] ?? 0}
 							step={step}
-							min={0}
+							min={min}
+							max={max}
 							onChange={(val) => handleValueChange(field, val)}
 						/>
 						{showLabels && (

@@ -4,12 +4,14 @@ import { DashedBorder, DottedBorder, DoubleBorder, SolidBorder } from "../../sma
 import BackgroundStyle from "../common/Background/Background";
 import CustomColorPicker from "../common/CustomColorPicker/CustomColorPicker";
 import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
+import SpacingControl from "../common/CustomSpacingControl/SpacingControl";
+import CustomToggle from "../common/CustomToggle/CustomToggle";
 import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
+import Divider from "../common/Divider/Divider";
 
 function Style() {
 	const { attributes, setAttributes } = useAttributes();
-	const { contentBackGroundStyles, contentEffect, contentBorderColorNormal, contentBorderColorHover } = attributes;
-
+	const { contentBackGroundStyles, contentEffect, contentBorderColorNormal, contentBorderColorHover, contentPadding, contentInnerPadding, contentMargin, showContentBoxShadow, contentBoxShadow, contentBoxShadowColor } = attributes;
 
 	return (
 		<>
@@ -77,8 +79,86 @@ function Style() {
 				showUnit={true}
 				step={1}
 			></CustomRangeControl>
+
+
+
+			{/* Enable Button For Showing Shadow Options */}
+
+			<CustomToggle
+				label={__("Enable Box Shadow", "smart-post-carousel")}
+				value={showContentBoxShadow}
+				attributesKey="showContentBoxShadow"
+				setAttributes={setAttributes}
+			/>
+
+			{/* Box Shadow */}
+
+			{showContentBoxShadow && (
+				<>
+					<SpacingControl
+						values={contentBoxShadow}
+						label="Box Shadow"
+						showLabels={true}
+						labels={{
+							top: "X Offset",
+							right: "Y Offset",
+							bottom: "Blur",
+							left: "Speared",
+						}}
+						showUnit={true}
+						step={1}
+						onChange={(values) => setAttributes({ contentBoxShadow: values })}
+						options={["outset", "inset"]}
+					></SpacingControl>
+
+					{/* Icon Border Color */}
+					<CustomColorPicker
+						label="Shadow Color"
+						defaultValue="#d6d8de"
+						onChange={(value) => setAttributes({ contentBoxShadowColor: value })}
+						value={contentBoxShadowColor}
+					></CustomColorPicker>
+				</>
+			)}
+
+			<Divider></Divider>
+
+			{/* Padding */}
+
+			<SpacingControl
+				values={contentPadding}
+				min={0}
+				max={48}
+				label="Padding"
+				onChange={(values) => setAttributes({ contentPadding: values })}
+			></SpacingControl>
+
+			{/* Inner Padding */}
+
+			<SpacingControl
+				values={contentInnerPadding}
+				min={0}
+				max={48}
+				label="Inner Padding"
+				onChange={(values) => setAttributes({ contentInnerPadding: values })}
+			></SpacingControl>
+
+			{/* Margin */}
+			<SpacingControl
+				values={contentMargin}
+				min={0}
+				max={48}
+				label="Margin"
+				onChange={(values) => setAttributes({ contentMargin: values })}
+			></SpacingControl>
+
+
+
+
 		</>
 	);
 }
 
 export default Style;
+
+

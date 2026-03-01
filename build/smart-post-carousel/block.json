@@ -505,11 +505,11 @@
     },
     "metaColumnGap": {
       "type": "number",
-      "default": 8
+      "default": 12
     },
     "metaRowGap": {
       "type": "number",
-      "default": 12
+      "default": 4
     },
     "metaMargin": {
       "type": "object",
@@ -607,6 +607,121 @@
         "tablet": 0,
         "mobile": 0
       }
+    },
+    "contentPadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "contentInnerPadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "contentMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "showContentBoxShadow": {
+      "type": "boolean",
+      "default": false
+    },
+    "contentBoxShadow": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "xOffset": 5,
+          "yOffset": 5,
+          "blur": 10,
+          "spread": 0,
+          "linked": false,
+          "type": "outset"
+        },
+        "tablet": {
+          "xOffset": 5,
+          "yOffset": 5,
+          "blur": 10,
+          "spread": 0,
+          "linked": false,
+          "type": "outset"
+        },
+        "mobile": {
+          "xOffset": 5,
+          "yOffset": 5,
+          "blur": 10,
+          "spread": 0,
+          "linked": false,
+          "type": "outset"
+        }
+      }
+    },
+    "contentBoxShadowColor": {
+      "type": "string",
+      "default": "#d6d8de"
     }
   },
   "render": "file:./render.php",
