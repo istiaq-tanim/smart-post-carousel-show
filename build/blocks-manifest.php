@@ -510,11 +510,11 @@ return array(
 			),
 			'metaColumnGap' => array(
 				'type' => 'number',
-				'default' => 8
+				'default' => 12
 			),
 			'metaRowGap' => array(
 				'type' => 'number',
-				'default' => 12
+				'default' => 4
 			),
 			'metaMargin' => array(
 				'type' => 'object',
@@ -558,8 +558,175 @@ return array(
 				'type' => 'object',
 				'default' => array(
 					'type' => 'transparent',
-					'background' => '#000000'
+					'hoverType' => 'transparent',
+					'solidBackground' => '#fff',
+					'gradientBackground' => '',
+					'hoverSolidBackground' => '#fff',
+					'hoverGradientBackground' => ''
 				)
+			),
+			'contentBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'contentHoverBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'contentBorderWidthNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'contentBorderWidthHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'contentBorderColorNormal' => array(
+				'type' => 'string',
+				'default' => '#000000'
+			),
+			'contentBorderColorHover' => array(
+				'type' => 'string',
+				'default' => '#000000'
+			),
+			'contentBorderRadiusNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'contentBorderRadiusHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'contentPadding' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
+				)
+			),
+			'contentInnerPadding' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
+				)
+			),
+			'contentMargin' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
+				)
+			),
+			'showContentBoxShadow' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'contentBoxShadow' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'xOffset' => 5,
+						'yOffset' => 5,
+						'blur' => 10,
+						'spread' => 0,
+						'linked' => false,
+						'type' => 'outset'
+					),
+					'tablet' => array(
+						'xOffset' => 5,
+						'yOffset' => 5,
+						'blur' => 10,
+						'spread' => 0,
+						'linked' => false,
+						'type' => 'outset'
+					),
+					'mobile' => array(
+						'xOffset' => 5,
+						'yOffset' => 5,
+						'blur' => 10,
+						'spread' => 0,
+						'linked' => false,
+						'type' => 'outset'
+					)
+				)
+			),
+			'contentBoxShadowColor' => array(
+				'type' => 'string',
+				'default' => '#d6d8de'
 			)
 		),
 		'render' => 'file:./render.php',
