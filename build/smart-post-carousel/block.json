@@ -722,6 +722,67 @@
     "contentBoxShadowColor": {
       "type": "string",
       "default": "#d6d8de"
+    },
+    "excerptType": {
+      "type": "string",
+      "default": "limited"
+    },
+    "excerptLength": {
+      "type": "object",
+      "default": {
+        "value": 14,
+        "unit": "words"
+      }
+    },
+    "excerptEllipsis": {
+      "type": "string",
+      "default": "..."
+    },
+    "excerptTypo": {
+      "type": "object",
+      "default": {
+        "tags": "span",
+        "family": "Roboto",
+        "fontSize": 16,
+        "weight": 400,
+        "height": 1.2,
+        "spacing": 0,
+        "text": "List item title"
+      }
+    },
+    "excerptColor": {
+      "type": "string",
+      "default": "#4e6e3e"
+    },
+    "excerptMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 14,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 14,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 14,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "buttonType": {
+      "type": "string",
+      "default": "button"
     }
   },
   "render": "file:./render.php",

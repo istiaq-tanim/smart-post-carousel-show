@@ -348,10 +348,13 @@
   /* Excerpt Style */
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-excerpt-wrapper .sp-smart-post-carousel-excerpt {
-  font-weight: 400;
-  color: var(--smart-post-dark-2-text);
-  font-size: 16px;
-  margin: 14px 0px 0px 0px;
+  font-weight: var(--excerpt-font-weight);
+  font-family: var(--excerpt-font-family);
+  color: var(--excerptColor, --smart-post-dark-2-text);
+  font-size: var(--excerpt-font-size);
+  line-height: var(--excerpt-line-height);
+  letter-spacing: var(--excerpt-letter-spacing);
+  margin: var(--excerptMargin);
 }
 .wp-block-create-block-smart-post-carousel {
   /* Read More Button */

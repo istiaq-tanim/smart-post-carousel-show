@@ -1,6 +1,7 @@
 import { useDeviceType } from "../../../../hooks/useDevice";
 import { FacebookIcon } from "../../../../smart-post-carousel/assets/icon";
 import CategoryList from "../CategoryList";
+import Excerpt from "../Excerpt";
 import MetaSeparator from "../MetaSeparator";
 import getMetaElement from "./getMetaElement";
 
@@ -18,10 +19,20 @@ const getContentElement = (
 		metaMargin,
 		metaSeparatorStyle,
 		metaSeparatorColor,
+		showExcerpt,
+		excerptType,
+		excerptLength,
+		excerptEllipsis,
+		excerptTypo,
+		excerptColor,
+		excerptMargin,
 	},
 ) => {
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
+
+	console.log(showExcerpt, "hello")
+
 
 	switch (item.value) {
 		case "category":
@@ -47,11 +58,9 @@ const getContentElement = (
 					style={{
 						"--meta-column-gap": `${metaColumnGap ?? 8}px`,
 						"--meta-row-gap": `${metaRowGap ?? 12}px`,
-						"--meta-margin": `${metaMargin[normalizedDeviceType]?.top ?? 0}px ${
-							metaMargin[normalizedDeviceType]?.right ?? 0
-						}px ${metaMargin[normalizedDeviceType]?.bottom ?? 0}px ${
-							metaMargin[normalizedDeviceType]?.left ?? 0
-						}px`,
+						"--meta-margin": `${metaMargin[normalizedDeviceType]?.top ?? 0}px ${metaMargin[normalizedDeviceType]?.right ?? 0
+							}px ${metaMargin[normalizedDeviceType]?.bottom ?? 0}px ${metaMargin[normalizedDeviceType]?.left ?? 0
+							}px`,
 						"--metaSeparatorColor": `${metaSeparatorColor ?? "#000000"}`,
 						"--meta-font-family": metaContext?.metaTypo?.family ?? "inherit",
 						"--meta-font-size": `${metaContext?.metaTypo?.fontSize ?? 12}px`,
@@ -101,13 +110,18 @@ const getContentElement = (
 			);
 
 		case "excerpt":
-			return (
-				<div key="excerpt" className="sp-smart-post-carousel-excerpt-wrapper">
-					<p className="sp-smart-post-carousel-excerpt">
-						<span>{post?.excerpt?.slice(0, 50)}...</span>
-					</p>
-				</div>
-			);
+			return showExcerpt ? (
+				<Excerpt
+					key="excerpt"
+					excerptType={excerptType}
+					post={post}
+					excerptLength={excerptLength}
+					excerptEllipsis={excerptEllipsis}
+					excerptTypo={excerptTypo}
+					excerptColor={excerptColor}
+					excerptMargin={excerptMargin}
+				/>
+			) : null;
 
 		case "readMore":
 			return (

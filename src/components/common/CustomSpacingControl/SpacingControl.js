@@ -24,7 +24,7 @@ function SpacingControl({
 	showUnit,
 	options,
 	min = 0,
-	max = 100
+	max = 100,
 }) {
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
