@@ -41,7 +41,15 @@ function PostCard({ post, attributes }) {
 		contentMargin,
 		contentBoxShadow,
 		contentBoxShadowColor,
-		showContentBoxShadow
+		showContentBoxShadow,
+		showExcerpt,
+		excerptType,
+		excerptLength,
+		excerptEllipsis,
+		excerptTypo,
+		excerptColor,
+		excerptMargin,
+		buttonType,
 	} = attributes;
 
 	const author =
@@ -82,6 +90,7 @@ function PostCard({ post, attributes }) {
 			dateFormat,
 			metaColor,
 			metaTypo,
+
 		}),
 		[
 			author,
@@ -98,6 +107,7 @@ function PostCard({ post, attributes }) {
 			dateFormat,
 			metaColor,
 			metaTypo,
+
 		],
 	);
 	const contentContext = useMemo(
@@ -115,6 +125,14 @@ function PostCard({ post, attributes }) {
 			metaMargin,
 			metaSeparatorStyle,
 			metaSeparatorColor,
+			showExcerpt,
+			excerptType,
+			excerptLength,
+			excerptEllipsis,
+			excerptTypo,
+			excerptColor,
+			excerptMargin,
+			buttonType,
 		}),
 		[
 			post,
@@ -130,6 +148,14 @@ function PostCard({ post, attributes }) {
 			metaMargin,
 			metaSeparatorStyle,
 			metaSeparatorColor,
+			showExcerpt,
+			excerptType,
+			excerptLength,
+			excerptEllipsis,
+			excerptTypo,
+			excerptColor,
+			excerptMargin,
+			buttonType,
 		],
 	);
 

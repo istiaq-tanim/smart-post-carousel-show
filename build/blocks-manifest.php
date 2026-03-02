@@ -727,6 +727,67 @@ return array(
 			'contentBoxShadowColor' => array(
 				'type' => 'string',
 				'default' => '#d6d8de'
+			),
+			'excerptType' => array(
+				'type' => 'string',
+				'default' => 'limited'
+			),
+			'excerptLength' => array(
+				'type' => 'object',
+				'default' => array(
+					'value' => 14,
+					'unit' => 'words'
+				)
+			),
+			'excerptEllipsis' => array(
+				'type' => 'string',
+				'default' => '...'
+			),
+			'excerptTypo' => array(
+				'type' => 'object',
+				'default' => array(
+					'tags' => 'span',
+					'family' => 'Roboto',
+					'fontSize' => 16,
+					'weight' => 400,
+					'height' => 1.2,
+					'spacing' => 0,
+					'text' => 'List item title'
+				)
+			),
+			'excerptColor' => array(
+				'type' => 'string',
+				'default' => '#4e6e3e'
+			),
+			'excerptMargin' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 14,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 14,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 14,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
+				)
+			),
+			'buttonType' => array(
+				'type' => 'string',
+				'default' => 'button'
 			)
 		),
 		'render' => 'file:./render.php',
