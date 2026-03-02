@@ -9,8 +9,6 @@ function BackgroundStyle({
 }) {
 	const selectedTab = backgroundStyle?.type || "transparent";
 
-	console.log(selectedTab);
-
 	const handleTab = (tabName) => {
 		onChange({ ...backgroundStyle, type: tabName });
 	};
