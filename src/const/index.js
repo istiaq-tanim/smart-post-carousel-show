@@ -421,8 +421,12 @@ export const tags = [
 		value: "h3",
 	},
 	{
-		label: "Body",
-		value: "body",
+		label: "Heading h4",
+		value: "h4",
+	},
+	{
+		label: "Heading h5",
+		value: "h5",
 	},
 ];
 

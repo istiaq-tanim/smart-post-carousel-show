@@ -1,6 +1,7 @@
 import { useDeviceType } from "../../../../hooks/useDevice";
 import { FacebookIcon } from "../../../../smart-post-carousel/assets/icon";
 import CategoryList from "../CategoryList";
+import Excerpt from "../Excerpt";
 import MetaSeparator from "../MetaSeparator";
 import getMetaElement from "./getMetaElement";
 
@@ -18,6 +19,13 @@ const getContentElement = (
 		metaMargin,
 		metaSeparatorStyle,
 		metaSeparatorColor,
+		showExcerpt,
+		excerptType,
+		excerptLength,
+		excerptEllipsis,
+		excerptTypo,
+		excerptColor,
+		excerptMargin,
 	},
 ) => {
 	const deviceType = useDeviceType();
@@ -102,11 +110,17 @@ const getContentElement = (
 
 		case "excerpt":
 			return (
-				<div key="excerpt" className="sp-smart-post-carousel-excerpt-wrapper">
-					<p className="sp-smart-post-carousel-excerpt">
-						<span>{post?.excerpt?.slice(0, 50)}...</span>
-					</p>
-				</div>
+				showExcerpt && (
+					<Excerpt
+						excerptType={excerptType}
+						post={post}
+						excerptLength={excerptLength}
+						excerptEllipsis={excerptEllipsis}
+						excerptTypo={excerptTypo}
+						excerptColor={excerptColor}
+						excerptMargin={excerptMargin}
+					></Excerpt>
+				)
 			);
 
 		case "readMore":

@@ -505,11 +505,11 @@
     },
     "metaColumnGap": {
       "type": "number",
-      "default": 8
+      "default": 12
     },
     "metaRowGap": {
       "type": "number",
-      "default": 12
+      "default": 4
     },
     "metaMargin": {
       "type": "object",
@@ -553,8 +553,236 @@
       "type": "object",
       "default": {
         "type": "transparent",
-        "background": "#000000"
+        "hoverType": "transparent",
+        "solidBackground": "#fff",
+        "gradientBackground": "",
+        "hoverSolidBackground": "#fff",
+        "hoverGradientBackground": ""
       }
+    },
+    "contentBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "contentHoverBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "contentBorderWidthNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "contentBorderWidthHover": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "contentBorderColorNormal": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "contentBorderColorHover": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "contentBorderRadiusNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "contentBorderRadiusHover": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "contentPadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "contentInnerPadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "contentMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "showContentBoxShadow": {
+      "type": "boolean",
+      "default": false
+    },
+    "contentBoxShadow": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "xOffset": 5,
+          "yOffset": 5,
+          "blur": 10,
+          "spread": 0,
+          "linked": false,
+          "type": "outset"
+        },
+        "tablet": {
+          "xOffset": 5,
+          "yOffset": 5,
+          "blur": 10,
+          "spread": 0,
+          "linked": false,
+          "type": "outset"
+        },
+        "mobile": {
+          "xOffset": 5,
+          "yOffset": 5,
+          "blur": 10,
+          "spread": 0,
+          "linked": false,
+          "type": "outset"
+        }
+      }
+    },
+    "contentBoxShadowColor": {
+      "type": "string",
+      "default": "#d6d8de"
+    },
+    "excerptType": {
+      "type": "string",
+      "default": "limited"
+    },
+    "excerptLength": {
+      "type": "object",
+      "default": {
+        "value": 14,
+        "unit": "words"
+      }
+    },
+    "excerptEllipsis": {
+      "type": "string",
+      "default": "..."
+    },
+    "excerptTypo": {
+      "type": "object",
+      "default": {
+        "tags": "span",
+        "family": "Roboto",
+        "fontSize": 16,
+        "weight": 400,
+        "height": 1.2,
+        "spacing": 0,
+        "text": "List item title"
+      }
+    },
+    "excerptColor": {
+      "type": "string",
+      "default": "#4e6e3e"
+    },
+    "excerptMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 14,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 14,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 14,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "buttonType": {
+      "type": "string",
+      "default": "button"
     }
   },
   "render": "file:./render.php",
