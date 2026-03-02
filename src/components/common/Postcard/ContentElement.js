@@ -1,3 +1,4 @@
+import { Fragment } from "@wordpress/element";
 import { useDeviceType } from "../../../hooks/useDevice";
 import { FacebookIcon } from "../../../smart-post-carousel/assets/icon";
 import CategoryList from "./CategoryList";
@@ -54,11 +55,9 @@ function ContentElement({ item, context }) {
 					style={{
 						"--meta-column-gap": `${metaColumnGap ?? 8}px`,
 						"--meta-row-gap": `${metaRowGap ?? 12}px`,
-						"--meta-margin": `${metaMargin[normalizedDeviceType]?.top ?? 0}px ${
-							metaMargin[normalizedDeviceType]?.right ?? 0
-						}px ${metaMargin[normalizedDeviceType]?.bottom ?? 0}px ${
-							metaMargin[normalizedDeviceType]?.left ?? 0
-						}px`,
+						"--meta-margin": `${metaMargin[normalizedDeviceType]?.top ?? 0}px ${metaMargin[normalizedDeviceType]?.right ?? 0
+							}px ${metaMargin[normalizedDeviceType]?.bottom ?? 0}px ${metaMargin[normalizedDeviceType]?.left ?? 0
+							}px`,
 						"--metaSeparatorColor": metaSeparatorColor ?? "#000000",
 						"--meta-font-family": metaContext?.metaTypo?.family ?? "inherit",
 						"--meta-font-size": `${metaContext?.metaTypo?.fontSize ?? 12}px`,
@@ -73,35 +72,35 @@ function ContentElement({ item, context }) {
 								{metaDataAllContentArray
 									.filter((i) => i.show && i.position === "left")
 									.map((i, index, arr) => (
-										<React.Fragment key={i.value}>
+										<Fragment key={i.value}>
 											{getMetaElement(i, metaContext)}
 											{index < arr.length - 1 && (
 												<MetaSeparator type={metaSeparatorStyle} />
 											)}
-										</React.Fragment>
+										</Fragment>
 									))}
 							</div>
 							<div className="sp-smart-post-carousel-meta-right">
 								{metaDataAllContentArray
 									.filter((i) => i.show && i.position === "right")
 									.map((i, index, arr) => (
-										<React.Fragment key={i.value}>
+										<Fragment key={i.value}>
 											{getMetaElement(i, metaContext)}
 											{index < arr.length - 1 && (
 												<MetaSeparator type={metaSeparatorStyle} />
 											)}
-										</React.Fragment>
+										</Fragment>
 									))}
 							</div>
 						</>
 					) : (
 						visibleItems.map((i, index) => (
-							<React.Fragment key={i.value}>
+							<Fragment key={i.value}>
 								{getMetaElement(i, metaContext)}
 								{index < visibleItems.length - 1 && (
 									<MetaSeparator type={metaSeparatorStyle} />
 								)}
-							</React.Fragment>
+							</Fragment>
 						))
 					)}
 				</div>

@@ -71,9 +71,8 @@ function PostCard({ post, attributes }) {
 		? post?.author_avatar_url
 		: "`https://www.gravatar.com/avatar/?d=mp&s=48`;";
 
-	const cardClassName = `sp-smart-post-carousel-card ${orientation}${
-		equalHeight ? " equal-height" : ""
-	}`;
+	const cardClassName = `sp-smart-post-carousel-card ${orientation}${equalHeight ? " equal-height" : ""
+		}`;
 
 	const metaContext = useMemo(
 		() => ({
@@ -165,15 +164,16 @@ function PostCard({ post, attributes }) {
 		bgType === "gradient"
 			? contentBackGroundStyles?.gradientBackground
 			: bgType === "solid"
-			? contentBackGroundStyles?.solidBackground
-			: null;
+				? contentBackGroundStyles?.solidBackground
+				: null;
 
 	const hoverBg =
 		hoverBgType === "gradient"
 			? contentBackGroundStyles?.hoverGradientBackground
 			: hoverBgType === "solid"
-			? contentBackGroundStyles?.hoverSolidBackground
-			: null;
+				? contentBackGroundStyles?.hoverSolidBackground
+				: null;
+
 
 	return (
 		<div
@@ -186,47 +186,34 @@ function PostCard({ post, attributes }) {
 				...(hoverBg && { "--card-hover-bg": hoverBg }),
 				"--card-border": contentBorderStyle || "none",
 				"--card-hover-border": contentHoverBorderStyle || "none",
-				"--card-border-width": `${
-					contentBorderWidthNormal[normalizedDeviceType] || 1
-				}px`,
-				"--card-hover-border-width": `${
-					contentBorderWidthHover[normalizedDeviceType] || 1
-				}px`,
+				"--card-border-width": `${contentBorderWidthNormal[normalizedDeviceType] || 1
+					}px`,
+				"--card-hover-border-width": `${contentBorderWidthHover[normalizedDeviceType] || 1
+					}px`,
 				"--card-border-color": contentBorderColorNormal || "#000",
 				"--card-hover-border-color": contentBorderColorHover || "#000",
-				"--card-border-radius": `${
-					contentBorderRadiusNormal?.[normalizedDeviceType] ?? 0
-				}px`,
-				"--card-hover-border-radius": `${
-					contentBorderRadiusHover?.[normalizedDeviceType] ?? 0
-				}px`,
-				"--card-padding": `${contentPadding[normalizedDeviceType].top ?? 0}px ${
-					contentPadding[normalizedDeviceType].right ?? 0
-				}px ${contentPadding[normalizedDeviceType].bottom ?? 0}px ${
-					contentPadding[normalizedDeviceType].left ?? 0
-				}px`,
-				"--card-innerPadding": `${
-					contentInnerPadding[normalizedDeviceType].top ?? 0
-				}px ${contentInnerPadding[normalizedDeviceType].right ?? 0}px ${
-					contentInnerPadding[normalizedDeviceType].bottom ?? 0
-				}px ${contentInnerPadding[normalizedDeviceType].left ?? 0}px`,
-				"--card-Margin": `${contentMargin[normalizedDeviceType].top ?? 0}px ${
-					contentMargin[normalizedDeviceType].right ?? 0
-				}px ${contentMargin[normalizedDeviceType].bottom ?? 0}px ${
-					contentMargin[normalizedDeviceType].left ?? 0
-				}px`,
+				"--card-border-radius": `${contentBorderRadiusNormal?.[normalizedDeviceType] ?? 0
+					}px`,
+				"--card-hover-border-radius": `${contentBorderRadiusHover?.[normalizedDeviceType] ?? 0
+					}px`,
+				"--card-padding": `${contentPadding[normalizedDeviceType].top ?? 0}px ${contentPadding[normalizedDeviceType].right ?? 0
+					}px ${contentPadding[normalizedDeviceType].bottom ?? 0}px ${contentPadding[normalizedDeviceType].left ?? 0
+					}px`,
+				"--card-innerPadding": `${contentInnerPadding[normalizedDeviceType].top ?? 0
+					}px ${contentInnerPadding[normalizedDeviceType].right ?? 0}px ${contentInnerPadding[normalizedDeviceType].bottom ?? 0
+					}px ${contentInnerPadding[normalizedDeviceType].left ?? 0}px`,
+				"--card-Margin": `${contentMargin[normalizedDeviceType].top ?? 0}px ${contentMargin[normalizedDeviceType].right ?? 0
+					}px ${contentMargin[normalizedDeviceType].bottom ?? 0}px ${contentMargin[normalizedDeviceType].left ?? 0
+					}px`,
 				...(showContentBoxShadow &&
 					contentBoxShadow?.[normalizedDeviceType] && {
-						"--contentBoxShadow": `${
-							contentBoxShadow[normalizedDeviceType].type === "inset"
-								? "inset"
-								: ""
-						} ${contentBoxShadow[normalizedDeviceType].xOffset ?? 0}px ${
-							contentBoxShadow[normalizedDeviceType].yOffset ?? 0
-						}px ${contentBoxShadow[normalizedDeviceType].blur ?? 0}px ${
-							contentBoxShadow[normalizedDeviceType].spread ?? 0
+					"--contentBoxShadow": `${contentBoxShadow[normalizedDeviceType].type === "inset"
+						? "inset"
+						: ""
+						} ${contentBoxShadow[normalizedDeviceType].xOffset ?? 0}px ${contentBoxShadow[normalizedDeviceType].yOffset ?? 0
+						}px ${contentBoxShadow[normalizedDeviceType].blur ?? 0}px ${contentBoxShadow[normalizedDeviceType].spread ?? 0
 						}px ${contentBoxShadowColor ?? "transparent"}`.trim(),
-					}),
+				}),
 			}}
 		>
 			{/* IMAGE */}
