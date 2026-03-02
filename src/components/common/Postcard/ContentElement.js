@@ -1,13 +1,15 @@
-import { useDeviceType } from "../../../../hooks/useDevice";
-import { FacebookIcon } from "../../../../smart-post-carousel/assets/icon";
-import CategoryList from "../CategoryList";
-import Excerpt from "../Excerpt";
-import MetaSeparator from "../MetaSeparator";
-import getMetaElement from "./getMetaElement";
+import { useDeviceType } from "../../../hooks/useDevice";
+import { FacebookIcon } from "../../../smart-post-carousel/assets/icon";
+import CategoryList from "./CategoryList";
+import Excerpt from "./Excerpt";
+import MetaSeparator from "./MetaSeparator";
+import getMetaElement from "./renderers/getMetaElement";
 
-const getContentElement = (
-	item,
-	{
+function ContentElement({ item, context }) {
+	const deviceType = useDeviceType();
+	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
+
+	const {
 		post,
 		title,
 		orientation,
@@ -26,10 +28,7 @@ const getContentElement = (
 		excerptTypo,
 		excerptColor,
 		excerptMargin,
-	},
-) => {
-	const deviceType = useDeviceType();
-	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
+	} = context;
 
 	switch (item.value) {
 		case "category":
@@ -60,7 +59,7 @@ const getContentElement = (
 						}px ${metaMargin[normalizedDeviceType]?.bottom ?? 0}px ${
 							metaMargin[normalizedDeviceType]?.left ?? 0
 						}px`,
-						"--metaSeparatorColor": `${metaSeparatorColor ?? "#000000"}`,
+						"--metaSeparatorColor": metaSeparatorColor ?? "#000000",
 						"--meta-font-family": metaContext?.metaTypo?.family ?? "inherit",
 						"--meta-font-size": `${metaContext?.metaTypo?.fontSize ?? 12}px`,
 						"--meta-font-weight": metaContext?.metaTypo?.weight ?? 400,
@@ -74,54 +73,53 @@ const getContentElement = (
 								{metaDataAllContentArray
 									.filter((i) => i.show && i.position === "left")
 									.map((i, index, arr) => (
-										<>
+										<React.Fragment key={i.value}>
 											{getMetaElement(i, metaContext)}
 											{index < arr.length - 1 && (
 												<MetaSeparator type={metaSeparatorStyle} />
 											)}
-										</>
+										</React.Fragment>
 									))}
 							</div>
 							<div className="sp-smart-post-carousel-meta-right">
 								{metaDataAllContentArray
 									.filter((i) => i.show && i.position === "right")
 									.map((i, index, arr) => (
-										<>
+										<React.Fragment key={i.value}>
 											{getMetaElement(i, metaContext)}
 											{index < arr.length - 1 && (
 												<MetaSeparator type={metaSeparatorStyle} />
 											)}
-										</>
+										</React.Fragment>
 									))}
 							</div>
 						</>
 					) : (
 						visibleItems.map((i, index) => (
-							<>
+							<React.Fragment key={i.value}>
 								{getMetaElement(i, metaContext)}
 								{index < visibleItems.length - 1 && (
 									<MetaSeparator type={metaSeparatorStyle} />
 								)}
-							</>
+							</React.Fragment>
 						))
 					)}
 				</div>
 			);
 
 		case "excerpt":
-			return (
-				showExcerpt && (
-					<Excerpt
-						excerptType={excerptType}
-						post={post}
-						excerptLength={excerptLength}
-						excerptEllipsis={excerptEllipsis}
-						excerptTypo={excerptTypo}
-						excerptColor={excerptColor}
-						excerptMargin={excerptMargin}
-					></Excerpt>
-				)
-			);
+			return showExcerpt ? (
+				<Excerpt
+					key="excerpt"
+					excerptType={excerptType}
+					post={post}
+					excerptLength={excerptLength}
+					excerptEllipsis={excerptEllipsis}
+					excerptTypo={excerptTypo}
+					excerptColor={excerptColor}
+					excerptMargin={excerptMargin}
+				/>
+			) : null;
 
 		case "readMore":
 			return (
@@ -133,27 +131,19 @@ const getContentElement = (
 		case "social":
 			return (
 				<ul key="social" className="sp-smart-post-carousel-social-share">
-					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook">
-							<FacebookIcon />
-						</i>
-					</li>
-					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook">
-							<FacebookIcon />
-						</i>
-					</li>
-					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook">
-							<FacebookIcon />
-						</i>
-					</li>
+					{[0, 1, 2].map((i) => (
+						<li key={i} className="sp-smart-post-carousel-social-share-icon">
+							<i className="sp-icon-facebook">
+								<FacebookIcon />
+							</i>
+						</li>
+					))}
 				</ul>
 			);
 
 		default:
 			return null;
 	}
-};
+}
 
-export default getContentElement;
+export default ContentElement;

@@ -3,7 +3,7 @@ import { getPostDate } from "../../../../utils";
 import { useDeviceType } from "../../../hooks/useDevice";
 
 import CategoryList from "./CategoryList";
-import getContentElement from "./renderers/getContentElement";
+import ContentElement from "./ContentElement";
 
 function PostCard({ post, attributes }) {
 	const title = post?.title;
@@ -49,6 +49,7 @@ function PostCard({ post, attributes }) {
 		excerptTypo,
 		excerptColor,
 		excerptMargin,
+		buttonType,
 	} = attributes;
 
 	const author =
@@ -130,6 +131,7 @@ function PostCard({ post, attributes }) {
 			excerptTypo,
 			excerptColor,
 			excerptMargin,
+			buttonType,
 		}),
 		[
 			post,
@@ -152,6 +154,7 @@ function PostCard({ post, attributes }) {
 			excerptTypo,
 			excerptColor,
 			excerptMargin,
+			buttonType,
 		],
 	);
 
@@ -248,9 +251,13 @@ function PostCard({ post, attributes }) {
 					className="sp-smart-post-carousel-template-content"
 					style={{ "--alignment": `${contentAlignment}` }}
 				>
-					{allContentArray.map((item) =>
-						getContentElement(item, contentContext),
-					)}
+					{allContentArray.map((item) => (
+						<ContentElement
+							key={item.value}
+							item={item}
+							context={contentContext}
+						/>
+					))}
 				</div>
 			</div>
 		</div>
