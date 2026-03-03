@@ -849,7 +849,7 @@ return array(
 			),
 			'buttonHoverBorderStyle' => array(
 				'type' => 'string',
-				'default' => 'solid'
+				'default' => 'none'
 			),
 			'buttonBorderWidthNormal' => array(
 				'type' => 'number',
@@ -889,6 +889,58 @@ return array(
 					'desktop' => 0,
 					'tablet' => 0,
 					'mobile' => 0
+				)
+			),
+			'buttonPadding' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 8,
+						'right' => 16,
+						'bottom' => 8,
+						'left' => 16,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 8,
+						'right' => 16,
+						'bottom' => 8,
+						'left' => 16,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 8,
+						'right' => 16,
+						'bottom' => 8,
+						'left' => 16,
+						'linked' => true
+					)
+				)
+			),
+			'buttonMargin' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
 				)
 			)
 		),

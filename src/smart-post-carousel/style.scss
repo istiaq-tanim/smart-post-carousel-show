@@ -415,45 +415,53 @@
 
 	.sp-smart-post-carousel-read-more-button {
 		display: flex;
-
 		.sp-smart-post-carousel-read-more-btn-link {
-			background: var(--button-bg);
 			color: var(--button-normal-color);
-			padding: 8px 16px;
-			border-style: var(--button-border, none);
-			border-width: var(--button-border-width, 0px);
-			border-color: var(--button-border-color);
 			font-family: var(--button-font-family, inherit);
-			margin: 16px 0 0 0;
 			font-weight: var(--button-font-weight, 400);
 			line-height: var(--button-line-height, 1.5);
 			letter-spacing: var(--button-letter-spacing, 0px);
 			font-size: var(--button-font-size, inherit);
-			text-transform: uppercase;
-
+			margin: var(--button-margin, 0px);
+			gap: var(--iconGap, 4px);
 			display: flex;
 			align-items: center;
-			gap: var(--iconGap, 4px);
+			text-transform: uppercase;
 
 			a {
 				text-decoration: none;
 			}
+
+			// Button only styles
+			&.is-button {
+				background: var(--button-bg);
+				padding: var(--button-padding, 8px 16px);
+				border-style: var(--button-border, none);
+				border-width: var(--button-border-size, 0px);
+				border-color: var(--button-border-color);
+				border-radius: var(--button-border-radius, 0px);
+
+				&:hover {
+					transition: all 0.5s ease-in-out;
+					background: var(--button-hover-bg);
+					border-style: var(--button-hover-border, none);
+					border-width: var(--button-hover-border-size, 0px);
+					border-color: var(--button-hover-border-color);
+					border-radius: var(--button-hover-border-radius, 0px);
+				}
+			}
+
 			&:hover {
 				color: var(--button-hover-color);
-				background: var(--button-hover-bg);
-				border-style: var(--button-hover-border, none);
-				border-width: var(--button-hover-border-width, 0px);
-				border-color: var(--button-hover-border-color);
 			}
 
 			.read-more-icon {
 				display: inline-block;
 				opacity: 1;
 				transform: translateX(0);
-				transition:
-					opacity 0.3s ease,
-					transform 0.3s ease;
+				transition: all 0.3s ease-in-out;
 			}
+
 			&.icon-hover .read-more-icon {
 				opacity: 0;
 				transform: translateX(-4px);

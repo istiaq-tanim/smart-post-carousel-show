@@ -8,6 +8,7 @@ function Divider() {
                   marginLeft: "auto",
                   marginRight: "auto",
                   marginBottom: "12px",
+                  marginTop: "12px",
                   opacity: 0.6
             }}></span>
       )

@@ -9,7 +9,10 @@
 	"example": {},
 	"supports": {
 		"html": false,
-		"align": ["wide", "full"]
+		"align": [
+			"wide",
+			"full"
+		]
 	},
 	"attributes": {
 		"showReadMore": {
@@ -841,7 +844,7 @@
 		},
 		"buttonHoverBorderStyle": {
 			"type": "string",
-			"default": "solid"
+			"default": "none"
 		},
 		"buttonBorderWidthNormal": {
 			"type": "number",
@@ -881,6 +884,58 @@
 				"desktop": 0,
 				"tablet": 0,
 				"mobile": 0
+			}
+		},
+		"buttonPadding": {
+			"type": "object",
+			"default": {
+				"desktop": {
+					"top": 8,
+					"right": 16,
+					"bottom": 8,
+					"left": 16,
+					"linked": true
+				},
+				"tablet": {
+					"top": 8,
+					"right": 16,
+					"bottom": 8,
+					"left": 16,
+					"linked": true
+				},
+				"mobile": {
+					"top": 8,
+					"right": 16,
+					"bottom": 8,
+					"left": 16,
+					"linked": true
+				}
+			}
+		},
+		"buttonMargin": {
+			"type": "object",
+			"default": {
+				"desktop": {
+					"top": 16,
+					"right": 0,
+					"bottom": 0,
+					"left": 0,
+					"linked": true
+				},
+				"tablet": {
+					"top": 16,
+					"right": 0,
+					"bottom": 0,
+					"left": 0,
+					"linked": true
+				},
+				"mobile": {
+					"top": 16,
+					"right": 0,
+					"bottom": 0,
+					"left": 0,
+					"linked": true
+				}
 			}
 		}
 	},
