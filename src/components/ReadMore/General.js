@@ -19,7 +19,7 @@ function General() {
 			></CustomToggleGroupControl>
 
 			<TextControl
-				label="Ellipsis Points Ending Excerpt"
+				label="Read More Type"
 				value={attributes.buttonText}
 				onChange={(value) => setAttributes({ buttonText: value })}
 				placeholder="Read More"

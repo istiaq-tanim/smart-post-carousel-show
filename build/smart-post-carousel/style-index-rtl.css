@@ -363,15 +363,46 @@
   display: flex;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link {
-  background: #fff;
-  color: var(--smart-post-dark-2-text);
-  padding: 8px 16px 8px 16px;
-  border: 1px solid var(--smart-post-dark-2-text);
-  margin: 16px 0px 0px 0px;
-  font-weight: 500;
+  background: var(--button-bg);
+  color: var(--button-normal-color);
+  padding: 8px 16px;
+  border-style: var(--button-border, none);
+  border-width: var(--button-border-width, 0px);
+  border-color: var(--button-border-color);
+  font-family: var(--button-font-family, inherit);
+  margin: 16px 0 0 0;
+  font-weight: var(--button-font-weight, 400);
+  line-height: var(--button-line-height, 1.5);
+  letter-spacing: var(--button-letter-spacing, 0px);
+  font-size: var(--button-font-size, inherit);
   text-transform: uppercase;
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: var(--iconGap, 4px);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link a {
   text-decoration: none;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link:hover {
+  color: var(--button-hover-color);
+  background: var(--button-hover-bg);
+  border-style: var(--button-hover-border, none);
+  border-width: var(--button-hover-border-width, 0px);
+  border-color: var(--button-hover-border-color);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link .read-more-icon {
+  display: inline-block;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link.icon-hover .read-more-icon {
+  opacity: 0;
+  transform: translateX(4px);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link.icon-hover:hover .read-more-icon {
+  opacity: 1;
+  transform: translateX(0);
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-social-share {
   display: flex;

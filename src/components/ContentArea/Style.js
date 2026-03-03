@@ -1,6 +1,11 @@
 import { __ } from "@wordpress/i18n";
 import { useAttributes } from "../../hooks/useAttributes";
-import { DashedBorder, DottedBorder, DoubleBorder, SolidBorder } from "../../smart-post-carousel/assets/borderIcon";
+import {
+	DashedBorder,
+	DottedBorder,
+	DoubleBorder,
+	SolidBorder,
+} from "../../smart-post-carousel/assets/borderIcon";
 import BackgroundStyle from "../common/Background/Background";
 import CustomColorPicker from "../common/CustomColorPicker/CustomColorPicker";
 import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
@@ -11,7 +16,18 @@ import Divider from "../common/Divider/Divider";
 
 function Style() {
 	const { attributes, setAttributes } = useAttributes();
-	const { contentBackGroundStyles, contentEffect, contentBorderColorNormal, contentBorderColorHover, contentPadding, contentInnerPadding, contentMargin, showContentBoxShadow, contentBoxShadow, contentBoxShadowColor } = attributes;
+	const {
+		contentBackGroundStyles,
+		contentEffect,
+		contentBorderColorNormal,
+		contentBorderColorHover,
+		contentPadding,
+		contentInnerPadding,
+		contentMargin,
+		showContentBoxShadow,
+		contentBoxShadow,
+		contentBoxShadowColor,
+	} = attributes;
 
 	return (
 		<>
@@ -26,7 +42,7 @@ function Style() {
 				]}
 			></CustomToggleGroupControl>
 
-			{/*  */}
+			{/* Background Styles  */}
 
 			<BackgroundStyle
 				backgroundStyle={contentBackGroundStyles}
@@ -35,13 +51,16 @@ function Style() {
 				onChange={(value) => setAttributes({ contentBackGroundStyles: value })}
 			></BackgroundStyle>
 
-
 			{/* Content Border */}
 
 			<CustomToggleGroupControl
 				label={__("Border", "smart-post-carousel")}
 				attributes={attributes}
-				attributesKey={contentEffect === "hover" ? "contentHoverBorderStyle" : "contentBorderStyle"}
+				attributesKey={
+					contentEffect === "hover"
+						? "contentHoverBorderStyle"
+						: "contentBorderStyle"
+				}
 				setAttributes={setAttributes}
 				items={[
 					{ label: "None", value: "none" },
@@ -54,7 +73,11 @@ function Style() {
 			{/* Border Width */}
 			<CustomRangeControl
 				label="Border Width"
-				attributeKey={contentEffect === "hover" ? "contentBorderWidthHover" : "contentBorderWidthNormal"}
+				attributeKey={
+					contentEffect === "hover"
+						? "contentBorderWidthHover"
+						: "contentBorderWidthNormal"
+				}
 				min={0}
 				max={10}
 				defaultValue={1}
@@ -65,22 +88,34 @@ function Style() {
 			<CustomColorPicker
 				label="Border Color"
 				defaultValue=""
-				onChange={(value) => setAttributes({ [contentEffect === "hover" ? "contentBorderColorHover" : "contentBorderColorNormal"]: value })}
-				value={contentEffect === "hover" ? contentBorderColorHover : contentBorderColorNormal}
+				onChange={(value) =>
+					setAttributes({
+						[contentEffect === "hover"
+							? "contentBorderColorHover"
+							: "contentBorderColorNormal"]: value,
+					})
+				}
+				value={
+					contentEffect === "hover"
+						? contentBorderColorHover
+						: contentBorderColorNormal
+				}
 			></CustomColorPicker>
 
 			{/* Border Radius */}
 			<CustomRangeControl
 				label="Border Radius"
-				attributeKey={contentEffect === "hover" ? "contentBorderRadiusHover" : "contentBorderRadiusNormal"}
+				attributeKey={
+					contentEffect === "hover"
+						? "contentBorderRadiusHover"
+						: "contentBorderRadiusNormal"
+				}
 				min={0}
 				max={48}
 				defaultValue={0}
 				showUnit={true}
 				step={1}
 			></CustomRangeControl>
-
-
 
 			{/* Enable Button For Showing Shadow Options */}
 
@@ -115,7 +150,9 @@ function Style() {
 					<CustomColorPicker
 						label="Shadow Color"
 						defaultValue="#d6d8de"
-						onChange={(value) => setAttributes({ contentBoxShadowColor: value })}
+						onChange={(value) =>
+							setAttributes({ contentBoxShadowColor: value })
+						}
 						value={contentBoxShadowColor}
 					></CustomColorPicker>
 				</>
@@ -151,14 +188,8 @@ function Style() {
 				label="Margin"
 				onChange={(values) => setAttributes({ contentMargin: values })}
 			></SpacingControl>
-
-
-
-
 		</>
 	);
 }
 
 export default Style;
-
-

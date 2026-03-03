@@ -35,6 +35,9 @@ function PostCard({ post, attributes }) {
 		excerptColor,
 		excerptMargin,
 		buttonType,
+		buttonText,
+		showReadMore,
+		buttonTypo,
 	} = attributes;
 
 	const author =
@@ -117,6 +120,9 @@ function PostCard({ post, attributes }) {
 			excerptColor,
 			excerptMargin,
 			buttonType,
+			buttonText,
+			showReadMore,
+			buttonTypo,
 		}),
 		[
 			post,
@@ -140,6 +146,9 @@ function PostCard({ post, attributes }) {
 			excerptColor,
 			excerptMargin,
 			buttonType,
+			buttonText,
+			showReadMore,
+			buttonTypo,
 		],
 	);
 

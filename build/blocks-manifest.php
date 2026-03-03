@@ -792,6 +792,104 @@ return array(
 			'buttonText' => array(
 				'type' => 'string',
 				'default' => 'Read More'
+			),
+			'buttonTypo' => array(
+				'type' => 'object',
+				'default' => array(
+					'tags' => 'a',
+					'family' => 'Roboto',
+					'fontSize' => 12,
+					'weight' => 400,
+					'height' => 1.2,
+					'spacing' => 0,
+					'text' => 'List item title'
+				)
+			),
+			'iconVisibility' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'buttonStyle' => array(
+				'type' => 'string',
+				'default' => 'chevron-solid'
+			),
+			'iconGap' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 4,
+					'tablet' => 4,
+					'mobile' => 4
+				)
+			),
+			'iconEffectType' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'buttonTextColor' => array(
+				'type' => 'object',
+				'default' => array(
+					'normal' => '#4e6e3e',
+					'hover' => ''
+				)
+			),
+			'buttonBackGroundStyles' => array(
+				'type' => 'object',
+				'default' => array(
+					'type' => 'transparent',
+					'hoverType' => 'transparent',
+					'solidBackground' => '#fff',
+					'gradientBackground' => '',
+					'hoverSolidBackground' => '#fff',
+					'hoverGradientBackground' => ''
+				)
+			),
+			'buttonBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'solid'
+			),
+			'buttonHoverBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'solid'
+			),
+			'buttonBorderWidthNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'buttonBorderWidthHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'buttonBorderColorNormal' => array(
+				'type' => 'string',
+				'default' => '#4e6e3e'
+			),
+			'buttonBorderColorHover' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'buttonBorderRadiusNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'buttonBorderRadiusHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
 			)
 		),
 		'render' => 'file:./render.php',

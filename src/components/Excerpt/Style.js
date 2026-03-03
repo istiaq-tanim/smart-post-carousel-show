@@ -20,6 +20,14 @@ function Style() {
 				attributeKey="excerptTypo"
 				onChange={(value) => setAttributes({ excerptTypo: value })}
 				values={excerptTypo}
+				tags={[
+					{ label: "Default", value: "span" },
+					{ label: "Heading h1", value: "h1" },
+					{ label: "Heading h2", value: "h2" },
+					{ label: "Heading h3", value: "h3" },
+					{ label: "Heading h4", value: "h4" },
+					{ label: "Heading h5", value: "h5" },
+				]}
 			></Typography>
 
 			{/* Color Picker for Excerpt */}

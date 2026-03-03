@@ -41,6 +41,12 @@ import {
 	UserAuthor,
 	UserSolid,
 } from "../smart-post-carousel/assets/userIcon";
+import {
+	DashedBorder,
+	DottedBorder,
+	DoubleBorder,
+	SolidBorder,
+} from "../smart-post-carousel/assets/borderIcon";
 
 export const LayoutItems = [
 	{
@@ -421,8 +427,12 @@ export const tags = [
 		value: "h3",
 	},
 	{
-		label: "Body",
-		value: "body",
+		label: "Heading h4",
+		value: "h4",
+	},
+	{
+		label: "Heading h5",
+		value: "h5",
 	},
 ];
 
@@ -442,4 +452,40 @@ export const backGroundStyles = [
 		title: "gradient",
 		icon: GradientIcon,
 	},
+];
+
+export const buttonIcons = [
+	{
+		label: "Chevron Solid",
+		value: "chevron-solid",
+		icon: ChevronSolid,
+	},
+	{
+		label: "Arrow Solid",
+		value: "arrow-solid",
+		icon: ArrowSolid,
+	},
+	{
+		label: "Chevron Outline",
+		value: "chevron-outline",
+		icon: ChevronOutline,
+	},
+	{
+		label: "Arrow Minimal",
+		value: "arrow-right-solid",
+		icon: ArrowMinimal,
+	},
+	{
+		label: "Double Chevron",
+		value: "chevron-double",
+		icon: DoubleChevron,
+	},
+];
+
+export const borderTypes = [
+	{ label: "None", value: "none" },
+	{ label: <SolidBorder />, value: "solid" },
+	{ label: <DashedBorder />, value: "dashed" },
+	{ label: <DottedBorder />, value: "dotted" },
+	{ label: <DoubleBorder />, value: "double" },
 ];

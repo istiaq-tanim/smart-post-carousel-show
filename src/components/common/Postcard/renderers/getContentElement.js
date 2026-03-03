@@ -3,6 +3,7 @@ import { FacebookIcon } from "../../../../smart-post-carousel/assets/icon";
 import CategoryList from "../CategoryList";
 import Excerpt from "../Excerpt";
 import MetaSeparator from "../MetaSeparator";
+import ReadMore from "../ReadMore";
 import getMetaElement from "./getMetaElement";
 
 const getContentElement = (
@@ -26,6 +27,9 @@ const getContentElement = (
 		excerptTypo,
 		excerptColor,
 		excerptMargin,
+		buttonText,
+		showReadMore,
+		buttonTypo,
 	},
 ) => {
 	const deviceType = useDeviceType();
@@ -123,29 +127,19 @@ const getContentElement = (
 			) : null;
 
 		case "readMore":
-			return (
-				<div key="readMore" className="sp-smart-post-carousel-read-more-button">
-					<a className="sp-smart-post-carousel-read-more-btn-link">Read More</a>
-				</div>
-			);
+			return showReadMore ? <ReadMore></ReadMore> : null;
 
 		case "social":
 			return (
 				<ul key="social" className="sp-smart-post-carousel-social-share">
 					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook">
-							<FacebookIcon />
-						</i>
+						<i className="sp-icon-facebook"></i>
 					</li>
 					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook">
-							<FacebookIcon />
-						</i>
+						<i className="sp-icon-facebook"></i>
 					</li>
 					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook">
-							<FacebookIcon />
-						</i>
+						<i className="sp-icon-facebook"></i>
 					</li>
 				</ul>
 			);

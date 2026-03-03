@@ -32,8 +32,6 @@ function Style() {
 
 	const hasBorder = borderStyle !== "none";
 
-	console.log(attributes.boxShadow)
-
 	return (
 		<>
 			{/* Tabs for Hover Normal */}

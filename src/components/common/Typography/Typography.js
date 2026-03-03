@@ -3,9 +3,40 @@ import { useState } from "@wordpress/element";
 import Input from "../Input/Input";
 import Typo from "../../../smart-post-carousel/assets/icon";
 import CustomSelection from "../CustomSelection/CustomSelection";
-import { fontFamilyOptions, fontWeight, tags } from "../../../const";
+import { fontFamilyOptions, fontWeight } from "../../../const";
 
-function Typography({ label, onChange = () => {}, values, attributeKey }) {
+function Typography({
+	label,
+	onChange = () => {},
+	values,
+	attributeKey,
+	tags = [
+		{
+			label: "Default",
+			value: "div",
+		},
+		{
+			label: "Heading h1",
+			value: "h1",
+		},
+		{
+			label: "Heading h2",
+			value: "h2",
+		},
+		{
+			label: "Heading h3",
+			value: "h3",
+		},
+		{
+			label: "Heading h4",
+			value: "h4",
+		},
+		{
+			label: "Heading h5",
+			value: "h5",
+		},
+	],
+}) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleToggle = () => {

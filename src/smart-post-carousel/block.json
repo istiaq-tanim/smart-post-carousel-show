@@ -784,6 +784,104 @@
 		"buttonText": {
 			"type": "string",
 			"default": "Read More"
+		},
+		"buttonTypo": {
+			"type": "object",
+			"default": {
+				"tags": "a",
+				"family": "Roboto",
+				"fontSize": 12,
+				"weight": 400,
+				"height": 1.2,
+				"spacing": 0,
+				"text": "List item title"
+			}
+		},
+		"iconVisibility": {
+			"type": "string",
+			"default": "none"
+		},
+		"buttonStyle": {
+			"type": "string",
+			"default": "chevron-solid"
+		},
+		"iconGap": {
+			"type": "object",
+			"default": {
+				"desktop": 4,
+				"tablet": 4,
+				"mobile": 4
+			}
+		},
+		"iconEffectType": {
+			"type": "string",
+			"default": "normal"
+		},
+		"buttonTextColor": {
+			"type": "object",
+			"default": {
+				"normal": "#4e6e3e",
+				"hover": ""
+			}
+		},
+		"buttonBackGroundStyles": {
+			"type": "object",
+			"default": {
+				"type": "transparent",
+				"hoverType": "transparent",
+				"solidBackground": "#fff",
+				"gradientBackground": "",
+				"hoverSolidBackground": "#fff",
+				"hoverGradientBackground": ""
+			}
+		},
+		"buttonBorderStyle": {
+			"type": "string",
+			"default": "solid"
+		},
+		"buttonHoverBorderStyle": {
+			"type": "string",
+			"default": "solid"
+		},
+		"buttonBorderWidthNormal": {
+			"type": "number",
+			"default": {
+				"desktop": 1,
+				"tablet": 1,
+				"mobile": 1
+			}
+		},
+		"buttonBorderWidthHover": {
+			"type": "number",
+			"default": {
+				"desktop": 1,
+				"tablet": 1,
+				"mobile": 1
+			}
+		},
+		"buttonBorderColorNormal": {
+			"type": "string",
+			"default": "#4e6e3e"
+		},
+		"buttonBorderColorHover": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonBorderRadiusNormal": {
+			"type": "number",
+			"default": {
+				"desktop": 0,
+				"tablet": 0,
+				"mobile": 0
+			}
+		},
+		"buttonBorderRadiusHover": {
+			"type": "number",
+			"default": {
+				"desktop": 0,
+				"tablet": 0,
+				"mobile": 0
+			}
 		}
 	},
 	"render": "file:./render.php",
