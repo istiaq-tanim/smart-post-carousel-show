@@ -1,8 +1,10 @@
+import { TextControl } from "@wordpress/components";
 import { useAttributes } from "../../hooks/useAttributes";
 import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
 
 function General() {
 	const { attributes, setAttributes } = useAttributes();
+
 	return (
 		<>
 			<CustomToggleGroupControl
@@ -15,6 +17,13 @@ function General() {
 					{ label: "Text Link", value: "link" },
 				]}
 			></CustomToggleGroupControl>
+
+			<TextControl
+				label="Ellipsis Points Ending Excerpt"
+				value={attributes.buttonText}
+				onChange={(value) => setAttributes({ buttonText: value })}
+				placeholder="Read More"
+			/>
 		</>
 	);
 }

@@ -31,9 +31,6 @@ const getContentElement = (
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
 
-	console.log(showExcerpt, "hello")
-
-
 	switch (item.value) {
 		case "category":
 			return orientation !== "orientation_three" ? (
@@ -58,9 +55,11 @@ const getContentElement = (
 					style={{
 						"--meta-column-gap": `${metaColumnGap ?? 8}px`,
 						"--meta-row-gap": `${metaRowGap ?? 12}px`,
-						"--meta-margin": `${metaMargin[normalizedDeviceType]?.top ?? 0}px ${metaMargin[normalizedDeviceType]?.right ?? 0
-							}px ${metaMargin[normalizedDeviceType]?.bottom ?? 0}px ${metaMargin[normalizedDeviceType]?.left ?? 0
-							}px`,
+						"--meta-margin": `${metaMargin[normalizedDeviceType]?.top ?? 0}px ${
+							metaMargin[normalizedDeviceType]?.right ?? 0
+						}px ${metaMargin[normalizedDeviceType]?.bottom ?? 0}px ${
+							metaMargin[normalizedDeviceType]?.left ?? 0
+						}px`,
 						"--metaSeparatorColor": `${metaSeparatorColor ?? "#000000"}`,
 						"--meta-font-family": metaContext?.metaTypo?.family ?? "inherit",
 						"--meta-font-size": `${metaContext?.metaTypo?.fontSize ?? 12}px`,

@@ -783,6 +783,10 @@
     "buttonType": {
       "type": "string",
       "default": "button"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Read More"
     }
   },
   "render": "file:./render.php",

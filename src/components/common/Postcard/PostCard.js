@@ -4,6 +4,7 @@ import { useDeviceType } from "../../../hooks/useDevice";
 
 import CategoryList from "./CategoryList";
 import getContentElement from "./renderers/getContentElement";
+import { getCardStyles } from "../../../../utils/getCardStyles";
 
 function PostCard({ post, attributes }) {
 	const title = post?.title;
@@ -11,7 +12,6 @@ function PostCard({ post, attributes }) {
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
 	const {
-		height,
 		contentAlignment,
 		equalHeight,
 		metaDataAllContentArray = [],
@@ -27,21 +27,6 @@ function PostCard({ post, attributes }) {
 		metaSeparatorStyle,
 		metaSeparatorColor,
 		metaTypo,
-		contentBackGroundStyles,
-		contentBorderStyle,
-		contentHoverBorderStyle,
-		contentBorderWidthNormal,
-		contentBorderWidthHover,
-		contentBorderColorNormal,
-		contentBorderColorHover,
-		contentBorderRadiusNormal,
-		contentBorderRadiusHover,
-		contentPadding,
-		contentInnerPadding,
-		contentMargin,
-		contentBoxShadow,
-		contentBoxShadowColor,
-		showContentBoxShadow,
 		showExcerpt,
 		excerptType,
 		excerptLength,
@@ -71,8 +56,9 @@ function PostCard({ post, attributes }) {
 		? post?.author_avatar_url
 		: "`https://www.gravatar.com/avatar/?d=mp&s=48`;";
 
-	const cardClassName = `sp-smart-post-carousel-card ${orientation}${equalHeight ? " equal-height" : ""
-		}`;
+	const cardClassName = `sp-smart-post-carousel-card ${orientation}${
+		equalHeight ? " equal-height" : ""
+	}`;
 
 	const metaContext = useMemo(
 		() => ({
@@ -90,7 +76,6 @@ function PostCard({ post, attributes }) {
 			dateFormat,
 			metaColor,
 			metaTypo,
-
 		}),
 		[
 			author,
@@ -107,7 +92,6 @@ function PostCard({ post, attributes }) {
 			dateFormat,
 			metaColor,
 			metaTypo,
-
 		],
 	);
 	const contentContext = useMemo(
@@ -159,48 +143,10 @@ function PostCard({ post, attributes }) {
 		],
 	);
 
-	const bgType = contentBackGroundStyles?.type || "transparent";
-	const hoverBgType = contentBackGroundStyles?.hoverType || "transparent";
-
-	const normalBg =
-		bgType === "gradient"
-			? contentBackGroundStyles?.gradientBackground
-			: bgType === "solid"
-				? contentBackGroundStyles?.solidBackground
-				: null;
-
-	const hoverBg =
-		hoverBgType === "gradient"
-			? contentBackGroundStyles?.hoverGradientBackground
-			: hoverBgType === "solid"
-				? contentBackGroundStyles?.hoverSolidBackground
-				: null;
+	const cardStyles = getCardStyles(attributes, normalizedDeviceType);
 
 	return (
-		<div
-			className={cardClassName}
-			style={{
-				"--cardHeight": equalHeight
-					? `${height[normalizedDeviceType]}px`
-					: undefined,
-				...(normalBg && { "--card-bg": normalBg }),
-				...(hoverBg && { "--card-hover-bg": hoverBg }),
-				"--card-border": contentBorderStyle || "none",
-				"--card-hover-border": contentHoverBorderStyle || "none",
-				"--card-border-width": `${contentBorderWidthNormal[normalizedDeviceType] || 1}px`,
-				"--card-hover-border-width": `${contentBorderWidthHover[normalizedDeviceType] || 1}px`,
-				"--card-border-color": contentBorderColorNormal || "#000",
-				"--card-hover-border-color": contentBorderColorHover || "#000",
-				"--card-border-radius": `${contentBorderRadiusNormal?.[normalizedDeviceType] ?? 0}px`,
-				"--card-hover-border-radius": `${contentBorderRadiusHover?.[normalizedDeviceType] ?? 0}px`,
-				"--card-padding": `${contentPadding[normalizedDeviceType].top ?? 0}px ${contentPadding[normalizedDeviceType].right ?? 0}px ${contentPadding[normalizedDeviceType].bottom ?? 0}px ${contentPadding[normalizedDeviceType].left ?? 0}px`,
-				"--card-innerPadding": `${contentInnerPadding[normalizedDeviceType].top ?? 0}px ${contentInnerPadding[normalizedDeviceType].right ?? 0}px ${contentInnerPadding[normalizedDeviceType].bottom ?? 0}px ${contentInnerPadding[normalizedDeviceType].left ?? 0}px`,
-				"--card-Margin": `${contentMargin[normalizedDeviceType].top ?? 0}px ${contentMargin[normalizedDeviceType].right ?? 0}px ${contentMargin[normalizedDeviceType].bottom ?? 0}px ${contentMargin[normalizedDeviceType].left ?? 0}px`,
-				...(showContentBoxShadow && contentBoxShadow?.[normalizedDeviceType] && {
-					"--contentBoxShadow": `${contentBoxShadow[normalizedDeviceType].type === "inset" ? "inset" : ""} ${contentBoxShadow[normalizedDeviceType].xOffset ?? 0}px ${contentBoxShadow[normalizedDeviceType].yOffset ?? 0}px ${contentBoxShadow[normalizedDeviceType].blur ?? 0}px ${contentBoxShadow[normalizedDeviceType].spread ?? 0}px ${contentBoxShadowColor ?? "transparent"}`.trim()
-				}),
-			}}
-		>
+		<div className={cardClassName} style={cardStyles}>
 			{/* IMAGE */}
 			<div className="sp-smart-post-carousel-card-wrapper">
 				<div className="sp-smart-post-carousel-card-image">
@@ -223,7 +169,9 @@ function PostCard({ post, attributes }) {
 					className="sp-smart-post-carousel-template-content"
 					style={{ "--alignment": `${contentAlignment}` }}
 				>
-					{allContentArray.map((item) => getContentElement(item, contentContext))}
+					{allContentArray.map((item) =>
+						getContentElement(item, contentContext),
+					)}
 				</div>
 			</div>
 		</div>

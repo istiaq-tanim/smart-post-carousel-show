@@ -788,6 +788,10 @@ return array(
 			'buttonType' => array(
 				'type' => 'string',
 				'default' => 'button'
+			),
+			'buttonText' => array(
+				'type' => 'string',
+				'default' => 'Read More'
 			)
 		),
 		'render' => 'file:./render.php',
