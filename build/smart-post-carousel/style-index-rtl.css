@@ -367,7 +367,7 @@
   color: var(--button-normal-color);
   padding: 8px 16px;
   border-style: var(--button-border, none);
-  border-width: var(--button-border-width, 0px);
+  border-width: var(--button-border-size, 0px);
   border-color: var(--button-border-color);
   font-family: var(--button-font-family, inherit);
   margin: 16px 0 0 0;
@@ -387,7 +387,7 @@
   color: var(--button-hover-color);
   background: var(--button-hover-bg);
   border-style: var(--button-hover-border, none);
-  border-width: var(--button-hover-border-width, 0px);
+  border-width: var(--button-hover-border-size, 0px);
   border-color: var(--button-hover-border-color);
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link .read-more-icon {

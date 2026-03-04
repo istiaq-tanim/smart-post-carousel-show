@@ -72,10 +72,10 @@ function ReadMore() {
 
 				"--button-border": buttonBorderStyle || "none",
 				"--button-hover-border": buttonHoverBorderStyle || "none",
-				"--button-border-width": `${
+				"--button-border-size": `${
 					buttonBorderWidthNormal[normalizedDeviceType] || 1
 				}px`,
-				"--button-hover-border-width": `${
+				"--button-hover-border-size": `${
 					buttonBorderWidthHover[normalizedDeviceType] || 1
 				}px`,
 				"--button-border-color": buttonBorderColorNormal || "#4e6e3e",
