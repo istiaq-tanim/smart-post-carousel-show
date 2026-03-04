@@ -4,6 +4,7 @@ import { useDeviceType } from "../../../hooks/useDevice";
 
 import CategoryList from "./CategoryList";
 import getContentElement from "./renderers/getContentElement";
+import { getCardStyles } from "../../../../utils/getCardStyles";
 
 function PostCard({ post, attributes }) {
 	const title = post?.title;
@@ -11,7 +12,6 @@ function PostCard({ post, attributes }) {
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
 	const {
-		height,
 		contentAlignment,
 		equalHeight,
 		metaDataAllContentArray = [],
@@ -27,10 +27,21 @@ function PostCard({ post, attributes }) {
 		metaSeparatorStyle,
 		metaSeparatorColor,
 		metaTypo,
+		showExcerpt,
+		excerptType,
+		excerptLength,
+		excerptEllipsis,
+		excerptTypo,
+		excerptColor,
+		excerptMargin,
+		buttonType,
+		buttonText,
+		showReadMore,
+		buttonTypo,
 	} = attributes;
 
 	const author =
-		post?._embedded?.author?.[0]?.name || post?.author || "Salah Uddin";
+		post?._embedded?.author?.[0]?.name || post?.author || "Kazi Istiaq Mahamud";
 
 	const postDate = getPostDate(post);
 
@@ -101,6 +112,17 @@ function PostCard({ post, attributes }) {
 			metaMargin,
 			metaSeparatorStyle,
 			metaSeparatorColor,
+			showExcerpt,
+			excerptType,
+			excerptLength,
+			excerptEllipsis,
+			excerptTypo,
+			excerptColor,
+			excerptMargin,
+			buttonType,
+			buttonText,
+			showReadMore,
+			buttonTypo,
 		}),
 		[
 			post,
@@ -116,40 +138,50 @@ function PostCard({ post, attributes }) {
 			metaMargin,
 			metaSeparatorStyle,
 			metaSeparatorColor,
+			showExcerpt,
+			excerptType,
+			excerptLength,
+			excerptEllipsis,
+			excerptTypo,
+			excerptColor,
+			excerptMargin,
+			buttonType,
+			buttonText,
+			showReadMore,
+			buttonTypo,
 		],
 	);
 
+	const cardStyles = getCardStyles(attributes, normalizedDeviceType);
+
 	return (
-		<div
-			className={cardClassName}
-			style={{
-				"--cardHeight": !equalHeight
-					? `${height[normalizedDeviceType]}px`
-					: undefined,
-			}}
-		>
+		<div className={cardClassName} style={cardStyles}>
 			{/* IMAGE */}
-			<div className="sp-smart-post-carousel-card-image">
-				<img src={image} alt={imageAlt} />
+			<div className="sp-smart-post-carousel-card-wrapper">
+				<div className="sp-smart-post-carousel-card-image">
+					<img src={image} alt={imageAlt} />
 
-				<div className="sp-smart-post-carousel-overlay-category">
-					<CategoryList categories={post.category} />
+					<div className="sp-smart-post-carousel-overlay-category">
+						<CategoryList categories={post.category} />
+					</div>
+
+					<div className="sp-smart-post-carousel-date">
+						<span className="sp-smart-post-carousel-day">{postDate.day}</span>
+						<span className="sp-smart-post-carousel-month-year">
+							{postDate.month} {postDate.year}
+						</span>
+					</div>
 				</div>
 
-				<div className="sp-smart-post-carousel-date">
-					<span className="sp-smart-post-carousel-day">{postDate.day}</span>
-					<span className="sp-smart-post-carousel-month-year">
-						{postDate.month} {postDate.year}
-					</span>
+				{/* CONTENT */}
+				<div
+					className="sp-smart-post-carousel-template-content"
+					style={{ "--alignment": `${contentAlignment}` }}
+				>
+					{allContentArray.map((item) =>
+						getContentElement(item, contentContext),
+					)}
 				</div>
-			</div>
-
-			{/* CONTENT */}
-			<div
-				className="sp-smart-post-carousel-template-content"
-				style={{ "--alignment": `${contentAlignment}` }}
-			>
-				{allContentArray.map((item) => getContentElement(item, contentContext))}
 			</div>
 		</div>
 	);

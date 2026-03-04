@@ -80,7 +80,7 @@ function Style() {
 				attributeKey="metaColumnGap"
 				min={0}
 				max={50}
-				defaultValue={8}
+				defaultValue={12}
 				step={1}
 				showDevice={false}
 			></CustomRangeControl>
@@ -92,7 +92,7 @@ function Style() {
 				attributeKey="metaRowGap"
 				min={0}
 				max={50}
-				defaultValue={12}
+				defaultValue={4}
 				step={1}
 				showDevice={false}
 			></CustomRangeControl>

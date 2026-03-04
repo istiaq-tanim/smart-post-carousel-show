@@ -114,6 +114,37 @@ add_action(
 	}
 );
 
+
+add_action(
+	'enqueue_block_editor_assets',
+	function () {
+		wp_enqueue_style(
+			'sp-social-share-icons-editor',
+			plugins_url( 'assets/css/icon.css', __FILE__ ),
+			array(),
+			'1.0.0'
+		);
+	}
+);
+
+
+add_action(
+	'wp_enqueue_scripts',
+	function () {
+		if ( ! has_block( 'smart-post-carousel/carousel' ) ) {
+			return;
+		}
+
+		wp_enqueue_style(
+			'sp-social-share-icons-frontend',
+			plugins_url( 'assets/css/icon.css', __FILE__ ),
+			array(),
+			'1.0.0'
+		);
+	}
+);
+
+
 /**
  * AJAX handler
  */

@@ -1,12 +1,12 @@
-import { useState, useRef } from "@wordpress/element";
 import { ColorPicker, Popover } from "@wordpress/components";
+import { useRef, useState } from "@wordpress/element";
 import { Circle, ResetIcon } from "../../../smart-post-carousel/assets/icon";
 import "./editor.scss";
 function CustomColorPicker({
 	label,
 	value,
 	onChange,
-	defaultValue = "#f05e31",
+	defaultValue = "",
 }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const anchorRef = useRef(null);

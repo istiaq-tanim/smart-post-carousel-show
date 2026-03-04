@@ -59,7 +59,7 @@ function General() {
 
 			{/* Space Between Arrow */}
 			<CustomRangeControl
-				label="Space Between Arrows"
+				label="Space Between"
 				attributeKey="spaceBetweenArrow"
 				min={0}
 				max={200}

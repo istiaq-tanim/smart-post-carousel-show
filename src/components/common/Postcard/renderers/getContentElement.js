@@ -1,7 +1,9 @@
 import { useDeviceType } from "../../../../hooks/useDevice";
 import { FacebookIcon } from "../../../../smart-post-carousel/assets/icon";
 import CategoryList from "../CategoryList";
+import Excerpt from "../Excerpt";
 import MetaSeparator from "../MetaSeparator";
+import ReadMore from "../ReadMore";
 import getMetaElement from "./getMetaElement";
 
 const getContentElement = (
@@ -18,6 +20,16 @@ const getContentElement = (
 		metaMargin,
 		metaSeparatorStyle,
 		metaSeparatorColor,
+		showExcerpt,
+		excerptType,
+		excerptLength,
+		excerptEllipsis,
+		excerptTypo,
+		excerptColor,
+		excerptMargin,
+		buttonText,
+		showReadMore,
+		buttonTypo,
 	},
 ) => {
 	const deviceType = useDeviceType();
@@ -101,38 +113,33 @@ const getContentElement = (
 			);
 
 		case "excerpt":
-			return (
-				<div key="excerpt" className="sp-smart-post-carousel-excerpt-wrapper">
-					<p className="sp-smart-post-carousel-excerpt">
-						<span>{post?.excerpt?.slice(0, 50)}...</span>
-					</p>
-				</div>
-			);
+			return showExcerpt ? (
+				<Excerpt
+					key="excerpt"
+					excerptType={excerptType}
+					post={post}
+					excerptLength={excerptLength}
+					excerptEllipsis={excerptEllipsis}
+					excerptTypo={excerptTypo}
+					excerptColor={excerptColor}
+					excerptMargin={excerptMargin}
+				/>
+			) : null;
 
 		case "readMore":
-			return (
-				<div key="readMore" className="sp-smart-post-carousel-read-more-button">
-					<a className="sp-smart-post-carousel-read-more-btn-link">Read More</a>
-				</div>
-			);
+			return showReadMore ? <ReadMore></ReadMore> : null;
 
 		case "social":
 			return (
 				<ul key="social" className="sp-smart-post-carousel-social-share">
 					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook">
-							<FacebookIcon />
-						</i>
+						<i className="sp-icon-facebook"></i>
 					</li>
 					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook">
-							<FacebookIcon />
-						</i>
+						<i className="sp-icon-facebook"></i>
 					</li>
 					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook">
-							<FacebookIcon />
-						</i>
+						<i className="sp-icon-facebook"></i>
 					</li>
 				</ul>
 			);

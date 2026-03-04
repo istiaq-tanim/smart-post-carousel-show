@@ -5,21 +5,42 @@ import GradientBackground from "./Gradient";
 function BackgroundStyle({
 	backgroundStyle,
 	onChange,
+	contentEffect,
 	label = "Background Style",
 }) {
-	const selectedTab = backgroundStyle?.type || "transparent";
+	const isHover = contentEffect === "hover";
 
+<<<<<<< HEAD
+=======
+	const selectedTab = isHover
+		? backgroundStyle?.hoverType || "transparent"
+		: backgroundStyle?.type || "transparent";
+
+	// Each state+type combo has its own background key
+	const activeBackground = isHover
+		? selectedTab === "gradient"
+			? backgroundStyle?.hoverGradientBackground
+			: backgroundStyle?.hoverSolidBackground
+		: selectedTab === "gradient"
+			? backgroundStyle?.gradientBackground
+			: backgroundStyle?.solidBackground;
+
+>>>>>>> b1e2896c1f44619d4b65cd687aaabbb864690b3c
 	const handleTab = (tabName) => {
-		onChange({ ...backgroundStyle, type: tabName });
+		const key = isHover ? "hoverType" : "type";
+		onChange({ ...backgroundStyle, [key]: tabName });
 	};
 
 	const handleColorChange = (value) => {
-		onChange({ ...backgroundStyle, background: value });
+		const key = isHover ? "hoverSolidBackground" : "solidBackground";
+		onChange({ ...backgroundStyle, [key]: value });
 	};
 
 	const handleGradientChange = (value) => {
-		onChange({ ...backgroundStyle, background: value });
+		const key = isHover ? "hoverGradientBackground" : "gradientBackground";
+		onChange({ ...backgroundStyle, [key]: value });
 	};
+
 
 	const renderBackgroundControl = () => {
 		switch (selectedTab) {
@@ -27,14 +48,14 @@ function BackgroundStyle({
 				return (
 					<CustomColorPicker
 						label="Solid Color"
-						value={backgroundStyle.background || "#ffffff"}
+						value={activeBackground || "#fff"}
 						onChange={handleColorChange}
 					/>
 				);
 			case "gradient":
 				return (
 					<GradientBackground
-						value={backgroundStyle.background}
+						value={activeBackground}
 						onChange={handleGradientChange}
 					/>
 				);
@@ -52,9 +73,8 @@ function BackgroundStyle({
 					{backGroundStyles.map(({ name, icon: Icon, label: btnLabel }) => (
 						<button
 							key={name}
-							className={`background-style__btn ${
-								selectedTab === name ? "active" : ""
-							}`}
+							className={`background-style__btn ${selectedTab === name ? "active" : ""
+								}`}
 							onClick={() => handleTab(name)}
 							title={btnLabel}
 						>

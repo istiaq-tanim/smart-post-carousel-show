@@ -17288,11 +17288,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
-/* harmony import */ var _common_Background_Background__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/Background/Background */ "./src/components/common/Background/Background.js");
-/* harmony import */ var _common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/CustomToggleGroupControl/CustomToggleGroupControl */ "./src/components/common/CustomToggleGroupControl/CustomToggleGroupControl.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
+/* harmony import */ var _smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../smart-post-carousel/assets/borderIcon */ "./src/smart-post-carousel/assets/borderIcon.js");
+/* harmony import */ var _common_Background_Background__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/Background/Background */ "./src/components/common/Background/Background.js");
+/* harmony import */ var _common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/CustomColorPicker/CustomColorPicker */ "./src/components/common/CustomColorPicker/CustomColorPicker.js");
+/* harmony import */ var _common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/CustomRangeControl/CustomRangeControl */ "./src/components/common/CustomRangeControl/CustomRangeControl.js");
+/* harmony import */ var _common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/CustomSpacingControl/SpacingControl */ "./src/components/common/CustomSpacingControl/SpacingControl.js");
+/* harmony import */ var _common_CustomToggle_CustomToggle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/CustomToggle/CustomToggle */ "./src/components/common/CustomToggle/CustomToggle.js");
+/* harmony import */ var _common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/CustomToggleGroupControl/CustomToggleGroupControl */ "./src/components/common/CustomToggleGroupControl/CustomToggleGroupControl.js");
+/* harmony import */ var _common_Divider_Divider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../common/Divider/Divider */ "./src/components/common/Divider/Divider.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__);
+
+
+
+
+
+
+
 
 
 
@@ -17301,12 +17316,21 @@ function Style() {
   const {
     attributes,
     setAttributes
-  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_0__.useAttributes)();
+  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__.useAttributes)();
   const {
-    contentBackGroundStyles
+    contentBackGroundStyles,
+    contentEffect,
+    contentBorderColorNormal,
+    contentBorderColorHover,
+    contentPadding,
+    contentInnerPadding,
+    contentMargin,
+    showContentBoxShadow,
+    contentBoxShadow,
+    contentBoxShadowColor
   } = attributes;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_8__["default"], {
       attributes: attributes,
       attributesKey: "contentEffect",
       setAttributes: setAttributes,
@@ -17317,11 +17341,110 @@ function Style() {
         label: "Hover",
         value: "hover"
       }]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_common_Background_Background__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_Background_Background__WEBPACK_IMPORTED_MODULE_3__["default"], {
       backgroundStyle: contentBackGroundStyles,
+      contentEffect: contentEffect,
       label: "Background Style",
       onChange: value => setAttributes({
         contentBackGroundStyles: value
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Border", "smart-post-carousel"),
+      attributes: attributes,
+      attributesKey: contentEffect === "hover" ? "contentHoverBorderStyle" : "contentBorderStyle",
+      setAttributes: setAttributes,
+      items: [{
+        label: "None",
+        value: "none"
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_2__.SolidBorder, {}),
+        value: "solid"
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_2__.DashedBorder, {}),
+        value: "dashed"
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_2__.DottedBorder, {}),
+        value: "dotted"
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_2__.DoubleBorder, {}),
+        value: "double"
+      }]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      label: "Border Width",
+      attributeKey: contentEffect === "hover" ? "contentBorderWidthHover" : "contentBorderWidthNormal",
+      min: 0,
+      max: 10,
+      defaultValue: 1,
+      showUnit: true,
+      step: 1
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      label: "Border Color",
+      defaultValue: "",
+      onChange: value => setAttributes({
+        [contentEffect === "hover" ? "contentBorderColorHover" : "contentBorderColorNormal"]: value
+      }),
+      value: contentEffect === "hover" ? contentBorderColorHover : contentBorderColorNormal
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      label: "Border Radius",
+      attributeKey: contentEffect === "hover" ? "contentBorderRadiusHover" : "contentBorderRadiusNormal",
+      min: 0,
+      max: 48,
+      defaultValue: 0,
+      showUnit: true,
+      step: 1
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomToggle_CustomToggle__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Enable Box Shadow", "smart-post-carousel"),
+      value: showContentBoxShadow,
+      attributesKey: "showContentBoxShadow",
+      setAttributes: setAttributes
+    }), showContentBoxShadow && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        values: contentBoxShadow,
+        label: "Box Shadow",
+        showLabels: true,
+        labels: {
+          top: "X Offset",
+          right: "Y Offset",
+          bottom: "Blur",
+          left: "Speared"
+        },
+        showUnit: true,
+        step: 1,
+        onChange: values => setAttributes({
+          contentBoxShadow: values
+        }),
+        options: ["outset", "inset"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        label: "Shadow Color",
+        defaultValue: "#d6d8de",
+        onChange: value => setAttributes({
+          contentBoxShadowColor: value
+        }),
+        value: contentBoxShadowColor
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_Divider_Divider__WEBPACK_IMPORTED_MODULE_9__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      values: contentPadding,
+      min: 0,
+      max: 48,
+      label: "Padding",
+      onChange: values => setAttributes({
+        contentPadding: values
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      values: contentInnerPadding,
+      min: 0,
+      max: 48,
+      label: "Inner Padding",
+      onChange: values => setAttributes({
+        contentInnerPadding: values
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      values: contentMargin,
+      min: 0,
+      max: 48,
+      label: "Margin",
+      onChange: values => setAttributes({
+        contentMargin: values
       })
     })]
   });
@@ -17341,12 +17464,57 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
+/* harmony import */ var _common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/CustomRangeControl/CustomRangeControl */ "./src/components/common/CustomRangeControl/CustomRangeControl.js");
+/* harmony import */ var _common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/CustomToggleGroupControl/CustomToggleGroupControl */ "./src/components/common/CustomToggleGroupControl/CustomToggleGroupControl.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
 
 function General() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: "Excerpt General"
+  const {
+    attributes,
+    setAttributes
+  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__.useAttributes)();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      attributes: attributes,
+      label: "Excerpt Type",
+      attributesKey: "excerptType",
+      setAttributes: setAttributes,
+      items: [{
+        label: "Full",
+        value: "full"
+      }, {
+        label: "Limited",
+        value: "limited"
+      }]
+    }), attributes.excerptType === "limited" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        label: "Length",
+        attributeKey: "excerptLength",
+        min: 1,
+        max: 200,
+        defaultValue: 14,
+        showUnit: true,
+        showDevice: false,
+        flat: true,
+        options: ["words", "char"],
+        unit: attributes.excerptLength
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.TextControl, {
+        label: "Ellipsis Points Ending Excerpt",
+        value: attributes.excerptEllipsis,
+        onChange: value => setAttributes({
+          excerptEllipsis: value
+        }),
+        placeholder: "..."
+      })]
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (General);
@@ -17364,12 +17532,76 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
+/* harmony import */ var _common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/CustomColorPicker/CustomColorPicker */ "./src/components/common/CustomColorPicker/CustomColorPicker.js");
+/* harmony import */ var _common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/CustomSpacingControl/SpacingControl */ "./src/components/common/CustomSpacingControl/SpacingControl.js");
+/* harmony import */ var _common_Typography_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/Typography/Typography */ "./src/components/common/Typography/Typography.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
 
 function Style() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: "Excerpt Style"
+  const {
+    attributes,
+    setAttributes
+  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_0__.useAttributes)();
+  const {
+    excerptTypo,
+    excerptColor,
+    excerptMargin
+  } = attributes;
+  const handleColorChange = newColor => {
+    setAttributes({
+      excerptColor: newColor
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_Typography_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      label: "Typography",
+      attributeKey: "excerptTypo",
+      onChange: value => setAttributes({
+        excerptTypo: value
+      }),
+      values: excerptTypo,
+      tags: [{
+        label: "Default",
+        value: "span"
+      }, {
+        label: "Heading h1",
+        value: "h1"
+      }, {
+        label: "Heading h2",
+        value: "h2"
+      }, {
+        label: "Heading h3",
+        value: "h3"
+      }, {
+        label: "Heading h4",
+        value: "h4"
+      }, {
+        label: "Heading h5",
+        value: "h5"
+      }]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      label: "Color",
+      defaultValue: "#4e6e3e",
+      onChange: handleColorChange,
+      value: excerptColor
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      values: excerptMargin,
+      min: 0,
+      max: 48,
+      label: "Margin",
+      showUnit: true,
+      onChange: values => setAttributes({
+        excerptMargin: values
+      }),
+      options: ["px", "%", "em"],
+      step: 1
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Style);
@@ -17948,7 +18180,7 @@ function Style() {
       attributeKey: "metaColumnGap",
       min: 0,
       max: 50,
-      defaultValue: 8,
+      defaultValue: 12,
       step: 1,
       showDevice: false
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -17956,7 +18188,7 @@ function Style() {
       attributeKey: "metaRowGap",
       min: 0,
       max: 50,
-      defaultValue: 12,
+      defaultValue: 4,
       step: 1,
       showDevice: false
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -18040,7 +18272,7 @@ function General() {
       defaultValue: 40,
       showUnit: true
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      label: "Space Between Arrows",
+      label: "Space Between",
       attributeKey: "spaceBetweenArrow",
       min: 0,
       max: 200,
@@ -18802,12 +19034,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
+/* harmony import */ var _common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/CustomToggleGroupControl/CustomToggleGroupControl */ "./src/components/common/CustomToggleGroupControl/CustomToggleGroupControl.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
 
 function General() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: "ReadMore General"
+  const {
+    attributes,
+    setAttributes
+  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__.useAttributes)();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      attributes: attributes,
+      label: "Read More Type",
+      attributesKey: "buttonType",
+      setAttributes: setAttributes,
+      items: [{
+        label: "Button",
+        value: "button"
+      }, {
+        label: "Text Link",
+        value: "link"
+      }]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.TextControl, {
+      label: "Read More Type",
+      value: attributes.buttonText,
+      onChange: value => setAttributes({
+        buttonText: value
+      }),
+      placeholder: "Read More"
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (General);
@@ -18825,12 +19087,168 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../const */ "./src/const/index.js");
+/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
+/* harmony import */ var _common_Background_Background__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/Background/Background */ "./src/components/common/Background/Background.js");
+/* harmony import */ var _common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/CustomColorPicker/CustomColorPicker */ "./src/components/common/CustomColorPicker/CustomColorPicker.js");
+/* harmony import */ var _common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/CustomRangeControl/CustomRangeControl */ "./src/components/common/CustomRangeControl/CustomRangeControl.js");
+/* harmony import */ var _common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/CustomToggleGroupControl/CustomToggleGroupControl */ "./src/components/common/CustomToggleGroupControl/CustomToggleGroupControl.js");
+/* harmony import */ var _common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/SelectDropDown/SelectDropDown */ "./src/components/common/SelectDropDown/SelectDropDown.js");
+/* harmony import */ var _common_Typography_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/Typography/Typography */ "./src/components/common/Typography/Typography.js");
+/* harmony import */ var _smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../smart-post-carousel/assets/borderIcon */ "./src/smart-post-carousel/assets/borderIcon.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__);
+
+
+
+
+
+
+
+
+
+
 
 function Style() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: "ReadMore Style"
+  const {
+    attributes,
+    setAttributes
+  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_2__.useAttributes)();
+  const {
+    buttonTypo,
+    iconVisibility,
+    buttonStyle,
+    iconEffectType,
+    buttonTextColor,
+    buttonBackGroundStyles,
+    buttonBorderColorNormal,
+    buttonBorderColorHover
+  } = attributes;
+  const currentColor = buttonTextColor?.[iconEffectType] ?? "";
+  const currentBorderStyleKey = iconEffectType === "hover" ? "buttonHoverBorderStyle" : "buttonBorderStyle";
+  const currentBorderStyle = attributes[currentBorderStyleKey];
+  const handleColorChange = newColor => {
+    setAttributes({
+      buttonTextColor: {
+        ...buttonTextColor,
+        [iconEffectType]: newColor
+      }
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_Typography_Typography__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      label: "Typography",
+      attributeKey: "buttonTypo",
+      onChange: value => setAttributes({
+        buttonTypo: value
+      }),
+      values: buttonTypo,
+      tags: [{
+        label: "Default",
+        value: "a"
+      }, {
+        label: "Heading h1",
+        value: "h1"
+      }, {
+        label: "Heading h2",
+        value: "h2"
+      }, {
+        label: "Heading h3",
+        value: "h3"
+      }, {
+        label: "Heading h4",
+        value: "h4"
+      }, {
+        label: "Heading h5",
+        value: "h5"
+      }]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      label: "Icon Visibility",
+      attributes: attributes,
+      attributesKey: "iconVisibility",
+      setAttributes: setAttributes,
+      items: [{
+        label: "None",
+        value: "none"
+      }, {
+        label: "Always",
+        value: "always"
+      }, {
+        label: "Hover",
+        value: "hover"
+      }]
+    }), ["always", "hover"].includes(iconVisibility) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        label: "Icon Style",
+        attributes: buttonStyle,
+        attributesKey: "buttonStyle",
+        setAttributes: setAttributes,
+        options: _const__WEBPACK_IMPORTED_MODULE_1__.buttonIcons
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        label: "Icon Gap",
+        attributeKey: "iconGap",
+        min: 0,
+        max: 50,
+        defaultValue: 4,
+        showUnit: true
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      attributes: attributes,
+      attributesKey: "iconEffectType",
+      setAttributes: setAttributes,
+      items: [{
+        label: "Normal",
+        value: "normal"
+      }, {
+        label: "Hover",
+        value: "hover"
+      }]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      label: "Color",
+      defaultValue: iconEffectType === "normal" ? "#4e6e3e" : "",
+      onChange: handleColorChange,
+      value: currentColor
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_Background_Background__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      backgroundStyle: buttonBackGroundStyles,
+      contentEffect: iconEffectType,
+      label: "Background Style",
+      onChange: value => setAttributes({
+        buttonBackGroundStyles: value
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Border", "smart-post-carousel"),
+      attributes: attributes,
+      attributesKey: currentBorderStyleKey,
+      setAttributes: setAttributes,
+      items: _const__WEBPACK_IMPORTED_MODULE_1__.borderTypes
+    }), currentBorderStyle !== "none" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        label: "Border Width",
+        attributeKey: iconEffectType === "hover" ? "buttonHoverBorderWidth" : "buttonBorderWidthNormal",
+        min: 0,
+        max: 10,
+        defaultValue: 1,
+        showUnit: true,
+        step: 1
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        label: "Border Color",
+        defaultValue: "",
+        onChange: value => setAttributes({
+          [iconEffectType === "hover" ? "buttonBorderColorHover" : "buttonBorderColorNormal"]: value
+        }),
+        value: iconEffectType === "hover" ? buttonBorderColorHover : buttonBorderColorNormal
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        label: "Border Radius",
+        attributeKey: iconEffectType === "hover" ? "buttonBorderRadiusHover" : "buttonBorderRadiusNormal",
+        min: 0,
+        max: 48,
+        defaultValue: 0,
+        showUnit: true,
+        step: 1
+      })]
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Style);
@@ -19493,149 +19911,9 @@ function Style() {
 /*!********************************************************!*\
   !*** ./src/components/common/Background/Background.js ***!
   \********************************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+() {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../const */ "./src/const/index.js");
-/* harmony import */ var _CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CustomColorPicker/CustomColorPicker */ "./src/components/common/CustomColorPicker/CustomColorPicker.js");
-/* harmony import */ var _Gradient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Gradient */ "./src/components/common/Background/Gradient.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
-function BackgroundStyle({
-  backgroundStyle,
-  onChange,
-  label = "Background Style"
-}) {
-  const selectedTab = backgroundStyle?.type || "transparent";
-  const handleTab = tabName => {
-    onChange({
-      ...backgroundStyle,
-      type: tabName
-    });
-  };
-  const handleColorChange = value => {
-    onChange({
-      ...backgroundStyle,
-      background: value
-    });
-  };
-  const handleGradientChange = value => {
-    onChange({
-      ...backgroundStyle,
-      background: value
-    });
-  };
-  const renderBackgroundControl = () => {
-    switch (selectedTab) {
-      case "solid":
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          label: "Solid Color",
-          value: backgroundStyle.background || "#ffffff",
-          onChange: handleColorChange
-        });
-      case "gradient":
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Gradient__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          value: backgroundStyle.background,
-          onChange: handleGradientChange
-        });
-      case "transparent":
-      default:
-        return null;
-    }
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "background-style",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-        children: label
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "background-style__buttons",
-        children: _const__WEBPACK_IMPORTED_MODULE_0__.backGroundStyles.map(({
-          name,
-          icon: Icon,
-          label: btnLabel
-        }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
-          className: `background-style__btn ${selectedTab === name ? "active" : ""}`,
-          onClick: () => handleTab(name),
-          title: btnLabel,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Icon, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            children: btnLabel
-          })]
-        }, name))
-      })]
-    }), renderBackgroundControl()]
-  });
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BackgroundStyle);
-
-/***/ },
-
-/***/ "./src/components/common/Background/Gradient.js"
-/*!******************************************************!*\
-  !*** ./src/components/common/Background/Gradient.js ***!
-  \******************************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
-
-
-function GradientBackground({
-  value,
-  onChange
-}) {
-  const DEFAULT_GRADIENT = "linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)";
-  const gradientValue = value && typeof value === "string" && value.includes("gradient") ? value : DEFAULT_GRADIENT;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "background-gradient-picker",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.GradientPicker, {
-      value: gradientValue,
-      clearable: false,
-      onChange: onChange,
-      gradients: [{
-        name: "JShine",
-        gradient: "linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)",
-        slug: "jshine"
-      }, {
-        name: "Moonlit Asteroid",
-        gradient: "linear-gradient(135deg,#0F2027 0%, #203A43 0%, #2c5364 100%)",
-        slug: "moonlit-asteroid"
-      }, {
-        name: "Rastafarie",
-        gradient: "linear-gradient(135deg,#1E9600 0%, #FFF200 0%, #FF0000 100%)",
-        slug: "rastafari"
-      }, {
-        gradient: "linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%)",
-        name: "Cool to warm spectrum",
-        slug: "cool-to-warm-spectrum"
-      }, {
-        gradient: "linear-gradient(135deg,hsl(200, 100%, 50%) 0%,hsl(280, 100%, 60%) 100%)",
-        name: "HSL blue to purple",
-        slug: "hsl-blue-to-purple"
-      }, {
-        gradient: "linear-gradient(135deg,hsla(120, 100%, 40%, 0.85) 0%,hsla(0, 100%, 50%, 0.85) 100%)",
-        name: "HSLA green to red",
-        slug: "hsla-green-to-red"
-      }]
-    })
-  });
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GradientBackground);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/src/components/common/Background/Background.js: Unexpected token (13:1)\n\n\u001b[0m \u001b[90m 11 |\u001b[39m \t\u001b[36mconst\u001b[39m isHover \u001b[33m=\u001b[39m contentEffect \u001b[33m===\u001b[39m \u001b[32m\"hover\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\n \u001b[90m 15 |\u001b[39m \t\u001b[36mconst\u001b[39m selectedTab \u001b[33m=\u001b[39m isHover\n \u001b[90m 16 |\u001b[39m \t\t\u001b[33m?\u001b[39m backgroundStyle\u001b[33m?\u001b[39m\u001b[33m.\u001b[39mhoverType \u001b[33m||\u001b[39m \u001b[32m\"transparent\"\u001b[39m\u001b[0m\n    at constructor (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:365:19)\n    at JSXParserMixin.raise (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:6599:19)\n    at JSXParserMixin.unexpected (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:6619:16)\n    at JSXParserMixin.jsxParseIdentifier (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:4569:12)\n    at JSXParserMixin.jsxParseNamespacedName (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:4576:23)\n    at JSXParserMixin.jsxParseElementName (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:4585:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:4661:22)\n    at JSXParserMixin.jsxParseElementAt (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:4686:33)\n    at JSXParserMixin.jsxParseElement (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:4749:17)\n    at JSXParserMixin.parseExprAtom (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:4759:19)\n    at JSXParserMixin.parseExprSubscripts (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:11081:23)\n    at JSXParserMixin.parseUpdate (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:11066:21)\n    at JSXParserMixin.parseMaybeUnary (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:11046:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:10899:61)\n    at JSXParserMixin.parseExprOps (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:10904:23)\n    at JSXParserMixin.parseMaybeConditional (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:10881:23)\n    at JSXParserMixin.parseMaybeAssign (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:10831:21)\n    at JSXParserMixin.parseExpressionBase (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:10784:23)\n    at /Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:10780:39\n    at JSXParserMixin.allowInAnd (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12421:16)\n    at JSXParserMixin.parseExpression (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:10780:17)\n    at JSXParserMixin.parseStatementContent (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12895:23)\n    at JSXParserMixin.parseStatementLike (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12767:17)\n    at JSXParserMixin.parseStatementListItem (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12747:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:13316:61)\n    at JSXParserMixin.parseBlockBody (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:13309:10)\n    at JSXParserMixin.parseBlock (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:13297:10)\n    at JSXParserMixin.parseFunctionBody (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12100:24)\n    at JSXParserMixin.parseFunctionBodyAndFinish (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12086:10)\n    at /Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:13445:12\n    at JSXParserMixin.withSmartMixTopicForbiddingContext (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12403:14)\n    at JSXParserMixin.parseFunction (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:13444:10)\n    at JSXParserMixin.parseFunctionStatement (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:13125:17)\n    at JSXParserMixin.parseStatementContent (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12791:21)\n    at JSXParserMixin.parseStatementLike (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12767:17)\n    at JSXParserMixin.parseModuleItem (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12744:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:13316:36)\n    at JSXParserMixin.parseBlockBody (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:13309:10)\n    at JSXParserMixin.parseProgram (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12622:10)\n    at JSXParserMixin.parseTopLevel (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:12612:25)\n    at JSXParserMixin.parse (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:14488:25)\n    at parse (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/parser/lib/index.js:14522:38)\n    at parser (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/core/lib/parser/index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/core/lib/transformation/index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (/Users/th25/Local Sites/smart-carousel-post/app/public/wp-content/plugins/smart-post-carousel-show/node_modules/@babel/core/lib/transform.js:22:33)\n    at transform.next (<anonymous>)");
 
 /***/ },
 
@@ -19650,10 +19928,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../smart-post-carousel/assets/icon */ "./src/smart-post-carousel/assets/icon.js");
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/components/common/CustomColorPicker/editor.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
@@ -19667,10 +19945,10 @@ function CustomColorPicker({
   label,
   value,
   onChange,
-  defaultValue = "#f05e31"
+  defaultValue = ""
 }) {
-  const [isOpen, setIsOpen] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  const anchorRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const [isOpen, setIsOpen] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+  const anchorRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   const handleColorChange = value => {
     onChange(value ? value.hex : defaultValue);
   };
@@ -19715,12 +19993,12 @@ function CustomColorPicker({
           })
         })]
       })
-    }), isOpen && anchorRef.current && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Popover, {
+    }), isOpen && anchorRef.current && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Popover, {
       placement: "left-end",
       onClose: () => setIsOpen(false),
       className: "color-popover",
       usePortal: false,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ColorPicker, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ColorPicker, {
         color: value,
         onChangeComplete: handleColorChange,
         enableAlpha: true
@@ -19758,12 +20036,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _RangeHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RangeHeader */ "./src/components/common/CustomRangeControl/RangeHeader.js");
-/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
+/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
+/* harmony import */ var _hooks_useDevice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks/useDevice */ "./src/hooks/useDevice.js");
 /* harmony import */ var _hooks_useRangeHandler__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../hooks/useRangeHandler */ "./src/hooks/useRangeHandler.js");
 /* harmony import */ var _hooks_useRangeValue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../hooks/useRangeValue */ "./src/hooks/useRangeValue.js");
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/components/common/CustomRangeControl/editor.scss");
-/* harmony import */ var _hooks_useDevice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../hooks/useDevice */ "./src/hooks/useDevice.js");
+/* harmony import */ var _RangeHeader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./RangeHeader */ "./src/components/common/CustomRangeControl/RangeHeader.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
 
@@ -19785,15 +20063,15 @@ function CustomRangeControl({
   showReset = true,
   showDevice = true,
   showUnit = false,
-  step = 1
+  options,
+  step = 1,
+  flat = false
 }) {
   const {
     attributes,
     setAttributes
-  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_2__.useAttributes)();
-  const deviceType = (0,_hooks_useDevice__WEBPACK_IMPORTED_MODULE_6__.useDeviceType)();
-
-  // Get current value using custom hook
+  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__.useAttributes)();
+  const deviceType = (0,_hooks_useDevice__WEBPACK_IMPORTED_MODULE_2__.useDeviceType)();
   const {
     value,
     activeSubKey
@@ -19802,10 +20080,9 @@ function CustomRangeControl({
     attributeKey,
     nestedKey,
     deviceType,
-    defaultValue
+    defaultValue,
+    skip: flat
   });
-
-  // Handle changes and reset using custom hook
   const {
     handleChange,
     handleReset
@@ -19815,24 +20092,68 @@ function CustomRangeControl({
     attributeKey,
     nestedKey,
     activeSubKey,
-    defaultValue
+    defaultValue,
+    skip: flat
   });
+
+  // Unit logic
+  const currentUnit = flat ? attributes[attributeKey]?.unit ?? unit : attributes[attributeKey]?.[activeSubKey]?.unit ?? unit;
+  const handleUnitChange = newUnit => {
+    if (flat) {
+      setAttributes({
+        [attributeKey]: {
+          ...attributes[attributeKey],
+          unit: newUnit
+        }
+      });
+    } else {
+      setAttributes({
+        [attributeKey]: {
+          ...attributes[attributeKey],
+          [activeSubKey]: {
+            ...attributes[attributeKey]?.[activeSubKey],
+            unit: newUnit
+          }
+        }
+      });
+    }
+  };
+  const flatValue = attributes[attributeKey]?.value ?? defaultValue;
+  const handleFlatChange = newValue => {
+    setAttributes({
+      [attributeKey]: {
+        ...attributes[attributeKey],
+        value: newValue
+      }
+    });
+  };
+  const handleFlatReset = () => {
+    setAttributes({
+      [attributeKey]: {
+        value: defaultValue,
+        unit
+      }
+    });
+  };
+  const resolvedMax = currentUnit === "characters" ? 500 : max;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     className: "custom-range-control",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_RangeHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_RangeHeader__WEBPACK_IMPORTED_MODULE_6__["default"], {
       label: label,
-      unit: unit,
+      unit: currentUnit,
       showReset: showReset,
-      showDevice: showDevice,
-      onReset: handleReset,
-      showUnit: showUnit
+      showDevice: showDevice && !flat,
+      onReset: flat ? handleFlatReset : handleReset,
+      showUnit: showUnit,
+      options: options,
+      onUnitChange: handleUnitChange
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "input-range",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RangeControl, {
-        max: max,
+        max: resolvedMax,
         min: min,
-        value: value,
-        onChange: newValue => handleChange(newValue),
+        value: flat ? flatValue : value,
+        onChange: flat ? handleFlatChange : newValue => handleChange(newValue),
         step: step
       })
     })]
@@ -19973,45 +20294,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../smart-post-carousel/assets/icon */ "./src/smart-post-carousel/assets/icon.js");
-/* harmony import */ var _DeviceDropDown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeviceDropDown */ "./src/components/common/CustomRangeControl/DeviceDropDown.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _UnitDropDown_UnitDropDown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UnitDropDown/UnitDropDown */ "./src/components/common/UnitDropDown/UnitDropDown.js");
+/* harmony import */ var _DeviceDropDown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeviceDropDown */ "./src/components/common/CustomRangeControl/DeviceDropDown.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
 function RangeHeader({
   label,
-  unit,
   showReset,
   showDevice,
   onReset,
-  showUnit
+  showUnit,
+  unit,
+  options,
+  onUnitChange
 }) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "range-control",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "range-label",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
           children: label
-        }), showDevice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        }), showDevice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "desktop",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_DeviceDropDown__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_DeviceDropDown__WEBPACK_IMPORTED_MODULE_2__["default"], {})
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "range-measure",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          children: [showReset && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_0__.ResetIcon, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [showReset && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_0__.ResetIcon, {
             style: {
               cursor: "pointer"
             },
             onClick: onReset
-          }), showUnit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "pixel",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              children: unit
-            })
+          }), showUnit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_UnitDropDown_UnitDropDown__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            value: unit,
+            options: options,
+            onChange: onUnitChange
           })]
         })
       })]
@@ -20215,9 +20539,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks_useDevice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/useDevice */ "./src/hooks/useDevice.js");
 /* harmony import */ var _smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../smart-post-carousel/assets/icon */ "./src/smart-post-carousel/assets/icon.js");
 /* harmony import */ var _CustomRangeControl_DeviceDropDown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../CustomRangeControl/DeviceDropDown */ "./src/components/common/CustomRangeControl/DeviceDropDown.js");
-/* harmony import */ var _NumberControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NumberControl */ "./src/components/common/CustomSpacingControl/NumberControl.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/components/common/CustomSpacingControl/editor.scss");
-/* harmony import */ var _UnitDropDown_UnitDropDown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../UnitDropDown/UnitDropDown */ "./src/components/common/UnitDropDown/UnitDropDown.js");
+/* harmony import */ var _UnitDropDown_UnitDropDown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../UnitDropDown/UnitDropDown */ "./src/components/common/UnitDropDown/UnitDropDown.js");
+/* harmony import */ var _NumberControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NumberControl */ "./src/components/common/CustomSpacingControl/NumberControl.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/components/common/CustomSpacingControl/editor.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
 
@@ -20258,7 +20582,9 @@ function SpacingControl({
   onChange = () => {},
   step = 4,
   showUnit,
-  options
+  options,
+  min = 0,
+  max = 100
 }) {
   const deviceType = (0,_hooks_useDevice__WEBPACK_IMPORTED_MODULE_1__.useDeviceType)();
   const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
@@ -20339,7 +20665,7 @@ function SpacingControl({
               cursor: "pointer"
             },
             onClick: handleReset
-          }), showUnit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_UnitDropDown_UnitDropDown__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          }), showUnit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_UnitDropDown_UnitDropDown__WEBPACK_IMPORTED_MODULE_4__["default"], {
             value: currentValues.type,
             options: options,
             onChange: handleUnitChange
@@ -20350,10 +20676,11 @@ function SpacingControl({
       className: "control-input-group",
       children: [fields.map(field => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "spacing-input-wrap",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_NumberControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_NumberControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
           value: currentValues[field] ?? 0,
           step: step,
-          min: 0,
+          min: min,
+          max: max,
           onChange: val => handleValueChange(field, val)
         }), showLabels && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           className: "spacing-label",
@@ -20952,6 +21279,37 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ },
 
+/***/ "./src/components/common/Divider/Divider.js"
+/*!**************************************************!*\
+  !*** ./src/components/common/Divider/Divider.js ***!
+  \**************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+function Divider() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+    style: {
+      display: "block",
+      width: "100%",
+      borderBottom: "1px solid #ddd",
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginBottom: "12px",
+      opacity: 0.6
+    }
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Divider);
+
+/***/ },
+
 /***/ "./src/components/common/DragAndDrop/DragAndDrop.js"
 /*!**********************************************************!*\
   !*** ./src/components/common/DragAndDrop/DragAndDrop.js ***!
@@ -21417,6 +21775,76 @@ function CategoryList({
 
 /***/ },
 
+/***/ "./src/components/common/Postcard/Excerpt.js"
+/*!***************************************************!*\
+  !*** ./src/components/common/Postcard/Excerpt.js ***!
+  \***************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_useDevice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/useDevice */ "./src/hooks/useDevice.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function Excerpt({
+  excerptType,
+  excerptLength,
+  post,
+  excerptEllipsis,
+  excerptTypo,
+  excerptColor,
+  excerptMargin
+}) {
+  const deviceType = (0,_hooks_useDevice__WEBPACK_IMPORTED_MODULE_1__.useDeviceType)();
+  const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
+  const excerpt = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    if (excerptType === "full") return post?.excerpt;
+    const {
+      value,
+      unit
+    } = excerptLength;
+    const fullText = post?.excerpt || "";
+    if (unit === "words") {
+      const words = fullText.trim().split(/\s+/);
+      return words.length <= value ? fullText : `${words.slice(0, value).join(" ")}${excerptEllipsis}`;
+    }
+    if (unit === "char") {
+      return fullText.length <= value ? fullText : `${fullText.slice(0, value)}${excerptEllipsis}`;
+    }
+    return fullText;
+  }, [excerptType, excerptLength, post?.excerpt, excerptEllipsis]);
+  const Tag = excerptTypo?.tags ?? "span";
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "sp-smart-post-carousel-excerpt-wrapper",
+    style: {
+      "--excerpt-font-family": excerptTypo?.family ?? "inherit",
+      "--excerpt-font-size": `${excerptTypo?.fontSize ?? 16}px`,
+      "--excerpt-font-weight": excerptTypo?.weight ?? 400,
+      "--excerpt-line-height": excerptTypo?.height ?? 1.5,
+      "--excerpt-letter-spacing": `${excerptTypo?.spacing ?? 0}px`,
+      "--excerptColor": excerptColor || "#4e6e3e",
+      "--excerptMargin": `${excerptMargin[normalizedDeviceType].top ?? 14}px ${excerptMargin[normalizedDeviceType].right ?? 0}px ${excerptMargin[normalizedDeviceType].bottom ?? 0}px ${excerptMargin[normalizedDeviceType].left ?? 0}px`
+    },
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      className: "sp-smart-post-carousel-excerpt",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Tag, {
+        children: excerpt
+      })
+    })
+  }, "excerpt");
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.memo)(Excerpt));
+
+/***/ },
+
 /***/ "./src/components/common/Postcard/MetaItem.js"
 /*!****************************************************!*\
   !*** ./src/components/common/Postcard/MetaItem.js ***!
@@ -21510,8 +21938,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks_useDevice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks/useDevice */ "./src/hooks/useDevice.js");
 /* harmony import */ var _CategoryList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CategoryList */ "./src/components/common/Postcard/CategoryList.js");
 /* harmony import */ var _renderers_getContentElement__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./renderers/getContentElement */ "./src/components/common/Postcard/renderers/getContentElement.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _utils_getCardStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/getCardStyles */ "./utils/getCardStyles.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -21527,7 +21957,6 @@ function PostCard({
   const deviceType = (0,_hooks_useDevice__WEBPACK_IMPORTED_MODULE_2__.useDeviceType)();
   const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
   const {
-    height,
     contentAlignment,
     equalHeight,
     metaDataAllContentArray = [],
@@ -21542,9 +21971,20 @@ function PostCard({
     metaMargin,
     metaSeparatorStyle,
     metaSeparatorColor,
-    metaTypo
+    metaTypo,
+    showExcerpt,
+    excerptType,
+    excerptLength,
+    excerptEllipsis,
+    excerptTypo,
+    excerptColor,
+    excerptMargin,
+    buttonType,
+    buttonText,
+    showReadMore,
+    buttonTypo
   } = attributes;
-  const author = post?._embedded?.author?.[0]?.name || post?.author || "Salah Uddin";
+  const author = post?._embedded?.author?.[0]?.name || post?.author || "Kazi Istiaq Mahamud";
   const postDate = (0,_utils__WEBPACK_IMPORTED_MODULE_1__.getPostDate)(post);
   const commentsCount = post?.comment_count?.all || 0;
   const views = post?.view_count || 0;
@@ -21582,43 +22022,150 @@ function PostCard({
     metaColumnGap,
     metaMargin,
     metaSeparatorStyle,
-    metaSeparatorColor
-  }), [post, title, orientation, contentAlignment, metaDataAllContentArray, metaDisplayType, metaContext, metaColor, metaRowGap, metaColumnGap, metaMargin, metaSeparatorStyle, metaSeparatorColor]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    metaSeparatorColor,
+    showExcerpt,
+    excerptType,
+    excerptLength,
+    excerptEllipsis,
+    excerptTypo,
+    excerptColor,
+    excerptMargin,
+    buttonType,
+    buttonText,
+    showReadMore,
+    buttonTypo
+  }), [post, title, orientation, contentAlignment, metaDataAllContentArray, metaDisplayType, metaContext, metaColor, metaRowGap, metaColumnGap, metaMargin, metaSeparatorStyle, metaSeparatorColor, showExcerpt, excerptType, excerptLength, excerptEllipsis, excerptTypo, excerptColor, excerptMargin, buttonType, buttonText, showReadMore, buttonTypo]);
+  const cardStyles = (0,_utils_getCardStyles__WEBPACK_IMPORTED_MODULE_5__.getCardStyles)(attributes, normalizedDeviceType);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: cardClassName,
-    style: {
-      "--cardHeight": !equalHeight ? `${height[normalizedDeviceType]}px` : undefined
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "sp-smart-post-carousel-card-image",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-        src: image,
-        alt: imageAlt
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "sp-smart-post-carousel-overlay-category",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CategoryList__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          categories: post.category
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "sp-smart-post-carousel-date",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-          className: "sp-smart-post-carousel-day",
-          children: postDate.day
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
-          className: "sp-smart-post-carousel-month-year",
-          children: [postDate.month, " ", postDate.year]
+    style: cardStyles,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "sp-smart-post-carousel-card-wrapper",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "sp-smart-post-carousel-card-image",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+          src: image,
+          alt: imageAlt
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "sp-smart-post-carousel-overlay-category",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_CategoryList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            categories: post.category
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "sp-smart-post-carousel-date",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+            className: "sp-smart-post-carousel-day",
+            children: postDate.day
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+            className: "sp-smart-post-carousel-month-year",
+            children: [postDate.month, " ", postDate.year]
+          })]
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "sp-smart-post-carousel-template-content",
+        style: {
+          "--alignment": `${contentAlignment}`
+        },
+        children: allContentArray.map(item => (0,_renderers_getContentElement__WEBPACK_IMPORTED_MODULE_4__["default"])(item, contentContext))
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: "sp-smart-post-carousel-template-content",
-      style: {
-        "--alignment": `${contentAlignment}`
-      },
-      children: allContentArray.map(item => (0,_renderers_getContentElement__WEBPACK_IMPORTED_MODULE_4__["default"])(item, contentContext))
-    })]
+    })
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PostCard);
+
+/***/ },
+
+/***/ "./src/components/common/Postcard/ReadMore.js"
+/*!****************************************************!*\
+  !*** ./src/components/common/Postcard/ReadMore.js ***!
+  \****************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../const */ "./src/const/index.js");
+/* harmony import */ var _hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/useAttributes */ "./src/hooks/useAttributes.js");
+/* harmony import */ var _hooks_useDevice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks/useDevice */ "./src/hooks/useDevice.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+function ReadMore() {
+  const {
+    attributes
+  } = (0,_hooks_useAttributes__WEBPACK_IMPORTED_MODULE_1__.useAttributes)();
+  const {
+    buttonStyle,
+    buttonText,
+    buttonTypo,
+    iconVisibility,
+    iconGap,
+    buttonTextColor,
+    buttonBackGroundStyles,
+    buttonBorderStyle,
+    buttonHoverBorderStyle,
+    buttonBorderWidthNormal,
+    buttonBorderWidthHover,
+    buttonBorderColorHover,
+    buttonBorderColorNormal
+  } = attributes;
+  const deviceType = (0,_hooks_useDevice__WEBPACK_IMPORTED_MODULE_2__.useDeviceType)();
+  const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
+  const tagName = buttonTypo?.tags || "a";
+  const Tag = tagName;
+  const isAnchor = tagName === "a";
+  const iconObj = _const__WEBPACK_IMPORTED_MODULE_0__.buttonIcons.find(b => b.value === buttonStyle);
+  const Icon = iconObj?.icon;
+  const showIcon = iconVisibility !== "none" && Icon;
+  const normalColor = buttonTextColor?.normal ?? color ?? "inherit";
+  const hoverColor = buttonTextColor?.hover || normalColor;
+  const bgType = buttonBackGroundStyles?.type || "transparent";
+  const hoverBgType = buttonBackGroundStyles?.hoverType || "transparent";
+  const normalBg = bgType === "gradient" ? buttonBackGroundStyles?.gradientBackground : bgType === "solid" ? buttonBackGroundStyles?.solidBackground : null;
+  const hoverBg = hoverBgType === "gradient" ? buttonBackGroundStyles?.hoverGradientBackground : hoverBgType === "solid" ? buttonBackGroundStyles?.hoverSolidBackground : null;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "sp-smart-post-carousel-read-more-button",
+    style: {
+      "--button-font-family": buttonTypo?.family ?? "inherit",
+      "--button-font-weight": buttonTypo?.weight ?? 400,
+      "--button-line-height": buttonTypo?.height ?? 1.5,
+      "--button-letter-spacing": `${buttonTypo?.spacing ?? 0}px`,
+      ...(isAnchor && {
+        "--button-font-size": `${buttonTypo?.fontSize ?? 12}px`
+      }),
+      "--iconGap": `${iconGap[normalizedDeviceType] ?? 4}px`,
+      "--button-normal-color": normalColor,
+      "--button-hover-color": hoverColor,
+      ...(normalBg && {
+        "--button-bg": normalBg
+      }),
+      ...(hoverBg && {
+        "--button-hover-bg": hoverBg
+      }),
+      "--button-border": buttonBorderStyle || "none",
+      "--button-hover-border": buttonHoverBorderStyle || "none",
+      "--button-border-size": `${buttonBorderWidthNormal[normalizedDeviceType] || 1}px`,
+      "--button-hover-border-size": `${buttonBorderWidthHover[normalizedDeviceType] || 1}px`,
+      "--button-border-color": buttonBorderColorNormal || "#4e6e3e",
+      "--button-hover-border-color": `${buttonBorderColorHover || buttonBorderColorNormal}` || "#000"
+    },
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+      className: `sp-smart-post-carousel-read-more-btn-link ${iconVisibility === "hover" ? "icon-hover" : ""}`,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Tag, {
+        children: buttonText
+      }), showIcon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: "read-more-icon",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Icon, {})
+      })]
+    })
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReadMore);
 
 /***/ },
 
@@ -21732,10 +22279,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks_useDevice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../hooks/useDevice */ "./src/hooks/useDevice.js");
 /* harmony import */ var _smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../smart-post-carousel/assets/icon */ "./src/smart-post-carousel/assets/icon.js");
 /* harmony import */ var _CategoryList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CategoryList */ "./src/components/common/Postcard/CategoryList.js");
-/* harmony import */ var _MetaSeparator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../MetaSeparator */ "./src/components/common/Postcard/MetaSeparator.js");
-/* harmony import */ var _getMetaElement__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./getMetaElement */ "./src/components/common/Postcard/renderers/getMetaElement.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _Excerpt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Excerpt */ "./src/components/common/Postcard/Excerpt.js");
+/* harmony import */ var _MetaSeparator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../MetaSeparator */ "./src/components/common/Postcard/MetaSeparator.js");
+/* harmony import */ var _ReadMore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ReadMore */ "./src/components/common/Postcard/ReadMore.js");
+/* harmony import */ var _getMetaElement__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./getMetaElement */ "./src/components/common/Postcard/renderers/getMetaElement.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+
+
 
 
 
@@ -21753,17 +22304,27 @@ const getContentElement = (item, {
   metaRowGap,
   metaMargin,
   metaSeparatorStyle,
-  metaSeparatorColor
+  metaSeparatorColor,
+  showExcerpt,
+  excerptType,
+  excerptLength,
+  excerptEllipsis,
+  excerptTypo,
+  excerptColor,
+  excerptMargin,
+  buttonText,
+  showReadMore,
+  buttonTypo
 }) => {
   const deviceType = (0,_hooks_useDevice__WEBPACK_IMPORTED_MODULE_0__.useDeviceType)();
   const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
   switch (item.value) {
     case "category":
-      return orientation !== "orientation_three" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CategoryList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      return orientation !== "orientation_three" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_CategoryList__WEBPACK_IMPORTED_MODULE_2__["default"], {
         categories: post.category
       }, "category") : null;
     case "title":
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
         className: "sp-smart-post-carousel-card-title",
         dangerouslySetInnerHTML: {
           __html: title
@@ -21771,7 +22332,7 @@ const getContentElement = (item, {
       }, "title");
     case "meta":
       const visibleItems = metaDataAllContentArray.filter(i => i.show);
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: `sp-smart-post-carousel-card-meta-wrapper ${metaDisplayType}`,
         style: {
           "--meta-column-gap": `${metaColumnGap ?? 8}px`,
@@ -21784,66 +22345,57 @@ const getContentElement = (item, {
           "--meta-line-height": metaContext?.metaTypo?.height ?? 1.5,
           "--meta-letter-spacing": `${metaContext?.metaTypo?.spacing ?? 0}px`
         },
-        children: metaDisplayType === "split" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        children: metaDisplayType === "split" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
             className: "sp-smart-post-carousel-meta-left",
-            children: metaDataAllContentArray.filter(i => i.show && i.position === "left").map((i, index, arr) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-              children: [(0,_getMetaElement__WEBPACK_IMPORTED_MODULE_4__["default"])(i, metaContext), index < arr.length - 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_MetaSeparator__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            children: metaDataAllContentArray.filter(i => i.show && i.position === "left").map((i, index, arr) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+              children: [(0,_getMetaElement__WEBPACK_IMPORTED_MODULE_6__["default"])(i, metaContext), index < arr.length - 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_MetaSeparator__WEBPACK_IMPORTED_MODULE_4__["default"], {
                 type: metaSeparatorStyle
               })]
             }))
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
             className: "sp-smart-post-carousel-meta-right",
-            children: metaDataAllContentArray.filter(i => i.show && i.position === "right").map((i, index, arr) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-              children: [(0,_getMetaElement__WEBPACK_IMPORTED_MODULE_4__["default"])(i, metaContext), index < arr.length - 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_MetaSeparator__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            children: metaDataAllContentArray.filter(i => i.show && i.position === "right").map((i, index, arr) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+              children: [(0,_getMetaElement__WEBPACK_IMPORTED_MODULE_6__["default"])(i, metaContext), index < arr.length - 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_MetaSeparator__WEBPACK_IMPORTED_MODULE_4__["default"], {
                 type: metaSeparatorStyle
               })]
             }))
           })]
-        }) : visibleItems.map((i, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-          children: [(0,_getMetaElement__WEBPACK_IMPORTED_MODULE_4__["default"])(i, metaContext), index < visibleItems.length - 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_MetaSeparator__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        }) : visibleItems.map((i, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+          children: [(0,_getMetaElement__WEBPACK_IMPORTED_MODULE_6__["default"])(i, metaContext), index < visibleItems.length - 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_MetaSeparator__WEBPACK_IMPORTED_MODULE_4__["default"], {
             type: metaSeparatorStyle
           })]
         }))
       }, "meta");
     case "excerpt":
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "sp-smart-post-carousel-excerpt-wrapper",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-          className: "sp-smart-post-carousel-excerpt",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
-            children: [post?.excerpt?.slice(0, 50), "..."]
-          })
-        })
-      }, "excerpt");
+      return showExcerpt ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Excerpt__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        excerptType: excerptType,
+        post: post,
+        excerptLength: excerptLength,
+        excerptEllipsis: excerptEllipsis,
+        excerptTypo: excerptTypo,
+        excerptColor: excerptColor,
+        excerptMargin: excerptMargin
+      }, "excerpt") : null;
     case "readMore":
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "sp-smart-post-carousel-read-more-button",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-          className: "sp-smart-post-carousel-read-more-btn-link",
-          children: "Read More"
-        })
-      }, "readMore");
+      return showReadMore ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ReadMore__WEBPACK_IMPORTED_MODULE_5__["default"], {}) : null;
     case "social":
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("ul", {
         className: "sp-smart-post-carousel-social-share",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
           className: "sp-smart-post-carousel-social-share-icon",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
-            className: "sp-icon-facebook",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_1__.FacebookIcon, {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
+            className: "sp-icon-facebook"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
           className: "sp-smart-post-carousel-social-share-icon",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
-            className: "sp-icon-facebook",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_1__.FacebookIcon, {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
+            className: "sp-icon-facebook"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
           className: "sp-smart-post-carousel-social-share-icon",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
-            className: "sp-icon-facebook",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_1__.FacebookIcon, {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
+            className: "sp-icon-facebook"
           })
         })]
       }, "social");
@@ -22113,7 +22665,26 @@ function Typography({
   label,
   onChange = () => {},
   values,
-  attributeKey
+  attributeKey,
+  tags = [{
+    label: "Default",
+    value: "div"
+  }, {
+    label: "Heading h1",
+    value: "h1"
+  }, {
+    label: "Heading h2",
+    value: "h2"
+  }, {
+    label: "Heading h3",
+    value: "h3"
+  }, {
+    label: "Heading h4",
+    value: "h4"
+  }, {
+    label: "Heading h5",
+    value: "h5"
+  }]
 }) {
   const [isOpen, setIsOpen] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
   const handleToggle = () => {
@@ -22167,7 +22738,7 @@ function Typography({
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_CustomSelection_CustomSelection__WEBPACK_IMPORTED_MODULE_4__["default"], {
           label: "Select Global Style",
           inline: false,
-          options: _const__WEBPACK_IMPORTED_MODULE_5__.tags,
+          options: tags,
           attributeKey: attributeKey,
           subKey: "tags"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_CustomSelection_CustomSelection__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -22283,6 +22854,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   authorDisplayStyle: () => (/* binding */ authorDisplayStyle),
 /* harmony export */   backGroundColorConfig: () => (/* binding */ backGroundColorConfig),
 /* harmony export */   backGroundStyles: () => (/* binding */ backGroundStyles),
+/* harmony export */   borderTypes: () => (/* binding */ borderTypes),
+/* harmony export */   buttonIcons: () => (/* binding */ buttonIcons),
 /* harmony export */   colorConfig: () => (/* binding */ colorConfig),
 /* harmony export */   dateFormat: () => (/* binding */ dateFormat),
 /* harmony export */   fontFamilyOptions: () => (/* binding */ fontFamilyOptions),
@@ -22301,8 +22874,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _smart_post_carousel_assets_orientationIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../smart-post-carousel/assets/orientationIcon */ "./src/smart-post-carousel/assets/orientationIcon/index.js");
 /* harmony import */ var _smart_post_carousel_assets_paginationIcon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../smart-post-carousel/assets/paginationIcon */ "./src/smart-post-carousel/assets/paginationIcon.js");
 /* harmony import */ var _smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../smart-post-carousel/assets/userIcon */ "./src/smart-post-carousel/assets/userIcon.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../smart-post-carousel/assets/borderIcon */ "./src/smart-post-carousel/assets/borderIcon.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -22312,7 +22887,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const LayoutItems = [{
   icon: activeValue => {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.CarouselStandardIcon, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.CarouselStandardIcon, {
       value: activeValue.carouselStyle === "standard"
     });
   },
@@ -22320,7 +22895,7 @@ const LayoutItems = [{
   value: "standard"
 }, {
   icon: activeValue => {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.CarouselTickerIcon, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.CarouselTickerIcon, {
       value: activeValue.carouselStyle === "ticker"
     });
   },
@@ -22329,28 +22904,28 @@ const LayoutItems = [{
 }];
 const OrientationItems = [{
   icon: activeValue => {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_orientationIcon__WEBPACK_IMPORTED_MODULE_3__.OrientationOneIcon, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_orientationIcon__WEBPACK_IMPORTED_MODULE_3__.OrientationOneIcon, {
       value: activeValue.contentOrientation === "orientation_one"
     });
   },
   value: "orientation_one"
 }, {
   icon: activeValue => {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_orientationIcon__WEBPACK_IMPORTED_MODULE_3__.OrientationTwoIcon, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_orientationIcon__WEBPACK_IMPORTED_MODULE_3__.OrientationTwoIcon, {
       value: activeValue.contentOrientation === "orientation_two"
     });
   },
   value: "orientation_two"
 }, {
   icon: activeValue => {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_orientationIcon__WEBPACK_IMPORTED_MODULE_3__.OrientationThreeIcon, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_orientationIcon__WEBPACK_IMPORTED_MODULE_3__.OrientationThreeIcon, {
       value: activeValue.contentOrientation === "orientation_three"
     });
   },
   value: "orientation_three"
 }, {
   icon: activeValue => {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_orientationIcon__WEBPACK_IMPORTED_MODULE_3__.OrientationFourIcon, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_orientationIcon__WEBPACK_IMPORTED_MODULE_3__.OrientationFourIcon, {
       value: activeValue.contentOrientation === "orientation_four"
     });
   },
@@ -22445,43 +23020,43 @@ const arrowIcons = {
 const arrowIconOptions = [{
   label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Chevron Solid", "smart-post-carousel"),
   value: "chevron-solid",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ChevronSolid, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ChevronSolid, {})
 }, {
   label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Chevron Outline", "smart-post-carousel"),
   value: "chevron-outline",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ChevronOutline, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ChevronOutline, {})
 }, {
   label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Chevron Bold", "smart-post-carousel"),
   value: "chevron-bold",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ChevronBold, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ChevronBold, {})
 }, {
   label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Double Chevron", "smart-post-carousel"),
   value: "double-chevron",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.DoubleChevron, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.DoubleChevron, {})
 }, {
   label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Arrow Solid", "smart-post-carousel"),
   value: "arrow-solid",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ArrowSolid, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ArrowSolid, {})
 }, {
   label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Arrow Outline", "smart-post-carousel"),
   value: "arrow-outline",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ArrowOutline, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ArrowOutline, {})
 }, {
   label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Arrow Minimal", "smart-post-carousel"),
   value: "arrow-minimal",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ArrowMinimal, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ArrowMinimal, {})
 }, {
   label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Chevron Border Line", "smart-post-carousel"),
   value: "chevron-border-line",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ChevronBorderLine, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ChevronBorderLine, {})
 }, {
   label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Double Chevron Outline", "smart-post-carousel"),
   value: "double-chevron-outline",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.DoubleChevronOutline, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.DoubleChevronOutline, {})
 }, {
   label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Triangle Outline", "smart-post-carousel"),
   value: "triangle-outline",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.TriangleOutline, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.TriangleOutline, {})
 }];
 
 // Select Options for Pagination Dot Style
@@ -22489,23 +23064,23 @@ const arrowIconOptions = [{
 const paginationDotsOptions = [{
   label: "Dots",
   value: "dots",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_paginationIcon__WEBPACK_IMPORTED_MODULE_4__.DotsPagination, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_paginationIcon__WEBPACK_IMPORTED_MODULE_4__.DotsPagination, {})
 }, {
   label: "Strokes",
   value: "lines",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_paginationIcon__WEBPACK_IMPORTED_MODULE_4__.StrokesPagination, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_paginationIcon__WEBPACK_IMPORTED_MODULE_4__.StrokesPagination, {})
 }, {
   label: "Scrollbar",
   value: "progressbar",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_paginationIcon__WEBPACK_IMPORTED_MODULE_4__.ScrollbarPagination, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_paginationIcon__WEBPACK_IMPORTED_MODULE_4__.ScrollbarPagination, {})
 }, {
   label: "Fraction",
   value: "fraction",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_paginationIcon__WEBPACK_IMPORTED_MODULE_4__.FractionPagination, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_paginationIcon__WEBPACK_IMPORTED_MODULE_4__.FractionPagination, {})
 }, {
   label: "Numbers",
   value: "numbers",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_paginationIcon__WEBPACK_IMPORTED_MODULE_4__.NumbersPagination, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_paginationIcon__WEBPACK_IMPORTED_MODULE_4__.NumbersPagination, {})
 }];
 const colorConfig = {
   normal: {
@@ -22548,35 +23123,35 @@ const getRenderBullet = paginationStyle => {
 const userIcons = [{
   label: "Outline",
   value: "outline",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.Outline, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.Outline, {})
 }, {
   label: "Basic Outline",
   value: "basic-outline",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.BasicOutline, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.BasicOutline, {})
 }, {
   label: "Solid",
   value: "user-solid",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.UserSolid, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.UserSolid, {})
 }, {
   label: "Profile Rounded",
   value: "rounded",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.Rounded, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.Rounded, {})
 }, {
   label: "Profile Circle",
   value: "circle",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.Circle, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.Circle, {})
 }, {
   label: "Female",
   value: "female",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.Female, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.Female, {})
 }, {
   label: "Author",
   value: "author",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.UserAuthor, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.UserAuthor, {})
 }, {
   label: "Minimal",
   value: "minimal",
-  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.Minimal, {})
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_userIcon__WEBPACK_IMPORTED_MODULE_5__.Minimal, {})
 }];
 const fontFamilyOptions = [{
   label: "Roboto",
@@ -22626,8 +23201,11 @@ const tags = [{
   label: "Heading h3",
   value: "h3"
 }, {
-  label: "Body",
-  value: "body"
+  label: "Heading h4",
+  value: "h4"
+}, {
+  label: "Heading h5",
+  value: "h5"
 }];
 const backGroundStyles = [{
   name: "transparent",
@@ -22641,6 +23219,43 @@ const backGroundStyles = [{
   name: "gradient",
   title: "gradient",
   icon: _smart_post_carousel_assets_icon__WEBPACK_IMPORTED_MODULE_2__.GradientIcon
+}];
+const buttonIcons = [{
+  label: "Chevron Solid",
+  value: "chevron-solid",
+  icon: _smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ChevronSolid
+}, {
+  label: "Arrow Solid",
+  value: "arrow-solid",
+  icon: _smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ArrowSolid
+}, {
+  label: "Chevron Outline",
+  value: "chevron-outline",
+  icon: _smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ChevronOutline
+}, {
+  label: "Arrow Minimal",
+  value: "arrow-right-solid",
+  icon: _smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.ArrowMinimal
+}, {
+  label: "Double Chevron",
+  value: "chevron-double",
+  icon: _smart_post_carousel_assets_arrowIcons__WEBPACK_IMPORTED_MODULE_1__.DoubleChevron
+}];
+const borderTypes = [{
+  label: "None",
+  value: "none"
+}, {
+  label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.SolidBorder, {}),
+  value: "solid"
+}, {
+  label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.DashedBorder, {}),
+  value: "dashed"
+}, {
+  label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.DottedBorder, {}),
+  value: "dotted"
+}, {
+  label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_smart_post_carousel_assets_borderIcon__WEBPACK_IMPORTED_MODULE_6__.DoubleBorder, {}),
+  value: "double"
 }];
 
 /***/ },
@@ -24933,7 +25548,7 @@ const Minimal = () => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE
 (module) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/smart-post-carousel","version":"0.1.0","title":"Smart Post Carousel","category":"smart-post-carousel","description":"Display posts in a responsive carousel with smooth navigation.","example":{},"supports":{"html":false,"align":["wide","full"]},"attributes":{"showReadMore":{"type":"boolean","default":false},"showTitle":{"type":"boolean","default":false},"partialView":{"type":"boolean","default":false},"showTaxonomy":{"type":"boolean","default":false},"showMetaData":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showSocialShare":{"type":"boolean","default":false},"showFeaturedImage":{"type":"boolean","default":false},"carouselStyle":{"type":"string","default":"standard"},"contentOrientation":{"type":"string","default":"orientation_one"},"columns":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"height":{"type":"object","default":{"desktop":642,"tablet":642,"mobile":642}},"gap":{"type":"object","default":{"desktop":24,"tablet":48,"mobile":24}},"slideGroup":{"type":"object","default":{"desktop":1,"tablet":1,"mobile":1}},"autoPlay":{"type":"boolean","default":true},"delay":{"type":"number","default":2000},"speed":{"type":"number","default":600},"direction":{"type":"string","default":"right"},"contentAlignment":{"type":"string","default":"flex-start"},"preloader":{"type":"boolean","default":false},"equalHeight":{"type":"boolean","default":false},"onHover":{"type":"boolean","default":false},"linkOpen":{"type":"string","default":"newTab"},"effect":{"type":"string","default":"slide"},"adaptiveHeight":{"type":"boolean","default":false},"infiniteLoop":{"type":"boolean","default":true},"keyNavigation":{"type":"boolean","default":true},"freeScroll":{"type":"boolean","default":false},"navigationArrow":{"type":"boolean","default":true},"paginationDots":{"type":"boolean","default":true},"numberOfSlides":{"type":"number","default":3},"arrowStyle":{"type":"string","default":"chevron-solid"},"visibilityOnHover":{"type":"boolean","default":false},"iconSize":{"type":"object","default":{"desktop":16,"tablet":16,"mobile":16}},"iconWidth":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"iconHeight":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"spaceBetweenArrow":{"type":"object","default":{"desktop":100,"tablet":100,"mobile":100}},"horizontalPosition":{"type":"object","default":{"desktop":44,"tablet":0,"mobile":0}},"verticalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}},"navArrowStyleType":{"type":"string","default":"normal"},"iconColor":{"type":"string","default":"#fff"},"iconHoverColor":{"type":"string","default":"#fff"},"iconBackGroundColor":{"type":"string","default":"#4e4f52"},"iconBackGroundHoverColor":{"type":"string","default":"#4e6e3e"},"borderStyle":{"type":"string","default":"none"},"borderWidth":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}},"borderColor":{"type":"string","default":"#11111"},"borderRadius":{"type":"object","default":{"desktop":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"tablet":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"mobile":{"top":50,"right":50,"bottom":50,"left":50,"linked":true}}},"showBoxShadow":{"type":"boolean","default":false},"boxShadow":{"type":"object","default":{"desktop":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"tablet":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"mobile":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"}}},"shadowColor":{"type":"string","default":"#d6d8de"},"paginationStyle":{"type":"string","default":"dots"},"paginationWidth":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationHeight":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationDotGap":{"type":"object","default":{"desktop":6,"tablet":6,"mobile":6}},"paginationVerticalPosition":{"type":"object","default":{"desktop":-36,"tablet":-36,"mobile":-36}},"paginationHorizontalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}},"paginationDotStyleType":{"type":"string","default":"normal"},"dotNormalTextColor":{"type":"string","default":"#000000"},"dotActiveTextColor":{"type":"string","default":"#ffffff"},"dotNormalBackGroundNormalColor":{"type":"string","default":"#cacbcf"},"dotNormalBackGroundActiveColor":{"type":"string","default":"#4E6E3E"},"paginationBorderStyle":{"type":"string","default":"none"},"paginationHover":{"type":"string","default":"normal"},"allContentArray":{"type":"array","default":[{"id":"1","value":"category","label":"Taxonomy (Category)"},{"id":"2","value":"title","label":"Title"},{"id":"3","value":"meta","label":"Meta Data"},{"id":"4","value":"excerpt","label":"Excerpt"},{"id":"5","value":"readMore","label":"Read More"},{"id":"6","value":"social","label":"Social Share"}]},"metaDataAllContentArray":{"type":"array","default":[{"id":"1","value":"author","label":"Author","show":true,"position":"left"},{"id":"2","value":"date","label":"Date","show":true,"position":"left"},{"id":"3","value":"comments","label":"Comments","show":true,"position":"right"},{"id":"4","value":"views","label":"Views","show":true,"position":"right"},{"id":"5","value":"likes","label":"Likes","show":true,"position":"right"},{"id":"6","value":"reading-time","label":"Reading Time","show":true,"position":"left"}]},"metaDisplayType":{"type":"string","default":"inline"},"authorDisplayStyle":{"type":"string","default":"iconName"},"authorIcon":{"type":"string","default":"outline"},"dateFormat":{"type":"string","default":"default"},"metaEffect":{"type":"string","default":"normal"},"metaColor":{"type":"object","default":{"normal":"#4e6e3e","hover":""}},"metaTypo":{"type":"object","default":{"tags":"div","family":"Roboto","fontSize":14,"weight":400,"height":1.2,"spacing":0,"text":"List item title"}},"metaColumnGap":{"type":"number","default":8},"metaRowGap":{"type":"number","default":12},"metaMargin":{"type":"object","default":{"desktop":{"top":0,"right":0,"bottom":0,"left":0,"linked":true},"tablet":{"top":0,"right":0,"bottom":0,"left":0,"linked":true},"mobile":{"top":0,"right":0,"bottom":0,"left":0,"linked":true}}},"metaSeparatorStyle":{"type":"string","default":"space"},"metaSeparatorColor":{"type":"string","default":"#000000"},"contentEffect":{"type":"string","default":"default"},"contentBackGroundStyles":{"type":"object","default":{"type":"transparent","background":"#000000"}}},"render":"file:./render.php","textdomain":"smart-post-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/smart-post-carousel","version":"0.1.0","title":"Smart Post Carousel","category":"smart-post-carousel","description":"Display posts in a responsive carousel with smooth navigation.","example":{},"supports":{"html":false,"align":["wide","full"]},"attributes":{"showReadMore":{"type":"boolean","default":false},"showTitle":{"type":"boolean","default":false},"partialView":{"type":"boolean","default":false},"showTaxonomy":{"type":"boolean","default":false},"showMetaData":{"type":"boolean","default":false},"showExcerpt":{"type":"boolean","default":false},"showSocialShare":{"type":"boolean","default":false},"showFeaturedImage":{"type":"boolean","default":false},"carouselStyle":{"type":"string","default":"standard"},"contentOrientation":{"type":"string","default":"orientation_one"},"columns":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"height":{"type":"object","default":{"desktop":642,"tablet":642,"mobile":642}},"gap":{"type":"object","default":{"desktop":24,"tablet":48,"mobile":24}},"slideGroup":{"type":"object","default":{"desktop":1,"tablet":1,"mobile":1}},"autoPlay":{"type":"boolean","default":true},"delay":{"type":"number","default":2000},"speed":{"type":"number","default":600},"direction":{"type":"string","default":"right"},"contentAlignment":{"type":"string","default":"flex-start"},"preloader":{"type":"boolean","default":false},"equalHeight":{"type":"boolean","default":false},"onHover":{"type":"boolean","default":false},"linkOpen":{"type":"string","default":"newTab"},"effect":{"type":"string","default":"slide"},"adaptiveHeight":{"type":"boolean","default":false},"infiniteLoop":{"type":"boolean","default":true},"keyNavigation":{"type":"boolean","default":true},"freeScroll":{"type":"boolean","default":false},"navigationArrow":{"type":"boolean","default":true},"paginationDots":{"type":"boolean","default":true},"numberOfSlides":{"type":"number","default":3},"arrowStyle":{"type":"string","default":"chevron-solid"},"visibilityOnHover":{"type":"boolean","default":false},"iconSize":{"type":"object","default":{"desktop":16,"tablet":16,"mobile":16}},"iconWidth":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"iconHeight":{"type":"object","default":{"desktop":40,"tablet":40,"mobile":40}},"spaceBetweenArrow":{"type":"object","default":{"desktop":100,"tablet":100,"mobile":100}},"horizontalPosition":{"type":"object","default":{"desktop":44,"tablet":0,"mobile":0}},"verticalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}},"navArrowStyleType":{"type":"string","default":"normal"},"iconColor":{"type":"string","default":"#fff"},"iconHoverColor":{"type":"string","default":"#fff"},"iconBackGroundColor":{"type":"string","default":"#4e4f52"},"iconBackGroundHoverColor":{"type":"string","default":"#4e6e3e"},"borderStyle":{"type":"string","default":"none"},"borderWidth":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}},"borderColor":{"type":"string","default":"#11111"},"borderRadius":{"type":"object","default":{"desktop":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"tablet":{"top":50,"right":50,"bottom":50,"left":50,"linked":true},"mobile":{"top":50,"right":50,"bottom":50,"left":50,"linked":true}}},"showBoxShadow":{"type":"boolean","default":false},"boxShadow":{"type":"object","default":{"desktop":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"tablet":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"},"mobile":{"xOffset":0,"yOffset":0,"blur":0,"spread":0,"linked":false,"type":"outset"}}},"shadowColor":{"type":"string","default":"#d6d8de"},"paginationStyle":{"type":"string","default":"dots"},"paginationWidth":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationHeight":{"type":"object","default":{"desktop":12,"tablet":12,"mobile":12}},"paginationDotGap":{"type":"object","default":{"desktop":6,"tablet":6,"mobile":6}},"paginationVerticalPosition":{"type":"object","default":{"desktop":-36,"tablet":-36,"mobile":-36}},"paginationHorizontalPosition":{"type":"object","default":{"desktop":50,"tablet":50,"mobile":50}},"paginationDotStyleType":{"type":"string","default":"normal"},"dotNormalTextColor":{"type":"string","default":"#000000"},"dotActiveTextColor":{"type":"string","default":"#ffffff"},"dotNormalBackGroundNormalColor":{"type":"string","default":"#cacbcf"},"dotNormalBackGroundActiveColor":{"type":"string","default":"#4E6E3E"},"paginationBorderStyle":{"type":"string","default":"none"},"paginationHover":{"type":"string","default":"normal"},"allContentArray":{"type":"array","default":[{"id":"1","value":"category","label":"Taxonomy (Category)"},{"id":"2","value":"title","label":"Title"},{"id":"3","value":"meta","label":"Meta Data"},{"id":"4","value":"excerpt","label":"Excerpt"},{"id":"5","value":"readMore","label":"Read More"},{"id":"6","value":"social","label":"Social Share"}]},"metaDataAllContentArray":{"type":"array","default":[{"id":"1","value":"author","label":"Author","show":true,"position":"left"},{"id":"2","value":"date","label":"Date","show":true,"position":"left"},{"id":"3","value":"comments","label":"Comments","show":true,"position":"right"},{"id":"4","value":"views","label":"Views","show":true,"position":"right"},{"id":"5","value":"likes","label":"Likes","show":true,"position":"right"},{"id":"6","value":"reading-time","label":"Reading Time","show":true,"position":"left"}]},"metaDisplayType":{"type":"string","default":"inline"},"authorDisplayStyle":{"type":"string","default":"iconName"},"authorIcon":{"type":"string","default":"outline"},"dateFormat":{"type":"string","default":"default"},"metaEffect":{"type":"string","default":"normal"},"metaColor":{"type":"object","default":{"normal":"#4e6e3e","hover":""}},"metaTypo":{"type":"object","default":{"tags":"div","family":"Roboto","fontSize":14,"weight":400,"height":1.2,"spacing":0,"text":"List item title"}},"metaColumnGap":{"type":"number","default":12},"metaRowGap":{"type":"number","default":4},"metaMargin":{"type":"object","default":{"desktop":{"top":0,"right":0,"bottom":0,"left":0,"linked":true},"tablet":{"top":0,"right":0,"bottom":0,"left":0,"linked":true},"mobile":{"top":0,"right":0,"bottom":0,"left":0,"linked":true}}},"metaSeparatorStyle":{"type":"string","default":"space"},"metaSeparatorColor":{"type":"string","default":"#000000"},"contentEffect":{"type":"string","default":"default"},"contentBackGroundStyles":{"type":"object","default":{"type":"transparent","hoverType":"transparent","solidBackground":"#fff","gradientBackground":"","hoverSolidBackground":"#fff","hoverGradientBackground":""}},"contentBorderStyle":{"type":"string","default":"none"},"contentHoverBorderStyle":{"type":"string","default":"none"},"contentBorderWidthNormal":{"type":"number","default":{"desktop":1,"tablet":1,"mobile":1}},"contentBorderWidthHover":{"type":"number","default":{"desktop":1,"tablet":1,"mobile":1}},"contentBorderColorNormal":{"type":"string","default":"#000000"},"contentBorderColorHover":{"type":"string","default":"#000000"},"contentBorderRadiusNormal":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}},"contentBorderRadiusHover":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}},"contentPadding":{"type":"object","default":{"desktop":{"top":0,"right":0,"bottom":0,"left":0,"linked":true},"tablet":{"top":0,"right":0,"bottom":0,"left":0,"linked":true},"mobile":{"top":0,"right":0,"bottom":0,"left":0,"linked":true}}},"contentInnerPadding":{"type":"object","default":{"desktop":{"top":0,"right":0,"bottom":0,"left":0,"linked":true},"tablet":{"top":0,"right":0,"bottom":0,"left":0,"linked":true},"mobile":{"top":0,"right":0,"bottom":0,"left":0,"linked":true}}},"contentMargin":{"type":"object","default":{"desktop":{"top":0,"right":0,"bottom":0,"left":0,"linked":true},"tablet":{"top":0,"right":0,"bottom":0,"left":0,"linked":true},"mobile":{"top":0,"right":0,"bottom":0,"left":0,"linked":true}}},"showContentBoxShadow":{"type":"boolean","default":false},"contentBoxShadow":{"type":"object","default":{"desktop":{"xOffset":5,"yOffset":5,"blur":10,"spread":0,"linked":false,"type":"outset"},"tablet":{"xOffset":5,"yOffset":5,"blur":10,"spread":0,"linked":false,"type":"outset"},"mobile":{"xOffset":5,"yOffset":5,"blur":10,"spread":0,"linked":false,"type":"outset"}}},"contentBoxShadowColor":{"type":"string","default":"#d6d8de"},"excerptType":{"type":"string","default":"limited"},"excerptLength":{"type":"object","default":{"value":14,"unit":"words"}},"excerptEllipsis":{"type":"string","default":"..."},"excerptTypo":{"type":"object","default":{"tags":"span","family":"Roboto","fontSize":16,"weight":400,"height":1.2,"spacing":0,"text":"List item title"}},"excerptColor":{"type":"string","default":"#4e6e3e"},"excerptMargin":{"type":"object","default":{"desktop":{"top":14,"right":0,"bottom":0,"left":0,"linked":true},"tablet":{"top":14,"right":0,"bottom":0,"left":0,"linked":true},"mobile":{"top":14,"right":0,"bottom":0,"left":0,"linked":true}}},"buttonType":{"type":"string","default":"button"},"buttonText":{"type":"string","default":"Read More"},"buttonTypo":{"type":"object","default":{"tags":"a","family":"Roboto","fontSize":12,"weight":400,"height":1.2,"spacing":0,"text":"List item title"}},"iconVisibility":{"type":"string","default":"none"},"buttonStyle":{"type":"string","default":"chevron-solid"},"iconGap":{"type":"object","default":{"desktop":4,"tablet":4,"mobile":4}},"iconEffectType":{"type":"string","default":"normal"},"buttonTextColor":{"type":"object","default":{"normal":"#4e6e3e","hover":""}},"buttonBackGroundStyles":{"type":"object","default":{"type":"transparent","hoverType":"transparent","solidBackground":"#fff","gradientBackground":"","hoverSolidBackground":"#fff","hoverGradientBackground":""}},"buttonBorderStyle":{"type":"string","default":"solid"},"buttonHoverBorderStyle":{"type":"string","default":"solid"},"buttonBorderWidthNormal":{"type":"number","default":{"desktop":1,"tablet":1,"mobile":1}},"buttonBorderWidthHover":{"type":"number","default":{"desktop":1,"tablet":1,"mobile":1}},"buttonBorderColorNormal":{"type":"string","default":"#4e6e3e"},"buttonBorderColorHover":{"type":"string","default":""},"buttonBorderRadiusNormal":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}},"buttonBorderRadiusHover":{"type":"number","default":{"desktop":0,"tablet":0,"mobile":0}}},"render":"file:./render.php","textdomain":"smart-post-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ },
 
@@ -25070,6 +25685,84 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ },
+
+/***/ "./utils/getCardStyles.js"
+/*!********************************!*\
+  !*** ./utils/getCardStyles.js ***!
+  \********************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getCardStyles: () => (/* binding */ getCardStyles)
+/* harmony export */ });
+const getSpacing = (obj, device) => `${obj?.[device]?.top ?? 0}px ${obj?.[device]?.right ?? 0}px ${obj?.[device]?.bottom ?? 0}px ${obj?.[device]?.left ?? 0}px`;
+const getBoxShadow = (shadow, device, color) => {
+  const s = shadow?.[device];
+  if (!s) return undefined;
+  return `${s.type === "inset" ? "inset " : ""}${s.xOffset ?? 0}px ${s.yOffset ?? 0}px ${s.blur ?? 0}px ${s.spread ?? 0}px ${color ?? "transparent"}`.trim();
+};
+const getBg = (styles, type, gradientKey, solidKey) => {
+  const bgType = styles?.[type] || "transparent";
+  if (bgType === "gradient") return styles?.[gradientKey];
+  if (bgType === "solid") return styles?.[solidKey];
+  return null;
+};
+const getCardStyles = (attributes, normalizedDeviceType) => {
+  const {
+    height,
+    equalHeight,
+    contentBackGroundStyles,
+    contentBorderStyle,
+    contentHoverBorderStyle,
+    contentBorderWidthNormal,
+    contentBorderWidthHover,
+    contentBorderColorNormal,
+    contentBorderColorHover,
+    contentBorderRadiusNormal,
+    contentBorderRadiusHover,
+    contentPadding,
+    contentInnerPadding,
+    contentMargin,
+    contentBoxShadow,
+    contentBoxShadowColor,
+    showContentBoxShadow
+  } = attributes;
+  const normalBg = getBg(contentBackGroundStyles, "type", "gradientBackground", "solidBackground");
+  const hoverBg = getBg(contentBackGroundStyles, "hoverType", "hoverGradientBackground", "hoverSolidBackground");
+  const boxShadow = showContentBoxShadow ? getBoxShadow(contentBoxShadow, normalizedDeviceType, contentBoxShadowColor) : undefined;
+  return {
+    // Height
+    "--cardHeight": equalHeight ? `${height?.[normalizedDeviceType]}px` : undefined,
+    // Background
+    ...(normalBg && {
+      "--card-bg": normalBg
+    }),
+    ...(hoverBg && {
+      "--card-hover-bg": hoverBg
+    }),
+    // Border
+    "--card-border": contentBorderStyle || "none",
+    "--card-hover-border": contentHoverBorderStyle || "none",
+    "--card-border-width": `${contentBorderWidthNormal?.[normalizedDeviceType] || 1}px`,
+    "--card-hover-border-width": `${contentBorderWidthHover?.[normalizedDeviceType] || 1}px`,
+    "--card-border-color": contentBorderColorNormal || "#000",
+    "--card-hover-border-color": contentBorderColorHover || "#000",
+    "--card-border-radius": `${contentBorderRadiusNormal?.[normalizedDeviceType] ?? 0}px`,
+    "--card-hover-border-radius": `${contentBorderRadiusHover?.[normalizedDeviceType] ?? 0}px`,
+    // Spacing
+    "--card-padding": getSpacing(contentPadding, normalizedDeviceType),
+    "--card-innerPadding": getSpacing(contentInnerPadding, normalizedDeviceType),
+    "--card-Margin": getSpacing(contentMargin, normalizedDeviceType),
+    // Box Shadow
+    ...(boxShadow && {
+      "--contentBoxShadow": boxShadow
+    })
+  };
+};
 
 /***/ },
 
