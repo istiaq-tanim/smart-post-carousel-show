@@ -7,10 +7,7 @@ import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl"
 import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
 import SelectDropDown from "../common/SelectDropDown/SelectDropDown";
 import Typography from "../common/Typography/Typography";
-import {
-	DashedBorder,
-	SolidBorder,
-} from "../../smart-post-carousel/assets/borderIcon";
+
 
 function Style() {
 	const { attributes, setAttributes } = useAttributes();
