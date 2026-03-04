@@ -136,7 +136,7 @@ function Style() {
 				></CustomToggleGroupControl>
 			}
 
-
+			{/* check border style */}
 			{currentBorderStyle !== "none" && buttonType === "button" && (
 				<>
 					{/* Border Width */}
