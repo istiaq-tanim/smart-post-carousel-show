@@ -30,7 +30,7 @@ function General() {
 						showDevice={false}
 						flat={true}
 						options={["words", "char"]}
-						unit={attributes.excerptLength}
+						unit={attributes.excerptLength.unit}
 					/>
 
 					<TextControl

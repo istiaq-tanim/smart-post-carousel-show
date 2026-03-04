@@ -21,7 +21,7 @@
     },
     "showTitle": {
       "type": "boolean",
-      "default": false
+      "default": true
     },
     "partialView": {
       "type": "boolean",
@@ -569,7 +569,7 @@
       "default": "none"
     },
     "contentBorderWidthNormal": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 1,
         "tablet": 1,
@@ -577,7 +577,7 @@
       }
     },
     "contentBorderWidthHover": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 1,
         "tablet": 1,
@@ -593,7 +593,7 @@
       "default": "#000000"
     },
     "contentBorderRadiusNormal": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 0,
         "tablet": 0,
@@ -601,7 +601,7 @@
       }
     },
     "contentBorderRadiusHover": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 0,
         "tablet": 0,
@@ -884,6 +884,37 @@
         "desktop": 0,
         "tablet": 0,
         "mobile": 0
+      }
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "h3"
+    },
+    "titleType": {
+      "type": "string",
+      "default": "limited"
+    },
+    "titleLength": {
+      "type": "object",
+      "default": {
+        "value": 10,
+        "unit": "words"
+      }
+    },
+    "showBadges": {
+      "type": "boolean",
+      "default": false
+    },
+    "badgePosition": {
+      "type": "string",
+      "default": "before"
+    },
+    "badgesGap": {
+      "type": "object",
+      "default": {
+        "desktop": 5,
+        "tablet": 5,
+        "mobile": 5
       }
     }
   },

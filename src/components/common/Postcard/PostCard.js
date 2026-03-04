@@ -38,6 +38,7 @@ function PostCard({ post, attributes }) {
 		buttonText,
 		showReadMore,
 		buttonTypo,
+		showTitle,
 	} = attributes;
 
 	const author =
@@ -123,6 +124,7 @@ function PostCard({ post, attributes }) {
 			buttonText,
 			showReadMore,
 			buttonTypo,
+			showTitle,
 		}),
 		[
 			post,
@@ -149,6 +151,7 @@ function PostCard({ post, attributes }) {
 			buttonText,
 			showReadMore,
 			buttonTypo,
+			showTitle,
 		],
 	);
 

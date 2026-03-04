@@ -489,3 +489,14 @@ export const borderTypes = [
 	{ label: <DottedBorder />, value: "dotted" },
 	{ label: <DoubleBorder />, value: "double" },
 ];
+
+export const badgePosition = [
+	{
+		label: "Before Title",
+		value: "before",
+	},
+	{
+		label: "After Title",
+		value: "after",
+	},
+];

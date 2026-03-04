@@ -1,9 +1,9 @@
 import { useDeviceType } from "../../../../hooks/useDevice";
-import { FacebookIcon } from "../../../../smart-post-carousel/assets/icon";
 import CategoryList from "../CategoryList";
 import Excerpt from "../Excerpt";
 import MetaSeparator from "../MetaSeparator";
 import ReadMore from "../ReadMore";
+import Title from "../Title";
 import getMetaElement from "./getMetaElement";
 
 const getContentElement = (
@@ -27,9 +27,8 @@ const getContentElement = (
 		excerptTypo,
 		excerptColor,
 		excerptMargin,
-		buttonText,
 		showReadMore,
-		buttonTypo,
+		showTitle,
 	},
 ) => {
 	const deviceType = useDeviceType();
@@ -43,11 +42,7 @@ const getContentElement = (
 
 		case "title":
 			return (
-				<h3
-					key="title"
-					className="sp-smart-post-carousel-card-title"
-					dangerouslySetInnerHTML={{ __html: title }}
-				/>
+				showTitle && <Title badges={post.badges_list} title={title}></Title>
 			);
 
 		case "meta":

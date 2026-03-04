@@ -161,10 +161,10 @@
 		&-title {
 			color: #333;
 			font-family: Inter;
-			font-size: 22px;
 			line-height: 1.2;
 			font-weight: 600;
 			margin: 6px 0 0;
+			font-size: var(--title-font-size, 24px);
 
 			&:hover {
 				color: var(--smart-post-secondary);
@@ -189,6 +189,42 @@
 				&:hover {
 					color: var(--meta-hover-color, inherit);
 				}
+			}
+		}
+
+		.sp-smart-post-carousel-title-badges-list {
+			display: inline-flex;
+			margin: 0;
+			padding: 0;
+			vertical-align: middle;
+			gap: var(--badgeBetweenGap);
+
+			&.sp-smart-post-carousel-badges-before-title {
+				margin-right: 5px;
+			}
+
+			&.sp-smart-post-carousel-badges-after-title {
+				margin-left: 5px;
+			}
+
+			.sp-smart-post-carousel-title-badge-item {
+				display: inline-block;
+				vertical-align: middle;
+				box-sizing: border-box;
+				height: fit-content;
+				font-weight: 600;
+				font-style: normal;
+				text-decoration: none;
+				text-transform: uppercase;
+				color: #ffffff;
+				background-color: #ff5b2e;
+				border-style: solid;
+				border-color: #cccccc;
+				font-size: 12px;
+				line-height: 1.3;
+				padding: 4px 8px 4px 8px;
+				border-width: 1px 1px 1px 1px;
+				border-radius: 2px 2px 2px 2px;
 			}
 		}
 	}

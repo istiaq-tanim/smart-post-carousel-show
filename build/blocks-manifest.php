@@ -26,7 +26,7 @@ return array(
 			),
 			'showTitle' => array(
 				'type' => 'boolean',
-				'default' => false
+				'default' => true
 			),
 			'partialView' => array(
 				'type' => 'boolean',
@@ -574,7 +574,7 @@ return array(
 				'default' => 'none'
 			),
 			'contentBorderWidthNormal' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 1,
 					'tablet' => 1,
@@ -582,7 +582,7 @@ return array(
 				)
 			),
 			'contentBorderWidthHover' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 1,
 					'tablet' => 1,
@@ -598,7 +598,7 @@ return array(
 				'default' => '#000000'
 			),
 			'contentBorderRadiusNormal' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 0,
 					'tablet' => 0,
@@ -606,7 +606,7 @@ return array(
 				)
 			),
 			'contentBorderRadiusHover' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 0,
 					'tablet' => 0,
@@ -889,6 +889,37 @@ return array(
 					'desktop' => 0,
 					'tablet' => 0,
 					'mobile' => 0
+				)
+			),
+			'titleTag' => array(
+				'type' => 'string',
+				'default' => 'h3'
+			),
+			'titleType' => array(
+				'type' => 'string',
+				'default' => 'limited'
+			),
+			'titleLength' => array(
+				'type' => 'object',
+				'default' => array(
+					'value' => 10,
+					'unit' => 'words'
+				)
+			),
+			'showBadges' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'badgePosition' => array(
+				'type' => 'string',
+				'default' => 'before'
+			),
+			'badgesGap' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 5,
+					'tablet' => 5,
+					'mobile' => 5
 				)
 			)
 		),

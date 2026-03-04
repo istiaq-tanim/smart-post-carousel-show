@@ -10,8 +10,6 @@ function BackgroundStyle({
 }) {
 	const isHover = contentEffect === "hover";
 
-<<<<<<< HEAD
-=======
 	const selectedTab = isHover
 		? backgroundStyle?.hoverType || "transparent"
 		: backgroundStyle?.type || "transparent";
@@ -22,10 +20,9 @@ function BackgroundStyle({
 			? backgroundStyle?.hoverGradientBackground
 			: backgroundStyle?.hoverSolidBackground
 		: selectedTab === "gradient"
-			? backgroundStyle?.gradientBackground
-			: backgroundStyle?.solidBackground;
+		? backgroundStyle?.gradientBackground
+		: backgroundStyle?.solidBackground;
 
->>>>>>> b1e2896c1f44619d4b65cd687aaabbb864690b3c
 	const handleTab = (tabName) => {
 		const key = isHover ? "hoverType" : "type";
 		onChange({ ...backgroundStyle, [key]: tabName });
@@ -40,7 +37,6 @@ function BackgroundStyle({
 		const key = isHover ? "hoverGradientBackground" : "gradientBackground";
 		onChange({ ...backgroundStyle, [key]: value });
 	};
-
 
 	const renderBackgroundControl = () => {
 		switch (selectedTab) {
@@ -73,8 +69,9 @@ function BackgroundStyle({
 					{backGroundStyles.map(({ name, icon: Icon, label: btnLabel }) => (
 						<button
 							key={name}
-							className={`background-style__btn ${selectedTab === name ? "active" : ""
-								}`}
+							className={`background-style__btn ${
+								selectedTab === name ? "active" : ""
+							}`}
 							onClick={() => handleTab(name)}
 							title={btnLabel}
 						>

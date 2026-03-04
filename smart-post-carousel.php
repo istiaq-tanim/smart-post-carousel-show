@@ -114,7 +114,6 @@ add_action(
 	}
 );
 
-
 add_action(
 	'enqueue_block_editor_assets',
 	function () {
@@ -126,7 +125,6 @@ add_action(
 		);
 	}
 );
-
 
 add_action(
 	'wp_enqueue_scripts',
@@ -144,6 +142,54 @@ add_action(
 	}
 );
 
+/**
+ * Register Smart Post Badges Taxonomy
+ * Priority 5 — must run BEFORE AJAX class at priority 10
+ */
+add_action(
+	'init',
+	function () {
+		$badge_labels = array(
+			'name'              => __( 'Badges', 'smart-post-carousel' ),
+			'singular_name'     => __( 'Badge', 'smart-post-carousel' ),
+			'search_items'      => __( 'Search Badges', 'smart-post-carousel' ),
+			'all_items'         => __( 'All Badges', 'smart-post-carousel' ),
+			'parent_item'       => __( 'Parent Badge', 'smart-post-carousel' ),
+			'parent_item_colon' => __( 'Parent Badge:', 'smart-post-carousel' ),
+			'edit_item'         => __( 'Edit Badge', 'smart-post-carousel' ),
+			'update_item'       => __( 'Update Badge', 'smart-post-carousel' ),
+			'add_new_item'      => __( 'Add New Badge', 'smart-post-carousel' ),
+			'new_item_name'     => __( 'New Badge Name', 'smart-post-carousel' ),
+			'menu_name'         => __( 'Badges', 'smart-post-carousel' ),
+		);
+
+		$badge_args = array(
+			'hierarchical'      => true,
+			'labels'            => $badge_labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'sp-badge' ),
+			'show_in_rest'      => true,
+		);
+
+		register_taxonomy( 'sp_smart_badges', array( 'post' ), $badge_args );
+
+		register_term_meta(
+			'sp_smart_badges',
+			'position',
+			array(
+				'show_in_rest'  => true,
+				'single'        => true,
+				'type'          => 'string',
+				'default'       => 'before',
+				'auth_callback' => function () {
+					return current_user_can( 'edit_posts' );
+				},
+			)
+		);
+	},
+);
 
 /**
  * AJAX handler
@@ -154,5 +200,6 @@ add_action(
 	'init',
 	function () {
 		SP_Smart_Content_Ajax_Query::instance();
-	}
+	},
+	10 // ← runs after taxonomy at priority 5
 );

@@ -405,6 +405,8 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			return $posts_data;
 		}
 
+
+
 		/**
 		 * Format media data for response.
 		 *
