@@ -19094,11 +19094,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_Background_Background__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/Background/Background */ "./src/components/common/Background/Background.js");
 /* harmony import */ var _common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/CustomColorPicker/CustomColorPicker */ "./src/components/common/CustomColorPicker/CustomColorPicker.js");
 /* harmony import */ var _common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/CustomRangeControl/CustomRangeControl */ "./src/components/common/CustomRangeControl/CustomRangeControl.js");
-/* harmony import */ var _common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/CustomToggleGroupControl/CustomToggleGroupControl */ "./src/components/common/CustomToggleGroupControl/CustomToggleGroupControl.js");
-/* harmony import */ var _common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/SelectDropDown/SelectDropDown */ "./src/components/common/SelectDropDown/SelectDropDown.js");
-/* harmony import */ var _common_Typography_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/Typography/Typography */ "./src/components/common/Typography/Typography.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/CustomSpacingControl/SpacingControl */ "./src/components/common/CustomSpacingControl/SpacingControl.js");
+/* harmony import */ var _common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/CustomToggleGroupControl/CustomToggleGroupControl */ "./src/components/common/CustomToggleGroupControl/CustomToggleGroupControl.js");
+/* harmony import */ var _common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/SelectDropDown/SelectDropDown */ "./src/components/common/SelectDropDown/SelectDropDown.js");
+/* harmony import */ var _common_Typography_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../common/Typography/Typography */ "./src/components/common/Typography/Typography.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -19122,7 +19124,10 @@ function Style() {
     buttonTextColor,
     buttonBackGroundStyles,
     buttonBorderColorNormal,
-    buttonBorderColorHover
+    buttonBorderColorHover,
+    buttonPadding,
+    buttonType,
+    buttonMargin
   } = attributes;
   const currentColor = buttonTextColor?.[iconEffectType] ?? "";
   const currentBorderStyleKey = iconEffectType === "hover" ? "buttonHoverBorderStyle" : "buttonBorderStyle";
@@ -19135,8 +19140,8 @@ function Style() {
       }
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_Typography_Typography__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_Typography_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
       label: "Typography",
       attributeKey: "buttonTypo",
       onChange: value => setAttributes({
@@ -19162,7 +19167,7 @@ function Style() {
         label: "Heading h5",
         value: "h5"
       }]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
       label: "Icon Visibility",
       attributes: attributes,
       attributesKey: "iconVisibility",
@@ -19177,14 +19182,14 @@ function Style() {
         label: "Hover",
         value: "hover"
       }]
-    }), ["always", "hover"].includes(iconVisibility) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }), ["always", "hover"].includes(iconVisibility) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_SelectDropDown_SelectDropDown__WEBPACK_IMPORTED_MODULE_8__["default"], {
         label: "Icon Style",
         attributes: buttonStyle,
         attributesKey: "buttonStyle",
         setAttributes: setAttributes,
         options: _const__WEBPACK_IMPORTED_MODULE_1__.buttonIcons
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
         label: "Icon Gap",
         attributeKey: "iconGap",
         min: 0,
@@ -19192,7 +19197,7 @@ function Style() {
         defaultValue: 4,
         showUnit: true
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
       attributes: attributes,
       attributesKey: "iconEffectType",
       setAttributes: setAttributes,
@@ -19203,26 +19208,26 @@ function Style() {
         label: "Hover",
         value: "hover"
       }]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"], {
       label: "Color",
       defaultValue: iconEffectType === "normal" ? "#4e6e3e" : "",
       onChange: handleColorChange,
       value: currentColor
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_Background_Background__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), buttonType === "button" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_Background_Background__WEBPACK_IMPORTED_MODULE_3__["default"], {
       backgroundStyle: buttonBackGroundStyles,
       contentEffect: iconEffectType,
       label: "Background Style",
       onChange: value => setAttributes({
         buttonBackGroundStyles: value
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }), buttonType === "button" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomToggleGroupControl_CustomToggleGroupControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Border", "smart-post-carousel"),
       attributes: attributes,
       attributesKey: currentBorderStyleKey,
       setAttributes: setAttributes,
       items: _const__WEBPACK_IMPORTED_MODULE_1__.borderTypes
-    }), currentBorderStyle !== "none" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), currentBorderStyle !== "none" && buttonType === "button" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
         label: "Border Width",
         attributeKey: iconEffectType === "hover" ? "buttonHoverBorderWidth" : "buttonBorderWidthNormal",
         min: 0,
@@ -19230,22 +19235,40 @@ function Style() {
         defaultValue: 1,
         showUnit: true,
         step: 1
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomColorPicker_CustomColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"], {
         label: "Border Color",
         defaultValue: "",
         onChange: value => setAttributes({
           [iconEffectType === "hover" ? "buttonBorderColorHover" : "buttonBorderColorNormal"]: value
         }),
         value: iconEffectType === "hover" ? buttonBorderColorHover : buttonBorderColorNormal
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomRangeControl_CustomRangeControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
         label: "Border Radius",
         attributeKey: iconEffectType === "hover" ? "buttonBorderRadiusHover" : "buttonBorderRadiusNormal",
         min: 0,
-        max: 48,
+        max: 50,
         defaultValue: 0,
         showUnit: true,
         step: 1
       })]
+    }), buttonType === "button" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      values: buttonPadding,
+      min: 0,
+      max: 48,
+      label: "Padding",
+      step: 1,
+      onChange: values => setAttributes({
+        buttonPadding: values
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_common_CustomSpacingControl_SpacingControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      values: buttonMargin,
+      min: 0,
+      max: 48,
+      label: "Margin",
+      step: 1,
+      onChange: values => setAttributes({
+        buttonMargin: values
+      })
     })]
   });
 }

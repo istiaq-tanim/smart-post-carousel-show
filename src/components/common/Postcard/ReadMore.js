@@ -42,15 +42,15 @@ function ReadMore() {
 		bgType === "gradient"
 			? buttonBackGroundStyles?.gradientBackground
 			: bgType === "solid"
-			? buttonBackGroundStyles?.solidBackground
-			: null;
+				? buttonBackGroundStyles?.solidBackground
+				: null;
 
 	const hoverBg =
 		hoverBgType === "gradient"
 			? buttonBackGroundStyles?.hoverGradientBackground
 			: hoverBgType === "solid"
-			? buttonBackGroundStyles?.hoverSolidBackground
-			: null;
+				? buttonBackGroundStyles?.hoverSolidBackground
+				: null;
 
 	return (
 		<div
@@ -72,21 +72,18 @@ function ReadMore() {
 
 				"--button-border": buttonBorderStyle || "none",
 				"--button-hover-border": buttonHoverBorderStyle || "none",
-				"--button-border-size": `${
-					buttonBorderWidthNormal[normalizedDeviceType] || 1
-				}px`,
-				"--button-hover-border-size": `${
-					buttonBorderWidthHover[normalizedDeviceType] || 1
-				}px`,
+				"--button-border-size": `${buttonBorderWidthNormal[normalizedDeviceType] || 1
+					}px`,
+				"--button-hover-border-size": `${buttonBorderWidthHover[normalizedDeviceType] || 1
+					}px`,
 				"--button-border-color": buttonBorderColorNormal || "#4e6e3e",
 				"--button-hover-border-color":
 					`${buttonBorderColorHover || buttonBorderColorNormal}` || "#000",
 			}}
 		>
 			<span
-				className={`sp-smart-post-carousel-read-more-btn-link ${
-					iconVisibility === "hover" ? "icon-hover" : ""
-				}`}
+				className={`sp-smart-post-carousel-read-more-btn-link ${iconVisibility === "hover" ? "icon-hover" : ""
+					}`}
 			>
 				<Tag>{buttonText}</Tag>
 				{showIcon && (

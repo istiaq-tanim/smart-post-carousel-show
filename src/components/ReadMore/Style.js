@@ -4,10 +4,10 @@ import { useAttributes } from "../../hooks/useAttributes";
 import BackgroundStyle from "../common/Background/Background";
 import CustomColorPicker from "../common/CustomColorPicker/CustomColorPicker";
 import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
+import SpacingControl from "../common/CustomSpacingControl/SpacingControl";
 import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
 import SelectDropDown from "../common/SelectDropDown/SelectDropDown";
 import Typography from "../common/Typography/Typography";
-
 
 function Style() {
 	const { attributes, setAttributes } = useAttributes();
@@ -20,6 +20,9 @@ function Style() {
 		buttonBackGroundStyles,
 		buttonBorderColorNormal,
 		buttonBorderColorHover,
+		buttonPadding,
+		buttonType,
+		buttonMargin
 	} = attributes;
 
 	const currentColor = buttonTextColor?.[iconEffectType] ?? "";
@@ -110,23 +113,31 @@ function Style() {
 			></CustomColorPicker>
 
 			{/* Background Color Button */}
-			<BackgroundStyle
-				backgroundStyle={buttonBackGroundStyles}
-				contentEffect={iconEffectType}
-				label="Background Style"
-				onChange={(value) => setAttributes({ buttonBackGroundStyles: value })}
-			></BackgroundStyle>
+
+			{
+				buttonType === "button" && <BackgroundStyle
+					backgroundStyle={buttonBackGroundStyles}
+					contentEffect={iconEffectType}
+					label="Background Style"
+					onChange={(value) => setAttributes({ buttonBackGroundStyles: value })}
+				></BackgroundStyle>
+			}
+
 
 			{/* Border Style */}
-			<CustomToggleGroupControl
-				label={__("Border", "smart-post-carousel")}
-				attributes={attributes}
-				attributesKey={currentBorderStyleKey}
-				setAttributes={setAttributes}
-				items={borderTypes}
-			></CustomToggleGroupControl>
 
-			{currentBorderStyle !== "none" && (
+			{
+				buttonType === "button" && <CustomToggleGroupControl
+					label={__("Border", "smart-post-carousel")}
+					attributes={attributes}
+					attributesKey={currentBorderStyleKey}
+					setAttributes={setAttributes}
+					items={borderTypes}
+				></CustomToggleGroupControl>
+			}
+
+			{/* check border style */}
+			{currentBorderStyle !== "none" && buttonType === "button" && (
 				<>
 					{/* Border Width */}
 					<CustomRangeControl
@@ -170,13 +181,36 @@ function Style() {
 								: "buttonBorderRadiusNormal"
 						}
 						min={0}
-						max={48}
+						max={50}
 						defaultValue={0}
 						showUnit={true}
 						step={1}
 					></CustomRangeControl>
+
+
 				</>
 			)}
+
+			{buttonType === "button" &&
+				<SpacingControl
+					values={buttonPadding}
+					min={0}
+					max={48}
+					label="Padding"
+					step={1}
+					onChange={(values) => setAttributes({ buttonPadding: values })}
+				></SpacingControl>
+			}
+			<SpacingControl
+				values={buttonMargin}
+				min={0}
+				max={48}
+				label="Margin"
+				step={1}
+				onChange={(values) => setAttributes({ buttonMargin: values })}
+			></SpacingControl>
+
+
 		</>
 	);
 }
