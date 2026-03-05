@@ -220,14 +220,14 @@
 				font-style: normal;
 				text-decoration: none;
 				text-transform: uppercase;
-				color: #ffffff;
-				background-color: #ff5b2e;
-				border-style: solid;
-				border-color: #cccccc;
+				color: var(--labelColor);
+				background-color: var(--labelBackgroundColor);
 				font-size: var(--badge-font-size);
-				padding: 4px 8px 4px 8px;
-				border-width: 1px 1px 1px 1px;
-				border-radius: 2px 2px 2px 2px;
+				padding: var(--badge-padding);
+				border-width: var(--badge-border-size, 1px);
+				border-style: var(--badge-border-style, none);
+				border-color: var(--badge-border-color);
+				border-radius: var(--badge-border-radius, 0px);
 			}
 		}
 	}

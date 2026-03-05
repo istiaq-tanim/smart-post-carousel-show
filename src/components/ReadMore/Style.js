@@ -183,6 +183,7 @@ function Style() {
 						max={50}
 						defaultValue={0}
 						showUnit={true}
+						showDevice={true}
 						step={1}
 					></CustomRangeControl>
 				</>

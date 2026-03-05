@@ -1033,6 +1033,82 @@ return array(
 						'linked' => true
 					)
 				)
+			),
+			'labelColor' => array(
+				'type' => 'string',
+				'default' => '#ffffff'
+			),
+			'labelBackgroundColor' => array(
+				'type' => 'string',
+				'default' => '#ff5b2e'
+			),
+			'badgeBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'solid'
+			),
+			'badgeBorderWidth' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'badgeBorderColor' => array(
+				'type' => 'string',
+				'default' => '#cccccc'
+			),
+			'badgeBorderRadius' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 2,
+						'right' => 2,
+						'bottom' => 2,
+						'left' => 2,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 2,
+						'right' => 2,
+						'bottom' => 2,
+						'left' => 2,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 2,
+						'right' => 2,
+						'bottom' => 2,
+						'left' => 2,
+						'linked' => true
+					)
+				)
+			),
+			'badgePadding' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 4,
+						'right' => 8,
+						'bottom' => 4,
+						'left' => 8,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 4,
+						'right' => 8,
+						'bottom' => 4,
+						'left' => 8,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 4,
+						'right' => 8,
+						'bottom' => 4,
+						'left' => 8,
+						'linked' => true
+					)
+				)
 			)
 		),
 		'render' => 'file:./render.php',

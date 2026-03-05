@@ -1028,6 +1028,82 @@
           "linked": true
         }
       }
+    },
+    "labelColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "labelBackgroundColor": {
+      "type": "string",
+      "default": "#ff5b2e"
+    },
+    "badgeBorderStyle": {
+      "type": "string",
+      "default": "solid"
+    },
+    "badgeBorderWidth": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "badgeBorderColor": {
+      "type": "string",
+      "default": "#cccccc"
+    },
+    "badgeBorderRadius": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 2,
+          "right": 2,
+          "bottom": 2,
+          "left": 2,
+          "linked": true
+        },
+        "tablet": {
+          "top": 2,
+          "right": 2,
+          "bottom": 2,
+          "left": 2,
+          "linked": true
+        },
+        "mobile": {
+          "top": 2,
+          "right": 2,
+          "bottom": 2,
+          "left": 2,
+          "linked": true
+        }
+      }
+    },
+    "badgePadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        },
+        "tablet": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        },
+        "mobile": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        }
+      }
     }
   },
   "render": "file:./render.php",

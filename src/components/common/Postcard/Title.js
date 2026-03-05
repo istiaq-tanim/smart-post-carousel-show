@@ -15,6 +15,13 @@ function Title({ title, badges }) {
 		titleTypo,
 		titleColor,
 		titleMargin,
+		labelColor,
+		labelBackgroundColor,
+		badgeBorderWidth,
+		badgeBorderColor,
+		badgeBorderStyle,
+		badgeBorderRadius,
+		badgePadding,
 	} = attributes;
 
 	const Tag = titleTag || "h3";
@@ -69,6 +76,23 @@ function Title({ title, badges }) {
 					titleMargin[normalizedDeviceType].right ?? 0
 				}px ${titleMargin[normalizedDeviceType].bottom ?? 0}px ${
 					titleMargin[normalizedDeviceType].left ?? 0
+				}px`,
+				"--labelColor": labelColor ?? "#fff",
+				"--labelBackgroundColor": labelBackgroundColor ?? "#ff5b2e",
+				"--badge-border-size": `${
+					badgeBorderWidth[normalizedDeviceType] ?? 1
+				}px`,
+				"--badge-border-color": badgeBorderColor ?? "#cccccc",
+				"--badge-border-style": badgeBorderStyle ?? "solid",
+				"--badge-border-radius": `${
+					badgeBorderRadius[normalizedDeviceType].top ?? 2
+				}px ${badgeBorderRadius[normalizedDeviceType].right ?? 2}px ${
+					badgeBorderRadius[normalizedDeviceType].bottom ?? 2
+				}px ${badgeBorderRadius[normalizedDeviceType].left ?? 2}px`,
+				"--badge-padding": `${badgePadding[normalizedDeviceType].top ?? 4}px ${
+					badgePadding[normalizedDeviceType].right ?? 8
+				}px ${badgePadding[normalizedDeviceType].bottom ?? 4}px ${
+					badgePadding[normalizedDeviceType].left ?? 8
 				}px`,
 			}}
 		>
