@@ -18,14 +18,17 @@ function ReadMore() {
 		buttonBorderWidthHover,
 		buttonBorderColorHover,
 		buttonBorderColorNormal,
+		buttonBorderRadiusNormal,
+		buttonBorderRadiusHover,
+		buttonPadding,
+		buttonMargin,
+		buttonType,
 	} = attributes;
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
 
 	const tagName = buttonTypo?.tags || "a";
 	const Tag = tagName;
-
-	const isAnchor = tagName === "a";
 
 	const iconObj = buttonIcons.find((b) => b.value === buttonStyle);
 	const Icon = iconObj?.icon;
@@ -60,33 +63,51 @@ function ReadMore() {
 				"--button-font-weight": buttonTypo?.weight ?? 400,
 				"--button-line-height": buttonTypo?.height ?? 1.5,
 				"--button-letter-spacing": `${buttonTypo?.spacing ?? 0}px`,
-				...(isAnchor && {
-					"--button-font-size": `${buttonTypo?.fontSize ?? 12}px`,
-				}),
+				"--button-font-size": `${buttonTypo?.fontSize ?? 12}px`,
 				"--iconGap": `${iconGap[normalizedDeviceType] ?? 4}px`,
-
 				"--button-normal-color": normalColor,
 				"--button-hover-color": hoverColor,
-				...(normalBg && { "--button-bg": normalBg }),
-				...(hoverBg && { "--button-hover-bg": hoverBg }),
+				"--button-margin": `${buttonMargin[normalizedDeviceType].top ?? 0}px ${
+					buttonMargin[normalizedDeviceType].right ?? 0
+				}px ${buttonMargin[normalizedDeviceType].bottom ?? 0}px ${
+					buttonMargin[normalizedDeviceType].left ?? 0
+				}px`,
 
-				"--button-border": buttonBorderStyle || "none",
-				"--button-hover-border": buttonHoverBorderStyle || "none",
-				"--button-border-size": `${
-					buttonBorderWidthNormal[normalizedDeviceType] || 1
-				}px`,
-				"--button-hover-border-size": `${
-					buttonBorderWidthHover[normalizedDeviceType] || 1
-				}px`,
-				"--button-border-color": buttonBorderColorNormal || "#4e6e3e",
-				"--button-hover-border-color":
-					`${buttonBorderColorHover || buttonBorderColorNormal}` || "#000",
+				...(buttonType === "button" && {
+					...(normalBg && { "--button-bg": normalBg }),
+					...(hoverBg && { "--button-hover-bg": hoverBg }),
+					"--button-border": buttonBorderStyle || "none",
+					"--button-hover-border":
+						buttonHoverBorderStyle === "none"
+							? buttonBorderStyle
+							: buttonHoverBorderStyle,
+					"--button-border-size": `${
+						buttonBorderWidthNormal[normalizedDeviceType] || 1
+					}px`,
+					"--button-hover-border-size": `${
+						buttonBorderWidthHover[normalizedDeviceType] || 1
+					}px`,
+					"--button-border-color": buttonBorderColorNormal || "#4e6e3e",
+					"--button-hover-border-color":
+						`${buttonBorderColorHover || buttonBorderColorNormal}` || "#000",
+					"--button-border-radius": `${
+						buttonBorderRadiusNormal?.[normalizedDeviceType] ?? 0
+					}px`,
+					"--button-hover-border-radius": `${
+						buttonBorderRadiusHover?.[normalizedDeviceType] ?? 0
+					}px`,
+					"--button-padding": `${
+						buttonPadding[normalizedDeviceType].top ?? 0
+					}px ${buttonPadding[normalizedDeviceType].right ?? 0}px ${
+						buttonPadding[normalizedDeviceType].bottom ?? 0
+					}px ${buttonPadding[normalizedDeviceType].left ?? 0}px`,
+				}),
 			}}
 		>
 			<span
-				className={`sp-smart-post-carousel-read-more-btn-link ${
-					iconVisibility === "hover" ? "icon-hover" : ""
-				}`}
+				className={`sp-smart-post-carousel-read-more-btn-link 
+                          ${buttonType === "button" ? "is-button" : ""} 
+                          ${iconVisibility === "hover" ? "icon-hover" : ""}`}
 			>
 				<Tag>{buttonText}</Tag>
 				{showIcon && (

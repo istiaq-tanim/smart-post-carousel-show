@@ -891,6 +891,58 @@ return array(
 					'mobile' => 0
 				)
 			),
+			'buttonPadding' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 8,
+						'right' => 16,
+						'bottom' => 8,
+						'left' => 16,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 8,
+						'right' => 16,
+						'bottom' => 8,
+						'left' => 16,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 8,
+						'right' => 16,
+						'bottom' => 8,
+						'left' => 16,
+						'linked' => true
+					)
+				)
+			),
+			'buttonMargin' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
+				)
+			),
 			'titleTag' => array(
 				'type' => 'string',
 				'default' => 'h3'
@@ -920,6 +972,66 @@ return array(
 					'desktop' => 5,
 					'tablet' => 5,
 					'mobile' => 5
+				)
+			),
+			'titleTypo' => array(
+				'type' => 'object',
+				'default' => array(
+					'family' => 'Roboto',
+					'fontSize' => 24,
+					'weight' => 400,
+					'height' => 1.2,
+					'spacing' => 0,
+					'text' => 'List item title'
+				)
+			),
+			'badgeTypo' => array(
+				'type' => 'object',
+				'default' => array(
+					'tags' => 'li',
+					'family' => 'Roboto',
+					'fontSize' => 12,
+					'weight' => 400,
+					'height' => 1.2,
+					'spacing' => 0,
+					'text' => 'List item title'
+				)
+			),
+			'titleEffect' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'titleColor' => array(
+				'type' => 'object',
+				'default' => array(
+					'normal' => '#4e6e3e',
+					'hover' => ''
+				)
+			),
+			'titleMargin' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 6,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 6,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 6,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
 				)
 			)
 		),

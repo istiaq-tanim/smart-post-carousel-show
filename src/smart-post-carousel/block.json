@@ -883,6 +883,58 @@
 				"mobile": 0
 			}
 		},
+		"buttonPadding": {
+			"type": "object",
+			"default": {
+				"desktop": {
+					"top": 8,
+					"right": 16,
+					"bottom": 8,
+					"left": 16,
+					"linked": true
+				},
+				"tablet": {
+					"top": 8,
+					"right": 16,
+					"bottom": 8,
+					"left": 16,
+					"linked": true
+				},
+				"mobile": {
+					"top": 8,
+					"right": 16,
+					"bottom": 8,
+					"left": 16,
+					"linked": true
+				}
+			}
+		},
+		"buttonMargin": {
+			"type": "object",
+			"default": {
+				"desktop": {
+					"top": 16,
+					"right": 0,
+					"bottom": 0,
+					"left": 0,
+					"linked": true
+				},
+				"tablet": {
+					"top": 16,
+					"right": 0,
+					"bottom": 0,
+					"left": 0,
+					"linked": true
+				},
+				"mobile": {
+					"top": 16,
+					"right": 0,
+					"bottom": 0,
+					"left": 0,
+					"linked": true
+				}
+			}
+		},
 		"titleTag": {
 			"type": "string",
 			"default": "h3"
@@ -912,6 +964,66 @@
 				"desktop": 5,
 				"tablet": 5,
 				"mobile": 5
+			}
+		},
+		"titleTypo": {
+			"type": "object",
+			"default": {
+				"family": "Roboto",
+				"fontSize": 24,
+				"weight": 400,
+				"height": 1.2,
+				"spacing": 0,
+				"text": "List item title"
+			}
+		},
+		"badgeTypo": {
+			"type": "object",
+			"default": {
+				"tags": "li",
+				"family": "Roboto",
+				"fontSize": 12,
+				"weight": 400,
+				"height": 1.2,
+				"spacing": 0,
+				"text": "List item title"
+			}
+		},
+		"titleEffect": {
+			"type": "string",
+			"default": "normal"
+		},
+		"titleColor": {
+			"type": "object",
+			"default": {
+				"normal": "#4e6e3e",
+				"hover": ""
+			}
+		},
+		"titleMargin": {
+			"type": "object",
+			"default": {
+				"desktop": {
+					"top": 6,
+					"right": 0,
+					"bottom": 0,
+					"left": 0,
+					"linked": true
+				},
+				"tablet": {
+					"top": 6,
+					"right": 0,
+					"bottom": 0,
+					"left": 0,
+					"linked": true
+				},
+				"mobile": {
+					"top": 6,
+					"right": 0,
+					"bottom": 0,
+					"left": 0,
+					"linked": true
+				}
 			}
 		}
 	},
