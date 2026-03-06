@@ -1101,6 +1101,23 @@
 					"linked": true
 				}
 			}
+		},
+		"postType": {
+			"type": "string",
+			"default": "multiple_post_type"
+		},
+		"multiplePostType": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"label": "Posts",
+					"value": "post"
+				}
+			],
+			"items": {
+				"type": "object"
+			}
 		}
 	},
 	"render": "file:./render.php",

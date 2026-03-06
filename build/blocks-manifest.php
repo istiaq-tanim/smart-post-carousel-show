@@ -1109,6 +1109,23 @@ return array(
 						'linked' => true
 					)
 				)
+			),
+			'postType' => array(
+				'type' => 'string',
+				'default' => 'multiple_post_type'
+			),
+			'multiplePostType' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 1,
+						'label' => 'Posts',
+						'value' => 'post'
+					)
+				),
+				'items' => array(
+					'type' => 'object'
+				)
 			)
 		),
 		'render' => 'file:./render.php',

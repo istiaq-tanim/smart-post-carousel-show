@@ -31,7 +31,6 @@ import CustomToggle from "../common/CustomToggle/CustomToggle";
 
 function Inspector({ attributes, setAttributes }) {
 	const { openPanel, togglePanel } = usePanel();
-
 	return (
 		<InspectorControls>
 			{/* Post Carousel Panel */}
@@ -63,6 +62,18 @@ function Inspector({ attributes, setAttributes }) {
 					<QueryBuilder attributes={attributes} setAttributes={setAttributes} />
 				)}
 			</PanelBody>
+
+			{openPanel === "query" && (
+				<PanelBody title="Advance Filter" initialOpen={false}>
+					<QueryBuilder attributes={attributes} setAttributes={setAttributes} />
+				</PanelBody>
+			)}
+
+			{openPanel === "query" && (
+				<PanelBody title="Common Filter" initialOpen={false}>
+					<QueryBuilder attributes={attributes} setAttributes={setAttributes} />
+				</PanelBody>
+			)}
 
 			{/* Navigation Panel */}
 			<PanelBody

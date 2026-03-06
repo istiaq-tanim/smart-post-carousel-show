@@ -59,6 +59,10 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			// Search content (posts, pages, media).
 			add_action( 'wp_ajax_sp_search_content', array( $this, 'search_content' ) );
 			add_action( 'wp_ajax_nopriv_sp_search_content', array( $this, 'search_content' ) );
+
+			// Metadata query for block options.
+			add_action( 'wp_ajax_sp_meta_data_query', array( $this, 'meta_data_query' ) );
+			add_action( 'wp_ajax_nopriv_sp_meta_data_query', array( $this, 'meta_data_query' ) );
 		}
 
 		/**
@@ -525,6 +529,235 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 				return 'pdf';
 			}
 			return 'file';
+		}
+
+		/**
+		 * Metadata query for block options panel.
+		 * Provides taxonomies, authors, post types, image sizes and meta fields.
+		 *
+		 * @return void
+		 */
+		public function meta_data_query() {
+			$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+
+			if ( ! $this->verify_nonce( $nonce ) ) {
+				wp_send_json_error( array( 'message' => 'Invalid nonce' ), 403 );
+			}
+
+			$query_data = isset( $_POST['metaQueryData'] ) ? sanitize_text_field( wp_unslash( $_POST['metaQueryData'] ) ) : '';
+			$query_data = (array) json_decode( $query_data );
+
+			// Query data.
+			$post_type = isset( $query_data['postType'] ) ? $query_data['postType'] : 'post';
+
+			$ajax_live_filter       = isset( $query_data['ajaxLiveFilter'] ) ? (array) $query_data['ajaxLiveFilter'] : array();
+			$edit_site              = isset( $query_data['editSite'] ) ? $query_data['editSite'] : '';
+			$keyword_search         = isset( $query_data['keywordSearch'] ) ? $query_data['keywordSearch'] : '';
+			$taxonomies_live_filter = isset( $query_data['taxonomiesLiveFilter'] ) ? $query_data['taxonomiesLiveFilter'] : array();
+			$author_live_filter     = isset( $query_data['authorLiveFilter'] ) ? $query_data['authorLiveFilter'] : array();
+
+			// Resolve multiple post types.
+			$multiple_post_type = ( 'multiple_post_type' === $post_type && isset( $query_data['multiplePostType'] ) )
+				? $query_data['multiplePostType']
+				: array();
+
+			$multiple_post_type = ( 'multiple_post_type' === $post_type && ! empty( $multiple_post_type ) )
+				? array_map(
+					function ( $multi_type ) {
+							return $multi_type->value;
+					},
+					$multiple_post_type
+				)
+				: array( 'post' );
+
+			$multiple_post_type = ( 'multiple_post_type' === $post_type && ! empty( $multiple_post_type ) )
+				? $multiple_post_type
+				: $post_type;
+
+			// Live filter args.
+			$term_query_args       = array();
+			$author_query_args     = array();
+			$post_lists            = array();
+			$all_post_ids          = array();
+			$ajax_live_filter_keys = array();
+
+			if ( ! empty( $taxonomies_live_filter ) || ! empty( $author_live_filter ) ) {
+				$post_query_args                   = \SmartPostShow\Blocks\PostQueryHandler::query( $query_data, 'args' );
+				$post_limit                        = $post_query_args['post_limit'];
+				$post_in                           = $post_query_args['include_posts'];
+				$post_query_args                   = $post_query_args['args'];
+				$post_query_args['posts_per_page'] = $post_limit;
+				$post_query_args['fields']         = 'ids';
+				$post_query_args['offset']         = 0;
+
+				if ( ! empty( $keyword_search ) ) {
+					$post_query_args['s'] = $keyword_search;
+				}
+
+				$term_query_args   = $post_query_args;
+				$author_query_args = $post_query_args;
+				$post_lists        = get_posts( $post_query_args );
+				$all_post_ids      = $post_in ? $post_in : $post_lists;
+
+				foreach ( $ajax_live_filter as $key => $value ) {
+					switch ( $value->type ) {
+						case 'taxonomy':
+							if ( 'all' !== $value->id ) {
+								$ajax_live_filter_keys[] = $value->taxonomy_type;
+							}
+							break;
+						case 'author':
+							if ( 'all' !== $value->id ) {
+								$ajax_live_filter_keys[] = $key;
+							}
+							break;
+					}
+				}
+			}
+
+			// Taxonomies.
+			$all_taxonomies = get_object_taxonomies( $multiple_post_type, 'objects' );
+			$taxonomy_list  = array();
+
+			foreach ( $all_taxonomies as $taxonomy ) {
+				$terms = get_terms(
+					array(
+						'taxonomy'   => $taxonomy->name,
+						'hide_empty' => false,
+					)
+				);
+
+				$term_ajax_filter = array();
+				$term_items       = array();
+				$index            = 0;
+
+				foreach ( $terms as $term ) {
+					if ( ! empty( $taxonomies_live_filter ) ) {
+						$term_query_args['tax_query']      = array(
+							array(
+								'taxonomy' => $term->taxonomy,
+								'field'    => 'term_id',
+								'terms'    => array( $term->term_id ),
+							),
+						);
+						$term_query_args['posts_per_page'] = 9999;
+
+						$term_ids = get_posts( $term_query_args );
+						$term_ids = array_intersect( $all_post_ids, $term_ids );
+
+						if ( ( ! empty( $ajax_live_filter_keys ) && $ajax_live_filter_keys[0] !== $term->taxonomy ) || count( $ajax_live_filter_keys ) > 1 ) {
+							$term_ids = array_intersect( $post_lists, $term_ids );
+						}
+
+						$child_terms      = get_term_children( $term->term_id, $taxonomy->name );
+						$total_post_count = count( $term_ids );
+
+						if ( ! is_wp_error( $child_terms ) && count( $child_terms ) > 0 ) {
+							foreach ( $child_terms as $child_term_id ) {
+								$child_term        = get_term( $child_term_id, $taxonomy->name );
+								$total_post_count += $child_term->count;
+							}
+						}
+					}
+
+					$term_args = array(
+						'id'            => $index,
+						'label'         => $term->name,
+						'slug'          => $term->slug,
+						'value'         => $term->term_id,
+						'type'          => 'taxonomy',
+						'taxonomy_type' => $term->taxonomy,
+					);
+
+					$term_items[] = $term_args;
+
+					if ( ! empty( $taxonomies_live_filter ) && ! empty( $total_post_count ) ) {
+						$term_args['post_count'] = $total_post_count;
+						$term_ajax_filter[]      = $term_args;
+					}
+
+					++$index;
+				}
+
+				$taxonomy_list[] = array(
+					'label'       => $taxonomy->label,
+					'name'        => $taxonomy->name,
+					'terms'       => $term_ajax_filter,
+					'terms_items' => $term_items,
+				);
+			}
+
+			// Authors.
+			$authors          = get_users( array( 'role__in' => array( 'author', 'administrator', 'editor' ) ) );
+			$filtered_authors = array();
+			$author_list      = array();
+			$author_post_ids  = array();
+
+			foreach ( $authors as $author ) {
+				if ( ! empty( $author_live_filter ) && ! empty( $author_query_args ) ) {
+					unset( $author_query_args['author__not_in'] );
+					$author_query_args['author__in'] = array( $author->ID );
+					$author_query_args['fields']     = 'ids';
+					$author_post_ids                 = get_posts( $author_query_args );
+					$author_post_ids                 = array_intersect( $all_post_ids, $author_post_ids );
+				}
+
+				$author_args = array(
+					'id'    => $author->ID,
+					'role'  => $author->roles,
+					'type'  => 'author',
+					'value' => $author->ID,
+					'label' => $author->display_name,
+				);
+
+				$author_list[] = $author_args;
+
+				if ( ! empty( $author_live_filter ) && count( $author_post_ids ) > 0 ) {
+					$author_args['post_count'] = count( $author_post_ids );
+					$filtered_authors[]        = $author_args;
+				}
+			}
+
+			// All public post types.
+			$all_post_type_list = get_post_types( array( 'public' => true ) );
+
+			// Meta field list (editor only).
+			$meta_field_list = array();
+			if ( 'editSite' === $edit_site ) {
+				global $wpdb;
+				$keys = $wpdb->get_col(
+					"SELECT meta_key FROM $wpdb->postmeta GROUP BY meta_key ORDER BY meta_key"
+				);
+				if ( $keys ) {
+					natcasesort( $keys );
+				}
+				$keys = array_filter( $keys );
+				foreach ( $keys as $key ) {
+					$meta_field_list[ esc_attr( $key ) ] = esc_html( $key );
+				}
+			}
+
+			// Post count.
+			$post_count = 0;
+			if ( 'multiple_post_type' === $post_type && ! is_string( $multiple_post_type ) ) {
+				foreach ( $multiple_post_type as $value ) {
+					$post_count += isset( wp_count_posts( $value )->publish ) ? (int) wp_count_posts( $value )->publish : 0;
+				}
+			} else {
+				$post_count = isset( wp_count_posts( $post_type )->publish ) ? (int) wp_count_posts( $post_type )->publish : 0;
+			}
+
+			wp_send_json_success(
+				array(
+					'taxonomies'          => $taxonomy_list,
+					'authors'             => $filtered_authors,
+					'author_list'         => $author_list,
+					'post_count'          => $post_count,
+					'image_sizes'         => get_intermediate_image_sizes(),
+					'all_post_type_list'  => $all_post_type_list,
+					'all_meta_field_list' => $meta_field_list,
+				)
+			);
 		}
 
 		/**

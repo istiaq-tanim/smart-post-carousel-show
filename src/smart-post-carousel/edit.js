@@ -8,10 +8,10 @@ import "./editor.scss";
 export default function Edit({ attributes, setAttributes }) {
 	//using Custom Hooks to Fetching posts
 
-	const { numberOfSlides } = attributes;
-
 	const blockProps = useBlockProps();
-	const { posts, loading } = useApi({ posts_per_page: numberOfSlides });
+	// const { posts, loading } = useApi({ posts_per_page: numberOfSlides });
+
+	const { posts, loading } = useApi(attributes);
 
 	const renderContent = () => {
 		if (loading) {

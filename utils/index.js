@@ -112,3 +112,7 @@ export const getGravatarUrl = (email, size = 48) => {
 
 export const getVisibility = (metaDataAllContentArray, metaValue) =>
 	metaDataAllContentArray?.find((item) => item.value === metaValue)?.show;
+
+export function stringCapitalize(name) {
+	return `${name.charAt(0).toUpperCase()}${name.slice(1)}`;
+}
