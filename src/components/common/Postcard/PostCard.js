@@ -2,15 +2,19 @@ import { useMemo } from "@wordpress/element";
 import { getPostDate } from "../../../../utils";
 import { useDeviceType } from "../../../hooks/useDevice";
 
+import { getCardStyles } from "../../../../utils/getCardStyles";
+import { getCategoryRenderLocation } from './../../../../utils/getRenderLocation';
 import CategoryList from "./CategoryList";
 import getContentElement from "./renderers/getContentElement";
-import { getCardStyles } from "../../../../utils/getCardStyles";
+
+
 
 function PostCard({ post, attributes }) {
 	const title = post?.title;
 	const imageAlt = post?.image_alt || "featured image";
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
+
 	const {
 		contentAlignment,
 		equalHeight,
@@ -39,6 +43,10 @@ function PostCard({ post, attributes }) {
 		showReadMore,
 		buttonTypo,
 		showTitle,
+		taxonomyType,
+		taxonomyPosition,
+		taxonomyTypo,
+		taxonomyBorderWidthNormal
 	} = attributes;
 
 	const author =
@@ -58,11 +66,17 @@ function PostCard({ post, attributes }) {
 
 	const authorAvatar = post?.author_avatar_url
 		? post?.author_avatar_url
-		: "`https://www.gravatar.com/avatar/?d=mp&s=48`;";
+		: "https://www.gravatar.com/avatar/?d=mp&s=48";
 
-	const cardClassName = `sp-smart-post-carousel-card ${orientation}${
-		equalHeight ? " equal-height" : ""
-	}`;
+	const cardClassName = `sp-smart-post-carousel-card ${orientation}${equalHeight ? " equal-height" : ""
+		}`;
+
+	const { showOverlay, isAboveTitle, isOverlay, isDefaultOverlay } =
+		getCategoryRenderLocation(taxonomyPosition, orientation);
+
+	const overlayClass = `sp-smart-post-carousel-overlay-category${taxonomyPosition ? ` ${taxonomyPosition}` : ""
+		}`;
+
 
 	const metaContext = useMemo(
 		() => ({
@@ -96,8 +110,10 @@ function PostCard({ post, attributes }) {
 			dateFormat,
 			metaColor,
 			metaTypo,
+
 		],
 	);
+
 	const contentContext = useMemo(
 		() => ({
 			post,
@@ -125,6 +141,9 @@ function PostCard({ post, attributes }) {
 			showReadMore,
 			buttonTypo,
 			showTitle,
+			taxonomyType,
+			taxonomyPosition,
+			taxonomyTypo
 		}),
 		[
 			post,
@@ -152,39 +171,56 @@ function PostCard({ post, attributes }) {
 			showReadMore,
 			buttonTypo,
 			showTitle,
+			taxonomyType,
+			taxonomyPosition,
 		],
 	);
 
 	const cardStyles = getCardStyles(attributes, normalizedDeviceType);
+	const dateShow = metaDataAllContentArray.find(item => item.value === "date")
+
+
 
 	return (
 		<div className={cardClassName} style={cardStyles}>
-			{/* IMAGE */}
 			<div className="sp-smart-post-carousel-card-wrapper">
+
+				{/* ── IMAGE ── */}
 				<div className="sp-smart-post-carousel-card-image">
 					<img src={image} alt={imageAlt} />
 
-					<div className="sp-smart-post-carousel-overlay-category">
-						<CategoryList categories={post.category} />
-					</div>
+					{showOverlay && (
+						<div className={overlayClass}>
+							<CategoryList post={post} type={taxonomyType} />
+						</div>
+					)}
 
-					<div className="sp-smart-post-carousel-date">
-						<span className="sp-smart-post-carousel-day">{postDate.day}</span>
-						<span className="sp-smart-post-carousel-month-year">
-							{postDate.month} {postDate.year}
-						</span>
-					</div>
+					{/* Date badge */}
+					{
+						dateShow.show && (
+							<div className="sp-smart-post-carousel-date">
+								<span className="sp-smart-post-carousel-day">{postDate.day}</span>
+								<span className="sp-smart-post-carousel-month-year">
+									{postDate.month} {postDate.year}
+								</span>
+							</div>
+						)
+					}
 				</div>
 
-				{/* CONTENT */}
+				{/* ── CONTENT ── */}
 				<div
 					className="sp-smart-post-carousel-template-content"
 					style={{ "--alignment": `${contentAlignment}` }}
 				>
+					{isAboveTitle && (
+						<CategoryList post={post} type={taxonomyType} />
+					)}
 					{allContentArray.map((item) =>
-						getContentElement(item, contentContext),
+						getContentElement(item, contentContext)
 					)}
 				</div>
+
 			</div>
 		</div>
 	);

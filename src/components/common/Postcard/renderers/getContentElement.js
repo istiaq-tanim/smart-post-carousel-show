@@ -1,3 +1,4 @@
+import { getCategoryRenderLocation } from "../../../../../utils/getRenderLocation";
 import { useDeviceType } from "../../../../hooks/useDevice";
 import CategoryList from "../CategoryList";
 import Excerpt from "../Excerpt";
@@ -29,16 +30,20 @@ const getContentElement = (
 		excerptMargin,
 		showReadMore,
 		showTitle,
+		taxonomyType,
+		taxonomyPosition,
+		taxonomyTypo
 	},
 ) => {
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
 
 	switch (item.value) {
-		case "category":
-			return orientation !== "orientation_three" ? (
-				<CategoryList key="category" categories={post.category} />
-			) : null;
+		case "category": {
+			const { showInContent } = getCategoryRenderLocation(taxonomyPosition, orientation);
+			if (!showInContent) return null;
+			return <CategoryList key="category" post={post} type={taxonomyType} />;
+		}
 
 		case "title":
 			return (
@@ -54,11 +59,9 @@ const getContentElement = (
 					style={{
 						"--meta-column-gap": `${metaColumnGap ?? 8}px`,
 						"--meta-row-gap": `${metaRowGap ?? 12}px`,
-						"--meta-margin": `${metaMargin[normalizedDeviceType]?.top ?? 0}px ${
-							metaMargin[normalizedDeviceType]?.right ?? 0
-						}px ${metaMargin[normalizedDeviceType]?.bottom ?? 0}px ${
-							metaMargin[normalizedDeviceType]?.left ?? 0
-						}px`,
+						"--meta-margin": `${metaMargin[normalizedDeviceType]?.top ?? 0}px ${metaMargin[normalizedDeviceType]?.right ?? 0
+							}px ${metaMargin[normalizedDeviceType]?.bottom ?? 0}px ${metaMargin[normalizedDeviceType]?.left ?? 0
+							}px`,
 						"--metaSeparatorColor": `${metaSeparatorColor ?? "#000000"}`,
 						"--meta-font-family": metaContext?.metaTypo?.family ?? "inherit",
 						"--meta-font-size": `${metaContext?.metaTypo?.fontSize ?? 12}px`,

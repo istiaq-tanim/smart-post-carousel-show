@@ -886,6 +886,58 @@
         "mobile": 0
       }
     },
+    "buttonPadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 8,
+          "right": 16,
+          "bottom": 8,
+          "left": 16,
+          "linked": true
+        },
+        "tablet": {
+          "top": 8,
+          "right": 16,
+          "bottom": 8,
+          "left": 16,
+          "linked": true
+        },
+        "mobile": {
+          "top": 8,
+          "right": 16,
+          "bottom": 8,
+          "left": 16,
+          "linked": true
+        }
+      }
+    },
+    "buttonMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
     "titleTag": {
       "type": "string",
       "default": "h3"
@@ -915,6 +967,308 @@
         "desktop": 5,
         "tablet": 5,
         "mobile": 5
+      }
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {
+        "family": "Roboto",
+        "fontSize": 24,
+        "weight": 400,
+        "height": 1.2,
+        "spacing": 0,
+        "text": "List item title"
+      }
+    },
+    "badgeTypo": {
+      "type": "object",
+      "default": {
+        "tags": "li",
+        "family": "Roboto",
+        "fontSize": 12,
+        "weight": 400,
+        "height": 1.2,
+        "spacing": 0,
+        "text": "List item title"
+      }
+    },
+    "titleEffect": {
+      "type": "string",
+      "default": "normal"
+    },
+    "titleColor": {
+      "type": "object",
+      "default": {
+        "normal": "#4e6e3e",
+        "hover": ""
+      }
+    },
+    "titleMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 6,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 6,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 6,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "labelColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "labelBackgroundColor": {
+      "type": "string",
+      "default": "#ff5b2e"
+    },
+    "badgeBorderStyle": {
+      "type": "string",
+      "default": "solid"
+    },
+    "badgeBorderWidth": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "badgeBorderColor": {
+      "type": "string",
+      "default": "#cccccc"
+    },
+    "badgeBorderRadius": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 2,
+          "right": 2,
+          "bottom": 2,
+          "left": 2,
+          "linked": true
+        },
+        "tablet": {
+          "top": 2,
+          "right": 2,
+          "bottom": 2,
+          "left": 2,
+          "linked": true
+        },
+        "mobile": {
+          "top": 2,
+          "right": 2,
+          "bottom": 2,
+          "left": 2,
+          "linked": true
+        }
+      }
+    },
+    "badgePadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        },
+        "tablet": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        },
+        "mobile": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        }
+      }
+    },
+    "postType": {
+      "type": "string",
+      "default": "multiple_post_type"
+    },
+    "multiplePostType": {
+      "type": "array",
+      "default": [
+        {
+          "id": 1,
+          "label": "Posts",
+          "value": "post"
+        }
+      ],
+      "items": {
+        "type": "object"
+      }
+    },
+    "taxonomyType": {
+      "type": "string",
+      "default": "category"
+    },
+    "taxonomyPosition": {
+      "type": "string",
+      "default": "above-title"
+    },
+    "taxonomyTypo": {
+      "type": "object",
+      "default": {
+        "family": "Roboto",
+        "fontSize": 12,
+        "weight": 600,
+        "height": 1.2,
+        "spacing": 0,
+        "text": "List item title"
+      }
+    },
+    "taxonomyEffect": {
+      "type": "string",
+      "default": "normal"
+    },
+    "taxonomyTextColor": {
+      "type": "object",
+      "default": {
+        "normal": "#fff",
+        "hover": "#fff"
+      }
+    },
+    "taxonomyBackGroundStyles": {
+      "type": "object",
+      "default": {
+        "type": "solid",
+        "hoverType": "solid",
+        "solidBackground": "#283618",
+        "gradientBackground": "",
+        "hoverSolidBackground": "#014ef5",
+        "hoverGradientBackground": ""
+      }
+    },
+    "taxonomyBorderColorNormal": {
+      "type": "string",
+      "default": "#4e6e3e"
+    },
+    "taxonomyBorderColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "taxonomyBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "taxonomyHoverBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "taxonomyBorderWidthNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "taxonomyBorderWidthHover": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "taxonomyBorderRadiusNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "taxonomyBorderRadiusHover": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "taxonomyPadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        },
+        "tablet": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        },
+        "mobile": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        }
+      }
+    },
+    "taxonomyMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "taxonomyGap": {
+      "type": "object",
+      "default": {
+        "desktop": 4,
+        "tablet": 4,
+        "mobile": 4
       }
     }
   },

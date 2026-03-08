@@ -19,7 +19,7 @@ function SpacingControl({
 	},
 	showLabels = false,
 	labels = {},
-	onChange = () => { },
+	onChange = () => {},
 	step = 4,
 	showUnit,
 	options,
@@ -45,9 +45,9 @@ function SpacingControl({
 	const handleValueChange = (field, value) => {
 		const updateDeviceValue = currentValues.linked
 			? {
-				...currentValues,
-				...fields.reduce((acc, key) => ({ ...acc, [key]: value }), {}),
-			}
+					...currentValues,
+					...fields.reduce((acc, key) => ({ ...acc, [key]: value }), {}),
+			  }
 			: { ...currentValues, [field]: value };
 
 		onChange({ ...values, [normalizedDeviceType]: updateDeviceValue });

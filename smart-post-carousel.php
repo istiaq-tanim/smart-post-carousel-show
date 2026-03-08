@@ -142,10 +142,6 @@ add_action(
 	}
 );
 
-/**
- * Register Smart Post Badges Taxonomy
- * Priority 5 — must run BEFORE AJAX class at priority 10
- */
 add_action(
 	'init',
 	function () {

@@ -1,14 +1,12 @@
-import { useCallback } from "@wordpress/element";
-import { memo } from "@wordpress/element";
-import "./editor.scss";
+import { memo, useCallback } from "@wordpress/element";
 import { RightSymbolIcon } from "../../../smart-post-carousel/assets/icon";
+import "./editor.scss";
 
-function Layout({ icon, value, label, isActive, onClick }) {
+function Layout({ icon, label, isActive, onClick }) {
 	return (
 		<div
-			className={`sp-smart-post-carousel-layout-card ${
-				isActive ? "active" : "inactive"
-			}`}
+			className={`sp-smart-post-carousel-layout-card ${isActive ? "active" : "inactive"
+				}`}
 			onClick={onClick}
 		>
 			{isActive && (
@@ -33,9 +31,18 @@ function Layouts({
 }) {
 	const handleActive = useCallback(
 		(newValue) => {
+
 			if (newValue === attributes[attributesKey]) return;
 			onChange?.(newValue);
 			setAttributes({ [attributesKey]: newValue });
+			if (newValue === "orientation_four") {
+				setAttributes({ taxonomyPosition: "top-right" });
+			} else if (newValue === "orientation_three") {
+				setAttributes({ taxonomyPosition: "center-bottom" })
+
+			} else {
+				setAttributes({ taxonomyPosition: "above-title" });
+			}
 		},
 		[attributes, attributesKey, onChange, setAttributes],
 	);

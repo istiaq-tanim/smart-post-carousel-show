@@ -1,11 +1,13 @@
-import SwiperCarousel from "../SwiperCarousel/SwiperCarousel";
 import MarqueeCarousel from "../MarqueCarousel/MarqueCarousel";
+import SwiperCarousel from "../SwiperCarousel/SwiperCarousel";
 
 function CarouselRenderer({ carouselStyle, posts, attributes }) {
 	const carouselComponents = {
 		standard: SwiperCarousel,
 		ticker: MarqueeCarousel,
 	};
+
+	console.log(attributes.taxonomyBorderWidthNormal, "hello")
 
 	const CarouselComponent = carouselComponents[carouselStyle];
 

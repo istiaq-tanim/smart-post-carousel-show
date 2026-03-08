@@ -139,15 +139,16 @@
   /* TITLE */
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-title {
-  color: #333;
-  font-family: Inter;
-  line-height: 1.2;
-  font-weight: 600;
-  margin: 6px 0 0;
+  color: var(--title-normal-color);
+  font-family: var(--title-font-family);
+  line-height: var(--title-line-height);
+  letter-spacing: var(--title-letter-spacing);
+  font-weight: var(--title-font-weight);
+  margin: var(--title-margin);
   font-size: var(--title-font-size, 24px);
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-title:hover {
-  color: var(--smart-post-secondary);
+  color: var(--title-hover-color);
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card {
   /* META */
@@ -179,6 +180,7 @@
   padding: 0;
   vertical-align: middle;
   gap: var(--badgeBetweenGap);
+  flex-wrap: wrap;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card .sp-smart-post-carousel-title-badges-list.sp-smart-post-carousel-badges-before-title {
   margin-right: 5px;
@@ -190,21 +192,21 @@
   display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
-  height: -moz-fit-content;
-  height: fit-content;
-  font-weight: 600;
+  font-family: var(--badge-font-family);
+  line-height: var(--badge-line-height);
+  font-weight: var(--badge-font-weight);
+  letter-spacing: var(--badge-letter-spacing);
   font-style: normal;
   text-decoration: none;
   text-transform: uppercase;
-  color: #ffffff;
-  background-color: #ff5b2e;
-  border-style: solid;
-  border-color: #cccccc;
-  font-size: 12px;
-  line-height: 1.3;
-  padding: 4px 8px 4px 8px;
-  border-width: 1px 1px 1px 1px;
-  border-radius: 2px 2px 2px 2px;
+  color: var(--labelColor);
+  background-color: var(--labelBackgroundColor);
+  font-size: var(--badge-font-size);
+  padding: var(--badge-padding);
+  border-width: var(--badge-border-size, 1px);
+  border-style: var(--badge-border-style, none);
+  border-color: var(--badge-border-color);
+  border-radius: var(--badge-border-radius, 0px);
 }
 .wp-block-create-block-smart-post-carousel {
   /* Equal height override - MOVED OUTSIDE the card base */
@@ -253,24 +255,36 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  gap: 4px;
+  gap: var(--taxonomyListBetweenGap);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-category-list-badge {
   display: inline-block;
-  background: var(--smart-post-dark-text);
-  color: var(--smart-post-light-text);
-  padding: 4px 8px;
-  font-size: 12px;
-  font-weight: 600;
+  background: var(--button-bg, var(--smart-post-dark-text));
+  color: var(--taxonomy-normal-color, var(--smart-post-light-text));
+  padding: var(--taxonomy-padding);
+  font-size: var(--taxonomy-font-size);
+  margin: var(--taxonomy-margin);
+  font-family: var(--taxonomy-font-family);
+  font-weight: var(--taxonomy-font-weight);
+  line-height: var(--taxonomy-line-height);
+  letter-spacing: var(--taxonomy-letter-spacing);
+  border-style: var(--taxonomy-button-border, none);
+  border-width: var(--taxonomy-border-size);
+  border-color: var(--taxonomy-button-border-color);
+  border-radius: var(--taxonomy-border-radius);
   text-transform: capitalize;
   text-decoration: none;
-  transition: all 0.3s ease;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-category-list-badge:hover {
-  background: var(--smart-post-dark-2-text);
+  color: var(--taxonomy-hover-color, --smart-post-light-text);
+  background: var(--button-hover-bg, --smart-post-dark-text);
+  transition: all 0.3s ease-in-out;
+  border-width: var(--taxonomy-hover-border-size);
+  border-color: var(--taxonomy-button-hover-border-color);
+  border-radius: var(--taxonomy-hover-border-radius);
 }
 .wp-block-create-block-smart-post-carousel {
   /* ---------------- DATE BADGE (hidden by default) ---------------- */
@@ -332,7 +346,52 @@
   align-items: center;
   gap: 5px;
 }
-.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-category {
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three {
+  /* ✅ was .sp-smart-post-carousel-category */
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-overlay-category {
+  display: block;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-overlay-category.top-left {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-overlay-category.top-right {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-overlay-category.bottom-left {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-overlay-category.bottom-right {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-overlay-category.center-center {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-overlay-category.center-top {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_three .sp-smart-post-carousel-overlay-category.center-bottom {
+  display: block;
   position: absolute;
   bottom: 10px;
   left: 50%;
@@ -349,20 +408,56 @@
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four:hover {
   background: var(--card-hover-bg, var(--card-bg, #f2f2f2));
 }
-.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-category {
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-overlay-category.top-left {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-overlay-category.top-right {
+  display: block;
   position: absolute;
   top: 10px;
   right: 10px;
-  z-index: 10;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-overlay-category.bottom-left {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-overlay-category.bottom-right {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-overlay-category.center-center {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-overlay-category.center-top {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-overlay-category.center-bottom {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-template-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 0 15px 15px;
-}
-.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four {
-  /* Meta wrapper — push to bottom */
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-card-meta-wrapper {
   display: flex;
@@ -375,6 +470,54 @@
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card.orientation_four .sp-smart-post-carousel-date {
   display: none;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-overlay-category {
+  display: none;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-overlay-category.top-left {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-overlay-category.top-right {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-overlay-category.bottom-left {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-overlay-category.bottom-right {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-overlay-category.center-center {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-overlay-category.center-top {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-overlay-category.center-bottom {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .wp-block-create-block-smart-post-carousel {
   /* Fix for orientation_four with equal-height */
@@ -396,38 +539,45 @@
   display: flex;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link {
-  background: var(--button-bg);
   color: var(--button-normal-color);
-  padding: 8px 16px;
-  border-style: var(--button-border, none);
-  border-width: var(--button-border-size, 0px);
-  border-color: var(--button-border-color);
   font-family: var(--button-font-family, inherit);
-  margin: 16px 0 0 0;
   font-weight: var(--button-font-weight, 400);
   line-height: var(--button-line-height, 1.5);
   letter-spacing: var(--button-letter-spacing, 0px);
   font-size: var(--button-font-size, inherit);
-  text-transform: uppercase;
+  margin: var(--button-margin, 0px);
+  gap: var(--iconGap, 4px);
   display: flex;
   align-items: center;
-  gap: var(--iconGap, 4px);
+  text-transform: uppercase;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link a {
   text-decoration: none;
 }
-.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link:hover {
-  color: var(--button-hover-color);
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link.is-button {
+  background: var(--button-bg);
+  padding: var(--button-padding, 8px 16px);
+  border-style: var(--button-border, none);
+  border-width: var(--button-border-size, 0px);
+  border-color: var(--button-border-color);
+  border-radius: var(--button-border-radius, 0px);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link.is-button:hover {
+  transition: all 0.3s ease-in-out;
   background: var(--button-hover-bg);
   border-style: var(--button-hover-border, none);
   border-width: var(--button-hover-border-size, 0px);
   border-color: var(--button-hover-border-color);
+  border-radius: var(--button-hover-border-radius, 0px);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link:hover {
+  color: var(--button-hover-color);
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link .read-more-icon {
   display: inline-block;
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-read-more-button .sp-smart-post-carousel-read-more-btn-link.icon-hover .read-more-icon {
   opacity: 0;
@@ -606,6 +756,8 @@
   transform: translateX(-50%);
   width: auto;
   z-index: 999;
+  margin-bottom: 8px;
+  padding: 0px 0px 40px 0px;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel .sp-smart-post-carousel-swiper-pagination .sp-smart-post-carousel-pagination-bullet-base {
   opacity: 1;

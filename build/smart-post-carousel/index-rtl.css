@@ -384,6 +384,49 @@
 .sp-smart-post-carousel-panel-pb {
   padding-bottom: 16px;
 }
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/MultiSelect/editor.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select .css-t3ipsp-control {
+  box-shadow: none;
+  border-color: #ccc;
+}
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select div[role=option] {
+  background-color: transparent;
+}
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select div[role=option]:hover {
+  background-color: #f0f0f0;
+}
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select .css-1dyz3mf {
+  padding: 0px 2px;
+}
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select .css-1p3m7a8-multiValue {
+  padding: 1px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select .css-9jq23d {
+  font-size: 13px;
+}
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select .sp-smart-post-carousel-basic-multi-select div div div input:focus {
+  box-shadow: none;
+  border-color: var(--sp-smart-primary-2-400);
+}
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select .sp-smart-post-carousel-basic-multi-select div div div div:last-child {
+  margin: 1px;
+}
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select .sp-smart-post-carousel-basic-multi-select div div div div:last-child:hover {
+  background-color: var(--sp-smart-primary-2-400);
+}
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select .sp-smart-post-carousel-basic-multi-select div div div div:last-child:hover svg {
+  fill: #fff;
+}
 /*!*************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/SelectDropDown/editor.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************************/
@@ -1651,7 +1694,7 @@
   padding: 0px 0 16px 16px;
 }
 .background-style span {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
 }
 .background-style__buttons {

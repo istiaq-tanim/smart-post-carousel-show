@@ -22,7 +22,7 @@ function Style() {
 		buttonBorderColorHover,
 		buttonPadding,
 		buttonType,
-		buttonMargin
+		buttonMargin,
 	} = attributes;
 
 	const currentColor = buttonTextColor?.[iconEffectType] ?? "";
@@ -114,27 +114,26 @@ function Style() {
 
 			{/* Background Color Button */}
 
-			{
-				buttonType === "button" && <BackgroundStyle
+			{buttonType === "button" && (
+				<BackgroundStyle
 					backgroundStyle={buttonBackGroundStyles}
 					contentEffect={iconEffectType}
 					label="Background Style"
 					onChange={(value) => setAttributes({ buttonBackGroundStyles: value })}
 				></BackgroundStyle>
-			}
-
+			)}
 
 			{/* Border Style */}
 
-			{
-				buttonType === "button" && <CustomToggleGroupControl
+			{buttonType === "button" && (
+				<CustomToggleGroupControl
 					label={__("Border", "smart-post-carousel")}
 					attributes={attributes}
 					attributesKey={currentBorderStyleKey}
 					setAttributes={setAttributes}
 					items={borderTypes}
 				></CustomToggleGroupControl>
-			}
+			)}
 
 			{/* check border style */}
 			{currentBorderStyle !== "none" && buttonType === "button" && (
@@ -144,7 +143,7 @@ function Style() {
 						label="Border Width"
 						attributeKey={
 							iconEffectType === "hover"
-								? "buttonHoverBorderWidth"
+								? "buttonBorderWidthHover"
 								: "buttonBorderWidthNormal"
 						}
 						min={0}
@@ -184,6 +183,7 @@ function Style() {
 						max={50}
 						defaultValue={0}
 						showUnit={true}
+						showDevice={true}
 						step={1}
 					></CustomRangeControl>
 
@@ -191,7 +191,7 @@ function Style() {
 				</>
 			)}
 
-			{buttonType === "button" &&
+			{buttonType === "button" && (
 				<SpacingControl
 					values={buttonPadding}
 					min={0}
@@ -200,7 +200,7 @@ function Style() {
 					step={1}
 					onChange={(values) => setAttributes({ buttonPadding: values })}
 				></SpacingControl>
-			}
+			)}
 			<SpacingControl
 				values={buttonMargin}
 				min={0}
@@ -209,8 +209,6 @@ function Style() {
 				step={1}
 				onChange={(values) => setAttributes({ buttonMargin: values })}
 			></SpacingControl>
-
-
 		</>
 	);
 }
