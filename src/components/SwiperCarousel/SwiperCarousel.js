@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useEffect, useMemo, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -73,7 +73,6 @@ export default function SwiperCarousel({ attributes, posts }) {
 		dotNormalBackGroundActiveColor,
 		dotNormalTextColor,
 		dotActiveTextColor,
-		paginationDotStyleType,
 	} = attributes;
 
 	// All References
@@ -82,6 +81,9 @@ export default function SwiperCarousel({ attributes, posts }) {
 	const swiperPrevButtonRef = useRef(null);
 	const swiperPaginationRef = useRef(null);
 	const swiperScrollbarRef = useRef(null);
+
+	// ✅ Track when nav buttons are actually mounted in the DOM
+	const [navReady, setNavReady] = useState(false);
 
 	// Device / Responsive Value
 	const deviceType = useDeviceType();
@@ -98,9 +100,7 @@ export default function SwiperCarousel({ attributes, posts }) {
 
 	// Chunk posts for fade/cube/flip
 	const allPosts = useMemo(() => {
-		if (isChunkedEffect) {
-			return arrayChunk(posts, slidePerView);
-		}
+		if (isChunkedEffect) return arrayChunk(posts, slidePerView);
 		return posts;
 	}, [posts, slidePerView, isChunkedEffect]);
 
@@ -113,11 +113,8 @@ export default function SwiperCarousel({ attributes, posts }) {
 			FreeMode,
 			Autoplay,
 		];
-		if (paginationStyle === "progressbar") {
-			base.push(Scrollbar);
-		} else {
-			base.push(Pagination);
-		}
+		if (paginationStyle === "progressbar") base.push(Scrollbar);
+		else base.push(Pagination);
 		if (EFFECT_MODULES[effect]) base.push(EFFECT_MODULES[effect]);
 		return base;
 	}, [effect, paginationStyle]);
@@ -145,19 +142,16 @@ export default function SwiperCarousel({ attributes, posts }) {
 					},
 				};
 			case "flip":
-				return {
-					flipEffect: { slideShadows: true },
-				};
+				return { flipEffect: { slideShadows: true } };
 			case "fade":
-				return {
-					fadeEffect: { crossFade: true },
-				};
+				return { fadeEffect: { crossFade: true } };
 			default:
 				return {};
 		}
 	}, [effect]);
 
-	// Swiper key (forces re-mount on config change)
+	// ✅ Swiper key — add posts.length and postType so swiper fully re-mounts
+	// when post type changes, which resets navigation correctly
 	const swiperKey = [
 		slidePerView,
 		gapBetweenSlide,
@@ -170,6 +164,9 @@ export default function SwiperCarousel({ attributes, posts }) {
 		navigationArrow,
 		paginationDots,
 		paginationStyle,
+		posts.length, // ✅ re-mount when posts change
+		attributes.postType, // ✅ re-mount when post type changes
+		JSON.stringify(attributes.multiplePostType), // ✅ re-mount when selected types change
 	].join("-");
 
 	// Pagination config
@@ -178,7 +175,6 @@ export default function SwiperCarousel({ attributes, posts }) {
 		if (paginationStyle === "progressbar") return false;
 
 		const type = PAGINATION_TYPE_MAP[paginationStyle] || "bullets";
-
 		const base = {
 			clickable: true,
 			el: swiperPaginationRef.current,
@@ -205,20 +201,20 @@ export default function SwiperCarousel({ attributes, posts }) {
 		};
 	}, [paginationDots, paginationStyle]);
 
-	// On Hover AutoPlay start and Stop
+	// On Hover AutoPlay
 	useEffect(() => {
 		if (swiperRef.current?.autoplay) {
 			swiperRef.current.params.autoplay.pauseOnMouseEnter = onHover;
 		}
 	}, [onHover]);
 
+	// Pagination init
 	useEffect(() => {
 		const swiper = swiperRef.current;
 		if (!swiper || !paginationDots) return;
 
 		if (paginationStyle === "progressbar") {
-			if (!swiperScrollbarRef.current) return;
-			if (!swiper.scrollbar) return;
+			if (!swiperScrollbarRef.current || !swiper.scrollbar) return;
 			swiper.params.scrollbar.el = swiperScrollbarRef.current;
 			swiper.scrollbar.init();
 			swiper.scrollbar.updateSize();
@@ -232,14 +228,34 @@ export default function SwiperCarousel({ attributes, posts }) {
 		}
 	}, [paginationDots, paginationStyle]);
 
-	// Render Slides Based on Swiper Effect
+	// ✅ Re-attach navigation when nav buttons mount or posts/postType changes
+	useEffect(() => {
+		const swiper = swiperRef.current;
+		if (!swiper || !navigationArrow) return;
+		if (!swiperNextButtonRef.current || !swiperPrevButtonRef.current) return;
+
+		// Re-assign nav elements
+		swiper.params.navigation.nextEl = swiperNextButtonRef.current;
+		swiper.params.navigation.prevEl = swiperPrevButtonRef.current;
+		swiper.navigation.destroy();
+		swiper.navigation.init();
+		swiper.navigation.update();
+	}, [
+		navReady, // fires when nav buttons mount
+		navigationArrow,
+		posts.length, // fires when posts change after postType switch
+		attributes.postType,
+		JSON.stringify(attributes.multiplePostType),
+	]);
+
+	// Render Slides
 	const renderSlides = () => {
 		if (isChunkedEffect) {
 			return allPosts.map((chunk, i) => (
 				<SwiperSlide key={i}>
 					<div style={{ display: "flex", gap: gapBetweenSlide }}>
 						{chunk.map((post) => (
-							<div key={post.id} style={{ flex: 1, minWidth: 0 }}>
+							<div key={post.post_id} style={{ flex: 1, minWidth: 0 }}>
 								<PostCard post={post} attributes={attributes} />
 							</div>
 						))}
@@ -249,7 +265,7 @@ export default function SwiperCarousel({ attributes, posts }) {
 		}
 
 		return posts.map((post) => (
-			<SwiperSlide key={post.id}>
+			<SwiperSlide key={post.post_id}>
 				<PostCard post={post} attributes={attributes} />
 			</SwiperSlide>
 		));
@@ -284,6 +300,19 @@ export default function SwiperCarousel({ attributes, posts }) {
 				key={swiperKey}
 				onSwiper={(swiper) => {
 					swiperRef.current = swiper;
+
+					// ✅ Re-attach navigation immediately on swiper init
+					if (
+						navigationArrow &&
+						swiperNextButtonRef.current &&
+						swiperPrevButtonRef.current
+					) {
+						swiper.params.navigation.nextEl = swiperNextButtonRef.current;
+						swiper.params.navigation.prevEl = swiperPrevButtonRef.current;
+						swiper.navigation.destroy();
+						swiper.navigation.init();
+						swiper.navigation.update();
+					}
 
 					setTimeout(() => {
 						if (
@@ -360,6 +389,7 @@ export default function SwiperCarousel({ attributes, posts }) {
 					visibilityOnHover={visibilityOnHover}
 					swiperNextButtonRef={swiperNextButtonRef}
 					swiperPrevButtonRef={swiperPrevButtonRef}
+					onMount={() => setNavReady(true)}
 				/>
 			)}
 

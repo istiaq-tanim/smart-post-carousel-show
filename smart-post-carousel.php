@@ -197,5 +197,4 @@ add_action(
 	function () {
 		SP_Smart_Content_Ajax_Query::instance();
 	},
-	10 // ← runs after taxonomy at priority 5
 );

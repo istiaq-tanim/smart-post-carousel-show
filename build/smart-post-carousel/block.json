@@ -1270,6 +1270,10 @@
         "tablet": 4,
         "mobile": 4
       }
+    },
+    "quickQuery": {
+      "type": "string",
+      "default": ""
     }
   },
   "render": "file:./render.php",

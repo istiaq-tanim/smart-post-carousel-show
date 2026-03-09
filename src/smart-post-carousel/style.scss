@@ -166,6 +166,8 @@
 			font-weight: var(--title-font-weight);
 			margin: var(--title-margin);
 			font-size: var(--title-font-size, 24px);
+			word-break: break-word;
+			overflow-wrap: break-word;
 
 			&:hover {
 				color: var(--title-hover-color);

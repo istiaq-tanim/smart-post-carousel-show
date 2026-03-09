@@ -1275,6 +1275,10 @@ return array(
 					'tablet' => 4,
 					'mobile' => 4
 				)
+			),
+			'quickQuery' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'render' => 'file:./render.php',

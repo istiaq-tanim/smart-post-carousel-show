@@ -540,3 +540,15 @@ export const taxonomyPosition = [
 		value: "center-bottom",
 	},
 ];
+
+export const quickQueryOptions = [
+	{ label: "Select Quick Query", value: "select_quick_query" },
+	{ label: "Popular Posts ( last 24-Hours Views )", value: "popular_24h" },
+	{ label: "Popular Posts ( last 3-Days Views )", value: "popular_3days" },
+	{ label: "Popular Posts ( last 7-Days Views )", value: "popular_7days" },
+	{ label: "Popular Posts ( last 14-Day Views )", value: "popular_14days" },
+	{ label: "Popular Posts ( last 30-Day Views )", value: "popular_30days" },
+	{ label: "Popular Posts ( last 3-Months Views )", value: "popular_3months" },
+	{ label: "Popular Posts ( last 1-Year Views )", value: "popular_1year" },
+	{ label: "Popular Posts ( All Times Views )", value: "popular_alltime" },
+];

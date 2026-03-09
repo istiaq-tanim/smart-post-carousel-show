@@ -1,6 +1,9 @@
+import { __ } from "@wordpress/i18n";
 import { stringCapitalize } from "../../../utils";
+import { quickQueryOptions } from "../../const";
 import { useAttributes } from "../../hooks/useAttributes";
 import useMetaData from "../../hooks/useMetaData";
+import CustomSelection from "../common/CustomSelection/CustomSelection";
 import MultipleSelect from "../common/MultiSelect/MultiSelect";
 
 function QueryBuilder() {
@@ -52,6 +55,13 @@ function QueryBuilder() {
 						? updatePostTypeOptions
 						: defaultPostType
 				}
+			/>
+
+			<CustomSelection
+				label={__("Quick Query", "smart-post-carousel")}
+				options={quickQueryOptions}
+				attributeKey="quickQuery"
+				inline={false}
 			/>
 		</>
 	);
