@@ -12,6 +12,12 @@ import {
 	TriangleOutline,
 } from "../smart-post-carousel/assets/arrowIcons";
 import {
+	DashedBorder,
+	DottedBorder,
+	DoubleBorder,
+	SolidBorder,
+} from "../smart-post-carousel/assets/borderIcon";
+import {
 	BgIcon,
 	CarouselStandardIcon,
 	CarouselTickerIcon,
@@ -41,12 +47,6 @@ import {
 	UserAuthor,
 	UserSolid,
 } from "../smart-post-carousel/assets/userIcon";
-import {
-	DashedBorder,
-	DottedBorder,
-	DoubleBorder,
-	SolidBorder,
-} from "../smart-post-carousel/assets/borderIcon";
 
 export const LayoutItems = [
 	{
@@ -498,5 +498,45 @@ export const badgePosition = [
 	{
 		label: "After Title",
 		value: "after",
+	},
+];
+
+export const taxonomyPosition = [
+	{
+		label: "Select Category Position",
+		// value: '',
+		disabled: "disabled",
+	},
+	{
+		label: "Above Title",
+		value: "above-title",
+	},
+	{
+		label: "Over Thumbnail - Top Left",
+		value: "top-left",
+	},
+	{
+		label: "Over Thumbnail - Top Right",
+		value: "top-right",
+	},
+	{
+		label: "Over Thumbnail - Bottom Left",
+		value: "bottom-left",
+	},
+	{
+		label: "Over Thumbnail - Bottom Right",
+		value: "bottom-right",
+	},
+	{
+		label: "Over Thumbnail - Center Center",
+		value: "center-center",
+	},
+	{
+		label: "Over Thumbnail - Center Top",
+		value: "center-top",
+	},
+	{
+		label: "Over Thumbnail - Center Bottom",
+		value: "center-bottom",
 	},
 ];

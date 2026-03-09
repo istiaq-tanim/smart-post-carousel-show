@@ -46,6 +46,7 @@ function BackgroundStyle({
 						label="Solid Color"
 						value={activeBackground || "#fff"}
 						onChange={handleColorChange}
+						defaultValue={isHover ? "#014ef5" : "#283618"}
 					/>
 				);
 			case "gradient":

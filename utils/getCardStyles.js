@@ -37,6 +37,7 @@ export const getCardStyles = (attributes, normalizedDeviceType) => {
 		contentBoxShadow,
 		contentBoxShadowColor,
 		showContentBoxShadow,
+		taxonomyTypo,
 	} = attributes;
 
 	const normalBg = getBg(
@@ -97,5 +98,11 @@ export const getCardStyles = (attributes, normalizedDeviceType) => {
 
 		// Box Shadow
 		...(boxShadow && { "--contentBoxShadow": boxShadow }),
+
+		"--taxonomy-font-family": taxonomyTypo?.family ?? "inherit",
+		"--taxonomy-font-size": `${taxonomyTypo?.fontSize ?? 12}px`,
+		"--taxonomy-font-weight": taxonomyTypo?.weight ?? 400,
+		"--taxonomy-line-height": taxonomyTypo?.height ?? 1.5,
+		"--taxonomy-letter-spacing": `${taxonomyTypo?.spacing ?? 0}px`,
 	};
 };

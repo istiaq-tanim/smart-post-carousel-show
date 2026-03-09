@@ -6,15 +6,12 @@ function useApi(attributes) {
 	const { numberOfSlides, postType } = attributes;
 
 	const dependencies = {
-		numberOfSlides,
-		postType,
+		posts_per_page: numberOfSlides,
 	};
 
 	const queryData = {
 		...dependencies,
 	};
-
-	console.log(queryData);
 
 	useEffect(() => {
 		const formData = new FormData();

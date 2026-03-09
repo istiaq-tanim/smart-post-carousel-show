@@ -1,3 +1,4 @@
+import { getCategoryRenderLocation } from "../../../../../utils/getRenderLocation";
 import { useDeviceType } from "../../../../hooks/useDevice";
 import CategoryList from "../CategoryList";
 import Excerpt from "../Excerpt";
@@ -29,16 +30,28 @@ const getContentElement = (
 		excerptMargin,
 		showReadMore,
 		showTitle,
+		taxonomyType,
+		taxonomyPosition,
+		showTaxonomy,
+		showMetaData,
 	},
 ) => {
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
 
 	switch (item.value) {
-		case "category":
-			return orientation !== "orientation_three" ? (
-				<CategoryList key="category" categories={post.category} />
-			) : null;
+		case "category": {
+			const { showInContent } = getCategoryRenderLocation(
+				taxonomyPosition,
+				orientation,
+			);
+			if (!showInContent) return null;
+			return (
+				showTaxonomy && (
+					<CategoryList key="category" post={post} type={taxonomyType} />
+				)
+			);
+		}
 
 		case "title":
 			return (
@@ -46,6 +59,7 @@ const getContentElement = (
 			);
 
 		case "meta":
+			if (!showMetaData) return null;
 			const visibleItems = metaDataAllContentArray.filter((i) => i.show);
 			return (
 				<div

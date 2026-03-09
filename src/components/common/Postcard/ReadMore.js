@@ -82,10 +82,10 @@ function ReadMore() {
 							? buttonBorderStyle
 							: buttonHoverBorderStyle,
 					"--button-border-size": `${
-						buttonBorderWidthNormal[normalizedDeviceType] || 1
+						buttonBorderWidthNormal[normalizedDeviceType] ?? 1
 					}px`,
 					"--button-hover-border-size": `${
-						buttonBorderWidthHover[normalizedDeviceType] || 1
+						buttonBorderWidthHover[normalizedDeviceType] ?? 1
 					}px`,
 					"--button-border-color": buttonBorderColorNormal || "#4e6e3e",
 					"--button-hover-border-color":

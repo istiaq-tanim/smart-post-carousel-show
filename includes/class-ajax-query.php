@@ -18,6 +18,7 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 	 */
 	class SP_Smart_Content_Ajax_Query {
 
+
 		/**
 		 * Instance of this class.
 		 *
@@ -384,7 +385,7 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 					'author_url'           => get_author_posts_url( $author_meta_id ),
 					'category_list'        => get_the_category_list( '' ) ?: false,
 					'tag_list'             => get_the_tag_list( '' ) ?: false,
-					'post_list'            => get_post_format( '' ) ?: false,
+					'post_list'            => get_post_format( $post_id ) ?: false,
 					'category'             => get_the_category() ?: array(),
 					'date'                 => $current_date,
 					'date_archive_url'     => get_day_link( $archive_year, $archive_month, $archive_day ),
@@ -564,7 +565,7 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			$multiple_post_type = ( 'multiple_post_type' === $post_type && ! empty( $multiple_post_type ) )
 				? array_map(
 					function ( $multi_type ) {
-							return $multi_type->value;
+						return $multi_type->value;
 					},
 					$multiple_post_type
 				)

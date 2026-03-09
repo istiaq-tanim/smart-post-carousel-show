@@ -29,11 +29,11 @@
     },
     "showTaxonomy": {
       "type": "boolean",
-      "default": false
+      "default": true
     },
     "showMetaData": {
       "type": "boolean",
-      "default": false
+      "default": true
     },
     "showExcerpt": {
       "type": "boolean",
@@ -1120,6 +1120,155 @@
       ],
       "items": {
         "type": "object"
+      }
+    },
+    "taxonomyType": {
+      "type": "string",
+      "default": "category"
+    },
+    "taxonomyPosition": {
+      "type": "string",
+      "default": "above-title"
+    },
+    "taxonomyTypo": {
+      "type": "object",
+      "default": {
+        "family": "Roboto",
+        "fontSize": 12,
+        "weight": 600,
+        "height": 1.2,
+        "spacing": 0,
+        "text": "List item title"
+      }
+    },
+    "taxonomyEffect": {
+      "type": "string",
+      "default": "normal"
+    },
+    "taxonomyTextColor": {
+      "type": "object",
+      "default": {
+        "normal": "#fff",
+        "hover": "#fff"
+      }
+    },
+    "taxonomyBackGroundStyles": {
+      "type": "object",
+      "default": {
+        "type": "solid",
+        "hoverType": "solid",
+        "solidBackground": "#283618",
+        "gradientBackground": "",
+        "hoverSolidBackground": "#014ef5",
+        "hoverGradientBackground": ""
+      }
+    },
+    "taxonomyBorderColorNormal": {
+      "type": "string",
+      "default": "#4e6e3e"
+    },
+    "taxonomyBorderColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "taxonomyBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "taxonomyHoverBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "taxonomyBorderWidthNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "taxonomyBorderWidthHover": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "taxonomyBorderRadiusNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "taxonomyBorderRadiusHover": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "taxonomyPadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        },
+        "tablet": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        },
+        "mobile": {
+          "top": 4,
+          "right": 8,
+          "bottom": 4,
+          "left": 8,
+          "linked": true
+        }
+      }
+    },
+    "taxonomyMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "taxonomyGap": {
+      "type": "object",
+      "default": {
+        "desktop": 4,
+        "tablet": 4,
+        "mobile": 4
       }
     }
   },

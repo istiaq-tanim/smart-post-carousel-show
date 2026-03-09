@@ -34,11 +34,11 @@ return array(
 			),
 			'showTaxonomy' => array(
 				'type' => 'boolean',
-				'default' => false
+				'default' => true
 			),
 			'showMetaData' => array(
 				'type' => 'boolean',
-				'default' => false
+				'default' => true
 			),
 			'showExcerpt' => array(
 				'type' => 'boolean',
@@ -1125,6 +1125,155 @@ return array(
 				),
 				'items' => array(
 					'type' => 'object'
+				)
+			),
+			'taxonomyType' => array(
+				'type' => 'string',
+				'default' => 'category'
+			),
+			'taxonomyPosition' => array(
+				'type' => 'string',
+				'default' => 'above-title'
+			),
+			'taxonomyTypo' => array(
+				'type' => 'object',
+				'default' => array(
+					'family' => 'Roboto',
+					'fontSize' => 12,
+					'weight' => 600,
+					'height' => 1.2,
+					'spacing' => 0,
+					'text' => 'List item title'
+				)
+			),
+			'taxonomyEffect' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'taxonomyTextColor' => array(
+				'type' => 'object',
+				'default' => array(
+					'normal' => '#fff',
+					'hover' => '#fff'
+				)
+			),
+			'taxonomyBackGroundStyles' => array(
+				'type' => 'object',
+				'default' => array(
+					'type' => 'solid',
+					'hoverType' => 'solid',
+					'solidBackground' => '#283618',
+					'gradientBackground' => '',
+					'hoverSolidBackground' => '#014ef5',
+					'hoverGradientBackground' => ''
+				)
+			),
+			'taxonomyBorderColorNormal' => array(
+				'type' => 'string',
+				'default' => '#4e6e3e'
+			),
+			'taxonomyBorderColorHover' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'taxonomyBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'taxonomyHoverBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'taxonomyBorderWidthNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'taxonomyBorderWidthHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'taxonomyBorderRadiusNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'taxonomyBorderRadiusHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'taxonomyPadding' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 4,
+						'right' => 8,
+						'bottom' => 4,
+						'left' => 8,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 4,
+						'right' => 8,
+						'bottom' => 4,
+						'left' => 8,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 4,
+						'right' => 8,
+						'bottom' => 4,
+						'left' => 8,
+						'linked' => true
+					)
+				)
+			),
+			'taxonomyMargin' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
+				)
+			),
+			'taxonomyGap' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 4,
+					'tablet' => 4,
+					'mobile' => 4
 				)
 			)
 		),

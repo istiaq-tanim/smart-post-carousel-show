@@ -35,8 +35,6 @@ function Style() {
 		});
 	};
 
-	console.log(badgeBorderRadius);
-
 	return (
 		<div>
 			{/* Typography for Meta Item */}
