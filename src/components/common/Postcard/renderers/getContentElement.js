@@ -4,6 +4,7 @@ import CategoryList from "../CategoryList";
 import Excerpt from "../Excerpt";
 import MetaSeparator from "../MetaSeparator";
 import ReadMore from "../ReadMore";
+import SocialIcon from "../SocialIcon";
 import Title from "../Title";
 import getMetaElement from "./getMetaElement";
 
@@ -32,7 +33,7 @@ const getContentElement = (
 		showTitle,
 		taxonomyType,
 		taxonomyPosition,
-		taxonomyTypo
+		sharingMedia
 	},
 ) => {
 	const deviceType = useDeviceType();
@@ -129,17 +130,11 @@ const getContentElement = (
 
 		case "social":
 			return (
-				<ul key="social" className="sp-smart-post-carousel-social-share">
-					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook"></i>
-					</li>
-					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook"></i>
-					</li>
-					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook"></i>
-					</li>
-				</ul>
+				<div className="sp-share-icons-preview">
+					{sharingMedia.map(({ value }) => (
+						<SocialIcon key={value} value={value} />
+					))}
+				</div>
 			);
 
 		default:

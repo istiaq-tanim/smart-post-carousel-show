@@ -1275,6 +1275,29 @@ return array(
 					'tablet' => 4,
 					'mobile' => 4
 				)
+			),
+			'sharingMedia' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'facebook',
+						'value' => 'facebook',
+						'label' => 'Facebook'
+					),
+					array(
+						'id' => 'x',
+						'value' => 'x',
+						'label' => 'X (Twitter)'
+					),
+					array(
+						'id' => 'linkedin',
+						'value' => 'linkedin',
+						'label' => 'LinkedIn'
+					)
+				),
+				'items' => array(
+					'type' => 'object'
+				)
 			)
 		),
 		'render' => 'file:./render.php',

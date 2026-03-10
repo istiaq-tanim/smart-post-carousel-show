@@ -766,6 +766,168 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/MultiselectDnD/editor.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+.shaped-plugin-multiple-select .custom-select-arrow {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.shaped-plugin-multiple-select .custom-select-arrow svg {
+  pointer-events: none;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-label {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container {
+  min-height: 32px;
+  position: relative;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-header {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-header .sp-selected-options {
+  width: 90%;
+  margin: 0;
+  padding-left: 7px;
+  border-left: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-header .sp-selected-options div .sp-selected-option {
+  width: 100%;
+  margin: 2px;
+  height: 30px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-header .sp-selected-options div .sp-selected-option .sp-select-label {
+  cursor: move;
+  padding: 5px;
+  width: 85%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-header .sp-selected-options div .sp-selected-option .sp-select-remove-button {
+  cursor: pointer;
+  padding: 3px;
+  width: 15%;
+  text-align: center;
+  margin-left: 2px;
+  border-radius: 2px;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-header .sp-selected-options div .sp-selected-option .sp-select-remove-button:hover {
+  background-color: var(--sp-smart-primary-2-400);
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-header .sp-selected-options div .sp-selected-option .sp-select-remove-button:hover svg path {
+  fill: #fff;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-options {
+  margin: 5px 0 0 0;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 999;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-options .sp-select-option {
+  cursor: pointer;
+  padding: 10px;
+  margin: 0;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-options .sp-select-option.selected {
+  background-color: #e6e6e6;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-options .sp-select-option:hover {
+  background-color: #f0f0f0;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-options .sp-select-search-field {
+  background-color: transparent;
+  width: 97%;
+  padding: 6px;
+  margin: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-options .sp-select-search-field:focus-visible {
+  border: 1px solid #ccc;
+  box-shadow: none;
+  outline: 0;
+}
+.shaped-plugin-multiple-select .sp-multiple-select-dnd-container .sp-select-remove-button {
+  cursor: pointer;
+}
+.sp-drag-and-drop-dnd-container .sp-selected-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sp-drag-and-drop-dnd-container .sp-selected-options .sp-grabbing {
+  cursor: grabbing;
+  z-index: 9;
+}
+.sp-drag-and-drop-dnd-container .sp-selected-options .sp-grab {
+  cursor: grab;
+}
+.sp-drag-and-drop-dnd-container .sp-selected-options .sp-selected-option .sp-select-toggle-button {
+  cursor: pointer;
+  padding: 5px;
+  width: 20%;
+  text-align: center;
+}
+.sp-drag-and-drop-dnd-container .sp-selected-options .sp-selected-option .sp-select-toggle-button .components-base-control {
+  margin: 0;
+}
+.sp-drag-and-drop-dnd-container .sp-selected-options .sp-selected-option .sp-select-toggle-button .components-base-control .components-form-toggle.is-checked .components-form-toggle__track {
+  background-color: var(--sp-smart-primary-2-400);
+  border-color: var(--sp-smart-primary-2-400);
+}
+.sp-drag-and-drop-dnd-container .sp-disabled {
+  cursor: grab;
+  margin-bottom: 8px;
+}
+.sp-drag-and-drop-dnd-container .sp-selected-option {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 8px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+}
+.sp-drag-and-drop-dnd-container .sp-selected-option .sp-select-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 5px;
+  width: 85%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /*!*********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/CustomTabs/editor.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************************************/
@@ -1129,6 +1291,144 @@
 }
 
 /* Slide styles end */
+
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/swiper/modules/effect-coverflow.css ***!
+  \******************************************************************************************************************************************************************************************************/
+.swiper-coverflow {
+}
+
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/swiper/modules/effect-cube.css ***!
+  \*************************************************************************************************************************************************************************************************/
+.swiper.swiper-cube {
+  overflow: visible;
+}
+.swiper-cube {
+  .swiper-slide {
+    pointer-events: none;
+    backface-visibility: hidden;
+    z-index: 1;
+    visibility: hidden;
+    transform-origin: 100% 0;
+    width: 100%;
+    height: 100%;
+    .swiper-slide {
+      pointer-events: none;
+    }
+  }
+  &.swiper-rtl .swiper-slide {
+    transform-origin: 0% 0;
+  }
+  .swiper-slide-active {
+    &,
+    & .swiper-slide-active {
+      pointer-events: auto;
+    }
+  }
+  .swiper-slide-active,
+  .swiper-slide-next,
+  .swiper-slide-prev {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .swiper-cube-shadow {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    z-index: 0;
+
+    &:before {
+      content: '';
+      background: #000;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      filter: blur(50px);
+    }
+  }
+}
+.swiper-cube {
+  .swiper-slide-next + .swiper-slide {
+    pointer-events: auto;
+    visibility: visible;
+  }
+}
+/* Cube slide shadows start */
+.swiper-cube {
+  .swiper-slide-shadow-cube.swiper-slide-shadow-top,
+  .swiper-slide-shadow-cube.swiper-slide-shadow-bottom,
+  .swiper-slide-shadow-cube.swiper-slide-shadow-left,
+  .swiper-slide-shadow-cube.swiper-slide-shadow-right {
+    z-index: 0;
+    backface-visibility: hidden;
+  }
+}
+/* Cube slide shadows end */
+
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/swiper/modules/effect-fade.css ***!
+  \*************************************************************************************************************************************************************************************************/
+.swiper-fade {
+  &.swiper-free-mode {
+    .swiper-slide {
+      transition-timing-function: ease-out;
+    }
+  }
+  .swiper-slide {
+    pointer-events: none;
+    transition-property: opacity;
+    .swiper-slide {
+      pointer-events: none;
+    }
+  }
+  .swiper-slide-active {
+    pointer-events: auto;
+    & .swiper-slide-active {
+      pointer-events: auto;
+    }
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/swiper/modules/effect-flip.css ***!
+  \*************************************************************************************************************************************************************************************************/
+.swiper.swiper-flip {
+  overflow: visible;
+}
+.swiper-flip {
+  .swiper-slide {
+    pointer-events: none;
+    backface-visibility: hidden;
+    z-index: 1;
+    .swiper-slide {
+      pointer-events: none;
+    }
+  }
+  .swiper-slide-active {
+    &,
+    & .swiper-slide-active {
+      pointer-events: auto;
+    }
+  }
+}
+/* Flip slide shadows start */
+.swiper-flip {
+  .swiper-slide-shadow-flip.swiper-slide-shadow-top,
+  .swiper-slide-shadow-flip.swiper-slide-shadow-bottom,
+  .swiper-slide-shadow-flip.swiper-slide-shadow-left,
+  .swiper-slide-shadow-flip.swiper-slide-shadow-right {
+    z-index: 0;
+    backface-visibility: hidden;
+  }
+}
+/* Flip slide shadows end */
 
 /*!************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/swiper/modules/navigation.css ***!
@@ -1514,144 +1814,6 @@
   display: none;
 }
 
-/*!*************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/swiper/modules/effect-fade.css ***!
-  \*************************************************************************************************************************************************************************************************/
-.swiper-fade {
-  &.swiper-free-mode {
-    .swiper-slide {
-      transition-timing-function: ease-out;
-    }
-  }
-  .swiper-slide {
-    pointer-events: none;
-    transition-property: opacity;
-    .swiper-slide {
-      pointer-events: none;
-    }
-  }
-  .swiper-slide-active {
-    pointer-events: auto;
-    & .swiper-slide-active {
-      pointer-events: auto;
-    }
-  }
-}
-
-/*!*************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/swiper/modules/effect-cube.css ***!
-  \*************************************************************************************************************************************************************************************************/
-.swiper.swiper-cube {
-  overflow: visible;
-}
-.swiper-cube {
-  .swiper-slide {
-    pointer-events: none;
-    backface-visibility: hidden;
-    z-index: 1;
-    visibility: hidden;
-    transform-origin: 100% 0;
-    width: 100%;
-    height: 100%;
-    .swiper-slide {
-      pointer-events: none;
-    }
-  }
-  &.swiper-rtl .swiper-slide {
-    transform-origin: 0% 0;
-  }
-  .swiper-slide-active {
-    &,
-    & .swiper-slide-active {
-      pointer-events: auto;
-    }
-  }
-  .swiper-slide-active,
-  .swiper-slide-next,
-  .swiper-slide-prev {
-    pointer-events: auto;
-    visibility: visible;
-  }
-
-  .swiper-cube-shadow {
-    position: absolute;
-    right: 0;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    opacity: 0.6;
-    z-index: 0;
-
-    &:before {
-      content: '';
-      background: #000;
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      filter: blur(50px);
-    }
-  }
-}
-.swiper-cube {
-  .swiper-slide-next + .swiper-slide {
-    pointer-events: auto;
-    visibility: visible;
-  }
-}
-/* Cube slide shadows start */
-.swiper-cube {
-  .swiper-slide-shadow-cube.swiper-slide-shadow-top,
-  .swiper-slide-shadow-cube.swiper-slide-shadow-bottom,
-  .swiper-slide-shadow-cube.swiper-slide-shadow-left,
-  .swiper-slide-shadow-cube.swiper-slide-shadow-right {
-    z-index: 0;
-    backface-visibility: hidden;
-  }
-}
-/* Cube slide shadows end */
-
-/*!*************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/swiper/modules/effect-flip.css ***!
-  \*************************************************************************************************************************************************************************************************/
-.swiper.swiper-flip {
-  overflow: visible;
-}
-.swiper-flip {
-  .swiper-slide {
-    pointer-events: none;
-    backface-visibility: hidden;
-    z-index: 1;
-    .swiper-slide {
-      pointer-events: none;
-    }
-  }
-  .swiper-slide-active {
-    &,
-    & .swiper-slide-active {
-      pointer-events: auto;
-    }
-  }
-}
-/* Flip slide shadows start */
-.swiper-flip {
-  .swiper-slide-shadow-flip.swiper-slide-shadow-top,
-  .swiper-slide-shadow-flip.swiper-slide-shadow-bottom,
-  .swiper-slide-shadow-flip.swiper-slide-shadow-left,
-  .swiper-slide-shadow-flip.swiper-slide-shadow-right {
-    z-index: 0;
-    backface-visibility: hidden;
-  }
-}
-/* Flip slide shadows end */
-
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/swiper/modules/effect-coverflow.css ***!
-  \******************************************************************************************************************************************************************************************************/
-.swiper-coverflow {
-}
-
 /*!************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/smart-post-carousel/editor.scss ***!
   \************************************************************************************************************************************************************************************************************************************************************/
@@ -1726,4 +1888,50 @@
 }
 .background-style__btn.active {
   border-color: #884ae3;
+}
+.sp-share-icons-preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+.sp-share-icons-preview .sp-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: #fff;
+  flex-shrink: 0;
+}
+.sp-share-icons-preview .sp-social-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.sp-share-icons-preview .sp-social-icon[data-platform=facebook] {
+  background-color: #1877f2;
+}
+.sp-share-icons-preview .sp-social-icon[data-platform=x] {
+  background-color: #000000;
+}
+.sp-share-icons-preview .sp-social-icon[data-platform=linkedin] {
+  background-color: #0a66c2;
+}
+.sp-share-icons-preview .sp-social-icon[data-platform=pinterest] {
+  background-color: #e60023;
+}
+.sp-share-icons-preview .sp-social-icon[data-platform=email] {
+  background-color: #ea4335;
+}
+.sp-share-icons-preview .sp-social-icon[data-platform=instagram] {
+  background-color: #e1306c;
+}
+.sp-share-icons-preview .sp-social-icon[data-platform=vk] {
+  background-color: #4680c2;
+}
+.sp-share-icons-preview .sp-social-icon[data-platform=whatsapp] {
+  background-color: #25d366;
 }

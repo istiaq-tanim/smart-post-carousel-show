@@ -1270,6 +1270,29 @@
         "tablet": 4,
         "mobile": 4
       }
+    },
+    "sharingMedia": {
+      "type": "array",
+      "default": [
+        {
+          "id": "facebook",
+          "value": "facebook",
+          "label": "Facebook"
+        },
+        {
+          "id": "x",
+          "value": "x",
+          "label": "X (Twitter)"
+        },
+        {
+          "id": "linkedin",
+          "value": "linkedin",
+          "label": "LinkedIn"
+        }
+      ],
+      "items": {
+        "type": "object"
+      }
     }
   },
   "render": "file:./render.php",

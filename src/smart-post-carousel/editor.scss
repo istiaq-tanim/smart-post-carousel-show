@@ -83,3 +83,45 @@
 		}
 	}
 }
+
+$sp-platforms: (
+	"facebook": #1877f2,
+	"x": #000000,
+	"linkedin": #0a66c2,
+	"pinterest": #e60023,
+	"email": #ea4335,
+	"instagram": #e1306c,
+	"vk": #4680c2,
+	"whatsapp": #25d366,
+);
+
+.sp-share-icons-preview {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 0;
+
+	.sp-social-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		border-radius: 8px;
+		color: #fff;
+		flex-shrink: 0;
+
+		svg {
+			width: 20px;
+			height: 20px;
+			display: block;
+		}
+
+		@each $platform, $color in $sp-platforms {
+			&[data-platform="#{$platform}"] {
+				background-color: $color;
+			}
+		}
+	}
+}

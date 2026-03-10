@@ -1,31 +1,31 @@
-import { useRef, useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/effect-cube";
+import "swiper/css/effect-fade";
+import "swiper/css/effect-flip";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import "swiper/css/effect-fade";
-import "swiper/css/effect-cube";
-import "swiper/css/effect-flip";
-import "swiper/css/effect-coverflow";
 import {
 	Autoplay,
-	Navigation,
-	Pagination,
-	EffectFade,
-	EffectCube,
-	EffectFlip,
 	EffectCoverflow,
+	EffectCube,
+	EffectFade,
+	EffectFlip,
+	FreeMode,
 	Keyboard,
 	Mousewheel,
-	FreeMode,
+	Navigation,
+	Pagination,
 	Scrollbar,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import PostCard from "../common/Postcard/PostCard";
-import { useDeviceType } from "../../hooks/useDevice";
 import { arrayChunk, CHUNKED_EFFECTS, EFFECT_MAP } from "../../../utils";
-import SwiperNavigationButton from "./SwiperNavigationButton";
 import { getRenderBullet } from "../../const";
+import { useDeviceType } from "../../hooks/useDevice";
+import PostCard from "../common/Postcard/PostCard";
+import SwiperNavigationButton from "./SwiperNavigationButton";
 import SwiperPaginationStyle from "./SwiperPaginationStyle";
 
 const EFFECT_MODULES = {
@@ -259,25 +259,21 @@ export default function SwiperCarousel({ attributes, posts }) {
 		<div
 			className="sp-smart-post-carousel"
 			style={{
-				"--paginationDotWidth": `${
-					paginationWidth[normalizedDeviceType] ?? 12
-				}px`,
-				"--paginationDotHeight": `${
-					paginationHeight[normalizedDeviceType] ?? 12
-				}px`,
-				"--paginationDotGap": `${
-					paginationDotGap[normalizedDeviceType] ?? 8
-				}px`,
-				"--paginationVerticalPosition": `${
-					paginationVerticalPosition[normalizedDeviceType] ?? -36
-				}px`,
-				"--paginationHorizontalPosition": `${
-					paginationHorizontalPosition[normalizedDeviceType] ?? 50
-				}%`,
+				"--paginationDotWidth": `${paginationWidth[normalizedDeviceType] ?? 12
+					}px`,
+				"--paginationDotHeight": `${paginationHeight[normalizedDeviceType] ?? 12
+					}px`,
+				"--paginationDotGap": `${paginationDotGap[normalizedDeviceType] ?? 8
+					}px`,
+				"--paginationVerticalPosition": `${paginationVerticalPosition[normalizedDeviceType] ?? -36
+					}px`,
+				"--paginationHorizontalPosition": `${paginationHorizontalPosition[normalizedDeviceType] ?? 50
+					}%`,
 				"--paginationBackGroundInActiveColor": `${dotNormalBackGroundNormalColor}`,
 				"--paginationBackGroundActiveColor": `${dotNormalBackGroundActiveColor}`,
 				"--paginationTextInActiveColor": `${dotNormalTextColor}`,
 				"--paginationTextActiveColor": `${dotActiveTextColor}`,
+				padding: "0px 0px 30px 0px"
 			}}
 		>
 			<Swiper
@@ -315,11 +311,11 @@ export default function SwiperCarousel({ attributes, posts }) {
 				autoplay={
 					autoPlay
 						? {
-								delay: autoplayDelay,
-								disableOnInteraction: false,
-								pauseOnMouseEnter: onHover,
-								reverseDirection: direction === "left",
-						  }
+							delay: autoplayDelay,
+							disableOnInteraction: false,
+							pauseOnMouseEnter: onHover,
+							reverseDirection: direction === "left",
+						}
 						: false
 				}
 				loop={isEffectSlide && infiniteLoop && slideGroupNumber <= 1}
@@ -332,22 +328,22 @@ export default function SwiperCarousel({ attributes, posts }) {
 				mousewheel={
 					mouseWheelControl
 						? {
-								forceToAxis: false,
-								sensitivity: 1,
-								releaseOnEdges: true,
-								thresholdDelta: 50,
-						  }
+							forceToAxis: false,
+							sensitivity: 1,
+							releaseOnEdges: true,
+							thresholdDelta: 50,
+						}
 						: false
 				}
 				freeMode={
 					freeScroll
 						? {
-								enabled: true,
-								sticky: true,
-								momentum: true,
-								momentumRatio: 0.25,
-								momentumVelocityRatio: 0.5,
-						  }
+							enabled: true,
+							sticky: true,
+							momentum: true,
+							momentumRatio: 0.25,
+							momentumVelocityRatio: 0.5,
+						}
 						: false
 				}
 			>

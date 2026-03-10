@@ -7,8 +7,6 @@ function CarouselRenderer({ carouselStyle, posts, attributes }) {
 		ticker: MarqueeCarousel,
 	};
 
-	console.log(attributes.taxonomyBorderWidthNormal, "hello")
-
 	const CarouselComponent = carouselComponents[carouselStyle];
 
 	if (!CarouselComponent) {

@@ -43,7 +43,7 @@ function QueryBuilder() {
 				label="Post Types"
 				value={multiplePostType}
 				attributes={multiplePostType}
-				onInputChange={() => {}}
+				onInputChange={() => { }}
 				attributesKey="multiplePostType"
 				setAttributes={setAttributes}
 				onChange={(e) => onPostTypeChangeHandler(e)}

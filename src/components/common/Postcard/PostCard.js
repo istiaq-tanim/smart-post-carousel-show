@@ -46,7 +46,7 @@ function PostCard({ post, attributes }) {
 		taxonomyType,
 		taxonomyPosition,
 		taxonomyTypo,
-		taxonomyBorderWidthNormal
+		sharingMedia
 	} = attributes;
 
 	const author =
@@ -143,7 +143,8 @@ function PostCard({ post, attributes }) {
 			showTitle,
 			taxonomyType,
 			taxonomyPosition,
-			taxonomyTypo
+			taxonomyTypo,
+			sharingMedia
 		}),
 		[
 			post,
@@ -173,6 +174,7 @@ function PostCard({ post, attributes }) {
 			showTitle,
 			taxonomyType,
 			taxonomyPosition,
+			sharingMedia
 		],
 	);
 
