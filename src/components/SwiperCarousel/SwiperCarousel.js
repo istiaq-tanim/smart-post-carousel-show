@@ -82,7 +82,6 @@ export default function SwiperCarousel({ attributes, posts }) {
 	const swiperPaginationRef = useRef(null);
 	const swiperScrollbarRef = useRef(null);
 
-	// ✅ Track when nav buttons are actually mounted in the DOM
 	const [navReady, setNavReady] = useState(false);
 
 	// Device / Responsive Value
@@ -150,8 +149,6 @@ export default function SwiperCarousel({ attributes, posts }) {
 		}
 	}, [effect]);
 
-	// ✅ Swiper key — add posts.length and postType so swiper fully re-mounts
-	// when post type changes, which resets navigation correctly
 	const swiperKey = [
 		slidePerView,
 		gapBetweenSlide,
@@ -164,9 +161,9 @@ export default function SwiperCarousel({ attributes, posts }) {
 		navigationArrow,
 		paginationDots,
 		paginationStyle,
-		posts.length, // ✅ re-mount when posts change
-		attributes.postType, // ✅ re-mount when post type changes
-		JSON.stringify(attributes.multiplePostType), // ✅ re-mount when selected types change
+		posts.length,
+		attributes.postType,
+		JSON.stringify(attributes.multiplePostType),
 	].join("-");
 
 	// Pagination config
@@ -228,7 +225,6 @@ export default function SwiperCarousel({ attributes, posts }) {
 		}
 	}, [paginationDots, paginationStyle]);
 
-	// ✅ Re-attach navigation when nav buttons mount or posts/postType changes
 	useEffect(() => {
 		const swiper = swiperRef.current;
 		if (!swiper || !navigationArrow) return;
@@ -241,9 +237,9 @@ export default function SwiperCarousel({ attributes, posts }) {
 		swiper.navigation.init();
 		swiper.navigation.update();
 	}, [
-		navReady, // fires when nav buttons mount
+		navReady,
 		navigationArrow,
-		posts.length, // fires when posts change after postType switch
+		posts.length,
 		attributes.postType,
 		JSON.stringify(attributes.multiplePostType),
 	]);
@@ -301,7 +297,6 @@ export default function SwiperCarousel({ attributes, posts }) {
 				onSwiper={(swiper) => {
 					swiperRef.current = swiper;
 
-					// ✅ Re-attach navigation immediately on swiper init
 					if (
 						navigationArrow &&
 						swiperNextButtonRef.current &&

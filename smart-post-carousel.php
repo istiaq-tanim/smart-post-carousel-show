@@ -187,6 +187,20 @@ add_action(
 	},
 );
 
+add_action(
+	'wp_ajax_sp_read_log',
+	function () {
+		if ( ! current_user_can( 'administrator' ) ) {
+			wp_die();
+		}
+		$log     = WP_CONTENT_DIR . '/debug.log';
+		$content = file_exists( $log )
+		? array_slice( file( $log ), -50 )
+		: array( 'Log file not found' );
+		wp_send_json_success( implode( '', $content ) );
+	}
+);
+
 /**
  * AJAX handler
  */

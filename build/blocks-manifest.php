@@ -1279,6 +1279,50 @@ return array(
 			'quickQuery' => array(
 				'type' => 'string',
 				'default' => ''
+			),
+			'offset' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'noPostLabel' => array(
+				'type' => 'number',
+				'default' => 'No post found'
+			),
+			'excludeAuthor' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				),
+				'items' => array(
+					'type' => 'object'
+				)
+			),
+			'excludeTerm' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				),
+				'items' => array(
+					'type' => 'object'
+				)
+			),
+			'includeOnlyPost' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				),
+				'items' => array(
+					'type' => 'object'
+				)
+			),
+			'excludePost' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				),
+				'items' => array(
+					'type' => 'object'
+				)
 			)
 		),
 		'render' => 'file:./render.php',

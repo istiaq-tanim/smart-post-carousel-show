@@ -387,6 +387,9 @@
 /*!**********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/common/MultiSelect/editor.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************************************/
+.sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select {
+  margin-bottom: 16px;
+}
 .sp-smart-post-carousel-tab-panel .sp-smart-post-carousel-multi-select.d-flex {
   display: flex;
   justify-content: space-between;
@@ -1726,4 +1729,7 @@
 }
 .background-style__btn.active {
   border-color: #884ae3;
+}
+.sp-smart-post-carousel-component-mb {
+  margin-bottom: 16px;
 }

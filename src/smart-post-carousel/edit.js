@@ -18,7 +18,7 @@ export default function Edit({ attributes, setAttributes }) {
 			return <p>Loading posts...</p>;
 		}
 		if (!posts || posts.length === 0) {
-			return <p>No posts found.</p>;
+			return <p>{attributes.noPostLabel || "No Posts Found"}</p>;
 		}
 
 		return (

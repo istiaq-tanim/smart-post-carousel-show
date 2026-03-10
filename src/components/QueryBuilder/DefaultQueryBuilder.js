@@ -5,10 +5,12 @@ import { useAttributes } from "../../hooks/useAttributes";
 import useMetaData from "../../hooks/useMetaData";
 import CustomSelection from "../common/CustomSelection/CustomSelection";
 import MultipleSelect from "../common/MultiSelect/MultiSelect";
+import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
+import { TextControl } from "@wordpress/components";
 
-function QueryBuilder() {
+function DefaultQueryBuilder() {
 	const { attributes, setAttributes } = useAttributes();
-	const { multiplePostType } = attributes;
+	const { multiplePostType, noPostLabel } = attributes;
 
 	const { allPostTypes } = useMetaData(attributes, "editSite");
 
@@ -63,8 +65,25 @@ function QueryBuilder() {
 				attributeKey="quickQuery"
 				inline={false}
 			/>
+
+			<CustomRangeControl
+				label={__("Offset", "smart-post-carousel")}
+				attributeKey="offset"
+				min={0}
+				max={100}
+				defaultValue={0}
+				showUnit={false}
+				step={1}
+			></CustomRangeControl>
+
+			<TextControl
+				label="No Result Found Label"
+				value={noPostLabel}
+				onChange={(value) => setAttributes({ noPostLabel: value })}
+				placeholder="No post found"
+			/>
 		</>
 	);
 }
 
-export default QueryBuilder;
+export default DefaultQueryBuilder;

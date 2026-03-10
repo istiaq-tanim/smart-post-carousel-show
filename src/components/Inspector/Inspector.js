@@ -3,7 +3,7 @@ import { PanelBody } from "@wordpress/components";
 import { usePanel } from "../../hooks/usePanel";
 import General from "./../PostCarousel/General";
 import Slider from "./../PostCarousel/Slider";
-import QueryBuilder from "../QueryBuilder";
+import QueryBuilder from "../QueryBuilder/DefaultQueryBuilder";
 import NavigationGeneral from "../NavigationArrow/General";
 import NavigationStyle from "../NavigationArrow/Style";
 import PaginationGeneral from "../Pagination/General";
@@ -28,6 +28,8 @@ import SocialStyle from "../SocialShare/Style";
 import { __ } from "@wordpress/i18n";
 import CustomTabs from "../common/CustomTabs/CustomTabs";
 import CustomToggle from "../common/CustomToggle/CustomToggle";
+import DefaultQueryBuilder from "../QueryBuilder/DefaultQueryBuilder";
+import CommonQueryBuilder from "../QueryBuilder/CommonQueryBuilder";
 
 function Inspector({ attributes, setAttributes }) {
 	const { openPanel, togglePanel } = usePanel();
@@ -59,19 +61,25 @@ function Inspector({ attributes, setAttributes }) {
 				onToggle={() => togglePanel("query")}
 			>
 				{openPanel === "query" && (
-					<QueryBuilder attributes={attributes} setAttributes={setAttributes} />
+					<DefaultQueryBuilder
+						attributes={attributes}
+						setAttributes={setAttributes}
+					></DefaultQueryBuilder>
 				)}
 			</PanelBody>
 
 			{openPanel === "query" && (
-				<PanelBody title="Advance Filter" initialOpen={false}>
+				<PanelBody title="Advance Filtering" initialOpen={false}>
 					<QueryBuilder attributes={attributes} setAttributes={setAttributes} />
 				</PanelBody>
 			)}
 
 			{openPanel === "query" && (
-				<PanelBody title="Common Filter" initialOpen={false}>
-					<QueryBuilder attributes={attributes} setAttributes={setAttributes} />
+				<PanelBody title="Common Filtering" initialOpen={false}>
+					<CommonQueryBuilder
+						attributes={attributes}
+						setAttributes={setAttributes}
+					></CommonQueryBuilder>
 				</PanelBody>
 			)}
 

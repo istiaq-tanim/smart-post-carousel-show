@@ -1271,6 +1271,34 @@
 		"quickQuery": {
 			"type": "string",
 			"default": ""
+		},
+		"offset": {
+			"type": "number",
+			"default": 0
+		},
+		"noPostLabel": {
+			"type": "number",
+			"default": "No post found"
+		},
+		"excludeAuthor": {
+			"type": "array",
+			"default": [],
+			"items": { "type": "object" }
+		},
+		"excludeTerm": {
+			"type": "array",
+			"default": [],
+			"items": { "type": "object" }
+		},
+		"includeOnlyPost": {
+			"type": "array",
+			"default": [],
+			"items": { "type": "object" }
+		},
+		"excludePost": {
+			"type": "array",
+			"default": [],
+			"items": { "type": "object" }
 		}
 	},
 	"render": "file:./render.php",

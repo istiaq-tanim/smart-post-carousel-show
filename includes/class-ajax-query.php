@@ -48,9 +48,6 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			'popular_alltime' => array(),
 		);
 
-		// -------------------------------------------------------------------------
-		// Bootstrap
-		// -------------------------------------------------------------------------
 
 		/**
 		 * Get singleton instance.
@@ -91,11 +88,12 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			// Inspector options panel.
 			add_action( 'wp_ajax_sp_meta_data_query', array( $this, 'meta_data_query' ) );
 			add_action( 'wp_ajax_nopriv_sp_meta_data_query', array( $this, 'meta_data_query' ) );
+
+			add_action( 'wp_ajax_sp_get_all_posts', array( $this, 'get_all_posts' ) );
+			add_action( 'wp_ajax_nopriv_sp_get_all_posts', array( $this, 'get_all_posts' ) );
 		}
 
-		// -------------------------------------------------------------------------
-		// Security helpers
-		// -------------------------------------------------------------------------
+
 
 		/**
 		 * Verify request nonce.
@@ -128,9 +126,6 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			return is_array( $data ) ? $data : array();
 		}
 
-		// -------------------------------------------------------------------------
-		// Public AJAX handlers
-		// -------------------------------------------------------------------------
 
 		/**
 		 * Generic handler — reads postType/multiplePostType from queryData,
@@ -240,9 +235,6 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			);
 		}
 
-		// -------------------------------------------------------------------------
-		// Master query builder
-		// -------------------------------------------------------------------------
 
 		/**
 		 * Build a complete WP_Query args array from queryData.
@@ -294,7 +286,6 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			}
 
 			// 7. Common filters.
-			// resolve_common_filters() may set _require_thumbnail on the returned array.
 			// Promote that flag into $qd before calling resolve_meta_query().
 			$common = $this->resolve_common_filters( $qd );
 
@@ -308,7 +299,7 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			// 8. Taxonomy query.
 			$tax_query = $this->resolve_taxonomy_query( $qd );
 			if ( ! empty( $tax_query ) ) {
-				$args['tax_query'] = $tax_query; // phpcs:ignore WordPress.DB.SlowDBQuery
+				$args['tax_query'] = $tax_query;
 			}
 
 			// 9. Date query (skip when quick query already owns it).
@@ -325,9 +316,19 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			}
 
 			// 11. Meta / custom-field query (also handles _require_thumbnail).
+
 			$meta_query = $this->resolve_meta_query( $qd );
 			if ( ! empty( $meta_query ) ) {
-				$args['meta_query'] = $meta_query; // phpcs:ignore WordPress.DB.SlowDBQuery
+				if ( ! empty( $args['meta_query'] ) ) {
+
+					$args['meta_query'] = array(
+						'relation' => 'AND',
+						$args['meta_query'],
+						$meta_query,
+					);
+				} else {
+					$args['meta_query'] = $meta_query;
+				}
 			}
 
 			// 12. Include only specific post IDs.
@@ -338,9 +339,7 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			return $args;
 		}
 
-		// -------------------------------------------------------------------------
-		// Default filter — post type resolver
-		// -------------------------------------------------------------------------
+
 
 		/**
 		 * Resolve post_type value from queryData.
@@ -401,9 +400,6 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			return $map[ $raw ] ?? $raw;
 		}
 
-		// -------------------------------------------------------------------------
-		// Default filter — pagination
-		// -------------------------------------------------------------------------
 
 		/**
 		 * Resolve posts_per_page, offset, and paged.
@@ -431,9 +427,6 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			return $args;
 		}
 
-		// -------------------------------------------------------------------------
-		// Default filter — order
-		// -------------------------------------------------------------------------
 
 		/**
 		 * Resolve orderby / order args.
@@ -470,9 +463,6 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			);
 		}
 
-		// -------------------------------------------------------------------------
-		// Default filter — Quick Query
-		// -------------------------------------------------------------------------
 
 		/**
 		 * Build WP_Query overrides for the chosen quick query option.
@@ -482,28 +472,46 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 		 * @return array Partial WP_Query args.
 		 */
 		private function resolve_quick_query( $slug ) {
+			// Old code used meta_key which excluded posts without _post_views_count entirely
 			$args = array(
-				'meta_key' => self::VIEWS_META_KEY, // phpcs:ignore WordPress.DB.SlowDBQuery
-				'orderby'  => 'meta_value_num',
-				'order'    => 'DESC',
+				'orderby'    => array(
+					'has_views' => 'DESC',
+					'date'      => 'DESC',
+				),
+				'meta_query' => array( // phpcs:ignore WordPress.DB.SlowDBQuery
+				'relation'  => 'OR',
+				'has_views' => array(
+					'key'     => self::VIEWS_META_KEY,
+					'type'    => 'NUMERIC',
+					'compare' => 'EXISTS',
+				),
+				'no_views'  => array(
+					'key'     => self::VIEWS_META_KEY,
+					'compare' => 'NOT EXISTS',
+				),
+				),
 			);
 
+			// Unknown slug — return without date restriction
 			if ( ! array_key_exists( $slug, self::QUICK_QUERY_MAP ) ) {
 				return $args;
 			}
 
 			$period = self::QUICK_QUERY_MAP[ $slug ];
 
+			// popular_alltime — no date restriction needed
 			if ( empty( $period ) ) {
-				return $args; // All-time — no date restriction.
+				return $args;
 			}
 
+			// Add rolling date window
 			$after = $this->period_to_date( $period );
 			if ( $after ) {
 				$args['date_query'] = array(
 					array(
 						'after'     => $after,
 						'inclusive' => true,
+						'column'    => 'post_date',
 					),
 				);
 			}
@@ -536,9 +544,7 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			return null;
 		}
 
-		// -------------------------------------------------------------------------
-		// Common filters
-		// -------------------------------------------------------------------------
+
 
 		/**
 		 * Resolve every control in the "Common Filtering" Inspector panel:
@@ -622,9 +628,6 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			return $args;
 		}
 
-		// -------------------------------------------------------------------------
-		// Advanced filter — taxonomy
-		// -------------------------------------------------------------------------
 
 		/**
 		 * Build tax_query from taxonomies, categories, termId,
@@ -713,9 +716,56 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			return $tax_query;
 		}
 
-		// -------------------------------------------------------------------------
-		// Advanced filter — date
-		// -------------------------------------------------------------------------
+
+		/**
+		 * Get all posts for include/exclude dropdown search.
+		 * Supports live search text filtering.
+		 */
+		public function get_all_posts() {
+			$this->check_nonce();
+
+			$raw  = isset( $_POST['queryData'] ) ? wp_unslash( $_POST['queryData'] ) : '{}'; // phpcs:ignore
+			$qd  = json_decode( $raw, true );
+			$qd  = is_array( $qd ) ? $qd : array();
+
+			$search_text = sanitize_text_field( $qd['liveSearchText'] ?? '' );
+			$post_type   = $this->resolve_post_type_string( $qd );
+
+			if ( $post_type === 'attachment' ) {
+				$post_type = 'post';
+			}
+			if ( is_array( $post_type ) ) {
+				$post_type = array_values( array_diff( $post_type, array( 'attachment' ) ) );
+				if ( empty( $post_type ) ) {
+					$post_type = array( 'post' );
+				}
+			}
+
+			$query = new WP_Query(
+				array(
+					'post_type'      => $post_type,
+					'post_status'    => 'publish',
+					'posts_per_page' => 0,
+					's'              => $search_text,
+				)
+			);
+
+			$posts = array();
+			if ( $query->have_posts() ) {
+				while ( $query->have_posts() ) {
+					$query->the_post();
+					$posts[] = array(
+						'label' => get_the_title(),
+						'value' => get_the_ID(),
+					);
+				}
+				wp_reset_postdata();
+			}
+
+			wp_send_json_success( array( 'posts' => $posts ) );
+		}
+
+
 
 
 		private function resolve_date_query( array $qd ) {
@@ -877,10 +927,6 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			return $meta_query;
 		}
 
-		// -------------------------------------------------------------------------
-		// Data formatters
-		// -------------------------------------------------------------------------
-
 		/**
 		 * Format a WP_Query result (posts, pages, or mixed types) into response shape.
 		 *
@@ -1022,9 +1068,7 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			return $media_data;
 		}
 
-		// -------------------------------------------------------------------------
-		// Search
-		// -------------------------------------------------------------------------
+
 
 		/**
 		 * Search across posts, pages, and/or media.
@@ -1082,9 +1126,6 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			wp_send_json_success( $results );
 		}
 
-		// -------------------------------------------------------------------------
-		// Meta data query (Inspector options panel)
-		// -------------------------------------------------------------------------
 
 		/**
 		 * Metadata query — provides taxonomies, authors, post types, image sizes, meta fields.
@@ -1180,9 +1221,6 @@ if ( ! class_exists( 'SP_Smart_Content_Ajax_Query' ) ) {
 			);
 		}
 
-		// -------------------------------------------------------------------------
-		// Utility helpers
-		// -------------------------------------------------------------------------
 
 		/**
 		 * Get like button data — delegates to SP_PCP_User_Like if available.

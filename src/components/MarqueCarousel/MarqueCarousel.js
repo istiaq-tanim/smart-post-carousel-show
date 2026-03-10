@@ -6,7 +6,7 @@ export default function MarqueeCarousel({ attributes, posts }) {
 	if (!posts || posts.length === 0) {
 		return (
 			<div className="carousel-empty">
-				<p>No posts available</p>
+				<p>{attributes.noPostLabel || "No Posts Found"}</p>
 			</div>
 		);
 	}
@@ -23,10 +23,7 @@ export default function MarqueeCarousel({ attributes, posts }) {
 				}}
 			>
 				{[...posts, ...posts].map((post, idx) => (
-					<div
-						key={idx}
-						className="sp-smart-post-carousel-marquee-item"
-					>
+					<div key={idx} className="sp-smart-post-carousel-marquee-item">
 						<PostCard post={post} attributes={attributes} />
 					</div>
 				))}

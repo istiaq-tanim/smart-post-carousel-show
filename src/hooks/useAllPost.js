@@ -1,6 +1,6 @@
 import { useEffect, useState } from "@wordpress/element";
 
-function useApi(attributes) {
+function useAllPost(attributes) {
 	const [posts, setPosts] = useState([]);
 	const [loading, setLoading] = useState(true);
 
@@ -12,27 +12,22 @@ function useApi(attributes) {
 		offset,
 		excludeAuthor,
 		excludeTerm,
-		includeOnlyPost,
-		excludePost,
 	} = attributes;
 
 	useEffect(() => {
 		setLoading(true);
-
 		const queryData = {
 			posts_per_page: numberOfSlides,
 			postType: postType,
 			multiplePostType: multiplePostType,
-			quickQuery: quickQuery,
-			offset: offset,
+			quickQuery,
+			offset,
 			excludeAuthor: excludeAuthor,
 			excludeTerm: excludeTerm,
-			includeOnlyPost: includeOnlyPost.map((p) => p.value),
-			excludePost: excludePost,
 		};
 
 		const formData = new FormData();
-		formData.append("action", "sp_query_content");
+		formData.append("action", "sp_get_all_posts");
 		formData.append("nonce", sp_smart_post_block_localize.nonce);
 		formData.append("queryData", JSON.stringify(queryData));
 
@@ -42,7 +37,9 @@ function useApi(attributes) {
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				if (res.success) setPosts(res.data.posts);
+				if (res.success) {
+					setPosts(res.data.posts);
+				}
 			})
 			.catch((error) => console.error("Error:", error))
 			.finally(() => setLoading(false));
@@ -52,13 +49,11 @@ function useApi(attributes) {
 		JSON.stringify(multiplePostType),
 		quickQuery,
 		offset,
-		JSON.stringify(excludeAuthor),
-		JSON.stringify(excludeTerm),
-		JSON.stringify(includeOnlyPost),
-		JSON.stringify(excludePost),
+		excludeAuthor,
+		excludeTerm,
 	]);
 
 	return { posts, loading };
 }
 
-export default useApi;
+export default useAllPost;
