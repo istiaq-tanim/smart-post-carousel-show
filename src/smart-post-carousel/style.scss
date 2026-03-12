@@ -130,10 +130,13 @@
 				height: 100%;
 				object-fit: cover;
 				display: block;
+				// New Added
 				filter: grayscale(var(--cardGrayScaleNormalLevel, 0%))
 					blur(var(--cardBlurNormalLevel, 0px));
 				transition: transform 0.3s ease;
 			}
+
+			// New Added
 
 			&:hover img {
 				filter: grayscale(var(--cardGrayScaleHoverLevel, 0%))
