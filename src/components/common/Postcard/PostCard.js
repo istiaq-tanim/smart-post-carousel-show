@@ -44,8 +44,21 @@ function PostCard({ post, attributes }) {
 		taxonomyType,
 		taxonomyPosition,
 		taxonomyTypo,
-		showTaxonomy,
-		showMetaData,
+		sharingMedia,
+		showSocialShare,
+		socialIconSize,
+		socialIconType,
+		shareIconColorNormal,
+		shareIconColorHover,
+		shareIconBackgroundColorNormal,
+		shareIconBackgroundColorHover,
+		socialIconBorderStyle,
+		socialIconBorderWidth,
+		socialIconBorderColor,
+		socialIconBorderRadiusNormal,
+		socialIconGap,
+		socialIconPadding,
+		socialIconMargin,
 	} = attributes;
 
 	const author =
@@ -143,8 +156,21 @@ function PostCard({ post, attributes }) {
 			taxonomyType,
 			taxonomyPosition,
 			taxonomyTypo,
-			showTaxonomy,
-			showMetaData,
+			sharingMedia,
+			showSocialShare,
+			socialIconSize,
+			socialIconType,
+			shareIconColorNormal,
+			shareIconColorHover,
+			shareIconBackgroundColorNormal,
+			shareIconBackgroundColorHover,
+			socialIconBorderStyle,
+			socialIconBorderWidth,
+			socialIconBorderColor,
+			socialIconBorderRadiusNormal,
+			socialIconGap,
+			socialIconPadding,
+			socialIconMargin,
 		}),
 		[
 			post,
@@ -174,8 +200,19 @@ function PostCard({ post, attributes }) {
 			showTitle,
 			taxonomyType,
 			taxonomyPosition,
-			showTaxonomy,
-			showMetaData,
+			sharingMedia,
+			showSocialShare,
+			socialIconSize,
+			socialIconType,
+			shareIconColorNormal,
+			shareIconColorHover,
+			socialIconBorderColor,
+			socialIconBorderStyle,
+			socialIconBorderWidth,
+			socialIconBorderRadiusNormal,
+			socialIconGap,
+			socialIconPadding,
+			socialIconMargin,
 		],
 	);
 
@@ -191,7 +228,7 @@ function PostCard({ post, attributes }) {
 				<div className="sp-smart-post-carousel-card-image">
 					<img src={image} alt={imageAlt} />
 
-					{showOverlay && showTaxonomy && (
+					{showOverlay && (
 						<div className={overlayClass}>
 							<CategoryList post={post} type={taxonomyType} />
 						</div>
@@ -213,9 +250,7 @@ function PostCard({ post, attributes }) {
 					className="sp-smart-post-carousel-template-content"
 					style={{ "--alignment": `${contentAlignment}` }}
 				>
-					{isAboveTitle && showTaxonomy && (
-						<CategoryList post={post} type={taxonomyType} />
-					)}
+					{isAboveTitle && <CategoryList post={post} type={taxonomyType} />}
 					{allContentArray.map((item) =>
 						getContentElement(item, contentContext),
 					)}

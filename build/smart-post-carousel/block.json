@@ -847,7 +847,7 @@
       "default": "solid"
     },
     "buttonBorderWidthNormal": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 1,
         "tablet": 1,
@@ -855,7 +855,7 @@
       }
     },
     "buttonBorderWidthHover": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 1,
         "tablet": 1,
@@ -871,7 +871,7 @@
       "default": ""
     },
     "buttonBorderRadiusNormal": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 0,
         "tablet": 0,
@@ -879,7 +879,7 @@
       }
     },
     "buttonBorderRadiusHover": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 0,
         "tablet": 0,
@@ -1042,7 +1042,7 @@
       "default": "solid"
     },
     "badgeBorderWidth": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 1,
         "tablet": 1,
@@ -1180,7 +1180,7 @@
       "default": "none"
     },
     "taxonomyBorderWidthNormal": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 1,
         "tablet": 1,
@@ -1188,7 +1188,7 @@
       }
     },
     "taxonomyBorderWidthHover": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 1,
         "tablet": 1,
@@ -1196,7 +1196,7 @@
       }
     },
     "taxonomyBorderRadiusNormal": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 0,
         "tablet": 0,
@@ -1204,7 +1204,7 @@
       }
     },
     "taxonomyBorderRadiusHover": {
-      "type": "number",
+      "type": "object",
       "default": {
         "desktop": 0,
         "tablet": 0,
@@ -1310,6 +1310,153 @@
       "items": {
         "type": "object"
       }
+    },
+    "sharingMedia": {
+      "type": "array",
+      "default": [
+        {
+          "id": "facebook",
+          "value": "facebook",
+          "label": "Facebook"
+        },
+        {
+          "id": "x",
+          "value": "x",
+          "label": "X (Twitter)"
+        },
+        {
+          "id": "linkedin",
+          "value": "linkedin",
+          "label": "LinkedIn"
+        }
+      ],
+      "items": {
+        "type": "object"
+      }
+    },
+    "socialIconSize": {
+      "type": "object",
+      "default": {
+        "desktop": 16,
+        "tablet": 16,
+        "mobile": 16
+      }
+    },
+    "socialIconType": {
+      "type": "string",
+      "default": "original"
+    },
+    "socialIconEffect": {
+      "type": "string",
+      "default": "normal"
+    },
+    "shareIconColorNormal": {
+      "type": "string",
+      "default": "#fff"
+    },
+    "shareIconColorHover": {
+      "type": "string",
+      "default": "#fff"
+    },
+    "shareIconBackgroundColorNormal": {
+      "type": "string",
+      "default": "#4e4f52"
+    },
+    "shareIconBackgroundColorHover": {
+      "type": "string",
+      "default": "#4E6E3E"
+    },
+    "socialIconBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "socialIconHoverBorderStyle": {
+      "type": "string",
+      "default": "solid"
+    },
+    "socialIconBorderWidth": {
+      "type": "object",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "socialIconBorderColor": {
+      "type": "string",
+      "default": "#4e4f52"
+    },
+    "socialIconBorderRadiusNormal": {
+      "type": "object",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "socialIconPadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 8,
+          "right": 8,
+          "bottom": 8,
+          "left": 8,
+          "linked": true
+        },
+        "tablet": {
+          "top": 8,
+          "right": 8,
+          "bottom": 8,
+          "left": 8,
+          "linked": true
+        },
+        "mobile": {
+          "top": 8,
+          "right": 8,
+          "bottom": 8,
+          "left": 8,
+          "linked": true
+        }
+      }
+    },
+    "socialIconMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "socialIconGap": {
+      "type": "object",
+      "default": {
+        "desktop": 8,
+        "tablet": 8,
+        "mobile": 8
+      }
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "custom"
     }
   },
   "render": "file:./render.php",

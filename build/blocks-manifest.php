@@ -852,7 +852,7 @@ return array(
 				'default' => 'solid'
 			),
 			'buttonBorderWidthNormal' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 1,
 					'tablet' => 1,
@@ -860,7 +860,7 @@ return array(
 				)
 			),
 			'buttonBorderWidthHover' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 1,
 					'tablet' => 1,
@@ -876,7 +876,7 @@ return array(
 				'default' => ''
 			),
 			'buttonBorderRadiusNormal' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 0,
 					'tablet' => 0,
@@ -884,7 +884,7 @@ return array(
 				)
 			),
 			'buttonBorderRadiusHover' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 0,
 					'tablet' => 0,
@@ -1047,7 +1047,7 @@ return array(
 				'default' => 'solid'
 			),
 			'badgeBorderWidth' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 1,
 					'tablet' => 1,
@@ -1185,7 +1185,7 @@ return array(
 				'default' => 'none'
 			),
 			'taxonomyBorderWidthNormal' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 1,
 					'tablet' => 1,
@@ -1193,7 +1193,7 @@ return array(
 				)
 			),
 			'taxonomyBorderWidthHover' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 1,
 					'tablet' => 1,
@@ -1201,7 +1201,7 @@ return array(
 				)
 			),
 			'taxonomyBorderRadiusNormal' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 0,
 					'tablet' => 0,
@@ -1209,7 +1209,7 @@ return array(
 				)
 			),
 			'taxonomyBorderRadiusHover' => array(
-				'type' => 'number',
+				'type' => 'object',
 				'default' => array(
 					'desktop' => 0,
 					'tablet' => 0,
@@ -1323,6 +1323,153 @@ return array(
 				'items' => array(
 					'type' => 'object'
 				)
+			),
+			'sharingMedia' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'facebook',
+						'value' => 'facebook',
+						'label' => 'Facebook'
+					),
+					array(
+						'id' => 'x',
+						'value' => 'x',
+						'label' => 'X (Twitter)'
+					),
+					array(
+						'id' => 'linkedin',
+						'value' => 'linkedin',
+						'label' => 'LinkedIn'
+					)
+				),
+				'items' => array(
+					'type' => 'object'
+				)
+			),
+			'socialIconSize' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 16,
+					'tablet' => 16,
+					'mobile' => 16
+				)
+			),
+			'socialIconType' => array(
+				'type' => 'string',
+				'default' => 'original'
+			),
+			'socialIconEffect' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'shareIconColorNormal' => array(
+				'type' => 'string',
+				'default' => '#fff'
+			),
+			'shareIconColorHover' => array(
+				'type' => 'string',
+				'default' => '#fff'
+			),
+			'shareIconBackgroundColorNormal' => array(
+				'type' => 'string',
+				'default' => '#4e4f52'
+			),
+			'shareIconBackgroundColorHover' => array(
+				'type' => 'string',
+				'default' => '#4E6E3E'
+			),
+			'socialIconBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'socialIconHoverBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'solid'
+			),
+			'socialIconBorderWidth' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'socialIconBorderColor' => array(
+				'type' => 'string',
+				'default' => '#4e4f52'
+			),
+			'socialIconBorderRadiusNormal' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'socialIconPadding' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 8,
+						'right' => 8,
+						'bottom' => 8,
+						'left' => 8,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 8,
+						'right' => 8,
+						'bottom' => 8,
+						'left' => 8,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 8,
+						'right' => 8,
+						'bottom' => 8,
+						'left' => 8,
+						'linked' => true
+					)
+				)
+			),
+			'socialIconMargin' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
+				)
+			),
+			'socialIconGap' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 8,
+					'tablet' => 8,
+					'mobile' => 8
+				)
+			),
+			'imageSize' => array(
+				'type' => 'string',
+				'default' => 'custom'
 			)
 		),
 		'render' => 'file:./render.php',

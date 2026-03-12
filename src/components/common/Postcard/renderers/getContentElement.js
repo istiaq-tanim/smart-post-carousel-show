@@ -4,6 +4,7 @@ import CategoryList from "../CategoryList";
 import Excerpt from "../Excerpt";
 import MetaSeparator from "../MetaSeparator";
 import ReadMore from "../ReadMore";
+import SocialIcon from "../SocialIcon";
 import Title from "../Title";
 import getMetaElement from "./getMetaElement";
 
@@ -32,8 +33,21 @@ const getContentElement = (
 		showTitle,
 		taxonomyType,
 		taxonomyPosition,
-		showTaxonomy,
-		showMetaData,
+		sharingMedia,
+		showSocialShare,
+		socialIconSize,
+		socialIconType,
+		shareIconColorNormal,
+		shareIconColorHover,
+		shareIconBackgroundColorNormal,
+		shareIconBackgroundColorHover,
+		socialIconBorderStyle,
+		socialIconBorderWidth,
+		socialIconBorderColor,
+		socialIconBorderRadiusNormal,
+		socialIconGap,
+		socialIconPadding,
+		socialIconMargin,
 	},
 ) => {
 	const deviceType = useDeviceType();
@@ -46,11 +60,7 @@ const getContentElement = (
 				orientation,
 			);
 			if (!showInContent) return null;
-			return (
-				showTaxonomy && (
-					<CategoryList key="category" post={post} type={taxonomyType} />
-				)
-			);
+			return <CategoryList key="category" post={post} type={taxonomyType} />;
 		}
 
 		case "title":
@@ -59,7 +69,6 @@ const getContentElement = (
 			);
 
 		case "meta":
-			if (!showMetaData) return null;
 			const visibleItems = metaDataAllContentArray.filter((i) => i.show);
 			return (
 				<div
@@ -140,17 +149,47 @@ const getContentElement = (
 
 		case "social":
 			return (
-				<ul key="social" className="sp-smart-post-carousel-social-share">
-					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook"></i>
-					</li>
-					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook"></i>
-					</li>
-					<li className="sp-smart-post-carousel-social-share-icon">
-						<i className="sp-icon-facebook"></i>
-					</li>
-				</ul>
+				showSocialShare && (
+					<div
+						className="sp-smart-post-carousel-share-icons-preview"
+						style={{
+							"--social-icon-size": `${
+								socialIconSize[normalizedDeviceType] ?? 36
+							}px`,
+							"--social-icon-color-normal": shareIconColorNormal,
+							"--social-icon-color-hover": shareIconColorHover,
+							"--social-icon-bg-normal": shareIconBackgroundColorNormal,
+							"--social-icon-bg-hover": shareIconBackgroundColorHover,
+							"--social-icon-border": socialIconBorderStyle || "none",
+							"--social-icon-border-size": `${
+								socialIconBorderWidth?.[normalizedDeviceType] ?? 0
+							}px`,
+							"--social-icon-border-color": `${
+								socialIconBorderColor ?? "#4e4f52"
+							}`,
+							"--social-icon-border-radius": `${
+								socialIconBorderRadiusNormal?.[normalizedDeviceType] ?? 0
+							}px`,
+							"--social-icon-gap": `${
+								socialIconGap?.[normalizedDeviceType] ?? 0
+							}px`,
+							"--social-icon-padding": `${
+								socialIconPadding?.[normalizedDeviceType]?.top ?? 0
+							}px ${socialIconPadding?.[normalizedDeviceType]?.right ?? 0}px ${
+								socialIconPadding?.[normalizedDeviceType]?.bottom ?? 0
+							}px ${socialIconPadding?.[normalizedDeviceType]?.left ?? 0}px`,
+							"--social-icon-margin": `${
+								socialIconMargin?.[normalizedDeviceType]?.top ?? 0
+							}px ${socialIconMargin?.[normalizedDeviceType]?.right ?? 0}px ${
+								socialIconMargin?.[normalizedDeviceType]?.bottom ?? 0
+							}px ${socialIconMargin?.[normalizedDeviceType]?.left ?? 0}px`,
+						}}
+					>
+						{sharingMedia.map(({ value }) => (
+							<SocialIcon key={value} value={value} type={socialIconType} />
+						))}
+					</div>
+				)
 			);
 
 		default:

@@ -19,8 +19,6 @@ function Style() {
 		taxonomyBorderColorHover,
 		taxonomyPadding,
 		taxonomyMargin,
-		taxonomyBorderStyle,
-		taxonomyHoverBorderStyle,
 	} = attributes;
 
 	const currentColor = taxonomyTextColor?.[taxonomyEffect] ?? "";

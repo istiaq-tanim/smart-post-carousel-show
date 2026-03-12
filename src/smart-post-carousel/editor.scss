@@ -84,6 +84,62 @@
 	}
 }
 
+$sp-platforms: (
+	"facebook": #1877f2,
+	"x": #000000,
+	"linkedin": #0a66c2,
+	"pinterest": #e60023,
+	"email": #ea4335,
+	"instagram": #e1306c,
+	"vk": #4680c2,
+	"whatsapp": #25d366,
+);
+
+.sp-smart-post-carousel-share-icons-preview {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--social-icon-gap);
+	margin: var(--social-icon-margin);
+
+	.sp-smart-post-carousel-social-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: var(--social-icon-size, 36px);
+		height: var(--social-icon-size, 36px);
+		color: #fff;
+		flex-shrink: 0;
+		border-style: var(--social-icon-border);
+		border-width: var(--social-icon-border-size);
+		border-color: var(--social-icon-border-color);
+		border-radius: var(--social-icon-border-radius);
+		padding: var(--social-icon-padding);
+
+		svg {
+			width: 20px;
+			height: 20px;
+			display: block;
+		}
+
+		@each $platform, $color in $sp-platforms {
+			&[data-platform="#{$platform}"] {
+				background-color: $color;
+			}
+		}
+
+		&.custom-color {
+			background-color: var(--social-icon-bg-normal, #4e4f52) !important;
+			color: var(--social-icon-color-normal, #fff);
+
+			&:hover {
+				background-color: var(--social-icon-bg-hover, #4e6e3e) !important;
+				color: var(--social-icon-color-hover, #fff);
+			}
+		}
+	}
+}
+
 .sp-smart-post-carousel-component-mb {
 	margin-bottom: 16px;
 }
