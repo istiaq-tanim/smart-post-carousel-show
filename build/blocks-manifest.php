@@ -1298,6 +1298,34 @@ return array(
 				'items' => array(
 					'type' => 'object'
 				)
+			),
+			'imageHoverEffectType' => array(
+				'type' => 'string',
+				'default' => 'zoom-in'
+			),
+			'hoverEffectOpacity' => array(
+				'type' => 'number',
+				'default' => 1
+			),
+			'imageEffect' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'grayScaleNormalLevel' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'grayScaleHoverLevel' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'blurNormalLevel' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'blurHoverLevel' => array(
+				'type' => 'number',
+				'default' => 0
 			)
 		),
 		'render' => 'file:./render.php',

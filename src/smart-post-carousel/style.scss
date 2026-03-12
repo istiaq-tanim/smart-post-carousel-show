@@ -130,11 +130,62 @@
 				height: 100%;
 				object-fit: cover;
 				display: block;
+				filter: grayscale(var(--cardGrayScaleNormalLevel, 0%))
+					blur(var(--cardBlurNormalLevel, 0px));
 				transition: transform 0.3s ease;
 			}
 
 			&:hover img {
-				transform: scale(1.1);
+				filter: grayscale(var(--cardGrayScaleHoverLevel, 0%))
+					blur(var(--cardBlurHoverLevel, 0px));
+			}
+
+			// Added New Hover Style
+
+			&.hover-effect-zoom-out img {
+				transform: scale(1.15);
+			}
+
+			&.hover-effect-slide-left img {
+				transform: scale(1.1) translateX(5%);
+			}
+			&.hover-effect-slide-right img {
+				transform: scale(1.1) translateX(-5%);
+			}
+
+			&.hover-effect-opacity img {
+				transition: opacity 0.4s ease;
+			}
+
+			// Hover states
+			&.hover-effect-normal img {
+				transition: none;
+			}
+			&.hover-effect-zoom-in:hover img {
+				transform: scale(1.15);
+			}
+			&.hover-effect-zoom-out:hover img {
+				transform: scale(1);
+			}
+			&.hover-effect-slide-left:hover img {
+				transform: scale(1.1) translateX(-5%);
+			}
+			&.hover-effect-slide-right:hover img {
+				transform: scale(1.1) translateX(5%);
+			}
+			&.hover-effect-rotate-left:hover img {
+				transform: scale(1.1) rotate(-5deg);
+			}
+			&.hover-effect-rotate-right:hover img {
+				transform: scale(1.1) rotate(5deg);
+			}
+			&.hover-effect-opacity:hover img {
+				opacity: var(--cardHoverEffectOpacity);
+			}
+
+			// normal = no transition at all
+			&.hover-effect-normal img {
+				transition: none;
 			}
 		}
 

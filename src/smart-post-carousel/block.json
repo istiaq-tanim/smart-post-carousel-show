@@ -1293,6 +1293,34 @@
 			"items": {
 				"type": "object"
 			}
+		},
+		"imageHoverEffectType": {
+			"type": "string",
+			"default": "zoom-in"
+		},
+		"hoverEffectOpacity": {
+			"type": "number",
+			"default": 1
+		},
+		"imageEffect": {
+			"type": "string",
+			"default": "normal"
+		},
+		"grayScaleNormalLevel": {
+			"type": "number",
+			"default": 0
+		},
+		"grayScaleHoverLevel": {
+			"type": "number",
+			"default": 0
+		},
+		"blurNormalLevel": {
+			"type": "number",
+			"default": 0
+		},
+		"blurHoverLevel": {
+			"type": "number",
+			"default": 0
 		}
 	},
 	"render": "file:./render.php",

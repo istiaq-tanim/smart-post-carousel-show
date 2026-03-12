@@ -46,7 +46,15 @@ function PostCard({ post, attributes }) {
 		taxonomyType,
 		taxonomyPosition,
 		taxonomyTypo,
-		sharingMedia
+		sharingMedia,
+		// New Added
+		imageHoverEffectType,
+		hoverEffectOpacity,
+		grayScaleNormalLevel,
+		grayScaleHoverLevel,
+		blurNormalLevel,
+		blurHoverLevel
+
 	} = attributes;
 
 	const author =
@@ -182,14 +190,27 @@ function PostCard({ post, attributes }) {
 	const dateShow = metaDataAllContentArray.find(item => item.value === "date")
 
 
+	// New Style Added
+	const combinedImageStyles = {
+		// ...imageStyles,
+		// ...overlayStyles,
+		// "--cardScale": `${imageScale ?? "none"}`,
+		"--cardHoverEffectOpacity": hoverEffectOpacity ?? 1,
+		"--cardGrayScaleNormalLevel": grayScaleNormalLevel ?? 0,
+		"--cardGrayScaleHoverLevel": grayScaleHoverLevel ?? 0,
+		"--cardBlurNormalLevel": `${blurNormalLevel}px` ?? 0,
+		"--cardBlurHoverLevel": `${blurHoverLevel}px` ?? 0,
+	};
+
 
 	return (
 		<div className={cardClassName} style={cardStyles}>
 			<div className="sp-smart-post-carousel-card-wrapper">
 
 				{/* ── IMAGE ── */}
-				<div className="sp-smart-post-carousel-card-image">
-					<img src={image} alt={imageAlt} />
+				{/* imageHoverEffectType added new */}
+				<div className={`sp-smart-post-carousel-card-image${imageHoverEffectType ? ` hover-effect-${imageHoverEffectType}` : ""}`}>
+					<img src={image} alt={imageAlt} style={combinedImageStyles} />
 
 					{showOverlay && (
 						<div className={overlayClass}>
