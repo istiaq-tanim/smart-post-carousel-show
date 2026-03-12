@@ -50,7 +50,7 @@ return array(
 			),
 			'showFeaturedImage' => array(
 				'type' => 'boolean',
-				'default' => false
+				'default' => true
 			),
 			'carouselStyle' => array(
 				'type' => 'string',
@@ -1470,6 +1470,45 @@ return array(
 			'imageSize' => array(
 				'type' => 'string',
 				'default' => 'custom'
+			),
+			'imageWidth' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 100,
+					'tablet' => 100,
+					'mobile' => 100
+				)
+			),
+			'imageHeight' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 245,
+					'tablet' => 245,
+					'mobile' => 245
+				)
+			),
+			'imageOverlayType' => array(
+				'type' => 'string',
+				'default' => 'no-overlay'
+			),
+			'imageScale' => array(
+				'type' => 'string',
+				'default' => 'cover'
+			),
+			'imageOverlayCustomColorEffect' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'imageBackGroundStyles' => array(
+				'type' => 'object',
+				'default' => array(
+					'type' => 'transparent',
+					'hoverType' => 'transparent',
+					'solidBackground' => '#1E1E1E99',
+					'gradientBackground' => '',
+					'hoverSolidBackground' => '#1E1E1E99',
+					'hoverGradientBackground' => ''
+				)
 			)
 		),
 		'render' => 'file:./render.php',

@@ -102,11 +102,22 @@
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image {
   position: relative;
-  width: 100%;
-  height: 245px;
-  min-height: 245px;
+  width: var(--card-image-width, 100%);
+  height: var(--card-image-height, 245px);
+  min-height: var(--card-image-height, 245px);
   flex-shrink: 0;
   overflow: hidden;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--card-overlay, none);
+  pointer-events: none;
+  transition: background 0.3s ease;
+  z-index: 1;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image:hover .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image-overlay {
+  background: var(var(--card-overlay, none));
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image img {
   width: 100%;
@@ -114,6 +125,7 @@
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
+  transform: scale(var(--cardScale, 1));
   transition: transform 0.3s ease;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image:hover img {

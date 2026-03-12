@@ -45,7 +45,7 @@
     },
     "showFeaturedImage": {
       "type": "boolean",
-      "default": false
+      "default": true
     },
     "carouselStyle": {
       "type": "string",
@@ -1457,6 +1457,45 @@
     "imageSize": {
       "type": "string",
       "default": "custom"
+    },
+    "imageWidth": {
+      "type": "object",
+      "default": {
+        "desktop": 100,
+        "tablet": 100,
+        "mobile": 100
+      }
+    },
+    "imageHeight": {
+      "type": "object",
+      "default": {
+        "desktop": 245,
+        "tablet": 245,
+        "mobile": 245
+      }
+    },
+    "imageOverlayType": {
+      "type": "string",
+      "default": "no-overlay"
+    },
+    "imageScale": {
+      "type": "string",
+      "default": "cover"
+    },
+    "imageOverlayCustomColorEffect": {
+      "type": "string",
+      "default": "normal"
+    },
+    "imageBackGroundStyles": {
+      "type": "object",
+      "default": {
+        "type": "transparent",
+        "hoverType": "transparent",
+        "solidBackground": "#1E1E1E99",
+        "gradientBackground": "",
+        "hoverSolidBackground": "#1E1E1E99",
+        "hoverGradientBackground": ""
+      }
     }
   },
   "render": "file:./render.php",

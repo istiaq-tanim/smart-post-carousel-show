@@ -6,8 +6,10 @@ import { getCardStyles } from "../../../../utils/getCardStyles";
 import { getCategoryRenderLocation } from "./../../../../utils/getRenderLocation";
 import CategoryList from "./CategoryList";
 import getContentElement from "./renderers/getContentElement";
+import { getImageStyles } from "../../../../utils/getImageStyle";
+import { getOverLayStyle } from "../../../../utils/getOverlaySTyle";
 
-function PostCard({ post, attributes }) {
+function PostCard({ post, attributes, index }) {
 	const title = post?.title;
 	const imageAlt = post?.image_alt || "featured image";
 	const deviceType = useDeviceType();
@@ -59,6 +61,13 @@ function PostCard({ post, attributes }) {
 		socialIconGap,
 		socialIconPadding,
 		socialIconMargin,
+		showFeaturedImage,
+		imageSize,
+		imageWidth,
+		imageHeight,
+		imageOverlayType,
+		imageScale,
+		imageBackGroundStyles,
 	} = attributes;
 
 	const author =
@@ -221,29 +230,59 @@ function PostCard({ post, attributes }) {
 		(item) => item.value === "date",
 	);
 
+	const imageStyles = getImageStyles(
+		imageSize,
+		imageWidth,
+		imageHeight,
+		normalizedDeviceType,
+	);
+
+	const overlayStyles = getOverLayStyle(
+		imageOverlayType,
+		index,
+		imageBackGroundStyles,
+	);
+
+	console.log(overlayStyles);
+
+	const combinedImageStyles = {
+		...imageStyles,
+		...overlayStyles,
+		"--cardScale": `${imageScale ?? "none"}`,
+	};
+
 	return (
 		<div className={cardClassName} style={cardStyles}>
 			<div className="sp-smart-post-carousel-card-wrapper">
 				{/* ── IMAGE ── */}
-				<div className="sp-smart-post-carousel-card-image">
-					<img src={image} alt={imageAlt} />
+				{showFeaturedImage && (
+					<div
+						className="sp-smart-post-carousel-card-image"
+						style={combinedImageStyles}
+					>
+						<img src={image} alt={imageAlt} />
 
-					{showOverlay && (
-						<div className={overlayClass}>
-							<CategoryList post={post} type={taxonomyType} />
-						</div>
-					)}
+						<div className="sp-smart-post-carousel-card-image-overlay" />
 
-					{/* Date badge */}
-					{dateShow.show && (
-						<div className="sp-smart-post-carousel-date">
-							<span className="sp-smart-post-carousel-day">{postDate.day}</span>
-							<span className="sp-smart-post-carousel-month-year">
-								{postDate.month} {postDate.year}
-							</span>
-						</div>
-					)}
-				</div>
+						{showOverlay && (
+							<div className={overlayClass}>
+								<CategoryList post={post} type={taxonomyType} />
+							</div>
+						)}
+
+						{/* Date badge */}
+						{dateShow.show && (
+							<div className="sp-smart-post-carousel-date">
+								<span className="sp-smart-post-carousel-day">
+									{postDate.day}
+								</span>
+								<span className="sp-smart-post-carousel-month-year">
+									{postDate.month} {postDate.year}
+								</span>
+							</div>
+						)}
+					</div>
+				)}
 
 				{/* ── CONTENT ── */}
 				<div

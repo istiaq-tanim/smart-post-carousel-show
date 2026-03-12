@@ -260,9 +260,9 @@ export default function SwiperCarousel({ attributes, posts }) {
 			));
 		}
 
-		return posts.map((post) => (
+		return posts.map((post, index) => (
 			<SwiperSlide key={post.post_id}>
-				<PostCard post={post} attributes={attributes} />
+				<PostCard post={post} attributes={attributes} index={index} />
 			</SwiperSlide>
 		));
 	};
