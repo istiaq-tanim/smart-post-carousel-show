@@ -1,29 +1,33 @@
 import { InspectorControls } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 import { usePanel } from "../../hooks/usePanel";
-import General from "./../PostCarousel/General";
-import Slider from "./../PostCarousel/Slider";
-import QueryBuilder from "../QueryBuilder";
+import ContentAreaGeneral from "../ContentArea/General";
+import ContentAreaStyle from "../ContentArea/Style";
+import ExcerptGeneral from "../Excerpt/General";
+import ExcerptStyle from "../Excerpt/Style";
+import ImageContentGeneral from "../ImageSection/General";
+import ImageContentStyle from "../ImageSection/Style";
+import MetaDataGeneral from "../MetaData/General";
+import MetaDataStyle from "../MetaData/Style";
 import NavigationGeneral from "../NavigationArrow/General";
 import NavigationStyle from "../NavigationArrow/Style";
 import PaginationGeneral from "../Pagination/General";
 import PaginationStyle from "../Pagination/Style";
-import ContentAreaGeneral from "../ContentArea/General";
-import ContentAreaStyle from "../ContentArea/Style";
-import ImageContentGeneral from "../ImageSection/General";
-import ImageContentStyle from "../ImageSection/Style";
-import TitleAreaGeneral from "../TitleArea/General";
-import TitleAreaStyle from "../TitleArea/Style";
-import TaxonomyGeneral from "../Taxonomy/General";
-import TaxonomyStyle from "../Taxonomy/Style";
-import MetaDataGeneral from "../MetaData/General";
-import MetaDataStyle from "../MetaData/Style";
+import QueryBuilder from "../QueryBuilder";
 import ReadMoreGeneral from "../ReadMore/General";
 import ReadMoreStyle from "../ReadMore/Style";
-import ExcerptGeneral from "../Excerpt/General";
-import ExcerptStyle from "../Excerpt/Style";
 import SocialGeneral from "../SocialShare/General";
 import SocialStyle from "../SocialShare/Style";
+import TaxonomyGeneral from "../Taxonomy/General";
+import TaxonomyStyle from "../Taxonomy/Style";
+import TitleAreaGeneral from "../TitleArea/General";
+import TitleAreaStyle from "../TitleArea/Style";
+import General from "./../PostCarousel/General";
+import Slider from "./../PostCarousel/Slider";
+
+import Advance from "../Advanced/Advance";
+import AdvancedStyle from "../Advanced/AdvanceStyle";
+import Visibility from "../Advanced/Visibility";
 
 import { __ } from "@wordpress/i18n";
 import CustomTabs from "../common/CustomTabs/CustomTabs";
@@ -334,6 +338,24 @@ function Inspector({ attributes, setAttributes }) {
 							/>
 						)}
 					</>
+				)}
+			</PanelBody>
+
+			<PanelBody
+				title="Advanced"
+				opened={openPanel === "advanced"}
+				onToggle={() => togglePanel("advanced")}
+			>
+				{openPanel === "advanced" && (
+					<CustomTabs
+						GeneralTab={AdvancedStyle}
+						VisibilityTab={Visibility}
+						AdvancedTab={Advance}
+						attributes={attributes}
+						setAttributes={setAttributes}
+						displayIcon={false}
+						initialTab="general"
+					/>
 				)}
 			</PanelBody>
 		</InspectorControls>

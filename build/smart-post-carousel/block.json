@@ -12,7 +12,9 @@
     "align": [
       "wide",
       "full"
-    ]
+    ],
+    "advanced": false,
+    "customClassName": false
   },
   "attributes": {
     "showReadMore": {
@@ -1321,6 +1323,121 @@
     "blurHoverLevel": {
       "type": "number",
       "default": 0
+    },
+    "cardEffectType": {
+      "type": "string",
+      "default": "normal"
+    },
+    "cardBackGroundStyles": {
+      "type": "object",
+      "default": {
+        "type": "transparent",
+        "hoverType": "transparent",
+        "solidBackground": "#fff",
+        "gradientBackground": "",
+        "hoverSolidBackground": "#fff",
+        "hoverGradientBackground": ""
+      }
+    },
+    "cardBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "cardHoverBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "cardBorderWidthNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "cardBorderWidthHover": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "cardBorderColorNormal": {
+      "type": "string",
+      "default": "#4e6e3e"
+    },
+    "cardBorderColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "cardBorderRadiusNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "cardBorderRadiusHover": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "cardPadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 8,
+          "right": 16,
+          "bottom": 8,
+          "left": 16,
+          "linked": true
+        },
+        "tablet": {
+          "top": 8,
+          "right": 16,
+          "bottom": 8,
+          "left": 16,
+          "linked": true
+        },
+        "mobile": {
+          "top": 8,
+          "right": 16,
+          "bottom": 8,
+          "left": 16,
+          "linked": true
+        }
+      }
+    },
+    "cardMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
     }
   },
   "render": "file:./render.php",

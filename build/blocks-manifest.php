@@ -17,7 +17,9 @@ return array(
 			'align' => array(
 				'wide',
 				'full'
-			)
+			),
+			'advanced' => false,
+			'customClassName' => false
 		),
 		'attributes' => array(
 			'showReadMore' => array(
@@ -1326,6 +1328,121 @@ return array(
 			'blurHoverLevel' => array(
 				'type' => 'number',
 				'default' => 0
+			),
+			'cardEffectType' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'cardBackGroundStyles' => array(
+				'type' => 'object',
+				'default' => array(
+					'type' => 'transparent',
+					'hoverType' => 'transparent',
+					'solidBackground' => '#fff',
+					'gradientBackground' => '',
+					'hoverSolidBackground' => '#fff',
+					'hoverGradientBackground' => ''
+				)
+			),
+			'cardBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'cardHoverBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'cardBorderWidthNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'cardBorderWidthHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'cardBorderColorNormal' => array(
+				'type' => 'string',
+				'default' => '#4e6e3e'
+			),
+			'cardBorderColorHover' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'cardBorderRadiusNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'cardBorderRadiusHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'cardPadding' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 8,
+						'right' => 16,
+						'bottom' => 8,
+						'left' => 16,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 8,
+						'right' => 16,
+						'bottom' => 8,
+						'left' => 16,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 8,
+						'right' => 16,
+						'bottom' => 8,
+						'left' => 16,
+						'linked' => true
+					)
+				)
+			),
+			'cardMargin' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
+				)
 			)
 		),
 		'render' => 'file:./render.php',
