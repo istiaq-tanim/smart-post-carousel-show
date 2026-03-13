@@ -12,7 +12,9 @@
     "align": [
       "wide",
       "full"
-    ]
+    ],
+    "advanced": false,
+    "customClassName": false
   },
   "attributes": {
     "showReadMore": {

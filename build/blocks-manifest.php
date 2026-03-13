@@ -17,7 +17,9 @@ return array(
 			'align' => array(
 				'wide',
 				'full'
-			)
+			),
+			'advanced' => false,
+			'customClassName' => false
 		),
 		'attributes' => array(
 			'showReadMore' => array(

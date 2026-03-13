@@ -9,7 +9,9 @@
 	"example": {},
 	"supports": {
 		"html": false,
-		"align": ["wide", "full"]
+		"align": ["wide", "full"],
+		"advanced": false,
+		"customClassName": false
 	},
 	"attributes": {
 		"showReadMore": {

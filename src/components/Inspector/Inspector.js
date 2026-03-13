@@ -1,9 +1,11 @@
-import { InspectorControls } from "@wordpress/block-editor";
+import {
+	InspectorControls,
+	InspectorAdvancedControls,
+} from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 import { usePanel } from "../../hooks/usePanel";
 import General from "./../PostCarousel/General";
 import Slider from "./../PostCarousel/Slider";
-import QueryBuilder from "../QueryBuilder/DefaultQueryBuilder";
 import NavigationGeneral from "../NavigationArrow/General";
 import NavigationStyle from "../NavigationArrow/Style";
 import PaginationGeneral from "../Pagination/General";
@@ -24,6 +26,9 @@ import ExcerptGeneral from "../Excerpt/General";
 import ExcerptStyle from "../Excerpt/Style";
 import SocialGeneral from "../SocialShare/General";
 import SocialStyle from "../SocialShare/Style";
+import AdvancedStyle from "../Advanced/AdvanceStyle";
+import Visibility from "../Advanced/Visibility";
+import Advance from "../Advanced/Advance";
 
 import { __ } from "@wordpress/i18n";
 import CustomTabs from "../common/CustomTabs/CustomTabs";
@@ -342,6 +347,25 @@ function Inspector({ attributes, setAttributes }) {
 							/>
 						)}
 					</>
+				)}
+			</PanelBody>
+
+			{/* Advanced Panel */}
+			<PanelBody
+				title="Advanced"
+				opened={openPanel === "advanced"}
+				onToggle={() => togglePanel("advanced")}
+			>
+				{openPanel === "advanced" && (
+					<CustomTabs
+						GeneralTab={AdvancedStyle}
+						VisibilityTab={Visibility}
+						AdvancedTab={Advance}
+						attributes={attributes}
+						setAttributes={setAttributes}
+						displayIcon={false}
+						initialTab="general"
+					/>
 				)}
 			</PanelBody>
 		</InspectorControls>
