@@ -114,6 +114,9 @@
 		.sp-smart-post-carousel-card-wrapper {
 			padding: var(--card-padding, 0px);
 			margin: var(--card-Margin, 0px);
+			display: flex;
+			flex-direction: column;
+			gap: var(--cardSpaceBetweenContent, 12px);
 		}
 
 		/* IMAGE */
@@ -124,6 +127,13 @@
 			min-height: var(--card-image-height, 245px);
 			flex-shrink: 0;
 			overflow: hidden;
+			border-style: var(--image-border-style, solid);
+			border-width: var(--image-border-size, 1px);
+			border-color: var(--image-border-color, #4e4f52);
+			border-radius: var(--cardImageBorderRadius, 0px);
+			&:hover {
+				border-color: var(--image-hover-border-color, #4e4f52);
+			}
 
 			&-overlay {
 				position: absolute;
@@ -145,13 +155,15 @@
 				display: block;
 				transform: scale(var(--cardScale, 1));
 				filter: grayscale(var(--cardGrayScaleNormalLevel, 0%))
-					blur(var(--cardBlurNormalLevel, 0px));
+					blur(var(--cardBlurNormalLevel, 0px))
+					brightness(var(--cardBrightnessNormalLevel, 1));
 				transition: transform 0.3s ease;
 			}
 
 			&:hover img {
 				filter: grayscale(var(--cardGrayScaleHoverLevel, 0%))
-					blur(var(--cardBlurHoverLevel, 0px));
+					blur(var(--cardBlurHoverLevel, 0px))
+					brightness(var(--cardBrightnessHoverLevel, 1));
 				transform: scale(1.1);
 			}
 

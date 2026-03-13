@@ -1324,6 +1324,22 @@ return array(
 					'type' => 'object'
 				)
 			),
+			'excludeStickyPosts' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'excludeCurrentPosts' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'excludeProtectedPosts' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'excludePostWithoutImagePosts' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
 			'sharingMedia' => array(
 				'type' => 'array',
 				'default' => array(
@@ -1538,21 +1554,53 @@ return array(
 				'type' => 'number',
 				'default' => 0
 			),
-			'excludeStickyPosts' => array(
-				'type' => 'boolean',
-				'default' => false
+			'brightnessNormalLevel' => array(
+				'type' => 'number',
+				'default' => 1
 			),
-			'excludeCurrentPosts' => array(
-				'type' => 'boolean',
-				'default' => true
+			'brightnessHoverLevel' => array(
+				'type' => 'number',
+				'default' => 1
 			),
-			'excludeProtectedPosts' => array(
-				'type' => 'boolean',
-				'default' => false
+			'imageBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'solid'
 			),
-			'excludePostWithoutImagePosts' => array(
-				'type' => 'boolean',
-				'default' => false
+			'imageBorderWidth' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'imageColorEffect' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'imageBorderColorNormal' => array(
+				'type' => 'string',
+				'default' => '#cccccc'
+			),
+			'imageBorderColorHover' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'imageBorderRadius' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'spaceBetweenContent' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => 12,
+					'tablet' => 12,
+					'mobile' => 12
+				)
 			)
 		),
 		'render' => 'file:./render.php',

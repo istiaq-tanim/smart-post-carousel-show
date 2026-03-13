@@ -75,6 +75,14 @@ function PostCard({ post, attributes, index }) {
 		grayScaleHoverLevel,
 		blurNormalLevel,
 		blurHoverLevel,
+		brightnessNormalLevel,
+		brightnessHoverLevel,
+		imageBorderStyle,
+		imageBorderWidth,
+		imageBorderColorNormal,
+		imageBorderColorHover,
+		imageBorderRadius,
+		spaceBetweenContent,
 	} = attributes;
 
 	const author =
@@ -257,11 +265,28 @@ function PostCard({ post, attributes, index }) {
 		"--cardGrayScaleHoverLevel": grayScaleHoverLevel ?? 0,
 		"--cardBlurNormalLevel": `${blurNormalLevel}px` ?? 0,
 		"--cardBlurHoverLevel": `${blurHoverLevel}px` ?? 0,
+		"--cardBrightnessNormalLevel": `${brightnessNormalLevel}` ?? 1,
+		"--cardBrightnessHoverLevel": `${brightnessHoverLevel}` ?? 1,
+		"--image-border-style": imageBorderStyle || "none",
+		"--image-border-size": `${imageBorderWidth[normalizedDeviceType] ?? 1}px`,
+		"--image-border-color": imageBorderColorNormal || "#4E4F52",
+		"--image-hover-border-color":
+			`${imageBorderColorHover || imageBorderColorNormal}` || "#000",
+		"--cardImageBorderRadius": `${
+			imageBorderRadius[normalizedDeviceType] ?? 0
+		}px`,
 	};
 
 	return (
 		<div className={cardClassName} style={cardStyles}>
-			<div className="sp-smart-post-carousel-card-wrapper">
+			<div
+				className="sp-smart-post-carousel-card-wrapper"
+				style={{
+					"--cardSpaceBetweenContent": `${
+						spaceBetweenContent[normalizedDeviceType] ?? 12
+					}px`,
+				}}
+			>
 				{/* ── IMAGE ── */}
 				{showFeaturedImage && (
 					<div
