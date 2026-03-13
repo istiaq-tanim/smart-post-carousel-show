@@ -1,12 +1,22 @@
+import { __ } from "@wordpress/i18n";
 import useAllPost from "../../hooks/useAllPost";
 import useMetaData from "../../hooks/useMetaData";
+import CustomToggle from "../common/CustomToggle/CustomToggle";
 import MultipleSelect from "../common/MultiSelect/MultiSelect";
 
 function CommonQueryBuilder({ attributes, setAttributes }) {
 	const { authorList, allTaxonomies } = useMetaData(attributes, "editSite");
 	const { posts } = useAllPost(attributes);
-	const { excludeAuthor, excludeTerm, includeOnlyPost, excludePost } =
-		attributes;
+	const {
+		excludeAuthor,
+		excludeTerm,
+		includeOnlyPost,
+		excludePost,
+		excludeStickyPosts,
+		excludeCurrentPosts,
+		excludeProtectedPosts,
+		excludePostWithoutImagePosts,
+	} = attributes;
 
 	let allTerms = [];
 	allTaxonomies.forEach(
@@ -83,6 +93,37 @@ function CommonQueryBuilder({ attributes, setAttributes }) {
 				items={authorList}
 				setAttributes={setAttributes}
 				objectData={true}
+			/>
+
+			{/* Toggle Handler For Sticky Posts */}
+
+			<CustomToggle
+				label={__("Exclude Sticky Posts", "smart-post-carousel")}
+				value={excludeStickyPosts}
+				attributesKey="excludeStickyPosts"
+				setAttributes={setAttributes}
+			/>
+			{/* Toggle Handler For Current Posts */}
+			<CustomToggle
+				label={__("Exclude Current Posts", "smart-post-carousel")}
+				value={excludeCurrentPosts}
+				attributesKey="excludeCurrentPosts"
+				setAttributes={setAttributes}
+			/>
+
+			{/* Toggle Handler For Current Posts */}
+			<CustomToggle
+				label={__("Exclude Password Protect Posts", "smart-post-carousel")}
+				value={excludeProtectedPosts}
+				attributesKey="excludeProtectedPosts"
+				setAttributes={setAttributes}
+			/>
+			{/* Toggle Handler For Without Image */}
+			<CustomToggle
+				label={__("Exclude Posts without Image", "smart-post-carousel")}
+				value={excludePostWithoutImagePosts}
+				attributesKey="excludePostWithoutImagePosts"
+				setAttributes={setAttributes}
 			/>
 		</div>
 	);

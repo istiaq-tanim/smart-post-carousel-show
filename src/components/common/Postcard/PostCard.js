@@ -8,6 +8,7 @@ import CategoryList from "./CategoryList";
 import getContentElement from "./renderers/getContentElement";
 import { getImageStyles } from "../../../../utils/getImageStyle";
 import { getOverLayStyle } from "../../../../utils/getOverlaySTyle";
+import placeholder from "../../../smart-post-carousel/assets/images/placeholder.png";
 
 function PostCard({ post, attributes, index }) {
 	const title = post?.title;
@@ -68,6 +69,12 @@ function PostCard({ post, attributes, index }) {
 		imageOverlayType,
 		imageScale,
 		imageBackGroundStyles,
+		imageHoverEffectType,
+		hoverEffectOpacity,
+		grayScaleNormalLevel,
+		grayScaleHoverLevel,
+		blurNormalLevel,
+		blurHoverLevel,
 	} = attributes;
 
 	const author =
@@ -79,9 +86,7 @@ function PostCard({ post, attributes, index }) {
 	const views = post?.view_count || 0;
 	const likes = post?.like_count || 0;
 
-	const image =
-		post?.post_thumbnail_url ||
-		"http://localhost:10038/wp-content/plugins/smart-post-show-pro/public/assets/img/placeholder.png";
+	const image = post?.post_thumbnail_url || placeholder;
 
 	const orientation = attributes?.contentOrientation || "orientation_one";
 
@@ -243,12 +248,15 @@ function PostCard({ post, attributes, index }) {
 		imageBackGroundStyles,
 	);
 
-	console.log(overlayStyles);
-
 	const combinedImageStyles = {
 		...imageStyles,
 		...overlayStyles,
 		"--cardScale": `${imageScale ?? "none"}`,
+		"--cardHoverEffectOpacity": hoverEffectOpacity ?? 1,
+		"--cardGrayScaleNormalLevel": grayScaleNormalLevel ?? 0,
+		"--cardGrayScaleHoverLevel": grayScaleHoverLevel ?? 0,
+		"--cardBlurNormalLevel": `${blurNormalLevel}px` ?? 0,
+		"--cardBlurHoverLevel": `${blurHoverLevel}px` ?? 0,
 	};
 
 	return (
@@ -257,7 +265,11 @@ function PostCard({ post, attributes, index }) {
 				{/* ── IMAGE ── */}
 				{showFeaturedImage && (
 					<div
-						className="sp-smart-post-carousel-card-image"
+						className={`sp-smart-post-carousel-card-image${
+							imageHoverEffectType
+								? ` hover-effect-${imageHoverEffectType}`
+								: ""
+						}`}
 						style={combinedImageStyles}
 					>
 						<img src={image} alt={imageAlt} />

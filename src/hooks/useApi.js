@@ -1,8 +1,13 @@
 import { useEffect, useState } from "@wordpress/element";
+import { useSelect } from "@wordpress/data";
 
 function useApi(attributes) {
 	const [posts, setPosts] = useState([]);
 	const [loading, setLoading] = useState(true);
+
+	const currentPostId = useSelect(
+		(select) => select("core/editor")?.getCurrentPostId() ?? 0,
+	);
 
 	const {
 		numberOfSlides,
@@ -14,6 +19,10 @@ function useApi(attributes) {
 		excludeTerm,
 		includeOnlyPost,
 		excludePost,
+		excludeStickyPosts,
+		excludeCurrentPosts,
+		excludeProtectedPosts,
+		excludePostWithoutImagePosts,
 	} = attributes;
 
 	useEffect(() => {
@@ -29,6 +38,11 @@ function useApi(attributes) {
 			excludeTerm: excludeTerm,
 			includeOnlyPost: includeOnlyPost.map((p) => p.value),
 			excludePost: excludePost,
+			excludeStickyPosts,
+			excludeCurrentPosts,
+			postId: currentPostId,
+			excludeProtectedPosts,
+			excludePostWithoutImagePosts,
 		};
 
 		const formData = new FormData();
@@ -56,6 +70,11 @@ function useApi(attributes) {
 		JSON.stringify(excludeTerm),
 		JSON.stringify(includeOnlyPost),
 		JSON.stringify(excludePost),
+		excludeStickyPosts,
+		excludeCurrentPosts,
+		currentPostId,
+		excludeProtectedPosts,
+		excludePostWithoutImagePosts,
 	]);
 
 	return { posts, loading };

@@ -1485,7 +1485,42 @@
 				"hoverSolidBackground": "#1E1E1E99",
 				"hoverGradientBackground": ""
 			}
-		}
+		},
+		"imageHoverEffectType": {
+			"type": "string",
+			"default": "zoom-in"
+		},
+		"hoverEffectOpacity": {
+			"type": "number",
+			"default": 1
+		},
+		"imageEffect": {
+			"type": "string",
+			"default": "normal"
+		},
+		"grayScaleNormalLevel": {
+			"type": "number",
+			"default": 0
+		},
+		"grayScaleHoverLevel": {
+			"type": "number",
+			"default": 0
+		},
+		"blurNormalLevel": {
+			"type": "number",
+			"default": 0
+		},
+		"blurHoverLevel": {
+			"type": "number",
+			"default": 0
+		},
+		"excludeStickyPosts": {
+			"type": "boolean",
+			"default": false
+		},
+		"excludeCurrentPosts": { "type": "boolean", "default": true },
+		"excludeProtectedPosts": { "type": "boolean", "default": false },
+		"excludePostWithoutImagePosts": { "type": "boolean", "default": false }
 	},
 	"render": "file:./render.php",
 	"textdomain": "smart-post-carousel",

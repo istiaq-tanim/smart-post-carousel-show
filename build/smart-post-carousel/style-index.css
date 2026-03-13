@@ -126,10 +126,51 @@
      object-fit: cover;
   display: block;
   transform: scale(var(--cardScale, 1));
+  filter: grayscale(var(--cardGrayScaleNormalLevel, 0%)) blur(var(--cardBlurNormalLevel, 0px));
   transition: transform 0.3s ease;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image:hover img {
+  filter: grayscale(var(--cardGrayScaleHoverLevel, 0%)) blur(var(--cardBlurHoverLevel, 0px));
   transform: scale(1.1);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-zoom-out img {
+  transform: scale(1.15);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-slide-left img {
+  transform: scale(1.1) translateX(5%);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-slide-right img {
+  transform: scale(1.1) translateX(-5%);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-opacity img {
+  transition: opacity 0.4s ease;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-normal img {
+  transition: none;
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-zoom-in:hover img {
+  transform: scale(1.15);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-zoom-out:hover img {
+  transform: scale(1);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-slide-left:hover img {
+  transform: scale(1.1) translateX(-5%);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-slide-right:hover img {
+  transform: scale(1.1) translateX(5%);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-rotate-left:hover img {
+  transform: scale(1.1) rotate(-5deg);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-rotate-right:hover img {
+  transform: scale(1.1) rotate(5deg);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-opacity:hover img {
+  opacity: var(--cardHoverEffectOpacity);
+}
+.wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card-image.hover-effect-normal img {
+  transition: none;
 }
 .wp-block-create-block-smart-post-carousel .sp-smart-post-carousel-card .sp-smart-post-carousel-template-content {
   flex: 1;

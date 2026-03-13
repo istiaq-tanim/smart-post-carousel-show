@@ -70,7 +70,7 @@ function Inspector({ attributes, setAttributes }) {
 
 			{openPanel === "query" && (
 				<PanelBody title="Advance Filtering" initialOpen={false}>
-					<QueryBuilder attributes={attributes} setAttributes={setAttributes} />
+					<div>Advance Query Builder</div>
 				</PanelBody>
 			)}
 

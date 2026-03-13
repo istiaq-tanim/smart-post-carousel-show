@@ -1509,6 +1509,50 @@ return array(
 					'hoverSolidBackground' => '#1E1E1E99',
 					'hoverGradientBackground' => ''
 				)
+			),
+			'imageHoverEffectType' => array(
+				'type' => 'string',
+				'default' => 'zoom-in'
+			),
+			'hoverEffectOpacity' => array(
+				'type' => 'number',
+				'default' => 1
+			),
+			'imageEffect' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'grayScaleNormalLevel' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'grayScaleHoverLevel' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'blurNormalLevel' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'blurHoverLevel' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'excludeStickyPosts' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'excludeCurrentPosts' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'excludeProtectedPosts' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'excludePostWithoutImagePosts' => array(
+				'type' => 'boolean',
+				'default' => false
 			)
 		),
 		'render' => 'file:./render.php',
