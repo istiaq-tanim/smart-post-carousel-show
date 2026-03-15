@@ -19,7 +19,8 @@ export default function MarqueeCarousel({ attributes, posts }) {
 				className="sp-smart-post-carousel-marquee-track"
 				style={{
 					"--duration": animationDuration,
-					"--direction": direction === "right" ? "reverse" : "normal",
+					// Reverse Issue Solve
+					"--direction": direction === "right" ? "normal" : "reverse",
 				}}
 			>
 				{[...posts, ...posts].map((post, idx) => (

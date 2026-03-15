@@ -13,12 +13,8 @@
 
 		.swiper-slide {
 			height: auto;
-			min-height: 200px;
 			display: flex;
-		}
-
-		.sp-smart-post-carousel-card.equal-height {
-			flex: 1;
+			align-items: stretch;
 		}
 
 		.swiper-button-prev,
@@ -86,6 +82,7 @@
 		transition: all 0.3s ease;
 		width: 100%;
 		height: var(--cardHeight, auto);
+		flex: var(--cardFlex, 0);
 		display: flex;
 		flex-direction: column;
 		background: var(--card-bg, transparent);
@@ -114,6 +111,10 @@
 		.sp-smart-post-carousel-card-wrapper {
 			padding: var(--card-padding, 0px);
 			margin: var(--card-Margin, 0px);
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+			height: 100%;
 		}
 
 		/* IMAGE */
@@ -286,12 +287,6 @@
 		}
 	}
 
-	/* Equal height override - MOVED OUTSIDE the card base */
-	// .sp-smart-post-carousel-card.equal-height {
-	// 	height: 100%;
-	// 	min-height: 100%;
-	// }
-
 	/* ---------------- META ITEM ---------------- */
 
 	.sp-smart-post-carousel-card-meta-item {
@@ -445,7 +440,7 @@
 			}
 		}
 
-		/* ✅ was .sp-smart-post-carousel-category */
+		/*  was .sp-smart-post-carousel-category */
 		.sp-smart-post-carousel-overlay-category {
 			display: block;
 			&.top-left {
@@ -627,15 +622,6 @@
 			transform: translateX(-50%);
 		}
 	}
-
-	/* Fix for orientation_four with equal-height */
-	// .sp-smart-post-carousel-card.orientation_four.equal-height {
-	// 	.sp-smart-post-carousel-template-content {
-	// 		min-height: 0;
-	// 	}
-	// }
-
-	/* Excerpt Style */
 
 	.sp-smart-post-carousel-excerpt-wrapper {
 		.sp-smart-post-carousel-excerpt {
@@ -919,6 +905,23 @@
 
 	/* ─── Base Wrapper ─── */
 	.sp-smart-post-carousel {
+		border-style: var(--container-border-style);
+		border-width: var(--container-border-size);
+		border-color: var(--container-border-color);
+		background: var(--container-bg);
+		border-radius: var(--container-border-radius);
+		overflow: hidden;
+		padding: var(--container-padding);
+
+		&:hover {
+			border-style: var(--container-hover-border-style);
+			border-width: var(--container-hover-border-size);
+			background: var(--container-hover-bg, var(--container-bg, transparent));
+			background: var(--container-hover-bg);
+			border-radius: var(--container-hover-border-radius);
+			overflow: hidden;
+		}
+
 		// ─── Pagination Design Tokens ───────────────────────
 		--sp-width: var(--paginationDotWidth, 12px);
 		--sp-height: var(--paginationDotHeight, 12px);
@@ -929,8 +932,6 @@
 		--sp-scrollbar-height: 8px;
 		--sp-scrollbar-radius: 4px;
 		--sp-pagination-gap: var(--paginationDotGap, 8px);
-		--sp-pagination-mt: 12px;
-		position: relative;
 
 		// ─── Pagination Colors ───────────────────────────────
 		--sp-color-inactive: var(--paginationBackGroundInActiveColor);
@@ -1017,6 +1018,7 @@
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
+
 			cursor: pointer;
 			transition:
 				background 0.3s,
@@ -1073,21 +1075,42 @@
 			margin-top: var(--sp-pagination-mt);
 			position: relative;
 			cursor: pointer;
-		}
+			margin-top: 20px;
 
-		.sp-smart-post-carousel-swiper-scrollbar .swiper-scrollbar-drag {
-			height: 100%;
-			background: var(--sp-color-active);
-			border-radius: var(--sp-scrollbar-radius);
-			cursor: grab;
+			.swiper-scrollbar-drag {
+				height: 100%;
+				background: var(--sp-color-active);
+				border-radius: var(--sp-scrollbar-radius);
+				cursor: grab;
+				will-change: transform;
+				transform: translate3d(0, 0, 0);
+				transition: background 0.2s ease;
+				backface-visibility: hidden;
+				-webkit-backface-visibility: hidden;
 
-			will-change: transform;
-			transform: translate3d(0, 0, 0);
-			transition: background 0.2s ease;
+				&:active {
+					cursor: grabbing;
+					transition: none;
+				}
+			}
 		}
+	}
+}
 
-		.sp-smart-post-carousel-swiper-scrollbar .swiper-scrollbar-drag:active {
-			cursor: grabbing;
-		}
+@media (min-width: 1025px) {
+	.sp-carousel-content-wrapper.hide-desktop {
+		display: none !important;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.sp-carousel-content-wrapper.hide-tablet {
+		display: none !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.sp-carousel-content-wrapper.hide-mobile {
+		display: none !important;
 	}
 }

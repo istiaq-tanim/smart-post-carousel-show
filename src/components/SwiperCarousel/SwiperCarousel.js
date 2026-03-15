@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/effect-cube";
@@ -73,56 +73,54 @@ export default function SwiperCarousel({ attributes, posts }) {
 		dotNormalBackGroundActiveColor,
 		dotNormalTextColor,
 		dotActiveTextColor,
-		paginationDotStyleType,
+		partialVisibility,
+		cardBackGroundStyles,
+		cardBorderStyle,
+		cardHoverBorderStyle,
+		cardBorderWidthNormal,
+		cardBorderWidthHover,
+		cardBorderColorNormal,
+		cardBorderColorHover,
+		cardBorderRadiusNormal,
+		cardBorderRadiusHover,
+		cardPadding
 	} = attributes;
 
-	// All References
 	const swiperRef = useRef(null);
-	const swiperNextButtonRef = useRef(null);
-	const swiperPrevButtonRef = useRef(null);
 	const swiperPaginationRef = useRef(null);
 	const swiperScrollbarRef = useRef(null);
 
-	// Device / Responsive Value
+	const [isPrevDisabled, setIsPrevDisabled] = useState(true);
+	const [isNextDisabled, setIsNextDisabled] = useState(false);
+
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
 	const slidePerView = columns[normalizedDeviceType] || 1;
 	const gapBetweenSlide = gap[normalizedDeviceType] || 8;
 	const slideGroupNumber = slideGroup[normalizedDeviceType] || 1;
 	const autoplayDelay = Number(delay) || 3000;
-	const transitionSpeed = Number(speed) || 600;
+	const transitionSpeed = Number(speed) || 400;
 
-	// Swiper Effect Related Flags
 	const isChunkedEffect = CHUNKED_EFFECTS.includes(effect);
 	const isEffectSlide = !Object.keys(EFFECT_MODULES).includes(effect);
 
-	// Chunk posts for fade/cube/flip
+
+	const shouldApplyPartial = partialVisibility && isEffectSlide;
+
+
 	const allPosts = useMemo(() => {
-		if (isChunkedEffect) {
-			return arrayChunk(posts, slidePerView);
-		}
+		if (isChunkedEffect) return arrayChunk(posts, slidePerView);
 		return posts;
 	}, [posts, slidePerView, isChunkedEffect]);
 
 	const swiperModules = useMemo(() => {
-		const base = [
-			Navigation,
-			Pagination,
-			Keyboard,
-			Mousewheel,
-			FreeMode,
-			Autoplay,
-		];
-		if (paginationStyle === "progressbar") {
-			base.push(Scrollbar);
-		} else {
-			base.push(Pagination);
-		}
+		const base = [Navigation, Pagination, Keyboard, Mousewheel, FreeMode, Autoplay];
+		if (paginationStyle === "progressbar") base.push(Scrollbar);
+		else base.push(Pagination);
 		if (EFFECT_MODULES[effect]) base.push(EFFECT_MODULES[effect]);
 		return base;
 	}, [effect, paginationStyle]);
 
-	// Effect-specific props
 	const effectProps = useMemo(() => {
 		switch (effect) {
 			case "cube":
@@ -145,19 +143,14 @@ export default function SwiperCarousel({ attributes, posts }) {
 					},
 				};
 			case "flip":
-				return {
-					flipEffect: { slideShadows: true },
-				};
+				return { flipEffect: { slideShadows: true } };
 			case "fade":
-				return {
-					fadeEffect: { crossFade: true },
-				};
+				return { fadeEffect: { crossFade: true } };
 			default:
 				return {};
 		}
 	}, [effect]);
 
-	// Swiper key (forces re-mount on config change)
 	const swiperKey = [
 		slidePerView,
 		gapBetweenSlide,
@@ -170,18 +163,20 @@ export default function SwiperCarousel({ attributes, posts }) {
 		navigationArrow,
 		paginationDots,
 		paginationStyle,
+		onHover,
+		posts.length,
+		attributes.postType,
+		JSON.stringify(attributes.multiplePostType),
+		partialVisibility,
 	].join("-");
 
-	// Pagination config
 	const paginationConfig = useMemo(() => {
 		if (!paginationDots) return false;
 		if (paginationStyle === "progressbar") return false;
 
 		const type = PAGINATION_TYPE_MAP[paginationStyle] || "bullets";
-
 		const base = {
 			clickable: true,
-			el: swiperPaginationRef.current,
 			type,
 		};
 
@@ -202,44 +197,109 @@ export default function SwiperCarousel({ attributes, posts }) {
 			draggable: true,
 			hide: false,
 			snapOnRelease: true,
+			dragSize: "auto",
 		};
 	}, [paginationDots, paginationStyle]);
 
-	// On Hover AutoPlay start and Stop
-	useEffect(() => {
-		if (swiperRef.current?.autoplay) {
-			swiperRef.current.params.autoplay.pauseOnMouseEnter = onHover;
-		}
-	}, [onHover]);
+	const updateNavButtons = (swiper) => {
+		if (!swiper) return;
+		const isLoop = swiper.params.loop;
+		setIsPrevDisabled(swiper.isBeginning && !isLoop);
+		setIsNextDisabled(swiper.isEnd && !isLoop);
+	};
 
-	useEffect(() => {
-		const swiper = swiperRef.current;
+	const initPagination = (swiper) => {
 		if (!swiper || !paginationDots) return;
 
 		if (paginationStyle === "progressbar") {
-			if (!swiperScrollbarRef.current) return;
-			if (!swiper.scrollbar) return;
+			if (!swiperScrollbarRef.current || !swiper.scrollbar) return;
 			swiper.params.scrollbar.el = swiperScrollbarRef.current;
 			swiper.scrollbar.init();
 			swiper.scrollbar.updateSize();
 			swiper.scrollbar.setTranslate();
 		} else {
 			if (!swiperPaginationRef.current) return;
+
+			if (effect === "cover") {
+				swiper.params.slidesPerGroup = slidePerView;
+			}
+
+			swiper.pagination.destroy();
 			swiper.params.pagination.el = swiperPaginationRef.current;
 			swiper.pagination.init();
 			swiper.pagination.render();
 			swiper.pagination.update();
 		}
+	};
+
+	useEffect(() => {
+		const swiper = swiperRef.current;
+		if (!swiper) return;
+		const timer = setTimeout(() => {
+			swiper.update();
+			updateNavButtons(swiper);
+			initPagination(swiper);
+		}, 150);
+		return () => clearTimeout(timer);
+	}, [swiperKey]);
+
+	useEffect(() => {
+		const swiper = swiperRef.current;
+		if (!swiper) return;
+		const timer = setTimeout(() => {
+			initPagination(swiper);
+		}, 150);
+		return () => clearTimeout(timer);
 	}, [paginationDots, paginationStyle]);
 
-	// Render Slides Based on Swiper Effect
+	useEffect(() => {
+		const swiper = swiperRef.current;
+		if (!swiper?.el || !autoPlay) return;
+
+		const el = swiper.el;
+		const handleMouseEnter = () => { if (onHover) swiper.autoplay?.pause(); };
+		const handleMouseLeave = () => { if (onHover) swiper.autoplay?.resume(); };
+
+		el.addEventListener("mouseenter", handleMouseEnter);
+		el.addEventListener("mouseleave", handleMouseLeave);
+
+		return () => {
+			el.removeEventListener("mouseenter", handleMouseEnter);
+			el.removeEventListener("mouseleave", handleMouseLeave);
+		};
+	}, [onHover, autoPlay, swiperKey]);
+
+	const handlePrev = () => {
+		if (!isPrevDisabled) swiperRef.current?.slidePrev();
+	};
+	const handleNext = () => {
+		if (!isNextDisabled) swiperRef.current?.slideNext();
+	};
+
+	const bgType = cardBackGroundStyles?.type || "transparent";
+	const hoverBgType = cardBackGroundStyles?.hoverType || "transparent";
+
+	const normalBg =
+		bgType === "gradient"
+			? cardBackGroundStyles?.gradientBackground
+			: bgType === "solid"
+				? cardBackGroundStyles?.solidBackground
+				: null;
+
+	const hoverBg =
+		hoverBgType === "gradient"
+			? cardBackGroundStyles?.hoverGradientBackground
+			: hoverBgType === "solid"
+				? cardBackGroundStyles?.hoverSolidBackground
+				: null;
+
 	const renderSlides = () => {
 		if (isChunkedEffect) {
 			return allPosts.map((chunk, i) => (
 				<SwiperSlide key={i}>
 					<div style={{ display: "flex", gap: gapBetweenSlide }}>
 						{chunk.map((post) => (
-							<div key={post.id} style={{ flex: 1, minWidth: 0 }}>
+							<div key={post.post_id} style={{ flex: 1, minWidth: 0 }}>
 								<PostCard post={post} attributes={attributes} />
 							</div>
 						))}
@@ -247,10 +307,9 @@ export default function SwiperCarousel({ attributes, posts }) {
 				</SwiperSlide>
 			));
 		}
-
-		return posts.map((post) => (
-			<SwiperSlide key={post.id}>
-				<PostCard post={post} attributes={attributes} />
+		return posts.map((post, index) => (
+			<SwiperSlide key={post.post_id}>
+				<PostCard post={post} attributes={attributes} index={index} />
 			</SwiperSlide>
 		));
 	};
@@ -259,55 +318,93 @@ export default function SwiperCarousel({ attributes, posts }) {
 		<div
 			className="sp-smart-post-carousel"
 			style={{
-				"--paginationDotWidth": `${paginationWidth[normalizedDeviceType] ?? 12
-					}px`,
-				"--paginationDotHeight": `${paginationHeight[normalizedDeviceType] ?? 12
-					}px`,
-				"--paginationDotGap": `${paginationDotGap[normalizedDeviceType] ?? 8
-					}px`,
-				"--paginationVerticalPosition": `${paginationVerticalPosition[normalizedDeviceType] ?? -36
-					}px`,
-				"--paginationHorizontalPosition": `${paginationHorizontalPosition[normalizedDeviceType] ?? 50
-					}%`,
+				"--paginationDotWidth": `${paginationWidth[normalizedDeviceType] ?? 12}px`,
+				"--paginationDotHeight": `${paginationHeight[normalizedDeviceType] ?? 12}px`,
+				"--paginationDotGap": `${paginationDotGap[normalizedDeviceType] ?? 8}px`,
+				"--paginationVerticalPosition": `${paginationVerticalPosition[normalizedDeviceType] ?? -36}px`,
+				"--paginationHorizontalPosition": `${paginationHorizontalPosition[normalizedDeviceType] ?? 50}%`,
 				"--paginationBackGroundInActiveColor": `${dotNormalBackGroundNormalColor}`,
 				"--paginationBackGroundActiveColor": `${dotNormalBackGroundActiveColor}`,
 				"--paginationTextInActiveColor": `${dotNormalTextColor}`,
 				"--paginationTextActiveColor": `${dotActiveTextColor}`,
-				padding: "0px 0px 30px 0px"
+
+				...(normalBg && { "--container-bg": normalBg }),
+				...(hoverBg && { "--container-hover-bg": hoverBg }),
+				"--container-border-style": cardBorderStyle || "none",
+				"--container-hover-border-style":
+					cardHoverBorderStyle === "none"
+						? cardBorderStyle
+						: cardHoverBorderStyle,
+				"--container-border-size": `${cardBorderWidthNormal[normalizedDeviceType] ?? 1
+					}px`,
+				"--container-hover-border-size": `${cardBorderWidthHover[normalizedDeviceType] ?? 1
+					}px`,
+				"--container-border-color": cardBorderColorNormal || "#4e6e3e",
+				"--container-hover-border-color":
+					`${cardBorderColorHover}` || "#000",
+				"--container-border-radius": `${cardBorderRadiusNormal?.[normalizedDeviceType] ?? 0
+					}px`,
+				"--container-hover-border-radius": `${cardBorderRadiusHover?.[normalizedDeviceType] ?? 0
+					}px`,
+				"--container-padding": `${cardPadding[normalizedDeviceType].top ?? 0
+					}px ${cardPadding[normalizedDeviceType].right ?? 0}px ${cardPadding[normalizedDeviceType].bottom ?? 0
+					}px ${cardPadding[normalizedDeviceType].left ?? 0}px`,
+
+
 			}}
 		>
+			{navigationArrow && (
+				<SwiperNavigationButton
+					iconStyle={arrowStyle}
+					visibilityOnHover={visibilityOnHover}
+					onPrev={handlePrev}
+					onNext={handleNext}
+					isPrevDisabled={isPrevDisabled}
+					isNextDisabled={isNextDisabled}
+				/>
+			)}
+
 			<Swiper
 				key={swiperKey}
 				onSwiper={(swiper) => {
 					swiperRef.current = swiper;
-
 					setTimeout(() => {
-						if (
-							paginationDots &&
-							paginationStyle === "progressbar" &&
-							swiperScrollbarRef.current &&
-							swiper.scrollbar
-						) {
-							swiper.params.scrollbar.el = swiperScrollbarRef.current;
-							swiper.scrollbar.init();
-							swiper.scrollbar.updateSize();
-							swiper.scrollbar.setTranslate();
-							swiper.update();
-						}
+						updateNavButtons(swiper);
+						initPagination(swiper);
 					}, 0);
 				}}
+				navigation={false}
+				onAfterInit={(swiper) => updateNavButtons(swiper)}
+				onSlideChange={(swiper) => updateNavButtons(swiper)}
+				onReachBeginning={(swiper) => updateNavButtons(swiper)}
+				onReachEnd={(swiper) => updateNavButtons(swiper)}
+				onUpdate={(swiper) => updateNavButtons(swiper)}
+				onResize={(swiper) => updateNavButtons(swiper)}
 				modules={swiperModules}
 				autoHeight={adaptiveHeight || false}
-				slidesPerView={isChunkedEffect ? 1 : slidePerView}
+
+				slidesPerView={
+					isChunkedEffect
+						? 1
+						: shouldApplyPartial
+							? slidePerView + 0.2
+							: slidePerView
+				}
+				centeredSlides={shouldApplyPartial}
 				spaceBetween={effect === "cube" ? 0 : gapBetweenSlide}
-				navigation={{
-					nextEl: swiperNextButtonRef.current,
-					prevEl: swiperPrevButtonRef.current,
-					enabled: true,
-				}}
 				pagination={paginationConfig}
 				scrollbar={scrollbarConfig}
-				slidesPerGroup={freeScroll ? 1 : isEffectSlide ? slideGroupNumber : 1}
+
+				slidesPerGroup={
+					freeScroll
+						? 1
+						: effect === "cover"
+							? slidePerView
+							: isEffectSlide
+								? slideGroupNumber
+								: 1
+				}
+
 				autoplay={
 					autoPlay
 						? {
@@ -349,15 +446,6 @@ export default function SwiperCarousel({ attributes, posts }) {
 			>
 				{renderSlides()}
 			</Swiper>
-
-			{navigationArrow && (
-				<SwiperNavigationButton
-					iconStyle={arrowStyle}
-					visibilityOnHover={visibilityOnHover}
-					swiperNextButtonRef={swiperNextButtonRef}
-					swiperPrevButtonRef={swiperPrevButtonRef}
-				/>
-			)}
 
 			{paginationDots && paginationStyle !== "progressbar" && (
 				<SwiperPaginationStyle

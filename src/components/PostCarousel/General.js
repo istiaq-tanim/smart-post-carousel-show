@@ -1,5 +1,5 @@
 import { __ } from "@wordpress/i18n";
-import { LayoutItems, linkOpen } from "../../const";
+import { LayoutItems } from "../../const";
 import { useAttributes } from "../../hooks/useAttributes";
 import {
 	AlignCenter,
@@ -7,7 +7,6 @@ import {
 	AlignRight,
 } from "../../smart-post-carousel/assets/icon";
 import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
-import CustomSelection from "../common/CustomSelection/CustomSelection";
 import CustomToggle from "../common/CustomToggle/CustomToggle";
 import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
 import Layouts from "../common/Layouts/Layouts";
@@ -32,8 +31,8 @@ function General() {
 			{/* Partial Slide View*/}
 			<CustomToggle
 				label={__("Partial Slide View", "smart-post-carousel")}
-				value={attributes.partialView}
-				attributesKey="partialView"
+				value={attributes.partialVisibility}
+				attributesKey="partialVisibility"
 				setAttributes={setAttributes}
 			/>
 			{/* Content Orientations Section */}
@@ -98,23 +97,6 @@ function General() {
 				]}
 			></CustomToggleGroupControl>
 
-			{/* Link Open In Section */}
-
-			<CustomSelection
-				label="Link Open In"
-				options={linkOpen}
-				attributeKey="linkOpen"
-				inline={false}
-			></CustomSelection>
-
-			{/* Preloader Section */}
-
-			<CustomToggle
-				label={__("Preloader", "smart-post-carousel")}
-				value={attributes.preloader}
-				attributesKey="preloader"
-				setAttributes={setAttributes}
-			/>
 			{/* Enable Equal Height Section */}
 			<CustomToggle
 				label={__("Enable Equal Height", "smart-post-carousel")}

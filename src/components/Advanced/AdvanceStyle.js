@@ -19,6 +19,7 @@ function AdvanceStyle() {
       } = attributes;
 
 
+
       const currentBorderStyleKey =
             cardEffectType === "hover" ? "cardHoverBorderStyle" : "cardBorderStyle";
 
@@ -124,14 +125,6 @@ function AdvanceStyle() {
                         onChange={(values) => setAttributes({ cardPadding: values })}
                   ></SpacingControl>
 
-                  <SpacingControl
-                        values={cardMargin}
-                        min={0}
-                        max={48}
-                        label="Margin"
-                        step={1}
-                        onChange={(values) => setAttributes({ cardMargin: values })}
-                  ></SpacingControl>
             </>
       );
 }

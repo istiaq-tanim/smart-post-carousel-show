@@ -53,6 +53,10 @@
       "type": "string",
       "default": "standard"
     },
+    "partialVisibility": {
+      "type": "boolean",
+      "default": false
+    },
     "contentOrientation": {
       "type": "string",
       "default": "orientation_one"
@@ -68,9 +72,9 @@
     "height": {
       "type": "object",
       "default": {
-        "desktop": 642,
-        "tablet": 642,
-        "mobile": 642
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
       }
     },
     "gap": {
@@ -99,7 +103,7 @@
     },
     "speed": {
       "type": "number",
-      "default": 600
+      "default": 400
     },
     "direction": {
       "type": "string",
@@ -496,7 +500,7 @@
     "metaTypo": {
       "type": "object",
       "default": {
-        "tags": "div",
+        "tags": "span",
         "family": "Roboto",
         "fontSize": 14,
         "weight": 400,
@@ -760,21 +764,21 @@
       "type": "object",
       "default": {
         "desktop": {
-          "top": 14,
+          "top": 8,
           "right": 0,
           "bottom": 0,
           "left": 0,
           "linked": true
         },
         "tablet": {
-          "top": 14,
+          "top": 8,
           "right": 0,
           "bottom": 0,
           "left": 0,
           "linked": true
         },
         "mobile": {
-          "top": 14,
+          "top": 8,
           "right": 0,
           "bottom": 0,
           "left": 0,
@@ -1335,7 +1339,7 @@
         "hoverType": "transparent",
         "solidBackground": "#fff",
         "gradientBackground": "",
-        "hoverSolidBackground": "#fff",
+        "hoverSolidBackground": "",
         "hoverGradientBackground": ""
       }
     },
@@ -1391,24 +1395,24 @@
       "type": "object",
       "default": {
         "desktop": {
-          "top": 8,
-          "right": 16,
-          "bottom": 8,
-          "left": 16,
+          "top": 0,
+          "right": 0,
+          "bottom": 30,
+          "left": 0,
           "linked": true
         },
         "tablet": {
-          "top": 8,
-          "right": 16,
-          "bottom": 8,
-          "left": 16,
+          "top": 0,
+          "right": 0,
+          "bottom": 30,
+          "left": 0,
           "linked": true
         },
         "mobile": {
-          "top": 8,
-          "right": 16,
-          "bottom": 8,
-          "left": 16,
+          "top": 0,
+          "right": 0,
+          "bottom": 30,
+          "left": 0,
           "linked": true
         }
       }
@@ -1438,6 +1442,18 @@
           "linked": true
         }
       }
+    },
+    "hideOnDesktop": {
+      "type": "boolean",
+      "default": false
+    },
+    "hideOnTablet": {
+      "type": "boolean",
+      "default": false
+    },
+    "hideOnMobile": {
+      "type": "boolean",
+      "default": false
     }
   },
   "render": "file:./render.php",

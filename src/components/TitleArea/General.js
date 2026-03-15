@@ -1,11 +1,21 @@
 import { __ } from "@wordpress/i18n";
+import { badgePosition } from "../../const";
 import { useAttributes } from "../../hooks/useAttributes";
 import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
+import CustomSelection from "../common/CustomSelection/CustomSelection";
 import CustomToggle from "../common/CustomToggle/CustomToggle";
 import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
 import Divider from "../common/Divider/Divider";
-import CustomSelection from "../common/CustomSelection/CustomSelection";
-import { badgePosition } from "../../const";
+
+const tagDefaultSizes = {
+	h1: 44,
+	h2: 32,
+	h3: 24,
+	h4: 20,
+	h5: 22,
+	h6: 20,
+	p: 24,
+};
 
 function General() {
 	const { attributes, setAttributes } = useAttributes();
@@ -13,10 +23,19 @@ function General() {
 		<>
 			{/* Title Tag Select */}
 			<CustomToggleGroupControl
-				label="Icon Visibility"
+				label="Title Tag"
 				attributes={attributes}
 				attributesKey="titleTag"
-				setAttributes={setAttributes}
+				setAttributes={(newAttrs) => {
+					const newTag = newAttrs.titleTag;
+					setAttributes({
+						titleTag: newTag,
+						titleTypo: {
+							...attributes.titleTypo,
+							fontSize: tagDefaultSizes[newTag] ?? 16,
+						},
+					});
+				}}
 				items={[
 					{ label: "H1", value: "h1" },
 					{ label: "H2", value: "h2" },
@@ -26,7 +45,7 @@ function General() {
 					{ label: "H6", value: "h6" },
 					{ label: "P", value: "p" },
 				]}
-			></CustomToggleGroupControl>
+			/>
 
 			{/* Title Display Type */}
 

@@ -58,6 +58,10 @@ return array(
 				'type' => 'string',
 				'default' => 'standard'
 			),
+			'partialVisibility' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
 			'contentOrientation' => array(
 				'type' => 'string',
 				'default' => 'orientation_one'
@@ -73,9 +77,9 @@ return array(
 			'height' => array(
 				'type' => 'object',
 				'default' => array(
-					'desktop' => 642,
-					'tablet' => 642,
-					'mobile' => 642
+					'desktop' => null,
+					'tablet' => null,
+					'mobile' => null
 				)
 			),
 			'gap' => array(
@@ -104,7 +108,7 @@ return array(
 			),
 			'speed' => array(
 				'type' => 'number',
-				'default' => 600
+				'default' => 400
 			),
 			'direction' => array(
 				'type' => 'string',
@@ -501,7 +505,7 @@ return array(
 			'metaTypo' => array(
 				'type' => 'object',
 				'default' => array(
-					'tags' => 'div',
+					'tags' => 'span',
 					'family' => 'Roboto',
 					'fontSize' => 14,
 					'weight' => 400,
@@ -765,21 +769,21 @@ return array(
 				'type' => 'object',
 				'default' => array(
 					'desktop' => array(
-						'top' => 14,
+						'top' => 8,
 						'right' => 0,
 						'bottom' => 0,
 						'left' => 0,
 						'linked' => true
 					),
 					'tablet' => array(
-						'top' => 14,
+						'top' => 8,
 						'right' => 0,
 						'bottom' => 0,
 						'left' => 0,
 						'linked' => true
 					),
 					'mobile' => array(
-						'top' => 14,
+						'top' => 8,
 						'right' => 0,
 						'bottom' => 0,
 						'left' => 0,
@@ -1340,7 +1344,7 @@ return array(
 					'hoverType' => 'transparent',
 					'solidBackground' => '#fff',
 					'gradientBackground' => '',
-					'hoverSolidBackground' => '#fff',
+					'hoverSolidBackground' => '',
 					'hoverGradientBackground' => ''
 				)
 			),
@@ -1396,24 +1400,24 @@ return array(
 				'type' => 'object',
 				'default' => array(
 					'desktop' => array(
-						'top' => 8,
-						'right' => 16,
-						'bottom' => 8,
-						'left' => 16,
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 30,
+						'left' => 0,
 						'linked' => true
 					),
 					'tablet' => array(
-						'top' => 8,
-						'right' => 16,
-						'bottom' => 8,
-						'left' => 16,
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 30,
+						'left' => 0,
 						'linked' => true
 					),
 					'mobile' => array(
-						'top' => 8,
-						'right' => 16,
-						'bottom' => 8,
-						'left' => 16,
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 30,
+						'left' => 0,
 						'linked' => true
 					)
 				)
@@ -1443,6 +1447,18 @@ return array(
 						'linked' => true
 					)
 				)
+			),
+			'hideOnDesktop' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'hideOnTablet' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'hideOnMobile' => array(
+				'type' => 'boolean',
+				'default' => false
 			)
 		),
 		'render' => 'file:./render.php',

@@ -35,8 +35,6 @@ function Excerpt({
 		return fullText;
 	}, [excerptType, excerptLength, post?.excerpt, excerptEllipsis]);
 
-	const Tag = excerptTypo?.tags ?? "span";
-
 	return (
 		<div
 			key="excerpt"
@@ -48,15 +46,13 @@ function Excerpt({
 				"--excerpt-line-height": excerptTypo?.height ?? 1.5,
 				"--excerpt-letter-spacing": `${excerptTypo?.spacing ?? 0}px`,
 				"--excerptColor": excerptColor || "#4e6e3e",
-				"--excerptMargin": `${
-					excerptMargin[normalizedDeviceType].top ?? 14
-				}px ${excerptMargin[normalizedDeviceType].right ?? 0}px ${
-					excerptMargin[normalizedDeviceType].bottom ?? 0
-				}px ${excerptMargin[normalizedDeviceType].left ?? 0}px`,
+				"--excerptMargin": `${excerptMargin[normalizedDeviceType].top ?? 14
+					}px ${excerptMargin[normalizedDeviceType].right ?? 0}px ${excerptMargin[normalizedDeviceType].bottom ?? 0
+					}px ${excerptMargin[normalizedDeviceType].left ?? 0}px`,
 			}}
 		>
 			<p className="sp-smart-post-carousel-excerpt">
-				<Tag>{excerpt}</Tag>
+				<span>{excerpt}</span>
 			</p>
 		</div>
 	);

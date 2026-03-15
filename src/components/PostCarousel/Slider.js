@@ -39,7 +39,7 @@ function Slider() {
 				attributeKey="speed"
 				min={0}
 				max={5000}
-				defaultValue={600}
+				defaultValue={400}
 				step={50}
 				showDevice={false}
 			></CustomRangeControl>

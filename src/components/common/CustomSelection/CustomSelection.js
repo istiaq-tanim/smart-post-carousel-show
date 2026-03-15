@@ -7,10 +7,16 @@ function CustomSelection({
 	inline = true,
 	attributeKey = "",
 	subKey = "",
+	onChange = null,
 }) {
 	const { attributes, setAttributes } = useAttributes();
 
 	const handleChange = (newValue) => {
+
+		if (onChange) {
+			onChange(newValue);
+			return;
+		}
 		if (subKey) {
 			setAttributes({
 				[attributeKey]: {

@@ -27,8 +27,7 @@ function ReadMore() {
 	const deviceType = useDeviceType();
 	const normalizedDeviceType = deviceType?.toLowerCase() || "desktop";
 
-	const tagName = buttonTypo?.tags || "a";
-	const Tag = tagName;
+
 
 	const iconObj = buttonIcons.find((b) => b.value === buttonStyle);
 	const Icon = iconObj?.icon;
@@ -101,7 +100,7 @@ function ReadMore() {
                           ${buttonType === "button" ? "is-button" : ""} 
                           ${iconVisibility === "hover" ? "icon-hover" : ""}`}
 			>
-				<Tag>{buttonText}</Tag>
+				<a>{buttonText}</a>
 				{showIcon && (
 					<span className="read-more-icon">
 						<Icon />

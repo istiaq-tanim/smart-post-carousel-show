@@ -63,8 +63,12 @@ export const getCardStyles = (attributes, normalizedDeviceType) => {
 	return {
 		// Height
 		"--cardHeight": equalHeight
-			? `${height?.[normalizedDeviceType]}px`
-			: undefined,
+			? "100%"
+			: height?.[normalizedDeviceType]
+				? `${height[normalizedDeviceType]}px`
+				: "auto",
+
+		"--cardFlex": equalHeight ? "1" : "0",
 
 		// Background
 		...(normalBg && { "--card-bg": normalBg }),

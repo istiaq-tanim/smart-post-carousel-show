@@ -28,7 +28,8 @@ function Title({ title, badges }) {
 	const BadgeTag = badgeTypo.tags || "li";
 	const badgePosition = attributes.badgePosition;
 
-	const normalTitleColor = titleColor?.normal ?? color ?? "inherit";
+
+	const normalTitleColor = titleColor?.normal ?? "inherit";
 	const hoverTitleColor = titleColor?.hover || normalTitleColor;
 
 	const convertTitle = useMemo(() => {
@@ -72,31 +73,24 @@ function Title({ title, badges }) {
 				"--badge-font-weight": badgeTypo.weight ?? 400,
 				"--badge-line-height": badgeTypo?.height ?? 1.5,
 				"--badge-letter-spacing": `${badgeTypo?.spacing ?? 0}px`,
-				"--title-margin": `${titleMargin[normalizedDeviceType].top ?? 0}px ${
-					titleMargin[normalizedDeviceType].right ?? 0
-				}px ${titleMargin[normalizedDeviceType].bottom ?? 0}px ${
-					titleMargin[normalizedDeviceType].left ?? 0
-				}px`,
+				"--title-margin": `${titleMargin[normalizedDeviceType].top ?? 0}px ${titleMargin[normalizedDeviceType].right ?? 0
+					}px ${titleMargin[normalizedDeviceType].bottom ?? 0}px ${titleMargin[normalizedDeviceType].left ?? 0
+					}px`,
 				"--labelColor": labelColor ?? "#fff",
 				"--labelBackgroundColor": labelBackgroundColor ?? "#ff5b2e",
-				"--badge-border-size": `${
-					badgeBorderWidth[normalizedDeviceType] ?? 1
-				}px`,
+				"--badge-border-size": `${badgeBorderWidth[normalizedDeviceType] ?? 1
+					}px`,
 				"--badge-border-color": badgeBorderColor ?? "#cccccc",
 				"--badge-border-style": badgeBorderStyle ?? "solid",
-				"--badge-border-radius": `${
-					badgeBorderRadius[normalizedDeviceType].top ?? 2
-				}px ${badgeBorderRadius[normalizedDeviceType].right ?? 2}px ${
-					badgeBorderRadius[normalizedDeviceType].bottom ?? 2
-				}px ${badgeBorderRadius[normalizedDeviceType].left ?? 2}px`,
-				"--badge-padding": `${badgePadding[normalizedDeviceType].top ?? 4}px ${
-					badgePadding[normalizedDeviceType].right ?? 8
-				}px ${badgePadding[normalizedDeviceType].bottom ?? 4}px ${
-					badgePadding[normalizedDeviceType].left ?? 8
-				}px`,
+				"--badge-border-radius": `${badgeBorderRadius[normalizedDeviceType].top ?? 2
+					}px ${badgeBorderRadius[normalizedDeviceType].right ?? 2}px ${badgeBorderRadius[normalizedDeviceType].bottom ?? 2
+					}px ${badgeBorderRadius[normalizedDeviceType].left ?? 2}px`,
+				"--badge-padding": `${badgePadding[normalizedDeviceType].top ?? 4}px ${badgePadding[normalizedDeviceType].right ?? 8
+					}px ${badgePadding[normalizedDeviceType].bottom ?? 4}px ${badgePadding[normalizedDeviceType].left ?? 8
+					}px`,
 			}}
 		>
-			<Tag key={Tag} className="sp-smart-post-carousel-card-title">
+			<h3 key={Tag} className="sp-smart-post-carousel-card-title">
 				{/* Badges Before */}
 				{showBadges &&
 					badges &&
@@ -131,17 +125,17 @@ function Title({ title, badges }) {
 						<span>
 							<ul className="sp-smart-post-carousel-title-badges-list sp-smart-post-carousel-badges-after-title">
 								{badges.map((badge, index) => (
-									<BadgeTag
+									<li
 										key={index}
 										className="sp-smart-post-carousel-title-badge-item"
 									>
 										{badge.name}
-									</BadgeTag>
+									</li>
 								))}
 							</ul>
 						</span>
 					)}
-			</Tag>
+			</h3>
 		</div>
 	);
 }

@@ -1,14 +1,14 @@
 import { Popover } from "@wordpress/components";
 import { useState } from "@wordpress/element";
-import Input from "../Input/Input";
-import Typo from "../../../smart-post-carousel/assets/icon";
-import CustomSelection from "../CustomSelection/CustomSelection";
 import { fontFamilyOptions, fontWeight } from "../../../const";
 import { useAttributes } from "../../../hooks/useAttributes";
+import Typo from "../../../smart-post-carousel/assets/icon";
+import CustomSelection from "../CustomSelection/CustomSelection";
+import Input from "../Input/Input";
 
 function Typography({
 	label,
-	onChange = () => {},
+	onChange = () => { },
 	values,
 	attributeKey,
 	tags = [
@@ -81,6 +81,7 @@ function Typography({
 								options={tags}
 								attributeKey={attributeKey}
 								subKey="tags"
+								onChange={(newTag) => handleChange("tags", newTag)}
 							/>
 						)}
 

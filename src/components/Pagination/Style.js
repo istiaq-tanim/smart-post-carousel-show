@@ -1,14 +1,6 @@
-import { __ } from "@wordpress/i18n";
 import { useAttributes } from "../../hooks/useAttributes";
 import CustomColorPicker from "../common/CustomColorPicker/CustomColorPicker";
-import CustomRangeControl from "../common/CustomRangeControl/CustomRangeControl";
 import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
-import {
-	DashedBorder,
-	DottedBorder,
-	DoubleBorder,
-	SolidBorder,
-} from "../../smart-post-carousel/assets/borderIcon";
 
 function Style() {
 	const { attributes, setAttributes } = useAttributes();
@@ -92,45 +84,8 @@ function Style() {
 				}
 			></CustomColorPicker>
 
-			{/* Border Style for Pagination */}
 
-			<CustomToggleGroupControl
-				label={__("Border", "smart-post-carousel")}
-				attributes={attributes}
-				attributesKey="paginationBorderStyle"
-				setAttributes={setAttributes}
-				items={[
-					{ label: "None", value: "none" },
-					{ label: <SolidBorder />, value: "solid" },
-					{ label: <DashedBorder />, value: "dashed" },
-					{ label: <DottedBorder />, value: "dotted" },
-					{ label: <DoubleBorder />, value: "double" },
-				]}
-			></CustomToggleGroupControl>
 
-			{/* Based on Border Style this section show */}
-
-			{hasBorder && (
-				<>
-					{/* Icon Border Width */}
-					<CustomRangeControl
-						label="Border Width"
-						attributeKey="borderWidth"
-						min={0}
-						max={10}
-						defaultValue={0}
-						showUnit={true}
-						step={1}
-					></CustomRangeControl>
-					{/* Icon Border Color */}
-					<CustomColorPicker
-						label="Border Color"
-						defaultValue=""
-						onChange={(value) => setAttributes({ borderColor: value })}
-						value={borderColor}
-					></CustomColorPicker>
-				</>
-			)}
 		</>
 	);
 }
