@@ -3,6 +3,16 @@ import CustomColorPicker from "../common/CustomColorPicker/CustomColorPicker";
 import SpacingControl from "../common/CustomSpacingControl/SpacingControl";
 import Typography from "../common/Typography/Typography";
 
+const excerptTagDefaultSizes = {
+	span: 16,
+	h1: 44,
+	h2: 32,
+	h3: 24,
+	h4: 22,
+	h5: 20,
+	h6: 18,
+};
+
 function Style() {
 	const { attributes, setAttributes } = useAttributes();
 	const { excerptTypo, excerptColor, excerptMargin } = attributes;
@@ -18,7 +28,18 @@ function Style() {
 			<Typography
 				label="Typography"
 				attributeKey="excerptTypo"
-				onChange={(value) => setAttributes({ excerptTypo: value })}
+				onChange={(value) => {
+					if (value.tags !== excerptTypo.tags) {
+						setAttributes({
+							excerptTypo: {
+								...value,
+								fontSize: excerptTagDefaultSizes[value.tags] ?? 12,
+							},
+						});
+					} else {
+						setAttributes({ excerptTypo: value });
+					}
+				}}
 				values={excerptTypo}
 				tags={[
 					{ label: "Default", value: "span" },
@@ -27,6 +48,7 @@ function Style() {
 					{ label: "Heading h3", value: "h3" },
 					{ label: "Heading h4", value: "h4" },
 					{ label: "Heading h5", value: "h5" },
+					{ label: "Heading h6", value: "h6" },
 				]}
 			></Typography>
 

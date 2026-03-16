@@ -9,6 +9,16 @@ import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomT
 import SelectDropDown from "../common/SelectDropDown/SelectDropDown";
 import Typography from "../common/Typography/Typography";
 
+const buttonTagDefaultSizes = {
+	a: 14,
+	h1: 44,
+	h2: 32,
+	h3: 24,
+	h4: 22,
+	h5: 20,
+	h6: 18,
+};
+
 function Style() {
 	const { attributes, setAttributes } = useAttributes();
 	const {
@@ -47,7 +57,18 @@ function Style() {
 			<Typography
 				label="Typography"
 				attributeKey="buttonTypo"
-				onChange={(value) => setAttributes({ buttonTypo: value })}
+				onChange={(value) => {
+					if (value.tags !== buttonTypo.tags) {
+						setAttributes({
+							buttonTypo: {
+								...value,
+								fontSize: buttonTagDefaultSizes[value.tags] ?? 12,
+							},
+						});
+					} else {
+						setAttributes({ buttonTypo: value });
+					}
+				}}
 				values={buttonTypo}
 				tags={[
 					{ label: "Default", value: "a" },
@@ -56,6 +77,7 @@ function Style() {
 					{ label: "Heading h3", value: "h3" },
 					{ label: "Heading h4", value: "h4" },
 					{ label: "Heading h5", value: "h5" },
+					{ label: "Heading h6", value: "h6" },
 				]}
 			></Typography>
 

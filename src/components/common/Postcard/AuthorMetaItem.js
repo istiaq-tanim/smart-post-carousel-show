@@ -14,7 +14,6 @@ export default function AuthorMeta({
 
 	const normalColor = color?.normal ?? color ?? "inherit";
 	const hoverColor = color?.hover || normalColor;
-	const Tag = typo?.tags ?? "span";
 
 	const colorVars = {
 		"--meta-normal-color": normalColor,
@@ -24,18 +23,18 @@ export default function AuthorMeta({
 	switch (authorDisplayType) {
 		case "gravatar":
 			return (
-				<Tag className="sp-smart-post-carousel-card-meta-item">
+				<span className="sp-smart-post-carousel-card-meta-item">
 					<img
 						className="sp-smart-post-carousel-author-avatar"
 						src={authorAvatar}
 						alt={author}
 					/>
-				</Tag>
+				</span>
 			);
 
 		case "nameGravatar":
 			return (
-				<Tag
+				<span
 					className="sp-smart-post-carousel-card-meta-item"
 					style={colorVars}
 				>
@@ -47,12 +46,12 @@ export default function AuthorMeta({
 					<span className="sp-smart-post-carousel-card-meta-item-text">
 						{author}
 					</span>
-				</Tag>
+				</span>
 			);
 
 		case "iconName":
 			return (
-				<Tag
+				<span
 					className="sp-smart-post-carousel-card-meta-item"
 					style={colorVars}
 				>
@@ -62,20 +61,20 @@ export default function AuthorMeta({
 					<span className="sp-smart-post-carousel-card-meta-item-text">
 						{author}
 					</span>
-				</Tag>
+				</span>
 			);
 
 		case "name":
 		default:
 			return (
-				<Tag
+				<span
 					className="sp-smart-post-carousel-card-meta-item"
 					style={colorVars}
 				>
 					<span className="sp-smart-post-carousel-card-meta-item-text">
 						{author}
 					</span>
-				</Tag>
+				</span>
 			);
 	}
 }

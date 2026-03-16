@@ -65,10 +65,14 @@ return array(
 			'columns' => array(
 				'type' => 'object',
 				'default' => array(
-					'desktop' => 3,
+					'desktop' => 2,
 					'tablet' => 2,
 					'mobile' => 1
 				)
+			),
+			'numberOfSlides' => array(
+				'type' => 'number',
+				'default' => 5
 			),
 			'height' => array(
 				'type' => 'object',
@@ -157,10 +161,6 @@ return array(
 			'paginationDots' => array(
 				'type' => 'boolean',
 				'default' => true
-			),
-			'numberOfSlides' => array(
-				'type' => 'number',
-				'default' => 3
 			),
 			'arrowStyle' => array(
 				'type' => 'string',
@@ -1603,6 +1603,137 @@ return array(
 					'tablet' => 12,
 					'mobile' => 12
 				)
+			),
+			'cardEffectType' => array(
+				'type' => 'string',
+				'default' => 'normal'
+			),
+			'cardBackGroundStyles' => array(
+				'type' => 'object',
+				'default' => array(
+					'type' => 'transparent',
+					'hoverType' => 'transparent',
+					'solidBackground' => '#fff',
+					'gradientBackground' => '',
+					'hoverSolidBackground' => '',
+					'hoverGradientBackground' => ''
+				)
+			),
+			'cardBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'cardHoverBorderStyle' => array(
+				'type' => 'string',
+				'default' => 'none'
+			),
+			'cardBorderWidthNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'cardBorderWidthHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 1,
+					'tablet' => 1,
+					'mobile' => 1
+				)
+			),
+			'cardBorderColorNormal' => array(
+				'type' => 'string',
+				'default' => '#4e6e3e'
+			),
+			'cardBorderColorHover' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'cardBorderRadiusNormal' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'cardBorderRadiusHover' => array(
+				'type' => 'number',
+				'default' => array(
+					'desktop' => 0,
+					'tablet' => 0,
+					'mobile' => 0
+				)
+			),
+			'cardPadding' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 30,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 30,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 0,
+						'right' => 0,
+						'bottom' => 30,
+						'left' => 0,
+						'linked' => true
+					)
+				)
+			),
+			'cardMargin' => array(
+				'type' => 'object',
+				'default' => array(
+					'desktop' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'tablet' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					),
+					'mobile' => array(
+						'top' => 16,
+						'right' => 0,
+						'bottom' => 0,
+						'left' => 0,
+						'linked' => true
+					)
+				)
+			),
+			'hideOnDesktop' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'hideOnTablet' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'hideOnMobile' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'additionalCssClass' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'render' => 'file:./render.php',

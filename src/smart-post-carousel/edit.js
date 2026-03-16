@@ -6,11 +6,8 @@ import useApi from "../hooks/useApi";
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
-	//using Custom Hooks to Fetching posts
-
+	const { hideOnDesktop, hideOnTablet, hideOnMobile } = attributes;
 	const blockProps = useBlockProps();
-	// const { posts, loading } = useApi({ posts_per_page: numberOfSlides });
-
 	const { posts, loading } = useApi(attributes);
 
 	const renderContent = () => {
@@ -18,7 +15,7 @@ export default function Edit({ attributes, setAttributes }) {
 			return <p>Loading posts...</p>;
 		}
 		if (!posts || posts.length === 0) {
-			return <p>{attributes.noPostLabel || "No Posts Found"}</p>;
+			return <p>No posts found.</p>;
 		}
 
 		return (
@@ -38,7 +35,18 @@ export default function Edit({ attributes, setAttributes }) {
 					<Inspector attributes={attributes} setAttributes={setAttributes} />
 				</PanelProvider>
 
-				{renderContent()}
+				<div
+					className={[
+						"sp-carousel-content-wrapper",
+						hideOnDesktop ? "hide-desktop" : "",
+						hideOnTablet ? "hide-tablet" : "",
+						hideOnMobile ? "hide-mobile" : "",
+					]
+						.filter(Boolean)
+						.join(" ")}
+				>
+					{renderContent()}
+				</div>
 			</AttributesProvider>
 		</div>
 	);

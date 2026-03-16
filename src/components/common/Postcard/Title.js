@@ -28,7 +28,7 @@ function Title({ title, badges }) {
 	const BadgeTag = badgeTypo.tags || "li";
 	const badgePosition = attributes.badgePosition;
 
-	const normalTitleColor = titleColor?.normal ?? color ?? "inherit";
+	const normalTitleColor = titleColor?.normal ?? "inherit";
 	const hoverTitleColor = titleColor?.hover || normalTitleColor;
 
 	const convertTitle = useMemo(() => {
@@ -96,7 +96,7 @@ function Title({ title, badges }) {
 				}px`,
 			}}
 		>
-			<Tag key={Tag} className="sp-smart-post-carousel-card-title">
+			<h3 key={Tag} className="sp-smart-post-carousel-card-title">
 				{/* Badges Before */}
 				{showBadges &&
 					badges &&
@@ -131,17 +131,17 @@ function Title({ title, badges }) {
 						<span>
 							<ul className="sp-smart-post-carousel-title-badges-list sp-smart-post-carousel-badges-after-title">
 								{badges.map((badge, index) => (
-									<BadgeTag
+									<li
 										key={index}
 										className="sp-smart-post-carousel-title-badge-item"
 									>
 										{badge.name}
-									</BadgeTag>
+									</li>
 								))}
 							</ul>
 						</span>
 					)}
-			</Tag>
+			</h3>
 		</div>
 	);
 }

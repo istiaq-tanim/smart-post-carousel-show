@@ -60,10 +60,14 @@
     "columns": {
       "type": "object",
       "default": {
-        "desktop": 3,
+        "desktop": 2,
         "tablet": 2,
         "mobile": 1
       }
+    },
+    "numberOfSlides": {
+      "type": "number",
+      "default": 5
     },
     "height": {
       "type": "object",
@@ -152,10 +156,6 @@
     "paginationDots": {
       "type": "boolean",
       "default": true
-    },
-    "numberOfSlides": {
-      "type": "number",
-      "default": 3
     },
     "arrowStyle": {
       "type": "string",
@@ -1590,6 +1590,137 @@
         "tablet": 12,
         "mobile": 12
       }
+    },
+    "cardEffectType": {
+      "type": "string",
+      "default": "normal"
+    },
+    "cardBackGroundStyles": {
+      "type": "object",
+      "default": {
+        "type": "transparent",
+        "hoverType": "transparent",
+        "solidBackground": "#fff",
+        "gradientBackground": "",
+        "hoverSolidBackground": "",
+        "hoverGradientBackground": ""
+      }
+    },
+    "cardBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "cardHoverBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "cardBorderWidthNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "cardBorderWidthHover": {
+      "type": "number",
+      "default": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    },
+    "cardBorderColorNormal": {
+      "type": "string",
+      "default": "#4e6e3e"
+    },
+    "cardBorderColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "cardBorderRadiusNormal": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "cardBorderRadiusHover": {
+      "type": "number",
+      "default": {
+        "desktop": 0,
+        "tablet": 0,
+        "mobile": 0
+      }
+    },
+    "cardPadding": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 0,
+          "right": 0,
+          "bottom": 30,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 0,
+          "right": 0,
+          "bottom": 30,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 0,
+          "right": 0,
+          "bottom": 30,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "cardMargin": {
+      "type": "object",
+      "default": {
+        "desktop": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "tablet": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        },
+        "mobile": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "linked": true
+        }
+      }
+    },
+    "hideOnDesktop": {
+      "type": "boolean",
+      "default": false
+    },
+    "hideOnTablet": {
+      "type": "boolean",
+      "default": false
+    },
+    "hideOnMobile": {
+      "type": "boolean",
+      "default": false
+    },
+    "additionalCssClass": {
+      "type": "string",
+      "default": ""
     }
   },
   "render": "file:./render.php",

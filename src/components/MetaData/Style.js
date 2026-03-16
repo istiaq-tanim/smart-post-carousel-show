@@ -7,6 +7,16 @@ import SpacingControl from "../common/CustomSpacingControl/SpacingControl";
 import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
 import Typography from "../common/Typography/Typography";
 
+const metaTagDefaultSizes = {
+	span: 14,
+	h1: 44,
+	h2: 32,
+	h3: 24,
+	h4: 22,
+	h5: 20,
+	h6: 18,
+};
+
 function Style() {
 	const { attributes, setAttributes } = useAttributes();
 	const { metaTypo, metaColor, metaEffect, metaMargin, metaSeparatorColor } =
@@ -29,8 +39,28 @@ function Style() {
 			<Typography
 				label="Meta Typography"
 				attributeKey="metaTypo"
-				onChange={(value) => setAttributes({ metaTypo: value })}
+				onChange={(value) => {
+					if (value.tags !== metaTypo.tags) {
+						setAttributes({
+							metaTypo: {
+								...value,
+								fontSize: metaTagDefaultSizes[value.tags] ?? 12,
+							},
+						});
+					} else {
+						setAttributes({ metaTypo: value });
+					}
+				}}
 				values={metaTypo}
+				tags={[
+					{ label: "Default", value: "span" },
+					{ label: "Heading h1", value: "h1" },
+					{ label: "Heading h2", value: "h2" },
+					{ label: "Heading h3", value: "h3" },
+					{ label: "Heading h4", value: "h4" },
+					{ label: "Heading h5", value: "h5" },
+					{ label: "Heading h6", value: "h6" },
+				]}
 			></Typography>
 
 			{/* Tabs for Meta Item Hover Normal */}

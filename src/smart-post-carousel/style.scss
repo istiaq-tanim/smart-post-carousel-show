@@ -13,12 +13,8 @@
 
 		.swiper-slide {
 			height: auto;
-			min-height: 200px;
 			display: flex;
-		}
-
-		.sp-smart-post-carousel-card.equal-height {
-			flex: 1;
+			align-items: stretch;
 		}
 
 		.swiper-button-prev,
@@ -116,7 +112,8 @@
 			margin: var(--card-Margin, 0px);
 			display: flex;
 			flex-direction: column;
-			gap: var(--cardSpaceBetweenContent, 12px);
+			flex: 1;
+			height: 100%;
 		}
 
 		/* IMAGE */
@@ -151,9 +148,9 @@
 			img {
 				width: 100%;
 				height: 100%;
-				object-fit: cover;
+				object-fit: var(--cardScale, "cover");
 				display: block;
-				transform: scale(var(--cardScale, 1));
+				// transform: scale(var(--cardScale, 1));
 				filter: grayscale(var(--cardGrayScaleNormalLevel, 0%))
 					blur(var(--cardBlurNormalLevel, 0px))
 					brightness(var(--cardBrightnessNormalLevel, 1));
@@ -809,6 +806,22 @@
 
 	/* ─── Base Wrapper ─── */
 	.sp-smart-post-carousel {
+		border-style: var(--container-border-style);
+		border-width: var(--container-border-size);
+		border-color: var(--container-border-color);
+		background: var(--container-bg);
+		border-radius: var(--container-border-radius);
+		overflow: hidden;
+		padding: var(--container-padding);
+
+		&:hover {
+			border-style: var(--container-hover-border-style);
+			border-width: var(--container-hover-border-size);
+			background: var(--container-hover-bg, var(--container-bg, transparent));
+			background: var(--container-hover-bg);
+			border-radius: var(--container-hover-border-radius);
+			overflow: hidden;
+		}
 		// ─── Pagination Design Tokens ───────────────────────
 		--sp-width: var(--paginationDotWidth, 12px);
 		--sp-height: var(--paginationDotHeight, 12px);
@@ -819,9 +832,6 @@
 		--sp-scrollbar-height: 8px;
 		--sp-scrollbar-radius: 4px;
 		--sp-pagination-gap: var(--paginationDotGap, 8px);
-		--sp-pagination-mt: 12px;
-		position: relative;
-		padding: 0px 0 30px;
 
 		// ─── Pagination Colors ───────────────────────────────
 		--sp-color-inactive: var(--paginationBackGroundInActiveColor);
@@ -964,6 +974,7 @@
 			margin-top: var(--sp-pagination-mt);
 			position: relative;
 			cursor: pointer;
+			margin-top: 20px;
 		}
 
 		.sp-smart-post-carousel-swiper-scrollbar .swiper-scrollbar-drag {
@@ -975,10 +986,30 @@
 			will-change: transform;
 			transform: translate3d(0, 0, 0);
 			transition: background 0.2s ease;
+			backface-visibility: hidden;
+			-webkit-backface-visibility: hidden;
 		}
-
-		.sp-smart-post-carousel-swiper-scrollbar .swiper-scrollbar-drag:active {
+		&:active {
 			cursor: grabbing;
+			transition: none;
 		}
+	}
+}
+
+@media (min-width: 1025px) {
+	.sp-carousel-content-wrapper.hide-desktop {
+		display: none !important;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.sp-carousel-content-wrapper.hide-tablet {
+		display: none !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.sp-carousel-content-wrapper.hide-mobile {
+		display: none !important;
 	}
 }

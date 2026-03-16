@@ -8,6 +8,16 @@ import SpacingControl from "../common/CustomSpacingControl/SpacingControl";
 import CustomToggleGroupControl from "../common/CustomToggleGroupControl/CustomToggleGroupControl";
 import Typography from "../common/Typography/Typography";
 
+const badgeTagDefaultSizes = {
+	li: 12,
+	h1: 44,
+	h2: 32,
+	h3: 24,
+	h4: 22,
+	h5: 20,
+	h6: 18,
+};
+
 function Style() {
 	const { attributes, setAttributes } = useAttributes();
 	const {
@@ -47,7 +57,18 @@ function Style() {
 			<Typography
 				label="Badge Typography"
 				attributeKey="badgeTypo"
-				onChange={(value) => setAttributes({ badgeTypo: value })}
+				onChange={(value) => {
+					if (value.tags !== badgeTypo.tags) {
+						setAttributes({
+							badgeTypo: {
+								...value,
+								fontSize: badgeTagDefaultSizes[value.tags] ?? 12,
+							},
+						});
+					} else {
+						setAttributes({ badgeTypo: value });
+					}
+				}}
 				values={badgeTypo}
 				tags={[
 					{ label: "Default", value: "li" },
@@ -56,8 +77,9 @@ function Style() {
 					{ label: "Heading h3", value: "h3" },
 					{ label: "Heading h4", value: "h4" },
 					{ label: "Heading h5", value: "h5" },
+					{ label: "Heading h6", value: "h6" },
 				]}
-			></Typography>
+			/>
 
 			{/* Tabs for Title Item Hover Normal */}
 			<CustomToggleGroupControl

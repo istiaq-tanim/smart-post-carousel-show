@@ -6,7 +6,7 @@ export default function MarqueeCarousel({ attributes, posts }) {
 	if (!posts || posts.length === 0) {
 		return (
 			<div className="carousel-empty">
-				<p>{attributes.noPostLabel || "No Posts Found"}</p>
+				<p>No posts available</p>
 			</div>
 		);
 	}
@@ -19,7 +19,7 @@ export default function MarqueeCarousel({ attributes, posts }) {
 				className="sp-smart-post-carousel-marquee-track"
 				style={{
 					"--duration": animationDuration,
-					"--direction": direction === "right" ? "reverse" : "normal",
+					"--direction": direction === "right" ? "normal" : "reverse",
 				}}
 			>
 				{[...posts, ...posts].map((post, idx) => (

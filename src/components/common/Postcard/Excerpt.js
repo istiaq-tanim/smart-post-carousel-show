@@ -35,8 +35,6 @@ function Excerpt({
 		return fullText;
 	}, [excerptType, excerptLength, post?.excerpt, excerptEllipsis]);
 
-	const Tag = excerptTypo?.tags ?? "span";
-
 	return (
 		<div
 			key="excerpt"
@@ -56,7 +54,7 @@ function Excerpt({
 			}}
 		>
 			<p className="sp-smart-post-carousel-excerpt">
-				<Tag>{excerpt}</Tag>
+				<span>{excerpt}</span>
 			</p>
 		</div>
 	);

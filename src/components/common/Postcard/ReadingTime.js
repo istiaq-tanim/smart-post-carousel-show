@@ -1,6 +1,6 @@
 import { memo } from "@wordpress/element";
-import { TotalTime } from "./TotalTime";
 import { ICONS } from "../../../smart-post-carousel/assets/metaIcon";
+import { TotalTime } from "./TotalTime";
 
 export const ReadingTime = memo(({ content, attributes, color, typo }) => {
 	const {
@@ -12,10 +12,9 @@ export const ReadingTime = memo(({ content, attributes, color, typo }) => {
 
 	const normalColor = color?.normal ?? color ?? "inherit";
 	const hoverColor = color?.hover || normalColor;
-	const Tag = typo?.tags ?? "span";
 
 	return (
-		<Tag
+		<span
 			className="sp-smart-post-carousel-card-meta-item"
 			style={{
 				"--meta-normal-color": normalColor,
@@ -32,6 +31,6 @@ export const ReadingTime = memo(({ content, attributes, color, typo }) => {
 					metaPerMin={metaPerMin}
 				/>
 			</span>
-		</Tag>
+		</span>
 	);
 });
